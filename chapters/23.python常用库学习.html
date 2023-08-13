@@ -1,0 +1,1876 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>python常用库学习 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="4.python异步编程.html" rel="next"/>
+<link href="1.python多进程.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="30.Anaconda开发环境.html" id="chapter_id_1">
+<a href="30.Anaconda开发环境.html">
+<b>1.2.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_2">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.3.</b>
+                    
+                    Jupyter_Notebook介绍、安装及使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="15.Pythonic的几个办法.html" id="chapter_id_3">
+<a href="15.Pythonic的几个办法.html">
+<b>1.4.</b>
+                    
+                    Pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="19.Python增强提案PEP.html" id="chapter_id_4">
+<a href="19.Python增强提案PEP.html">
+<b>1.5.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="11.Regular_Expression_OP.html" id="chapter_id_5">
+<a href="11.Regular_Expression_OP.html">
+<b>1.6.</b>
+                    
+                    Regular_Expression_OP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="8.collections模块.html" id="chapter_id_6">
+<a href="8.collections模块.html">
+<b>1.7.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="9.logging模块.html" id="chapter_id_7">
+<a href="9.logging模块.html">
+<b>1.8.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="17.numpy小记.html" id="chapter_id_8">
+<a href="17.numpy小记.html">
+<b>1.9.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="16.pandas小记.html" id="chapter_id_9">
+<a href="16.pandas小记.html">
+<b>1.10.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="18.python_pipe包管道包学习.html" id="chapter_id_10">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.11.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="7.python元编程.html" id="chapter_id_11">
+<a href="7.python元编程.html">
+<b>1.12.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="3.python协程.html" id="chapter_id_12">
+<a href="3.python协程.html">
+<b>1.13.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="14.python基础知识.html" id="chapter_id_13">
+<a href="14.python基础知识.html">
+<b>1.14.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="2.python多线程.html" id="chapter_id_14">
+<a href="2.python多线程.html">
+<b>1.15.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="1.python多进程.html" id="chapter_id_15">
+<a href="1.python多进程.html">
+<b>1.16.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.17" data-path="23.python常用库学习.html" id="chapter_id_16">
+<a href="23.python常用库学习.html">
+<b>1.17.</b>
+                    
+                    python常用库学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="4.python异步编程.html" id="chapter_id_17">
+<a href="4.python异步编程.html">
+<b>1.18.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="21.python性能优化模块.html" id="chapter_id_18">
+<a href="21.python性能优化模块.html">
+<b>1.19.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="22.python网络编程.html" id="chapter_id_19">
+<a href="22.python网络编程.html">
+<b>1.20.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="5.python装饰器.html" id="chapter_id_20">
+<a href="5.python装饰器.html">
+<b>1.21.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="20.python进阶问题.html" id="chapter_id_21">
+<a href="20.python进阶问题.html">
+<b>1.22.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="6.python魔法函数.html" id="chapter_id_22">
+<a href="6.python魔法函数.html">
+<b>1.23.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="10.数据库相关操作.html" id="chapter_id_23">
+<a href="10.数据库相关操作.html">
+<b>1.24.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="12.文件和目录访问.html" id="chapter_id_24">
+<a href="12.文件和目录访问.html">
+<b>1.25.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.26" data-path="13.枚举类Enum.html" id="chapter_id_25">
+<a href="13.枚举类Enum.html">
+<b>1.26.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">python常用库学习</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#图像相关">1 图像相关</a></li><ul><li><span class="title-icon"></span><a href="#pil">1.1 PIL</a></li><li><span class="title-icon"></span><a href="#cv2">1.2 cv2</a></li></ul><li><span class="title-icon"></span><a href="#时间相关库">2 时间相关库</a></li><ul><li><span class="title-icon"></span><a href="#time库的使用">2.1 time库的使用</a></li><li><span class="title-icon"></span><a href="#datetime-模块">2.2 datetime 模块</a></li><li><span class="title-icon"></span><a href="#calendar库的使用">2.3 calendar库的使用</a></li></ul><li><span class="title-icon"></span><a href="#random库的使用">3 random库的使用</a></li><li><span class="title-icon"></span><a href="#命令行脚本传参">4 命令行脚本传参</a></li><ul><li><span class="title-icon"></span><a href="#sysargv">4.1 sys.argv</a></li><li><span class="title-icon"></span><a href="#argparse">4.2 argparse</a></li><ul><li><span class="title-icon"></span><a href="#速览">4.2.1 速览</a></li><li><span class="title-icon"></span><a href="#argumentparser">4.2.2 ArgumentParser</a></li><li><span class="title-icon"></span><a href="#addargument">4.2.3 add_argument</a></li><li><span class="title-icon"></span><a href="#实际例子">4.2.4 实际例子</a></li></ul><li><span class="title-icon"></span><a href="#tfapprun">4.3 tf.app.run</a></li></ul><li><span class="title-icon"></span><a href="#位运算">5 位运算</a></li><li><span class="title-icon"></span><a href="#路径">6 路径</a></li><ul><li><span class="title-icon"></span><a href="#pathlib和os常用操作对比">6.1 pathlib和os常用操作对比</a></li></ul><li><span class="title-icon"></span><a href="#配置文件解读">7 配置文件解读</a></li><ul><li><span class="title-icon"></span><a href="#ini">7.1 ini</a></li><li><span class="title-icon"></span><a href="#toml">7.2 toml</a></li><li><span class="title-icon"></span><a href="#yaml">7.3 yaml</a></li><li><span class="title-icon"></span><a href="#系统变量">7.4 系统变量</a></li></ul><li><span class="title-icon"></span><a href="#流">8 流</a></li></ul></div><a href="#图像相关" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="图像相关">1 图像相关</h1>
+<blockquote>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzU0NjgzMDIxMQ==&amp;mid=2247593491&amp;idx=5&amp;sn=f43665688909403116957637be1fba2e&amp;chksm=fb548cffcc2305e953c6e20f6e875ef98fd24382d76477366750c5312bd8c474f31c07602ffd&amp;scene=27" target="_blank">10个Python图像处理工具，非常全了！</a></p>
+</blockquote>
+<p>图像的RGB 色彩模式</p>
+<p>RGB 三个颜色通道的变化和叠加得到各种颜色，其中</p>
+<ul>
+<li>R 红色，取值范围，0-255</li>
+<li>G 绿色，取值范围，0-255</li>
+<li>B 蓝色，取值范围，0-255</li>
+</ul>
+<p>一幅图像上的所有像素点的信息就完全可以采用矩阵来表示，通过矩阵的运算实现更加复杂的操作</p>
+<blockquote>
+<p>网络图片读取</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_url_img_io</span><span class="hljs-params">(url: str)</span> -&gt; BytesIO:</span>
+    <span class="hljs-string">""" 获取网络图片的io流 """</span>
+    <span class="hljs-keyword">return</span> BytesIO(requests.get(url).content)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_url_img</span><span class="hljs-params">(url: str)</span>:</span>
+    <span class="hljs-string">""" 获取网络图片,并转为np.array """</span>
+    <span class="hljs-keyword">return</span> np.asarray(bytearray(get_url_img_io(url).read()), dtype=<span class="hljs-string">"uint8"</span>)
+</code></pre>
+<ul>
+<li><code>plt.imshow()</code>函数负责对图像进行处理，并显示其格式</li>
+<li><code>plt.show()</code>则是将plt.imshow()处理后的函数显示出来</li>
+</ul>
+<h2 id="pil">1.1 PIL</h2>
+<p>Python图像库（<a href="https://pillow.readthedocs.io/en/latest/" target="_blank">PIL(Python Image Library)</a>）是一个第三方Python包，为Python解释器添加了图像处理功能，允许处理照片并执行许多常见的图像文件操作，<a href="https://pillow.readthedocs.io/en/latest/handbook/tutorial.html" target="_blank">官方教程</a></p>
+<blockquote>
+<p>打开图像：返回一个PIL.JpegImagePlugin.JpegImageFile对象</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 导入 Image 模块</span>
+<span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image
+
+<span class="hljs-comment"># 图像路径</span>
+img_path = <span class="hljs-string">r'frame.jpg'</span>
+img_url = <span class="hljs-string">r'https://pic.hycbook.com/i/hexo/post_cover/蕾姆10.webp'</span>
+
+<span class="hljs-comment"># 打开本地图片  RGB</span>
+im = Image.open(img_path) <span class="hljs-comment"># JpegImageFile image mode=RGB size=1408x1152</span>
+
+<span class="hljs-comment"># 打开网络图片</span>
+img = Image.open(get_url_img_io(img_url))   <span class="hljs-comment"># [H,W,C]</span>
+</code></pre>
+<blockquote>
+<p>JpegImageFile对象常用方法</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> matplotlib.pyplot <span class="hljs-keyword">as</span> plt
+
+<span class="hljs-comment"># Returns a histogram for the image</span>
+histogram = image.histogram()
+<span class="hljs-comment"># 可视化颜色分布直方图</span>
+plt.hist(histogram, bins=len(histogram))
+plt.xlabel(<span class="hljs-string">'Histogram'</span>)
+plt.show()
+
+<span class="hljs-comment"># 裁剪图像  用于裁剪的开始和结束x/y坐标</span>
+<span class="hljs-comment"># 用于裁剪的坐标将随照片而变化。事实上，可能应该更改此代码，使其接受裁剪坐标作为参数。可以自己反复尝试，找出要使用的裁剪边界框。可以使用像Gimp这样的工具来帮助你，用Gimp绘制一个边界框，并记下它给你的坐标，方便尝试使用Pillow</span>
+cropped = image.crop((<span class="hljs-number">40</span>, <span class="hljs-number">590</span>, <span class="hljs-number">979</span>, <span class="hljs-number">1500</span>))
+
+<span class="hljs-comment"># 重新调整图像大小</span>
+img = im.resize((<span class="hljs-number">240</span>,<span class="hljs-number">240</span>))
+
+<span class="hljs-comment"># 图像旋转</span>
+img.rotate(<span class="hljs-number">90</span>).show()
+</code></pre>
+<blockquote>
+<p>使用过滤器：Pillow包含有几个过滤器，可以将其应用于图像。以下是当前支持的筛选器</p>
+</blockquote>
+<ol>
+<li>BLUR</li>
+<li>CONTOUR</li>
+<li>DETAIL</li>
+<li>EDGE_ENHANCE</li>
+<li>EDGE_ENHANCE_MORE</li>
+<li>EMBOSS</li>
+<li>FIND_EDGES</li>
+<li>SHARPEN</li>
+<li>SMOOTH</li>
+<li>SMOOTH_MORE</li>
+</ol>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> ImageFilter
+
+blurred_image = image.filter(ImageFilter.BLUR)
+</code></pre>
+<blockquote>
+<p>显示图片</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 打开图片</span>
+im = Image.open(img_path)
+<span class="hljs-comment"># 显示图片</span>
+im.show()
+</code></pre>
+<blockquote>
+<p>保存图像</p>
+</blockquote>
+<pre><code class="lang-python">infile = <span class="hljs-string">"in.jpg"</span>
+outfile = <span class="hljs-string">"output.jpg"</span>
+<span class="hljs-keyword">with</span> Image.open(infile) <span class="hljs-keyword">as</span> im:
+    im.save(outfile)
+</code></pre>
+<blockquote>
+<p>类型转换</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># JpegImageFile -&gt; np.array  [H,W,C]</span>
+np.asanyarray(im)
+
+<span class="hljs-comment"># np.array -&gt; JpegImageFile</span>
+img = Image.fromarray(arr)
+</code></pre>
+<h2 id="cv2">1.2 cv2</h2>
+<p>在计算机视觉项目的开发中，<a href="https://docs.opencv.org/4.x/" target="_blank">OpenCV</a>作为较大众的开源库，拥有了丰富的常用图像处理函数库，采用C/C++语言编写，可以运行在Linux/Windows/Mac等操作系统上，能够快速的实现一些图像处理和识别的任务。此外，OpenCV还提供了Java、python、cuda等的使用接口、机器学习的基础算法调用，从而使得图像处理和图像分析变得更加易于上手，让开发人员更多的精力花在算法的设计上</p>
+<blockquote>
+<p>打开图像：<code>cv2.imread(filepath, flags)</code>，返回一个np.array对象</p>
+<p>flags：读入图片的标志</p>
+<ul>
+<li>cv2.IMREAD_COLOR：默认参数，读入一副彩色图片，忽略alpha通道</li>
+<li>cv2.IMREAD_GRAYSCALE：读入灰度图片</li>
+<li>cv2.IMREAD_UNCHANGED：顾名思义，读入完整图片，包括alpha通道</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 图像路径</span>
+img_path = <span class="hljs-string">r'frame.jpg'</span>
+img_url = <span class="hljs-string">r'https://pic.hycbook.com/i/hexo/post_cover/蕾姆10.webp'</span>
+
+<span class="hljs-comment"># 打开网络图片</span>
+img = get_url_img(img_url)
+
+<span class="hljs-comment"># 打开本地图片</span>
+image = cv2.imread(img_path)  <span class="hljs-comment"># [H,W,C]  np.array</span>
+</code></pre>
+<blockquote>
+<p>打开视频</p>
+<p>常见操作</p>
+<p><code>resize</code>:</p>
+<p>cv2.resize(InputArray src, OutputArray dst, Size, fx, fy, interpolation)</p>
+<table>
+<thead>
+<tr>
+<th>fx, fy</th>
+<th>沿x轴，y轴的缩放系数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>interpolation</td>
+<td>插入方式</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">INTER_NEAREST</th>
+<th style="text-align:left">最近邻插值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">INTER_LINEAR</td>
+<td style="text-align:left">双线性插值（默认设置）</td>
+</tr>
+<tr>
+<td style="text-align:left">INTER_AREA</td>
+<td style="text-align:left">使用像素区域关系进行重采样。</td>
+</tr>
+<tr>
+<td style="text-align:left">INTER_CUBIC</td>
+<td style="text-align:left">4x4像素邻域的双三次插值</td>
+</tr>
+<tr>
+<td style="text-align:left">INTER_LANCZOS4</td>
+<td style="text-align:left">8x8像素邻域的Lanczos插值</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<pre><code class="lang-python">img_test = cv2.resize(img, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), fx=<span class="hljs-number">0.25</span>, fy=<span class="hljs-number">0.25</span>, interpolation=cv2.INTER_NEAREST)
+img_test = cv2.resize(img_test, (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>), fx=<span class="hljs-number">4</span>, fy=<span class="hljs-number">4</span>, interpolation=cv2.INTER_NEAREST)
+</code></pre>
+<p>RGB转灰度：</p>
+<pre><code class="lang-python">img2 = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+</code></pre>
+<p>灰度转RBG：</p>
+<pre><code class="lang-python">img3 = cv2.cv2Color(img, cv2.COLOR_GRAY2RGB)
+</code></pre>
+<blockquote>
+<p>显示图片</p>
+</blockquote>
+<pre><code class="lang-python">cv2.imshow(<span class="hljs-string">"local pic"</span>, image)
+cv2.waitKey(<span class="hljs-number">0</span>)
+</code></pre>
+<blockquote>
+<p>保存图像</p>
+</blockquote>
+<pre><code class="lang-python">cv2.imwrite(outfile, image)
+</code></pre>
+<h1 id="时间相关库">2 时间相关库</h1>
+<p>协调世界时(Coordinated Universal Time, UTC)是一种标准的时间表述方式，它与时区无关</p>
+<p>有些计算机，用某时刻与UNIX时间原点之间相差的秒数，来表示那个时刻所对应的时间
+对于这些计算机来说，UTC是一种非常好的计时方式</p>
+<blockquote>
+<p>Python提供了两种时间转换方式</p>
+</blockquote>
+<ul>
+<li><p>旧的方式，是使用内置的time模块，这是一种极易出错的方式</p>
+</li>
+<li><p>新的方式，则是采用内置的datetime模块，该模块的效果非常好</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>小结</strong>：</p>
+</blockquote>
+<ul>
+<li><p>time模块需要依赖操作系统而运作。该模块的实际行为，取决于底层的C函数如何与宿主操作系统相交互</p>
+</li>
+<li><p>这种工作方式，使得time模块的功能不够稳定。它无法协调地处理各种本地时区，因此，我们应该尽量少用这个模块</p>
+</li>
+</ul>
+<p>如果一定要使用time模块，那就只应该用它在UTC与宿主计算机的当地时区之间进行转换</p>
+<p>对于其他类型的转换来说，还是使用datetime模块比较好</p>
+<blockquote>
+<p>常见的时间模块</p>
+</blockquote>
+<ul>
+<li><strong>time</strong>: Python内置时间库，通过时间戳或元组表示时间，功能简约但实用</li>
+<li><strong>datetime</strong>: 内置日期库，处理日期时间对象和属性</li>
+<li><strong>dateutil</strong>: 基于datetime库的实用拓展，增强了对时间间隔和时间序列的处理</li>
+</ul>
+<p><a data-lightbox="e6ff6314-6429-4891-b89d-723e0ae8d06c" data-title="time_datetiime" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/time_datetiime.svg" target="_blank"><img alt="time_datetiime" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/time_datetiime.svg"/></a></p>
+<h2 id="time库的使用">2.1 time库的使用</h2>
+<blockquote>
+<p><a href="https://docs.python.org/3.5/library/time.html#module-time" target="_blank"> <code>time</code>— Time access and conversions</a></p>
+<p>time库是Python中处理时间的标准库</p>
+</blockquote>
+<ul>
+<li><p>计算机时间的表达</p>
+</li>
+<li><p>提供获取系统时间并格式化输出功能</p>
+</li>
+<li><p>提供系统级精确计时功能，用于程序性能分析</p>
+</li>
+</ul>
+<blockquote>
+<p>时间获取</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 获取当前时间戳，即计算机内部时间值，浮点数</span>
+&gt;&gt;&gt;time.time()
+<span class="hljs-number">1568506809.169575</span>
+
+<span class="hljs-comment"># 获取当前时间并以易读方式表示，返回字符串, 将 gmtime()或localtime() 返回的 表示时间的 元组或struct_time 转换成一个字符串，格式：'Sun Jun 20 23:21:051993'。</span>
+&gt;&gt;&gt;time.ctime()  <span class="hljs-comment"># 等价于 time.asctime(time.localtime(time.time()))</span>
+<span class="hljs-string">'Sun Sep 15 08:20:16 2019'</span>
+
+<span class="hljs-comment"># 获取当前时间，表示为计算机可处理的时间格式，返回的时间是两个时区对相同时刻的时间表示</span>
+<span class="hljs-comment"># 返回的是struct_time格式，是tuple的子类</span>
+&gt;&gt;&gt;time.gmtime()  <span class="hljs-comment"># 0时区:time.gmtime() 本地时区:time.localtime(seconds=None)</span>
+time.struct_time(tm_year=<span class="hljs-number">2019</span>, tm_mon=<span class="hljs-number">9</span>, tm_mday=<span class="hljs-number">15</span>, tm_hour=<span class="hljs-number">0</span>, tm_min=<span class="hljs-number">21</span>, tm_sec=<span class="hljs-number">40</span>, tm_wday=<span class="hljs-number">6</span>, tm_yday=<span class="hljs-number">258</span>, tm_isdst=<span class="hljs-number">0</span>)
+
+<span class="hljs-comment"># time.mktime(t)是localtime()的反函数</span>
+&gt;&gt;&gt;time.mktime(time.localtime())
+<span class="hljs-number">1568508316.0</span>
+</code></pre>
+<blockquote>
+<p>struct_time元组的属性如下</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>属性</th>
+<th>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>tm_year</td>
+<td>2008</td>
+</tr>
+<tr>
+<td>1</td>
+<td>tm_mon</td>
+<td>1 到 12</td>
+</tr>
+<tr>
+<td>2</td>
+<td>tm_mday</td>
+<td>1 到 31</td>
+</tr>
+<tr>
+<td>3</td>
+<td>tm_hour</td>
+<td>0 到 23</td>
+</tr>
+<tr>
+<td>4</td>
+<td>tm_min</td>
+<td>0 到 59</td>
+</tr>
+<tr>
+<td>5</td>
+<td>tm_sec</td>
+<td>0 到 61 (60或61 是闰秒)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>tm_wday</td>
+<td>0到6 (0是周一)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>tm_yday</td>
+<td>1 到 366(儒略历)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>tm_isdst</td>
+<td>-1, 0, 1, -1是决定是否为夏令时的旗帜</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>时间格式化</p>
+</blockquote>
+<ul>
+<li>对象转字符串: <code>time.strftime(format, obj)</code></li>
+<li>字符串转结构化: <code>time.strptime(time_str, format)</code></li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># strftime(tpl, ts)</span>
+<span class="hljs-comment"># tpl是格式化模板字符串，用来定义输出效果</span>
+<span class="hljs-comment"># ts是计算机内部时间类型变量</span>
+&gt;&gt;&gt;t = time.gmtime()
+&gt;&gt;&gt;time.strftime(<span class="hljs-string">"%Y-%m-%d %H:%M:%S"</span>, t)
+<span class="hljs-string">'2019-09-15 00:24:23'</span>
+
+<span class="hljs-comment"># strptime(str, tpl)</span>
+<span class="hljs-comment"># str是字符串形式的时间值</span>
+<span class="hljs-comment"># tpl是格式化模板字符串，用来定义输入效果</span>
+&gt;&gt;&gt;timeStr = <span class="hljs-string">'2018-01-26 12:55:20'</span>
+&gt;&gt;&gt;time.strptime(timeStr, <span class="hljs-string">"%Y-%m-%d %H:%M:%S"</span>)
+time.struct_time(tm_year=<span class="hljs-number">2019</span>, tm_mon=<span class="hljs-number">9</span>, tm_mday=<span class="hljs-number">15</span>, tm_hour=<span class="hljs-number">0</span>, tm_min=<span class="hljs-number">25</span>, tm_sec=<span class="hljs-number">50</span>, tm_wday=<span class="hljs-number">6</span>, tm_yday=<span class="hljs-number">258</span>, tm_isdst=<span class="hljs-number">-1</span>)
+
+<span class="hljs-comment"># 结构化对象转时间戳</span>
+&gt;&gt;&gt;time.mktime(time.localtime())
+<span class="hljs-number">1668562455.0</span>
+<span class="hljs-comment"># 时间戳转结构化对象</span>
+&gt;&gt;&gt;time.localtime(time.time())
+time.struct_time(tm_year=<span class="hljs-number">2022</span>, tm_mon=<span class="hljs-number">11</span>, tm_mday=<span class="hljs-number">16</span>, tm_hour=<span class="hljs-number">9</span>, tm_min=<span class="hljs-number">37</span>, tm_sec=<span class="hljs-number">9</span>, tm_wday=<span class="hljs-number">2</span>, tm_yday=<span class="hljs-number">320</span>, tm_isdst=<span class="hljs-number">0</span>)
+</code></pre>
+<ul>
+<li><p>常用格式(年月日、时分秒)</p>
+<p>| 格式化字符串 | 日期/时间说明  | 值范围和实例                   |
+| ------------ | -------------- | ------------------------------ |
+| %Y           | 年份           | 0000~9999，例如：1900          |
+| %y           | 去掉世纪的年份 | 00~99                          |
+| %m           | 月份           | 01~12，例如：10                |
+| %B           | 月份名称       | January~December，例如：April  |
+| %b           | 月份名称缩写   | Jan~Dec，例如：Apr             |
+| %H           | 小时（24h制）  | 00~23，例如：12                |
+| %h           | 小时（12h制）  | 01~12，例如：7                 |
+| %M           | 分钟           | 00~59，例如：26                |
+| %S           | 秒             | 00~59，例如：26                |</p>
+</li>
+<li><p>其他格式</p>
+<p>| 格式化字符串 | 日期/时间说明        | 值范围和实例                   |
+| ------------ | -------------------- | ------------------------------ |
+| %w           | 星期中的第几天       | 0~6，0对应星期天               |
+| %d           | 日期，一月中的第几天 | 01~31，例如：25                |
+| %j           | 一年中的第几天       | 001~366                        |
+| %A           | 星期                 | Monday~Sunday，例如：Wednesday |
+| %a           | 星期缩写             | Mon~Sun，例如：Wed             |
+| %p           | 上/下午              | AM, PM，例如：PM               |
+| %Z           | 时区的名字           |                                |</p>
+</li>
+</ul>
+<p>将时间以合理的方式展示出来</p>
+<ul>
+<li>格式化：类似字符串格式化，需要有展示模板</li>
+<li>展示模板由特定的格式化控制符组成</li>
+<li>strftime()方法</li>
+</ul>
+<blockquote>
+<p>程序计时: 测量起止动作所经历时间的过程</p>
+</blockquote>
+<ul>
+<li><p>测量时间：perf_counter()</p>
+</li>
+<li><p>产生时间：sleep()</p>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># 返回一个CPU级别的精确时间计数值，单位为秒</span>
+<span class="hljs-comment"># 由于这个计数值起点不确定，连续调用差值才有意义</span>
+&gt;&gt;&gt;start = time.perf_counter()
+<span class="hljs-number">318.66599499718114</span>
+&gt;&gt;&gt;end = time.perf_counter()
+<span class="hljs-number">341.3905185375658</span>
+&gt;&gt;&gt;end - start
+<span class="hljs-number">22.724523540384666</span>
+
+<span class="hljs-comment"># s拟休眠的时间，单位是秒，可以是浮点数</span>
+time.sleep(<span class="hljs-number">5</span>)
+</code></pre>
+<h2 id="datetime-模块">2.2 datetime 模块</h2>
+<p>python 处理日期和时间的标准库，常用 datetime 类，及 date 类 和 time 类，可做计算之类的操作</p>
+<p>time模块比较底层，能完成的功能相对有限，这个时候就需要更高级的datetime模块来参与了</p>
+<p>可以简单理解为，datetime模块是对time模块进行了更高一层的封装</p>
+<blockquote>
+<p>基本定义和属性方法</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> datetime
+<span class="hljs-keyword">import</span> sys
+<span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Tuple
+<span class="hljs-keyword">from</span> dateutil <span class="hljs-keyword">import</span> relativedelta
+<span class="hljs-keyword">from</span> dateutil.parser <span class="hljs-keyword">import</span> parse
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fn_basic</span><span class="hljs-params">()</span> -&gt; Tuple:</span>
+    <span class="hljs-string">""" 基本定义和属性方法 """</span>
+    <span class="hljs-comment"># 获取当前日期时间</span>
+    d_now = datetime.datetime.now()  <span class="hljs-comment"># 等价于datetime.datetime.today()</span>
+    d_utc_now = datetime.datetime.utcnow()  <span class="hljs-comment"># 获取utc对象, 北京时间+8h=d_utc_now</span>
+    <span class="hljs-comment"># 至少要给定年月日</span>
+    d_free = datetime.datetime(year=<span class="hljs-number">2022</span>, month=<span class="hljs-number">11</span>, day=<span class="hljs-number">11</span>)
+    print(<span class="hljs-string">"d_now "</span>, d_now)
+    print(f<span class="hljs-string">"d_now的详细信息: year:{d_now.year} month:{d_now.month} day:{d_now.day}"</span>)
+    print(f<span class="hljs-string">"d_now的详细信息: hour:{d_now.hour} minute:{d_now.minute} second:{d_now.second} microsecond:{d_now.microsecond}"</span>)
+    print(<span class="hljs-string">"d_free"</span>, d_free)
+    <span class="hljs-comment"># 常用属性</span>
+    d = d_free.date()  <span class="hljs-comment"># 获取日期对象</span>
+    t = d_free.time()  <span class="hljs-comment"># 获取时间对象</span>
+    dt = datetime.datetime.combine(date=d, time=t)  <span class="hljs-comment"># 根据date和time, 创建一个datetime对象</span>
+    ts = d_free.timestamp()  <span class="hljs-comment"># 获取对象的时间戳</span>
+    print(<span class="hljs-string">"ts    "</span>, ts)
+    print(sys._getframe().f_code.co_name, <span class="hljs-string">"="</span> * <span class="hljs-number">60</span>, <span class="hljs-string">'\n'</span>)
+    <span class="hljs-keyword">return</span> d_now, d_free
+
+<span class="hljs-comment"># 输出</span>
+d_now  <span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-15</span> <span class="hljs-number">16</span>:<span class="hljs-number">59</span>:<span class="hljs-number">45.447093</span>
+d_now的详细信息: year:<span class="hljs-number">2022</span> month:<span class="hljs-number">11</span> day:<span class="hljs-number">15</span>
+d_now的详细信息: hour:<span class="hljs-number">16</span> minute:<span class="hljs-number">59</span> second:<span class="hljs-number">45</span> microsecond:<span class="hljs-number">447093</span>
+d_free <span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-11</span> <span class="hljs-number">00</span>:<span class="hljs-number">00</span>:<span class="hljs-number">00</span>
+ts     <span class="hljs-number">1668096000.0</span>
+fn_basic ============================================================
+</code></pre>
+<blockquote>
+<p>日期时间差异</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fn_dif</span><span class="hljs-params">(d_now, d_free)</span>:</span>
+    <span class="hljs-string">""" 日期时间差异 """</span>
+    <span class="hljs-comment"># type(dif) == timedelta</span>
+    dif = d_now - d_free
+    print(<span class="hljs-string">"d_free+dif==d_now is"</span>, d_free + dif == d_now)
+
+    <span class="hljs-comment"># 下个月 前一天 往后9小时 再往前10分钟</span>
+    d_dif = d_free + relativedelta.relativedelta(months=<span class="hljs-number">1</span>, days=<span class="hljs-number">-1</span>, hours=<span class="hljs-number">9</span>, minutes=<span class="hljs-number">-10</span>)
+    print(<span class="hljs-string">"d_dif "</span>, d_dif)
+    <span class="hljs-comment"># 指定时间，只能是整数</span>
+    d_dif_abs = d_free + relativedelta.relativedelta(month=<span class="hljs-number">1</span>, day=<span class="hljs-number">5</span>, hour=<span class="hljs-number">9</span>, minute=<span class="hljs-number">10</span>)
+    print(<span class="hljs-string">"d_dif_abs "</span>, d_dif_abs)
+    print(sys._getframe().f_code.co_name, <span class="hljs-string">"="</span> * <span class="hljs-number">60</span>, <span class="hljs-string">'\n'</span>)
+
+<span class="hljs-comment"># 输出</span>
+d_free+dif==d_now <span class="hljs-keyword">is</span> <span class="hljs-keyword">True</span>
+d_dif  <span class="hljs-number">2022</span><span class="hljs-number">-12</span><span class="hljs-number">-10</span> <span class="hljs-number">08</span>:<span class="hljs-number">50</span>:<span class="hljs-number">00</span>
+d_dif_abs  <span class="hljs-number">2022</span><span class="hljs-number">-01</span><span class="hljs-number">-05</span> <span class="hljs-number">09</span>:<span class="hljs-number">10</span>:<span class="hljs-number">00</span>
+fn_dif ============================================================
+</code></pre>
+<blockquote>
+<p>日期时间的格式化</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fn_format_transform</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">""" 日期时间的格式化 """</span>
+    date_format_str = <span class="hljs-string">"%Y-%m-%d %H:%M:%S"</span>
+    date_format_str_2 = <span class="hljs-string">"{:%Y-%m-%d %H:%M:%S}"</span>
+    <span class="hljs-comment"># 获取当前日期时间</span>
+    d_now = datetime.datetime.now()
+
+    <span class="hljs-comment"># 对象转字符串</span>
+    date_string = d_now.strftime(date_format_str)
+    print(<span class="hljs-string">"date_string:"</span>, date_string)
+    date_string_2 = date_format_str_2.format(d_now)
+    print(<span class="hljs-string">"date_string_2:"</span>, date_string_2)
+
+    <span class="hljs-comment"># 字符串转对象</span>
+    d_from_str = datetime.datetime.strptime(date_string, date_format_str)
+    print(<span class="hljs-string">"d_from_str:"</span>, d_from_str)
+    <span class="hljs-comment"># dateutil.parse 可以解析几乎所有人类能够理解的日期表示形式</span>
+    d_parse = parse(date_string)
+    print(<span class="hljs-string">"parse:"</span>, d_parse)
+    print(<span class="hljs-string">"parse('Jan 31, 2021 10:45 PM'): "</span>, parse(<span class="hljs-string">'Jan 31, 2022 10:45 PM'</span>))
+    print(<span class="hljs-string">"parse(str(d_now)): "</span>, parse(str(d_now)))
+
+    print(sys._getframe().f_code.co_name, <span class="hljs-string">"="</span> * <span class="hljs-number">60</span>, <span class="hljs-string">'\n'</span>)
+
+<span class="hljs-comment"># 输出</span>
+date_string: <span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-15</span> <span class="hljs-number">16</span>:<span class="hljs-number">59</span>:<span class="hljs-number">45</span>
+date_string_2: <span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-15</span> <span class="hljs-number">16</span>:<span class="hljs-number">59</span>:<span class="hljs-number">45</span>
+d_from_str: <span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-15</span> <span class="hljs-number">16</span>:<span class="hljs-number">59</span>:<span class="hljs-number">45</span>
+parse: <span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-15</span> <span class="hljs-number">16</span>:<span class="hljs-number">59</span>:<span class="hljs-number">45</span>
+parse(<span class="hljs-string">'Jan 31, 2021 10:45 PM'</span>):  <span class="hljs-number">2022</span><span class="hljs-number">-01</span><span class="hljs-number">-31</span> <span class="hljs-number">22</span>:<span class="hljs-number">45</span>:<span class="hljs-number">00</span>
+parse(str(d_now)):  <span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-15</span> <span class="hljs-number">16</span>:<span class="hljs-number">59</span>:<span class="hljs-number">45.447093</span>
+fn_format ============================================================
+</code></pre>
+<blockquote>
+<p>产生指定范围内的日期时间</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gen_date_times</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-string">""" 产生指定范围内的日期时间 """</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">date_time</span><span class="hljs-params">(p_start_time, p_end_time, p_format: str = <span class="hljs-string">'%Y-%m-%d'</span>)</span>:</span>
+        <span class="hljs-keyword">while</span> p_start_time &lt; p_end_time:
+            select_time = p_start_time.strftime(p_format)
+            print(select_time)
+            p_start_time += datetime.timedelta(days=<span class="hljs-number">1</span>)
+
+    <span class="hljs-comment"># 获取当天时间</span>
+    format_ = <span class="hljs-string">'%Y-%m-%d'</span>
+    end_time = datetime.datetime.now()
+    start_time = end_time + relativedelta.relativedelta(days=<span class="hljs-number">-10</span>)
+    date_time(p_start_time=start_time, p_end_time=end_time, p_format=format_)
+
+<span class="hljs-comment"># 输出</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-05</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-06</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-07</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-08</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-09</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-10</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-11</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-12</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-13</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-14</span>
+<span class="hljs-number">2022</span><span class="hljs-number">-11</span><span class="hljs-number">-15</span>
+</code></pre>
+<h2 id="calendar库的使用">2.3 calendar库的使用</h2>
+<blockquote>
+<p>提供与日历相关功能，如：为给定的月份或年份，打印文本日历</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> calendar
+c = calendar.month(<span class="hljs-number">2019</span>, <span class="hljs-number">9</span>)
+print(c)
+
+   September <span class="hljs-number">2019</span>
+Mo Tu We Th Fr Sa Su
+                   <span class="hljs-number">1</span>
+ <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>
+ <span class="hljs-number">9</span> <span class="hljs-number">10</span> <span class="hljs-number">11</span> <span class="hljs-number">12</span> <span class="hljs-number">13</span> <span class="hljs-number">14</span> <span class="hljs-number">15</span>
+<span class="hljs-number">16</span> <span class="hljs-number">17</span> <span class="hljs-number">18</span> <span class="hljs-number">19</span> <span class="hljs-number">20</span> <span class="hljs-number">21</span> <span class="hljs-number">22</span>
+<span class="hljs-number">23</span> <span class="hljs-number">24</span> <span class="hljs-number">25</span> <span class="hljs-number">26</span> <span class="hljs-number">27</span> <span class="hljs-number">28</span> <span class="hljs-number">29</span>
+<span class="hljs-number">30</span>
+</code></pre>
+<h1 id="random库的使用">3 random库的使用</h1>
+<blockquote>
+<p>random库是使用随机数的Python标准库</p>
+</blockquote>
+<ul>
+<li>伪随机数: 采用梅森旋转算法生成的(伪)随机序列中元素</li>
+</ul>
+<p><a data-lightbox="586cb95f-e523-4f36-af88-169b277c6377" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/1568510165657.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/1568510165657.webp"/></a></p>
+<ul>
+<li><p>random库主要用于生成随机数</p>
+</li>
+<li><p>使用random库: import random</p>
+</li>
+</ul>
+<blockquote>
+<p>主要方法</p>
+</blockquote>
+<ul>
+<li><p>基本随机数函数： seed(), random()</p>
+</li>
+<li><p>扩展随机数函数： randint(), getrandbits(), uniform(), randrange(), choice(), shuffle()</p>
+</li>
+</ul>
+<blockquote>
+<p>基本随机数函数</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 初始化给定的随机数种子，默认为当前系统时间</span>
+&gt;&gt;&gt;random.seed(<span class="hljs-number">10</span>) <span class="hljs-comment">#产生种子10对应的序列</span>
+<span class="hljs-comment"># 生成一个[0.0, 1.0)之间的随机小数</span>
+&gt;&gt;&gt;random.random()
+<span class="hljs-number">0.5714025946899135</span>
+
+<span class="hljs-comment"># 返回捕获当前生成器内部状态的对象.该对象可以用于函数setstate()取保存当前的状态.</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>state = random.getstate()
+<span class="hljs-meta">&gt;&gt;&gt; </span>random.setstate(state)
+
+<span class="hljs-comment"># 以相同顺序打乱多个数组</span>
+<span class="hljs-comment"># 等价于  np.random.get_state()    np.random.shuffle(a)   np.random.set_state(state)</span>
+a = np.arange(<span class="hljs-number">10</span>)
+b=[<span class="hljs-string">'A'</span>,<span class="hljs-string">'B'</span>,<span class="hljs-string">'C'</span>,<span class="hljs-string">'D'</span>,<span class="hljs-string">'E'</span>,<span class="hljs-string">'F'</span>,<span class="hljs-string">'G'</span>,<span class="hljs-string">'H'</span>,<span class="hljs-string">'I'</span>,<span class="hljs-string">'J'</span>]
+state=random.getstate()
+random.shuffle(a)
+print(a)
+random.setstate(state)
+random.shuffle(b)
+print(b)
+
+[<span class="hljs-number">9</span> <span class="hljs-number">4</span> <span class="hljs-number">5</span> <span class="hljs-number">0</span> <span class="hljs-number">1</span> <span class="hljs-number">2</span> <span class="hljs-number">6</span> <span class="hljs-number">8</span> <span class="hljs-number">7</span> <span class="hljs-number">3</span>]
+[<span class="hljs-string">'J'</span>, <span class="hljs-string">'E'</span>, <span class="hljs-string">'F'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'G'</span>, <span class="hljs-string">'I'</span>, <span class="hljs-string">'H'</span>, <span class="hljs-string">'D'</span>]
+</code></pre>
+<blockquote>
+<p>扩展随机数函数</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 生成一个[a, b]之间的整数</span>
+&gt;&gt;&gt;random.randint(<span class="hljs-number">10</span>, <span class="hljs-number">100</span>)
+<span class="hljs-number">64</span>
+
+<span class="hljs-comment"># 生成一个[m, n)之间以k为步长的随机整数</span>
+&gt;&gt;&gt;random.randrange(<span class="hljs-number">10</span>, <span class="hljs-number">100</span>, <span class="hljs-number">10</span>)
+<span class="hljs-number">80</span>
+
+<span class="hljs-comment"># 生成一个k比特长的随机整数</span>
+&gt;&gt;&gt;random.getrandbits(<span class="hljs-number">16</span>)
+<span class="hljs-number">37885</span>
+
+<span class="hljs-comment"># 生成一个[a, b]之间的随机小数</span>
+&gt;&gt;&gt;random.uniform(<span class="hljs-number">10</span>, <span class="hljs-number">100</span>)
+<span class="hljs-number">13.096321648808136</span>
+
+<span class="hljs-comment"># 从序列seq中随机选择一个元素</span>
+&gt;&gt;&gt;random.choice([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>])
+<span class="hljs-number">8</span>
+
+<span class="hljs-comment"># 将序列seq中元素随机排列，返回打乱后的序列</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s=[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>];
+<span class="hljs-meta">&gt;&gt;&gt; </span>random.shuffle(s);
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(s)
+[<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">4</span>]
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">函数</th>
+<th style="text-align:center">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">randint(a, b)</td>
+<td style="text-align:center">生成一个[a, b]之间的整数</td>
+</tr>
+<tr>
+<td style="text-align:center">randrange(m, n[, k])</td>
+<td style="text-align:center">生成一个[m, n)之间以k为步长的随机整数</td>
+</tr>
+<tr>
+<td style="text-align:center">getrandbits(k)</td>
+<td style="text-align:center">生成一个k比特长的随机整数</td>
+</tr>
+<tr>
+<td style="text-align:center">uniform(a, b)</td>
+<td style="text-align:center">生成一个[a, b]之间的随机小数</td>
+</tr>
+<tr>
+<td style="text-align:center">choice(seq)</td>
+<td style="text-align:center">从序列seq中随机选择一个元素</td>
+</tr>
+<tr>
+<td style="text-align:center">shuffle(seq)</td>
+<td style="text-align:center">将序列seq中元素随机排列，返回打乱后的序列</td>
+</tr>
+</tbody>
+</table>
+<h1 id="命令行脚本传参">4 命令行脚本传参</h1>
+<blockquote>
+<p><a href="https://blog.csdn.net/u012426298/article/details/80263507" target="_blank">命令行运行Python脚本时传入参数的三种方式</a></p>
+</blockquote>
+<p>如果在运行python脚本时需要传入一些参数，例如<code>gpus</code>与<code>batch_size</code>，可以使用如下三种方式。</p>
+<pre><code class="lang-cmd">python script.py <span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span> <span class="hljs-number">10</span>
+python script.py --gpus=<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span> --batch-size=<span class="hljs-number">10</span>
+python script.py --gpus=<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span> --batch_size=<span class="hljs-number">10</span>
+</code></pre>
+<p>这三种格式对应不同的参数解析方式，分别为<code>sys.argv</code>, <code>argparse</code>, <code>tf.app.run</code></p>
+<p>前两者是python自带的功能，后者是<code>tensorflow</code>提供的便捷方式。</p>
+<h2 id="sysargv">4.1 sys.argv</h2>
+<p><code>sys</code>模块是很常用的模块， 它封装了与python解释器相关的数据，例如<code>sys.modules</code>里面有已经加载了的所有模块信息，<code>sys.path</code>里面是<code>PYTHONPATH</code>的内容，而<code>sys.argv</code>则封装了传入的参数数据</p>
+<blockquote>
+<p>使用<code>sys.argv</code>接收上面第一个命令中包含的参数方式如下：</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> sys
+gpus = sys.argv[<span class="hljs-number">1</span>]
+<span class="hljs-comment"># gpus = [int(gpus.split(','))]</span>
+batch_size = sys.argv[<span class="hljs-number">2</span>]
+<span class="hljs-keyword">print</span> gpus
+<span class="hljs-keyword">print</span> batch_size
+</code></pre>
+<h2 id="argparse">4.2 argparse</h2>
+<blockquote>
+<p><a href="https://docs.python.org/zh-cn/dev/library/argparse.html" target="_blank">官方文档</a></p>
+<p><a href="https://www.jianshu.com/p/7335651ca176" target="_blank">使用argparse从命令行接收bool类型的参数</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/395173906" target="_blank">Python argparse库用法总结</a></p>
+</blockquote>
+<h3 id="速览">4.2.1 速览</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+<span class="hljs-comment"># 创建一个解析对象</span>
+parser = argparse.ArgumentParser(prog=<span class="hljs-string">'我的解析对象'</span>)
+
+<span class="hljs-comment"># 添加你要关注的命令行参数和选项</span>
+parser.add_argument(<span class="hljs-string">'--doc_path'</span>, <span class="hljs-string">'-dp'</span>)
+parser.add_argument(<span class="hljs-string">'-tip'</span>, <span class="hljs-string">'--tp'</span>)
+
+<span class="hljs-comment"># 解析参数</span>
+opt = parser.parse_args()
+
+<span class="hljs-comment"># 带--的参数可以直接用名字访问</span>
+print(opt.tp, opt.doc_path)
+</code></pre>
+<p>可以用<code>python arg.py -h</code>获取帮助</p>
+<h3 id="argumentparser">4.2.2 ArgumentParser</h3>
+<pre><code class="lang-python">class argparse.ArgumentParser(prog=None, usage=None, description=None, epilog=None, parents=[], formatter_class=argparse.HelpFormatter, prefix_chars='-', fromfile_prefix_chars=None, argument_default=None, conflict_handler='error', add_help=True, allow_abbrev=True, exit_on_error=True)
+</code></pre>
+<p>创建一个新的<a href="https://docs.python.org/zh-cn/dev/library/argparse.html#argparse.ArgumentParser" target="_blank"><code>ArgumentParser</code></a>对象，所有的参数都应当作为关键字参数传入，每个参数在下面都有它更详细的描述</p>
+<ul>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#prog" target="_blank">prog</a> - 程序的名称 (默认值: <code>os.path.basename(sys.argv[0])</code>)</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#usage" target="_blank">usage</a> - 描述程序用途的字符串（默认值：从添加到解析器的参数生成）</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#description" target="_blank">description</a> - 在参数帮助文档之后显示的文本 (默认值:无)</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#epilog" target="_blank">epilog</a> - Text to display after the argument help (by default, no text)</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#parents" target="_blank">parents</a> - 一个 <a href="https://docs.python.org/zh-cn/dev/library/argparse.html#argparse.ArgumentParser" target="_blank"><code>ArgumentParser</code></a> 对象的列表，它们的参数也应包含在内</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#formatter-class" target="_blank">formatter_class</a> - 用于自定义帮助文档输出格式的类<ul>
+<li>argparse.<strong>RawDescriptionHelpFormatter</strong>：表示 <a href="https://docs.python.org/zh-cn/dev/library/argparse.html#description" target="_blank">description</a> 和 <a href="https://docs.python.org/zh-cn/dev/library/argparse.html#epilog" target="_blank">epilog</a> 已经被正确的格式化</li>
+<li>argparse.<strong>RawTextHelpFormatter</strong>：保留所有种类文字的空格，包括参数的描述</li>
+<li>argparse.<strong>ArgumentDefaultsHelpFormatter</strong>：自动添加默认的值的信息到每一个帮助信息的参数中:</li>
+<li>argparse.<strong>MetavarTypeHelpFormatter</strong>：每一个参数中使用 <a href="https://docs.python.org/zh-cn/dev/library/argparse.html#type" target="_blank">type</a> 的参数名当作它的显示名</li>
+</ul>
+</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#prefix-chars" target="_blank">prefix_chars</a> - 可选参数的前缀字符集合（默认值： '-'），许多命令行会使用 <code>-</code> 当作前缀，比如 <code>-f/--foo</code>。如果解析器需要支持不同的或者额外的字符，比如像 <code>+f</code> 或者 <code>/foo</code> 的选项，可以在参数解析构建器中使用 <code>prefix_chars=</code> 参数</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#fromfile-prefix-chars" target="_blank">fromfile_prefix_chars</a> - 当需要从文件中读取其他参数时，用于标识文件名的前缀字符集合（默认值： <code>None</code>）</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#argument-default" target="_blank">argument_default</a> - 参数的全局默认值（默认值： <code>None</code>）</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#conflict-handler" target="_blank">conflict_handler</a> - 解决冲突选项的策略（通常是不必要的）</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#add-help" target="_blank">add_help</a> - 为解析器添加一个 <code>-h/--help</code> 选项（默认值： <code>True</code>），有时候可能会需要关闭额外的帮助信息</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#allow-abbrev" target="_blank">allow_abbrev</a> - 如果缩写是无歧义的，则允许缩写长选项 （默认值：<code>True</code>）</li>
+<li><a href="https://docs.python.org/zh-cn/dev/library/argparse.html#exit-on-error" target="_blank">exit_on_error</a> - 正常情况下，当你向 <a href="https://docs.python.org/zh-cn/dev/library/argparse.html#argparse.ArgumentParser" target="_blank"><code>ArgumentParser</code></a> 的 <a href="https://docs.python.org/zh-cn/dev/library/argparse.html#argparse.ArgumentParser.parse_args" target="_blank"><code>parse_args()</code></a> 方法传入一个无效的参数列表时，它将会退出并发出错误信息。如果用户想要手动捕获错误，可通过将 <code>exit_on_error</code> 设为 <code>False</code> 来启用该特性</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+
+<span class="hljs-comment"># 实例化</span>
+parser = argparse.ArgumentParser(prog=<span class="hljs-string">"hyc_prog"</span>, usage=<span class="hljs-string">'%(prog)s [options]'</span>,
+                                 description=<span class="hljs-string">'[%(prog)s] 参数解析描述，用于演示'</span>,
+                                 epilog=<span class="hljs-string">"description 参数后显示额外的对程序的描述"</span>,
+                                 <span class="hljs-comment"># 表示 description 和 epilog 已经被正确的格式化了</span>
+                                 formatter_class=argparse.RawDescriptionHelpFormatter,
+                                 prefix_chars=<span class="hljs-string">'-+'</span>,  <span class="hljs-comment"># 解析器需要支持不同的或者额外的字符</span>
+                                 argument_default=argparse.SUPPRESS, <span class="hljs-comment"># 全局禁止在 parse_args() 中创建属性</span>
+                                 )
+
+<span class="hljs-comment"># fromfile_prefix_chars参数</span>
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'args.txt'</span>, <span class="hljs-string">'w'</span>, encoding=sys.getfilesystemencoding()) <span class="hljs-keyword">as</span> fp:
+    fp.write(<span class="hljs-string">'-f\nbar'</span>)
+
+parser = argparse.ArgumentParser(fromfile_prefix_chars=<span class="hljs-string">'@'</span>)
+parser.add_argument(<span class="hljs-string">'-f'</span>)
+parser.parse_args([<span class="hljs-string">'-f'</span>, <span class="hljs-string">'foo'</span>, <span class="hljs-string">'@args.txt'</span>])
+
+
+<span class="hljs-comment"># conflict_handler参数</span>
+parser = argparse.ArgumentParser(prog=<span class="hljs-string">'PROG'</span>, conflict_handler=<span class="hljs-string">'resolve'</span>)
+parser.add_argument(<span class="hljs-string">'-f'</span>, <span class="hljs-string">'--foo'</span>, help=<span class="hljs-string">'old foo help'</span>)
+parser.add_argument(<span class="hljs-string">'--foo'</span>, help=<span class="hljs-string">'new foo help'</span>)
+parser.print_help()
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>usage: PROG [-h] [-f FOO] [--foo FOO]
+options:
+ -h, --help  show this help message <span class="hljs-keyword">and</span> exit
+ -f FOO      old foo help
+ --foo FOO   new foo help
+
+
+<span class="hljs-comment"># exit_on_error参数</span>
+parser = argparse.ArgumentParser(exit_on_error=<span class="hljs-keyword">False</span>)
+parser.add_argument(<span class="hljs-string">'--integers'</span>, type=int)
+
+<span class="hljs-keyword">try</span>:
+    parser.parse_args(<span class="hljs-string">'--integers a'</span>.split())
+<span class="hljs-keyword">except</span> argparse.ArgumentError:
+    print(<span class="hljs-string">'Catching an argumentError'</span>)
+</code></pre>
+<h3 id="addargument">4.2.3 add_argument</h3>
+<pre><code class="lang-python">ArgumentParser.add_argument(name <span class="hljs-keyword">or</span> flags...[, action][, nargs][, const][, default][, type][, choices][, required][, help][, metavar][, dest])
+</code></pre>
+<p>定义单个的命令行参数应当如何解析，每个形参都在下面有它自己更多的描述，长话短说有：</p>
+<ul>
+<li>name or flags - 一个命名或者一个选项字符串的列表，例如 foo 或 -f, --foo</li>
+<li>action - 当参数在命令行中出现时使用的动作基本类型</li>
+<li>nargs - 命令行参数应当消耗的数目</li>
+<li>const - 被一些 action 和 nargs 选择所需求的常数</li>
+<li>default - 当参数未在命令行中出现并且也不存在于命名空间对象时所产生的值</li>
+<li>type - 命令行参数应当被转换成的类型</li>
+<li>choices - A sequence of the allowable values for the argument.</li>
+<li>required - 此命令行选项是否可省略(仅选项可用)，<code>只能用于可选参数(optional arguments)</code></li>
+<li>help - 一个此选项作用的简单描述</li>
+<li>metavar - 在使用方法消息中使用的参数值示例</li>
+<li>dest - 被添加到parse_args()所返回对象上的属性名</li>
+</ul>
+<blockquote>
+<p>name or flags</p>
+</blockquote>
+<p>name就是指命令行参数中没有'-'的参数名字例如'myname'，而flags就是指前面有'-'的参数名，例如'-a'、'--age'</p>
+<p>其中name对应<strong>位置参数</strong>，而flags对应<strong>可选参数</strong>，<strong>name在命令行必须输入，并按照顺序喂给程序</strong></p>
+<p>命令行传入参数时，对于位置参数我们直接给出其值，对于可选参数需要给出其flags。<strong>argparse会先将可选参数进行解析，对于剩余未解析的参数，传给位置参数</strong></p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+parser = argparse.ArgumentParser(description=<span class="hljs-string">'a test'</span>)
+parser.add_argument(<span class="hljs-string">'--age'</span>,<span class="hljs-string">'-a'</span>)
+parser.add_argument(<span class="hljs-string">'myname'</span>)
+parser.add_argument(<span class="hljs-string">'sex'</span>)
+
+<span class="hljs-comment"># 注意前两个参数必须是 myname和sex</span>
+args = parser.parse_args(<span class="hljs-string">'tom boy --age 22'</span>.split())
+
+print(args) <span class="hljs-comment"># Namespace(age='22', sex='boy', myname='tom')</span>
+</code></pre>
+<p>命令行传入参数时，先写位置参数，再写可选参数</p>
+<blockquote>
+<p>action: 指定了参数是如何被处理的，支持额操作如下</p>
+</blockquote>
+<ul>
+<li>store：这个只是简单的存储这个参数值，这也是默认操作</li>
+<li>store_const: 存储const指定的值，配合const参数</li>
+<li>store_false和store_true: 分别对应存储False和True值，它们是store_const的特例</li>
+<li>append：保存为列表格式，将每个参数的值添加到这个列表</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+
+<span class="hljs-comment"># action='store_const'  传参时只要传入参数名,会默认附上const, 如果不传该参数名, 默认为None</span>
+parser=argparse.ArgumentParser()
+parser.add_argument(<span class="hljs-string">'--foo'</span>,action=<span class="hljs-string">'store_const'</span>,const=<span class="hljs-number">42</span>)
+parser.parse_args(<span class="hljs-string">'--foo'</span>.split())
+Out[<span class="hljs-number">0</span>]: Namespace(foo=<span class="hljs-number">42</span>)
+parser.parse_args(<span class="hljs-string">''</span>.split())
+Out[<span class="hljs-number">1</span>]: Namespace(foo=<span class="hljs-keyword">None</span>)
+
+<span class="hljs-comment"># store_false和store_true</span>
+<span class="hljs-comment"># 以store_false为例, 当传入参数名时, 值为False, 不传参数名时值为True</span>
+parser.add_argument(<span class="hljs-string">'--bar'</span>, action=<span class="hljs-string">'store_false'</span>)
+parser.parse_args(<span class="hljs-string">''</span>.split())
+Out[<span class="hljs-number">2</span>]: Namespace(bar=<span class="hljs-keyword">True</span>, foo=<span class="hljs-keyword">None</span>)
+parser.parse_args(<span class="hljs-string">'--bar'</span>.split())
+Out[<span class="hljs-number">3</span>]: Namespace(bar=<span class="hljs-keyword">False</span>, foo=<span class="hljs-keyword">None</span>)
+
+<span class="hljs-comment"># action='append'</span>
+parser = argparse.ArgumentParser()
+parser.add_argument(<span class="hljs-string">'--foo'</span>, action=<span class="hljs-string">'append'</span>)
+parser.parse_args(<span class="hljs-string">'--foo 1 --foo 2'</span>.split())
+Out[<span class="hljs-number">5</span>]: Namespace(foo=[<span class="hljs-string">'1'</span>, <span class="hljs-string">'2'</span>])
+</code></pre>
+<blockquote>
+<p>nargs: <strong>nargs的意思就是输入参数的个数</strong></p>
+</blockquote>
+<ul>
+<li>N—<strong>某正整数</strong>: 指定好后，不能输入多了，也不能输入少了</li>
+<li>'?': <strong>这时代表parser会读取0个或1个参数，具体遵循下面的原则</strong>：<ul>
+<li>如果给出了1个参数，照常读取这个参数保存起来</li>
+<li>如果只给出了flags，比如‘--age’后面未给出具体值，则保存const参数的值（如果const未给出则为None）</li>
+<li>如果什么都没给，则保存default参数的值（如果default未给出则为None）</li>
+</ul>
+</li>
+<li>'*':  不确定具体个数，那么可以用nargs=*</li>
+<li>'+': <strong>要求参数的个数必须大于</strong><ul>
+<li>如果不给flags，parser会用default的值；如果只给flags，不给值，此时会报错</li>
+<li>而当nargs='*'时，就算只给flags不给值，也不会报错，会得到一个空列表参数</li>
+</ul>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+<span class="hljs-comment"># nargs=?</span>
+parser = argparse.ArgumentParser(description=<span class="hljs-string">'a test'</span>)
+parser.add_argument(<span class="hljs-string">'name'</span>)
+parser.add_argument(<span class="hljs-string">'--age'</span>,<span class="hljs-string">'-a'</span>, nargs=<span class="hljs-string">'?'</span>,const=<span class="hljs-number">16</span>,default=<span class="hljs-number">18</span>)
+
+args = parser.parse_args(<span class="hljs-string">'tom -a 15'</span>.split())
+print(args) <span class="hljs-comment"># Namespace(age='15', name='tom')</span>
+
+args = parser.parse_args(<span class="hljs-string">'tom -a'</span>.split())
+print(args) <span class="hljs-comment"># Namespace(age=16, name='tom')</span>
+
+args = parser.parse_args(<span class="hljs-string">'tom'</span>.split())
+print(args) <span class="hljs-comment"># Namespace(age=18, name='tom')</span>
+</code></pre>
+<blockquote>
+<p>const: 多是配合其它参数出演的配角</p>
+</blockquote>
+<ul>
+<li>action参数为 'store_const' 时或是 'append_const' 时</li>
+<li>nargs参数为 '?' 时</li>
+</ul>
+<blockquote>
+<p>default</p>
+</blockquote>
+<p>当命令行完全没有提到某个参数时，default参数就会发挥作用，default的默认值为None</p>
+<blockquote>
+<p>type</p>
+</blockquote>
+<p>这个类型参数可以<strong>约束输入参数的类型</strong>，当类型转换合法时，会<strong>自动帮我们进行类型转换</strong></p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">str2bool</span><span class="hljs-params">(v)</span>:</span>
+    <span class="hljs-keyword">if</span> v.lower() <span class="hljs-keyword">in</span> (<span class="hljs-string">'yes'</span>, <span class="hljs-string">'true'</span>, <span class="hljs-string">'t'</span>, <span class="hljs-string">'y'</span>, <span class="hljs-string">'1'</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">elif</span> v.lower() <span class="hljs-keyword">in</span> (<span class="hljs-string">'no'</span>, <span class="hljs-string">'false'</span>, <span class="hljs-string">'f'</span>, <span class="hljs-string">'n'</span>, <span class="hljs-string">'0'</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">raise</span> argparse.ArgumentTypeError(<span class="hljs-string">'Unsupported value encountered.'</span>)
+
+<span class="hljs-comment"># type=int</span>
+parser = argparse.ArgumentParser(description=<span class="hljs-string">'a test'</span>)
+parser.add_argument(<span class="hljs-string">'name'</span>)
+parser.add_argument(<span class="hljs-string">'--age'</span>,<span class="hljs-string">'-a'</span>,type=int, default=<span class="hljs-string">'17'</span>)
+args = parser.parse_args(<span class="hljs-string">'tom'</span>.split())
+print(args) <span class="hljs-comment"># Namespace(age=17, name='tom')</span>
+
+<span class="hljs-comment"># 自定义类型</span>
+parser.add_argument(<span class="hljs-string">'--is_del_aft'</span>, type=str2bool, default=<span class="hljs-keyword">False</span>)
+</code></pre>
+<blockquote>
+<p>choices</p>
+</blockquote>
+<p>这个选项参数可以<strong>使用列表约束输入参数的取值范围。</strong>如果输入参数不在候选参数列表中，程序会报错</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+parser = argparse.ArgumentParser(description=<span class="hljs-string">'a test'</span>)
+parser.add_argument(<span class="hljs-string">'name'</span>,choices=[<span class="hljs-string">'tom'</span>,<span class="hljs-string">'Jim'</span>,<span class="hljs-string">'Bob'</span>])
+parser.add_argument(<span class="hljs-string">'--age'</span>,<span class="hljs-string">'-a'</span>,type=int, default=<span class="hljs-string">'17'</span>)
+
+args = parser.parse_args(<span class="hljs-string">'Jim'</span>.split())
+print(args) <span class="hljs-comment"># Namespace(age=17, name='Jim')</span>
+
+args = parser.parse_args(<span class="hljs-string">'Toy'</span>.split())
+print(args) <span class="hljs-comment"># test.py: error: argument name: invalid choice: 'Toy' (choose from 'tom', 'Jim', 'Bob')</span>
+</code></pre>
+<p>在参数获取阶段，约束好用户输入的参数范围，可以防止意想不到的参数带来的未知后果</p>
+<blockquote>
+<p>metavar: 这个参数的功能也是个性化显示帮助信息</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+parser = argparse.ArgumentParser(description=<span class="hljs-string">'a test'</span>)
+parser.add_argument(<span class="hljs-string">'name'</span>,metavar=<span class="hljs-string">'haha'</span>)
+
+<span class="hljs-comment"># 加metavar</span>
+parser.add_argument(<span class="hljs-string">'--age'</span>,<span class="hljs-string">'-a'</span>,type=int, default=<span class="hljs-string">'17'</span>,metavar=<span class="hljs-string">'hahahaha'</span>)
+parser.parse_args(<span class="hljs-string">'-h'</span>.split())
+<span class="hljs-meta">&gt;&gt;&gt; </span>usage: pydevconsole.py [-h] [--age hahahaha] haha
+a test
+positional arguments:
+  haha
+optional arguments:
+  -h, --help            show this help message <span class="hljs-keyword">and</span> exit
+  --age hahahaha, -a hahahaha
+
+
+<span class="hljs-comment"># 不加metavar</span>
+parser.add_argument(<span class="hljs-string">'--age'</span>,<span class="hljs-string">'-a'</span>,type=int, default=<span class="hljs-string">'17'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>usage: pydevconsole.py [-h] [--age AGE] haha
+a test
+positional arguments:
+  haha
+optional arguments:
+  -h, --help         show this help message <span class="hljs-keyword">and</span> exit
+  --age AGE, -a AGE
+</code></pre>
+<blockquote>
+<p>dest</p>
+</blockquote>
+<p>每个参数待parser处理完毕后，都会以<strong>‘属性名-属性’</strong>的形式保存起来</p>
+<ul>
+<li><p>对于位置参数，属性名就是位置参数的name</p>
+</li>
+<li><p>对于可选参数，属性名是可选参数去掉‘--’后的那部分，如果没有‘--’，则为去掉‘-’的那部分</p>
+</li>
+</ul>
+<p>为了使得属性名合法，parser还会将单词<strong>中间</strong>的短横杠变为下划线</p>
+<p>但如果，你不想用上述方法自动生成的属性名，你想自己指定属性名，就可以设定dest参数来指定。<strong>（只能指定可选参数的属性名）</strong></p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+<span class="hljs-comment"># 创建 ArgumentParser 对象</span>
+parser = argparse.ArgumentParser(description=<span class="hljs-string">'An example of using argparse'</span>)
+<span class="hljs-comment"># 添加位置参数和可选参数</span>
+parser.add_argument(<span class="hljs-string">'--input'</span>, dest=<span class="hljs-string">'input_file'</span>, help=<span class="hljs-string">'Input file path'</span>)
+parser.add_argument(<span class="hljs-string">'--output'</span>, dest=<span class="hljs-string">'output_file'</span>, help=<span class="hljs-string">'Output file path'</span>)
+<span class="hljs-comment"># 解析命令行参数</span>
+args = parser.parse_args(<span class="hljs-string">'--input 输入 --output 输出'</span>.split())
+<span class="hljs-comment"># 访问解析后的参数值</span>
+input_path = args.input_file
+output_path = args.output_file
+<span class="hljs-comment"># 执行相应操作</span>
+print(f<span class="hljs-string">'Input file path: {input_path}'</span>)
+print(f<span class="hljs-string">'Output file path: {output_path}'</span>)
+
+&gt;&gt;&gt;
+Input file path: 输入
+Output file path: 输出
+</code></pre>
+<p>可以看到，如果不指定dest，年龄的属性名是age。若此时指定了dest='myage'，那么年龄的属性名就人为设定成了myage</p>
+<h3 id="实际例子">4.2.4 实际例子</h3>
+<p>脚本运行命令<code>python script.py -gpus=0,1,2 --batch-size=10</code>中的<code>--batch-size</code>会被自动解析成<code>batch_size</code></p>
+<p><code>parser.add_argument</code> 方法的<code>type</code>参数理论上可以是任何合法的类型，但有些参数传入格式比较麻烦</p>
+<ul>
+<li><p>例如list，所以一般使用<code>bool</code>, <code>int</code>, <code>str</code>, <code>float</code>这些基本类型就行了，更复杂的需求可以通过<code>str</code>传入，然后手动解析</p>
+</li>
+<li><p><code>bool</code>类型的解析比较特殊，传入任何值都会被解析成<code>True</code>，传入空值时才为`False</p>
+</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> argparse
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">str2bool</span><span class="hljs-params">(v)</span>:</span>
+    <span class="hljs-keyword">if</span> v.lower() <span class="hljs-keyword">in</span> (<span class="hljs-string">'yes'</span>, <span class="hljs-string">'true'</span>, <span class="hljs-string">'t'</span>, <span class="hljs-string">'y'</span>, <span class="hljs-string">'1'</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">elif</span> v.lower() <span class="hljs-keyword">in</span> (<span class="hljs-string">'no'</span>, <span class="hljs-string">'false'</span>, <span class="hljs-string">'f'</span>, <span class="hljs-string">'n'</span>, <span class="hljs-string">'0'</span>):
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">raise</span> argparse.ArgumentTypeError(<span class="hljs-string">'Unsupported value encountered.'</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    parser = argparse.ArgumentParser(description=<span class="hljs-string">'manual to this script'</span>)
+    parser.add_argument(<span class="hljs-string">'--zook_host'</span>, type=str, default=<span class="hljs-string">'127.0.0.1:2181'</span>)
+    parser.add_argument(<span class="hljs-string">'--num_of_task'</span>, type=int, default=<span class="hljs-number">10</span>)
+    parser.add_argument(<span class="hljs-string">'--is_del_aft'</span>, type=str2bool, default=<span class="hljs-keyword">False</span>)
+    args = parser.parse_args()
+    many_tasks_schedule_performance(zook_host=args.zook_host,
+                                    num_of_task=args.num_of_task,
+                                    is_del_aft=args.is_del_aft)
+</code></pre>
+<h2 id="tfapprun">4.3 tf.app.run</h2>
+<blockquote>
+<p>tensorflow也提供了一种方便的解析方式</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf
+
+tf.app.flags.DEFINE_string(<span class="hljs-string">'gpus'</span>, <span class="hljs-keyword">None</span>, <span class="hljs-string">'gpus to use'</span>)
+tf.app.flags.DEFINE_integer(<span class="hljs-string">'batch_size'</span>, <span class="hljs-number">5</span>, <span class="hljs-string">'batch size'</span>)
+
+FLAGS = tf.app.flags.FLAGS
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(_)</span>:</span>
+    <span class="hljs-keyword">print</span>
+    FLAGS.gpus
+    <span class="hljs-keyword">print</span>
+    FLAGS.batch_size
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    tf.app.run()
+
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>python script.py --gpus=<span class="hljs-number">0</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span> --batch_size=<span class="hljs-number">10</span>
+</code></pre>
+<blockquote>
+<p>有几点需要注意</p>
+</blockquote>
+<ol>
+<li><p><code>tensorflow</code>只提供以下四种方法： 
+<code>tf.app.flags.DEFINE_string</code>, <code>tf.app.flags.DEFINE_integer</code>, </p>
+<p><code>tf.app.flags.DEFINE_boolean</code>,  <code>tf.app.flags.DEFINE_float</code></p>
+<p>分别对应<code>str</code>, <code>int</code>,<code>bool</code>,<code>float</code>类型的参数</p>
+<p>这里对<code>bool</code>的解析比较严格，传入1会被解析成<code>True</code>，其余任何值都会被解析成<code>False</code></p>
+</li>
+<li><p>脚本中需要定义一个接收一个参数的<code>main</code>方法：<code>def main(_):</code>，这个传入的参数是脚本名，一般用不到， 所以用下划线接收。</p>
+</li>
+<li><p>以<code>batch_size</code>参数为例，传入这个参数时使用的名称为<code>--batch_size</code>，也就是说，中划线不会像在<code>argparse</code> 中一样被解析成下划线。</p>
+</li>
+<li><p><code>tf.app.run()</code>会寻找并执行入口脚本的<code>main</code>方法。也只有在执行了<code>tf.app.run()</code>之后才能从<code>FLAGS</code>中取出参数。 
+从它的签名来看，它也是可以自己指定需要执行的方法的，不一定非得叫<code>main</code>：</p>
+<pre><code class="lang-python">run(main=<span class="hljs-keyword">None</span>, argv=<span class="hljs-keyword">None</span>)
+</code></pre>
+</li>
+<li><p><code>tf.app.flags</code>只是对<code>argpars</code>的简单封装。</p>
+</li>
+<li><p>代码见<a href="https://github.com/tensorflow/tensorflow/blob/r1.2/tensorflow/python/platform/flags.py" target="_blank">https://github.com/tensorflow/tensorflow/blob/r1.2/tensorflow/python/platform/flags.py</a></p>
+</li>
+</ol>
+<h1 id="位运算">5 位运算</h1>
+<blockquote>
+<p>背景知识</p>
+</blockquote>
+<p>🍅二进制</p>
+<p>在Python中可以通过以"0b"或者"-0b"开头的字符串来表示二进制</p>
+<pre><code class="lang-python"><span class="hljs-comment"># 转二进制</span>
+print(bin(<span class="hljs-number">5</span>))
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">0b101</span>
+</code></pre>
+<p>🥬原码、反码、补码</p>
+<ul>
+<li><p><strong>原码</strong>: 将一个整数转换成<code>二进制</code>形式，就是其原码。例如6的原码就是<code>0110</code>；-18 的原码就是<code>1000 0000 0001 0010</code></p>
+<p>通俗的理解，原码就是一个整数本来的二进制形式</p>
+</li>
+<li><p><strong>反码</strong>: 对于正数，它的反码就是其原码(原码和反码相同)；负数的反码是将原码中<code>除符号位以外</code>的所有位(数值位)取反</p>
+</li>
+<li><p><strong>补码</strong>: 对于正数，它的补码就是其原码(原码、反码、补码都相同)；负数的补码是其反码加1</p>
+</li>
+</ul>
+<blockquote>
+<p>位运算</p>
+</blockquote>
+<ul>
+<li><p><strong>与</strong>: &amp; 按位与</p>
+</li>
+<li><p><strong>或</strong>: | 按位或</p>
+</li>
+<li><p><strong>反</strong>：~ 按位取反</p>
+</li>
+<li><p><strong>异或</strong>: ^ 按位异或</p>
+</li>
+<li><p><strong>按位左移</strong>: &lt;&lt; 按位左移，各二进位全部左移n位，高位丢弃，低位补0</p>
+<p>左移1位相当于 乘以2</p>
+</li>
+<li><p><strong>按位右移</strong>: &gt;&gt; 按位右移，所有二进制位向右移动n位，移出的位删掉，进的位补符号位，右移不会改变一个数的符号</p>
+<p>右移1位相当于 除以2</p>
+</li>
+</ul>
+<blockquote>
+<p>应用场景</p>
+</blockquote>
+<ol>
+<li><p>判断奇数还是偶数</p>
+<p>使用&amp;运算，与1进行&amp;，如果为1，那么该数为奇数；如果为0，那么该数是偶数</p>
+</li>
+<li><p>交换两个数值</p>
+<p>第一行，a = a ^ b，很容易理解</p>
+<p>第二行， b = b ^ a = b ^ a ^ b，由于 b ^ b = 0，所以 b = a ^ 0，即 b = a</p>
+<p>第三行， a = a ^ b ,由于a在第一步重新赋值，所以，a =  a ^ b ^ a = b，完成了数值交换</p>
+<pre><code class="lang-python">a ^= b
+b ^= a
+a ^= b
+</code></pre>
+</li>
+<li><p>寻找数据列表中的独一无二</p>
+<p>有一个数据列表（2N+1个整数），只有一个数出现了1次，其余N个数都出现了2次。如何找到这个独一无二的数据</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
+lst = [<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>]
+reduce(<span class="hljs-keyword">lambda</span> a,b : a^b, lst)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>输出<span class="hljs-number">5</span>
+</code></pre>
+</li>
+<li><p>计算一个数值的二进制数中有多少个1</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">count_ones</span><span class="hljs-params">(x)</span>:</span>
+    count = <span class="hljs-number">0</span>
+    <span class="hljs-keyword">while</span> x:
+        count = count + <span class="hljs-number">1</span>
+        x = x &amp; (x<span class="hljs-number">-1</span>) <span class="hljs-comment"># 等价于 x = x &amp; (x-1)</span>
+    <span class="hljs-keyword">return</span> count
+</code></pre>
+</li>
+<li><p>在一堆数字中找出只出现一次的两个数字</p>
+<pre><code class="lang-python"><span class="hljs-comment"># 查找构成res的两个数</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">split_res</span><span class="hljs-params">(res, lst)</span>:</span>
+    tmp = <span class="hljs-number">1</span>
+    num_0, num_1 = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">not</span> tmp &amp; res:
+        tmp &lt;&lt;= <span class="hljs-number">1</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> lst:
+        <span class="hljs-keyword">if</span> i &amp; tmp:
+            num_0 ^= i
+        <span class="hljs-keyword">else</span>:
+            num_1 ^= i
+    <span class="hljs-keyword">return</span> num_0, num_1
+
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
+lst = [<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">7</span>]
+res = reduce(<span class="hljs-keyword">lambda</span> a,b : a^b, lst)
+num_0, num_1 = split_res(res, lst)
+</code></pre>
+</li>
+</ol>
+<h1 id="路径">6 路径</h1>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/475661402" target="_blank">Python路径操作模块pathlib，看这篇就够了！</a></p>
+</blockquote>
+<h2 id="pathlib和os常用操作对比">6.1 pathlib和os常用操作对比</h2>
+<p>通过常用路径操作的对比，可以更深刻理解pathlib和os的区别，便于在实际操作中做对照，也便于进行使用替代，详细对比如下：</p>
+<table>
+<thead>
+<tr>
+<th>pathlib操作</th>
+<th>os及os.path操作</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Path.resolve()</td>
+<td>os.path.abspath()</td>
+<td>获得绝对路径</td>
+</tr>
+<tr>
+<td>Path.chmod()</td>
+<td>os.chmod()</td>
+<td>修改文件权限和时间戳</td>
+</tr>
+<tr>
+<td>Path.mkdir()</td>
+<td>os.mkdir()</td>
+<td>创建目录</td>
+</tr>
+<tr>
+<td>Path.rename()</td>
+<td>os.rename()</td>
+<td>文件或文件夹重命名，如果路径不同，会移动并重新命名</td>
+</tr>
+<tr>
+<td>Path.replace()</td>
+<td>os.replace()</td>
+<td>文件或文件夹重命名，如果路径不同，会移动并重新命名，如果存在，则破坏现有目标。</td>
+</tr>
+<tr>
+<td>Path.rmdir()</td>
+<td>os.rmdir()</td>
+<td>删除目录</td>
+</tr>
+<tr>
+<td>Path.unlink()</td>
+<td>os.remove()</td>
+<td>删除一个文件</td>
+</tr>
+<tr>
+<td>Path.unlink()</td>
+<td>os.unlink()</td>
+<td>删除一个文件</td>
+</tr>
+<tr>
+<td>Path.cwd()</td>
+<td>os.getcwd()</td>
+<td>获得当前工作目录</td>
+</tr>
+<tr>
+<td>Path.exists()</td>
+<td>os.path.exists()</td>
+<td>判断是否存在文件或目录name</td>
+</tr>
+<tr>
+<td>Path.home()</td>
+<td>os.path.expanduser()</td>
+<td>返回电脑的用户目录</td>
+</tr>
+<tr>
+<td>Path.is_dir()</td>
+<td>os.path.isdir()</td>
+<td>检验给出的路径是一个文件</td>
+</tr>
+<tr>
+<td>Path.is_file()</td>
+<td>os.path.isfile()</td>
+<td>检验给出的路径是一个目录</td>
+</tr>
+<tr>
+<td>Path.is_symlink()</td>
+<td>os.path.islink()</td>
+<td>检验给出的路径是一个符号链接</td>
+</tr>
+<tr>
+<td>Path.stat()</td>
+<td>os.stat()</td>
+<td>获得文件属性</td>
+</tr>
+<tr>
+<td>PurePath.is_absolute()</td>
+<td>os.path.isabs()</td>
+<td>判断是否为绝对路径</td>
+</tr>
+<tr>
+<td>PurePath.joinpath()</td>
+<td>os.path.join()</td>
+<td>连接目录与文件名或目录</td>
+</tr>
+<tr>
+<td>PurePath.name</td>
+<td>os.path.basename()</td>
+<td>返回文件名</td>
+</tr>
+<tr>
+<td>PurePath.parent</td>
+<td>os.path.dirname()</td>
+<td>返回文件路径</td>
+</tr>
+<tr>
+<td>Path.samefile()</td>
+<td>os.path.samefile()</td>
+<td>判断两个路径是否相同</td>
+</tr>
+<tr>
+<td>PurePath.suffix</td>
+<td>os.path.splitext()</td>
+<td>分离文件名和扩展名</td>
+</tr>
+</tbody>
+</table>
+<h1 id="配置文件解读">7 配置文件解读</h1>
+<blockquote>
+<p><a href="https://jiuaidu.com/jianzhan/1018523/" target="_blank">python配置文件INI/TOML/YAML/ENV的区别</a></p>
+</blockquote>
+<h2 id="ini">7.1 ini</h2>
+<p><strong>ini</strong>文件可能是我们可以使用的最直接的配置文件。<strong>ini</strong>文件非常适合较小的项目，主要是因为这些文件仅支持1级深的层次结构，<strong>ini</strong>文件本质上是平面文件，但变量可以属于组</p>
+<pre><code class="lang-ini">[APP]
+ENVIRONMENT = development
+DEBUG = False
+
+[DATABASE]
+USERNAME: root
+PASSWORD: p@ssw0rd
+HOST: 127.0.0.1
+PORT: 5432
+DB: my_database
+
+[LOGS]
+ERRORS: logs/errors.log
+INFO: data/info.log
+
+[FILES]
+STATIC_FOLDER: static
+TEMPLATES_FOLDER: templates
+</code></pre>
+<p>python解析<strong>ini</strong>文件代码如下所示</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> configparser
+
+config = configparser.ConfigParser()
+path = <span class="hljs-string">r'Q:\pyCharmWS\object_detection\test.ini'</span>
+cfg = config.read(path)
+
+<span class="hljs-comment"># 多种方式获取值</span>
+config[<span class="hljs-string">'DATABASE'</span>][<span class="hljs-string">'HOST'</span>]
+Out[<span class="hljs-number">6</span>]: <span class="hljs-string">'127.0.0.1'</span>
+config.get(<span class="hljs-string">'DATABASE'</span>, <span class="hljs-string">'HOST'</span>)
+Out[<span class="hljs-number">7</span>]: <span class="hljs-string">'127.0.0.1'</span>
+
+<span class="hljs-comment"># 获取指定类型</span>
+config.getboolean(<span class="hljs-string">'APP'</span>, <span class="hljs-string">'DEBUG'</span>)
+Out[<span class="hljs-number">8</span>]: <span class="hljs-keyword">False</span>
+config.get(<span class="hljs-string">'APP'</span>, <span class="hljs-string">'DEBUG'</span>)
+Out[<span class="hljs-number">9</span>]: <span class="hljs-string">'False'</span>
+</code></pre>
+<p><strong>configparser</strong>还有许多其他类型检查方法，例如<code>getint()</code>，<code>getfloat()</code>等等</p>
+<h2 id="toml">7.2 toml</h2>
+<p><strong>TOML</strong>文件似乎与<strong>ini</strong>文件共享<em>某些</em>语法相似之处，但支持更广泛的数据类型以及值本身之间的关系</p>
+<p>如表中所示，TOML支持<strong>嵌套表</strong>的概念，该<code>[environments]</code>表后面带有多个子表，通过使用点符号，我们能够创建表的关联，这意味着它们是同一元素的不同实例</p>
+<pre><code class="lang-toml"># Keys
+title = "My TOML Config"
+# Tables
+[project]
+    name = "Faceback"
+    description = "Powerful AI which renders the back of somebody's head, based on their face."
+    version = "1.0.0"
+    updated = 1979-05-27T07:32:00Z
+    author = "Todd Birchard"
+[database]
+    host = "127.0.0.1"
+    password = "p@ssw0rd"
+    port = 5432
+    name = "my_database"
+    connection_max = 5000
+    enabled = true
+
+# Nested `tables`
+[environments]
+    [environments.dev]
+        ip = "10.0.0.1"
+        dc = "eqdc10"
+    [environments.staging]
+        ip = "10.0.0.2"
+        dc = "eqdc10"
+    [environments.production]
+        ip = "10.0.0.3"
+        dc = "eqdc10"
+
+# Array of Tables
+[[testers]]
+    id = 1
+    username = "JohnCena"
+    password = "YouCantSeeMe69"
+[[testers]]
+    id = 3
+    username = "TheRock"
+    password = "CantCook123"
+</code></pre>
+<p>同样有趣的是概念<strong>表列</strong>，如下表中的<code>[[testers]]</code>，双括号中的表会自动添加到数组中，其中数组中的每个项目都是具有相同名称的表，等价于下下面JSON所表达的信息</p>
+<pre><code class="lang-json">{
+    <span class="hljs-string">"testers"</span>: [{
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"username"</span>: <span class="hljs-string">"JohnCena"</span>,
+            <span class="hljs-string">"password"</span>: <span class="hljs-string">"YouCantSeeMe69"</span>
+        },
+        {
+            <span class="hljs-string">"id"</span>: <span class="hljs-number">2</span>,
+            <span class="hljs-string">"username"</span>: <span class="hljs-string">"TheRock"</span>,
+            <span class="hljs-string">"password"</span>: <span class="hljs-string">"CantCook123"</span>
+        }
+    ]
+}
+</code></pre>
+<p>python解析toml的代码如下</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> toml
+
+path = <span class="hljs-string">r'Q:\pyCharmWS\object_detection\test.toml'</span>
+cfg = toml.load([path])
+
+<span class="hljs-comment"># Retrieving a dictionary</span>
+cfg[<span class="hljs-string">'project'</span>]
+cfg.get(<span class="hljs-string">'project'</span>)
+
+<span class="hljs-comment"># Retrieving a value</span>
+cfg[<span class="hljs-string">'project'</span>][<span class="hljs-string">'author'</span>]
+cfg.get(<span class="hljs-string">'project'</span>).get(<span class="hljs-string">'author'</span>)
+
+print(cfg)
+{
+    <span class="hljs-string">'title'</span>: <span class="hljs-string">'My TOML Config'</span>,
+    <span class="hljs-string">'project'</span>: {
+        <span class="hljs-string">'name'</span>: <span class="hljs-string">'Faceback'</span>,
+        <span class="hljs-string">'description'</span>: <span class="hljs-string">"Powerful AI which renders the back of somebody's head, based on their face."</span>,
+        <span class="hljs-string">'version'</span>: <span class="hljs-string">'1.0.0'</span>,
+        <span class="hljs-string">'updated'</span>: datetime.datetime(<span class="hljs-number">1979</span>, <span class="hljs-number">5</span>, <span class="hljs-number">27</span>, <span class="hljs-number">7</span>, <span class="hljs-number">32</span>, tzinfo = &lt; toml.tz.TomlTz object at <span class="hljs-number">0x000001AE244933D0</span> &gt; ),
+        <span class="hljs-string">'author'</span>: <span class="hljs-string">'Todd Birchard'</span>
+    },
+    <span class="hljs-string">'database'</span>: {
+        <span class="hljs-string">'host'</span>: <span class="hljs-string">'127.0.0.1'</span>,
+        <span class="hljs-string">'password'</span>: <span class="hljs-string">'p@ssw0rd'</span>,
+        <span class="hljs-string">'port'</span>: <span class="hljs-number">5432</span>,
+        <span class="hljs-string">'name'</span>: <span class="hljs-string">'my_database'</span>,
+        <span class="hljs-string">'connection_max'</span>: <span class="hljs-number">5000</span>,
+        <span class="hljs-string">'enabled'</span>: <span class="hljs-keyword">True</span>
+    },
+    <span class="hljs-string">'environments'</span>: {
+        <span class="hljs-string">'dev'</span>: {
+            <span class="hljs-string">'ip'</span>: <span class="hljs-string">'10.0.0.1'</span>,
+            <span class="hljs-string">'dc'</span>: <span class="hljs-string">'eqdc10'</span>
+        },
+        <span class="hljs-string">'staging'</span>: {
+            <span class="hljs-string">'ip'</span>: <span class="hljs-string">'10.0.0.2'</span>,
+            <span class="hljs-string">'dc'</span>: <span class="hljs-string">'eqdc10'</span>
+        },
+        <span class="hljs-string">'production'</span>: {
+            <span class="hljs-string">'ip'</span>: <span class="hljs-string">'10.0.0.3'</span>,
+            <span class="hljs-string">'dc'</span>: <span class="hljs-string">'eqdc10'</span>
+        }
+    },
+    <span class="hljs-string">'testers'</span>: [{
+        <span class="hljs-string">'id'</span>: <span class="hljs-number">1</span>,
+        <span class="hljs-string">'username'</span>: <span class="hljs-string">'JohnCena'</span>,
+        <span class="hljs-string">'password'</span>: <span class="hljs-string">'YouCantSeeMe69'</span>
+    }, {
+        <span class="hljs-string">'id'</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">'username'</span>: <span class="hljs-string">'TheRock'</span>,
+        <span class="hljs-string">'password'</span>: <span class="hljs-string">'CantCook123'</span>
+    }]
+}
+</code></pre>
+<h2 id="yaml">7.3 yaml</h2>
+<h2 id="系统变量">7.4 系统变量</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> os <span class="hljs-keyword">import</span> environ
+
+environ.get(<span class="hljs-string">'ComSpec'</span>)
+Out[<span class="hljs-number">0</span>]: <span class="hljs-string">'C:\\WINDOWS\\system32\\cmd.exe'</span>
+</code></pre>
+<h1 id="流">8 流</h1>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 08:33:20
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python多进程" class="navigation navigation-prev" href="1.python多进程.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: python异步编程" class="navigation navigation-next" href="4.python异步编程.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python常用库学习","date":"2023/3/12 18:50:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆10.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆10.webp","categories":["python"],"tags":["python","图像处理"],"abbrlink":31546,"level":"1.17","depth":1,"next":{"title":"python异步编程","level":"1.18","depth":1,"path":"chapters/4.python异步编程.md","ref":"chapters/4.python异步编程.md","articles":[]},"previous":{"title":"python多进程","level":"1.16","depth":1,"path":"chapters/1.python多进程.md","ref":"chapters/1.python多进程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/23.python常用库学习.md","mtime":"2023-08-13T08:33:20.639Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T08:34:15.470Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>
