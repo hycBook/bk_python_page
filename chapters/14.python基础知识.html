@@ -1,0 +1,1668 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>python基础知识 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="15.Pythonic的几个办法.html" rel="next"/>
+<link href="13.枚举类Enum.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">python基础知识</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#python基础知识">1 python基础知识</a></li><ul><li><span class="title-icon"></span><a href="#python解释器">1.1 python解释器</a></li><li><span class="title-icon"></span><a href="#字符集和字符编码">1.2 字符集和字符编码</a></li><ul><li><span class="title-icon"></span><a href="#字符集">1.2.1 字符集</a></li><li><span class="title-icon"></span><a href="#字符编码">1.2.2 字符编码</a></li></ul><li><span class="title-icon"></span><a href="#生成器、迭代器和可迭代对象">1.3 生成器、迭代器和可迭代对象</a></li><li><span class="title-icon"></span><a href="#pipenv依赖管理工具">1.4 Pipenv依赖管理工具</a></li><li><span class="title-icon"></span><a href="#私有仓库">1.5 私有仓库</a></li><li><span class="title-icon"></span><a href="#查看库中常用模块">1.6 查看库中常用模块</a></li><li><span class="title-icon"></span><a href="#linux后台执行py脚本">1.7 linux后台执行py脚本</a></li><li><span class="title-icon"></span><a href="#代码调试技巧">1.8 代码调试技巧</a></li></ul><li><span class="title-icon"></span><a href="#库和常用方法">2 库和常用方法</a></li><ul><li><span class="title-icon"></span><a href="#变量存储工具方法">2.1 变量存储工具方法</a></li><li><span class="title-icon"></span><a href="#序列排序">2.2 序列排序</a></li><li><span class="title-icon"></span><a href="#import路径问题">2.3 import路径问题</a></li><li><span class="title-icon"></span><a href="#判断是否有中文">2.4 判断是否有中文</a></li><li><span class="title-icon"></span><a href="#分割字符串并转换类型">2.5 分割字符串并转换类型</a></li><li><span class="title-icon"></span><a href="#检查对象是否可调用">2.6 检查对象是否可调用</a></li><li><span class="title-icon"></span><a href="#随机打乱多个数组">2.7 随机打乱多个数组</a></li><li><span class="title-icon"></span><a href="#pandas读写csv">2.8 pandas读写csv</a></li><li><span class="title-icon"></span><a href="#classmethod-和-staticmethod">2.9 classmethod 和 staticmethod</a></li><li><span class="title-icon"></span><a href="#优雅判断数字所属等级">2.10 优雅判断数字所属等级</a></li><li><span class="title-icon"></span><a href="#取整操作">2.11 取整操作</a></li><li><span class="title-icon"></span><a href="#其他库">2.12 其他库</a></li></ul><li><span class="title-icon"></span><a href="#python-cookbook记录">3 python cookbook记录</a></li><ul><li><span class="title-icon"></span><a href="#数据结构和算法">3.1 数据结构和算法</a></li><ul><li><span class="title-icon"></span><a href="#最大或最小的-n-个元素">3.1.1 最大或最小的 N 个元素</a></li><li><span class="title-icon"></span><a href="#实现一个优先级队列">3.1.2 实现一个优先级队列</a></li><li><span class="title-icon"></span><a href="#字典的运算">3.1.3 字典的运算</a></li><li><span class="title-icon"></span><a href="#查找两字典的相同点">3.1.4 查找两字典的相同点</a></li><li><span class="title-icon"></span><a href="#删除序列相同元素并保持顺序">3.1.5 删除序列相同元素并保持顺序</a></li><li><span class="title-icon"></span><a href="#命名切片">3.1.6 命名切片</a></li></ul><li><span class="title-icon"></span><a href="#字符串和文本">3.2 字符串和文本</a></li><ul><li><span class="title-icon"></span><a href="#使用多个界定符分割字符串">3.2.1 使用多个界定符分割字符串</a></li><li><span class="title-icon"></span><a href="#用-shell-通配符匹配字符串">3.2.2 用 Shell 通配符匹配字符串</a></li><li><span class="title-icon"></span><a href="#字符串匹配和搜索">3.2.3 字符串匹配和搜索</a></li><li><span class="title-icon"></span><a href="#字符串搜索和替换">3.2.4 字符串搜索和替换</a></li><li><span class="title-icon"></span><a href="#将-unicode-文本标准化">3.2.5 将 Unicode 文本标准化</a></li><li><span class="title-icon"></span><a href="#删除字符串中不需要的字符">3.2.6 删除字符串中不需要的字符</a></li><li><span class="title-icon"></span><a href="#审查清理文本字符串">3.2.7 审查清理文本字符串</a></li><li><span class="title-icon"></span><a href="#字符串对齐">3.2.8 字符串对齐</a></li><li><span class="title-icon"></span><a href="#以指定列宽格式化字符串">3.2.9 以指定列宽格式化字符串</a></li><li><span class="title-icon"></span><a href="#在字符串中处理-html-和-xml">3.2.10 在字符串中处理 html 和 xml</a></li><li><span class="title-icon"></span><a href="#字符串令牌解析">3.2.11 字符串令牌解析</a></li></ul><li><span class="title-icon"></span><a href="#迭代器与生成器">3.3 迭代器与生成器</a></li><ul><li><span class="title-icon"></span><a href="#顺序迭代合并后的排序迭代对象">3.3.1 顺序迭代合并后的排序迭代对象</a></li></ul><li><span class="title-icon"></span><a href="#文件与-io">3.4 文件与 IO</a></li><li><span class="title-icon"></span><a href="#数据编码和处理">3.5 数据编码和处理</a></li><li><span class="title-icon"></span><a href="#函数">3.6 函数</a></li><ul><li><span class="title-icon"></span><a href="#给函数参数增加元信息">3.6.1 给函数参数增加元信息</a></li><li><span class="title-icon"></span><a href="#将单方法的类转换为函数">3.6.2 将单方法的类转换为函数</a></li><li><span class="title-icon"></span><a href="#带额外状态信息的回调函数">3.6.3 带额外状态信息的回调函数</a></li><li><span class="title-icon"></span><a href="#内联回调函数">3.6.4 内联回调函数</a></li><li><span class="title-icon"></span><a href="#访问闭包中定义的变量">3.6.5 访问闭包中定义的变量</a></li></ul><li><span class="title-icon"></span><a href="#类与对象">3.7 类与对象</a></li><li><span class="title-icon"></span><a href="#元编程">3.8 元编程</a></li></ul><li><span class="title-icon"></span><a href="#pycharm基础设置">4 pycharm基础设置</a></li><ul><li><span class="title-icon"></span><a href="#pycharm激活">4.1 pycharm激活</a></li><li><span class="title-icon"></span><a href="#git配置">4.2 git配置</a></li><li><span class="title-icon"></span><a href="#python模板设置">4.3 python模板设置</a></li><li><span class="title-icon"></span><a href="#快捷键设置">4.4 快捷键设置</a></li></ul><li><span class="title-icon"></span><a href="#项目依赖">5 项目依赖</a></li><ul><li><span class="title-icon"></span><a href="#导出依赖">5.1 导出依赖</a></li><li><span class="title-icon"></span><a href="#安装依赖">5.2 安装依赖</a></li><ul><li><span class="title-icon"></span><a href="#离线安装">5.2.1 离线安装</a></li></ul></ul><li><span class="title-icon"></span><a href="#nginx">6 Nginx</a></li><ul><li><span class="title-icon"></span><a href="#什么是nginx？">6.1 什么是Nginx？</a></li><li><span class="title-icon"></span><a href="#nginx作用">6.2 Nginx作用</a></li><ul><li><span class="title-icon"></span><a href="#http代理">6.2.1 Http代理</a></li><li><span class="title-icon"></span><a href="#负载均衡">6.2.2 负载均衡</a></li><li><span class="title-icon"></span><a href="#动静分离">6.2.3 动静分离</a></li></ul><li><span class="title-icon"></span><a href="#基本使用">6.3 基本使用</a></li><ul><li><span class="title-icon"></span><a href="#配置监听">6.3.1 配置监听</a></li><li><span class="title-icon"></span><a href="#关闭nginx">6.3.2 关闭nginx</a></li></ul><li><span class="title-icon"></span><a href="#nginx常用命令">6.4 Nginx常用命令</a></li><ul><li><span class="title-icon"></span><a href="#指令">6.4.1 指令</a></li><li><span class="title-icon"></span><a href="#防火墙">6.4.2 防火墙</a></li><li><span class="title-icon"></span><a href="#演示">6.4.3 演示</a></li></ul></ul></ul></div><a href="#python基础知识" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="python基础知识">1 python基础知识</h1>
+<h2 id="python解释器">1.1 python解释器</h2>
+<blockquote>
+<p>CPython</p>
+</blockquote>
+<p>这个解释器是用C语言开发的，所以叫 CPython，在命名行下运行python，就是启动CPython解释器
+CPython是使用最广的Python解释器</p>
+<blockquote>
+<p>IPython</p>
+</blockquote>
+<p>IPython是基于CPython之上的一个交互式解释器，也就是说，IPython只是在交互方式上有所增强</p>
+<blockquote>
+<p>PyPy</p>
+</blockquote>
+<p>PyPy是另一个Python解释器，它的目标是执行速度
+PyPy采用JIT技术，对Python代进行动态编译，所以可以显著提高Python代码的执行速度</p>
+<blockquote>
+<p>Jython</p>
+</blockquote>
+<p>Jython是运行在Java平台上的Python解释器，可以直接把Python代码编译成Java字节码执行</p>
+<blockquote>
+<p>IronPython</p>
+</blockquote>
+<p>IronPython和Jython类似，只不过IronPython是运行在微软.Net平台上的Python解释器
+可以直接把Python代码编译成.Net的字节码。</p>
+<h2 id="字符集和字符编码">1.2 字符集和字符编码</h2>
+<blockquote>
+<p><a href="https://www.cnblogs.com/cenalulu/p/4251639.html" target="_blank">十分钟搞清字符集和字符编码</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/46216008" target="_blank">程序员必备：彻底弄懂常见的7种中文字符编码</a></p>
+</blockquote>
+<p>计算机屏幕上看到实体化的文字，在计算机存储介质中存放的实际是二进制的比特流
+两者之间的转换规则就需要一个统一的标准</p>
+<p><a data-lightbox="75fed806-1392-4a9f-a567-086295bcfa27" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/v2-0d0285e7b9433eeedf7e705d6e082d13_720w.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/v2-0d0285e7b9433eeedf7e705d6e082d13_720w.webp"/></a></p>
+<h3 id="字符集">1.2.1 字符集</h3>
+<p>字符集：为每一个「字符」分配一个唯一的 ID（学名为码位 / 码点 / Code Point） </p>
+<blockquote>
+<p>为什么那么多字符集</p>
+</blockquote>
+<p>问题实际非常容易回答。问问自己为什么我们的插头拿到英国就不能用了呢？为什么显示器同时有DVI，VGA，HDMI，DP这么多接口呢？很多规范和标准在最初制定时并不会意识到这将会是以后全球普适的准则，或者处于组织本身利益就想从本质上区别于现有标准。于是，就产生了那么多具有相同效果但又不相互兼容的标准了。
+说了那么多我们来看一个实际例子，下面就是<code>屌</code>这个字在各种编码下的十六进制和二进制编码结果，怎么样有没有一种很屌的感觉？</p>
+<table>
+<thead>
+<tr>
+<th>字符集</th>
+<th>16进制编码</th>
+<th>对应的二进制数据</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UTF-8</td>
+<td>0xE5B18C</td>
+<td>111001011011000110001100</td>
+</tr>
+<tr>
+<td>UTF-16</td>
+<td>0x5C4C</td>
+<td>101110001001100</td>
+</tr>
+<tr>
+<td>GBK</td>
+<td>0x8CC5</td>
+<td>1000110011000101</td>
+</tr>
+</tbody>
+</table>
+<p>常见字符集</p>
+<ul>
+<li><p><strong>ASCII 字符集</strong>：</p>
+<p>ASCII编码每个字母或符号占1byte(8bits)，并且8bits的最高位是0，因此<strong>ASCII能编码的字母和符号只有128个</strong>。有一些编码把8bits最高位为1的后128个值也编码上，使得1byte可以表示256个值，但是这属于扩展的ASCII，并非标准ASCII。通常所说的标准ASCII只有前128个值！</p>
+<p>ASCII编码几乎被世界上所有编码所兼容（UTF16和UTF32是个例外），因此如果一个文本文档里面的内容全都由ASCII里面的字母或符号构成，那么不管你如何展示该文档的内容，都不可能出现乱码的情况。 </p>
+</li>
+<li><p><strong>GB2312 字符集</strong>：</p>
+<p>最早一版的中文编码，<strong>每个字占据2bytes</strong>。由于要和ASCII兼容，那这2bytes最高位不可以为0了（否则和ASCII会有冲突）。在GB2312中收录了6763个汉字以及682个特殊符号，已经囊括了生活中最常用的所有汉字。 </p>
+</li>
+<li><p><strong>GBK 字符集</strong>：</p>
+<p>由于GB2312只有6763个汉字，我汉语博大精深，只有6763个字怎么够？于是GBK中在保证不和GB2312、ASCII冲突（即兼容GB2312和ASCII）的前提下，也用每个字占据2bytes的方式又编码了许多汉字。经过GBK编码后，可以表示的汉字达到了20902个，另有984个汉语标点符号、部首等。值得注意的是这20902个汉字还包含了繁体字，但是该繁体字与台湾Big5编码不兼容，因为同一个繁体字很可能在GBK和Big5中数字编码是不一样的。 </p>
+</li>
+<li><p><strong>Unicode 字符集</strong>：</p>
+<p><strong>Unicode</strong>（中文：<strong>万国码</strong>、<strong>国际码</strong>、<strong>统一码</strong>、<strong>单一码</strong>）是计算机科学领域里的一项业界标准</p>
+<p>ASCII编码是1个字节，而Unicode编码通常是2个字节 </p>
+<p>它对世界上大部分的文字系统进行了整理、编码，使得电脑可以用更为简单的方式来呈现和处理文字</p>
+</li>
+</ul>
+<h3 id="字符编码">1.2.2 字符编码</h3>
+<p>编码规则：将「码位」转换为字节序列的规则（编码/解码 可以理解为 加密/解密 的过程）</p>
+<p>常见编码方式：</p>
+<ul>
+<li><p><strong>ASCII 编码</strong>：</p>
+<p>将ASCII字符集转换为计算机可以接受的数字系统的数的规则。使用7位（bits）表示一个字符，共128字符；但是7位编码的字符集只能支持128个字符，为了表示更多的欧洲常用字符对ASCII进行了扩展，ASCII扩展字符集使用8位（bits）表示一个字符，共256字符。 </p>
+</li>
+<li><p><strong>UTF-8 编码</strong>：</p>
+<p><strong>UTF-8</strong>（<strong>8-bit Unicode Transformation Format</strong>）是一种针对Unicode的可变长度字符编码，也是一种前缀码。其编码中的第一个字节仍与ASCII兼容，这使得原来处理ASCII字符的软件无须或只须做少部分修改，即可继续使用。 </p>
+</li>
+</ul>
+<h2 id="生成器、迭代器和可迭代对象">1.3 生成器、迭代器和可迭代对象</h2>
+<blockquote>
+<p>迭代器和可迭代对象</p>
+</blockquote>
+<ol>
+<li>可迭代对象包含迭代器</li>
+<li>如果一个对象拥有<strong>iter</strong>方法，其是可迭代对象；如果一个对象拥有next方法，其是迭代器</li>
+<li>定义可迭代对象，必须实现<strong>iter</strong>方法；定义迭代器，必须实现<strong>iter</strong>和next方法</li>
+</ol>
+<blockquote>
+<p>生成器是一种特殊的迭代器</p>
+</blockquote>
+<ol>
+<li>在使用生成器时，我们创建一个函数；在使用迭代器时，我们使用内置函数iter()和next()</li>
+<li>在生成器中，我们使用关键字‘yield’来每次生成/返回一个对象</li>
+<li>生成器中有多少‘yield’语句，你可以自定义</li>
+<li>每次‘yield’暂停循环时，生成器会保存本地变量的状态</li>
+<li>迭代器并不会使用局部变量，它只需要一个可迭代对象进行迭代</li>
+<li>使用类可以实现你自己的迭代器，但无法实现生成器</li>
+<li>生成器运行速度快，语法简洁，更简单</li>
+<li>迭代器更能节约内存</li>
+</ol>
+<blockquote>
+<p>可迭代对象，迭代器和生成器之间的关系如下</p>
+</blockquote>
+<p><a data-lightbox="65c67094-2dfe-459f-8bae-1fa532f94b5d" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/20170516000644044.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/20170516000644044.webp"/></a></p>
+<h2 id="pipenv依赖管理工具">1.4 Pipenv依赖管理工具</h2>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/37581807" target="_blank">Pipenv：新一代Python项目环境与依赖管理工具</a></p>
+<p><a href="https://crazygit.wiseturtles.com/2018/01/08/pipenv-tour" target="_blank">pipenv使用指南</a></p>
+</blockquote>
+<p>使用 pipdeptree 工具来管理依赖树</p>
+<pre><code class="lang-shell">$ pip install pipdeptree
+...
+$ pipdeptree
+certifi==2020.6.20
+Flask==1.1.2
+  - click [required: &gt;=5.1, installed: 7.1.2]
+  - itsdangerous [required: &gt;=0.24, installed: 1.1.0]
+  - Jinja2 [required: &gt;=2.10.1, installed: 2.11.3]
+    - MarkupSafe [required: &gt;=0.23, installed: 1.1.1]
+  - Werkzeug [required: &gt;=0.15, installed: 1.0.1]
+pipdeptree==2.0.0
+  - pip [required: &gt;=6.0.0, installed: 19.3.1]
+setuptools==44.0.0.post20200106
+wheel==0.36.2
+</code></pre>
+<p>pip-autoremove可以删除依赖包</p>
+<pre><code class="lang-sh">$ pip install flask
+$ pip install pip-autoremove
+$ pip-autoremove flask -y
+$ pipdeptree
+certifi==2020.6.20
+pip-autoremove==0.9.1
+pipdeptree==2.0.0
+  - pip [required: &gt;=6.0.0, installed: 19.3.1]
+setuptools==44.0.0.post20200106
+wheel==0.36.2
+</code></pre>
+<h2 id="私有仓库">1.5 私有仓库</h2>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/901a56d1eb61" target="_blank">Python 笔记 | 建立python私有仓库</a></p>
+</blockquote>
+<ol>
+<li><p>安装pypiserver</p>
+<pre><code class="lang-cmd">pip install pypiserver
+</code></pre>
+</li>
+<li><p>安装htpasswd的相关依赖</p>
+<pre><code class="lang-cmd">yum install apache2
+pip install passlib
+yum -y install httpd-tools
+</code></pre>
+</li>
+<li><p>htpasswd生成上传密码</p>
+<pre><code class="lang-cmd">htpasswd -sc ~/pypipasswd.txt user_name
+</code></pre>
+</li>
+<li><p>创建python包存放的目录，可以放个whl包进去</p>
+<pre><code class="lang-cmd"><span class="hljs-built_in">mkdir</span> ~/packages
+</code></pre>
+</li>
+<li><p>开启服务</p>
+<pre><code class="lang-cmd">pypi-server -p <span class="hljs-number">8080</span> -P ~/pypipasswd.txt ~/packages
+</code></pre>
+</li>
+<li><p>pip安装</p>
+<pre><code class="lang-cmd">pip install --extra-index-url http://<span class="hljs-number">120</span>.<span class="hljs-number">120</span>.<span class="hljs-number">120</span>.<span class="hljs-number">120</span>:<span class="hljs-number">8080</span>/simple/ --trusted-host <span class="hljs-number">120</span>.<span class="hljs-number">120</span>.<span class="hljs-number">120</span>.<span class="hljs-number">120</span> workbench_toutiao
+</code></pre>
+</li>
+<li></li>
+</ol>
+<h2 id="查看库中常用模块">1.6 查看库中常用模块</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> math
+dir(math)
+[<span class="hljs-string">'__doc__'</span>, <span class="hljs-string">'__loader__'</span>, <span class="hljs-string">'__name__'</span>, <span class="hljs-string">'__package__'</span>, <span class="hljs-string">'__spec__'</span>, 
+ <span class="hljs-string">'acos'</span>, <span class="hljs-string">'acosh'</span>, <span class="hljs-string">'asin'</span>, <span class="hljs-string">'asinh'</span>, <span class="hljs-string">'atan'</span>, <span class="hljs-string">'atan2'</span>, ...]
+</code></pre>
+<h2 id="linux后台执行py脚本">1.7 linux后台执行py脚本</h2>
+<blockquote>
+<p>程序后台运行</p>
+</blockquote>
+<pre><code class="lang-cmd">nohup python test.py &gt; tt.log&gt;&amp;<span class="hljs-number">1</span> &amp;
+</code></pre>
+<blockquote>
+<p>nohup.out中显示不出来python程序中print的东西，这是因为python的输出有<code>缓冲</code>，导致nohup.out并不能够马上看到输出
+python 有个-u参数，使得python不启用缓冲</p>
+</blockquote>
+<pre><code class="lang-cmd">nohup python -u test.py&gt;tt.log&gt;&amp;<span class="hljs-number">1</span> &amp;
+</code></pre>
+<blockquote>
+<p>还有一种方式(未尝试过)</p>
+</blockquote>
+<pre><code class="lang-cmd">import sys
+sys.stdout = Unbuffered(sys.stdout)
+</code></pre>
+<h2 id="代码调试技巧">1.8 代码调试技巧</h2>
+<blockquote>
+<p><a href="https://www.ibm.com/developerworks/cn/linux/l-cn-pythondebugger/index.html" target="_blank">Python 代码调试技巧</a></p>
+</blockquote>
+<ul>
+<li><p>Python 3.7，则无需导入任何内容，只需在代码中要放入调试器的位置调用breakpoint()</p>
+<pre><code class="lang-python">Some complicated code <span class="hljs-keyword">with</span> bugs
+breakpoint()
+</code></pre>
+</li>
+<li><p>Python 3.6及更早版本中，你可以通过显式导入pdb来执行相同的操作，像breakpoint()一样，pdb.set_trace()会将你带入pdb调试器</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> pdb; 
+pdb.set_trace()
+</code></pre>
+</li>
+</ul>
+<h1 id="库和常用方法">2 库和常用方法</h1>
+<h2 id="变量存储工具方法">2.1 变量存储工具方法</h2>
+<blockquote>
+<p>什么是酸洗和去除？</p>
+</blockquote>
+<p>Pickle模块接受任何Python对象并将其转换为字符串表示形式，并使用dump函数将其转储到文件中，此过程称为<strong>pickling</strong>
+从存储的字符串表示中检索原始Python对象的过程称为<strong>unpickling</strong></p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> dill
+<span class="hljs-keyword">import</span> pickle <span class="hljs-keyword">as</span> pk
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dump_obj</span><span class="hljs-params">(obj, file_name)</span>:</span>
+    <span class="hljs-keyword">with</span> open(file_name, <span class="hljs-string">'wb'</span>) <span class="hljs-keyword">as</span> f:
+        dill.dump(obj, f)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">load_obj</span><span class="hljs-params">(file_name)</span>:</span>
+    <span class="hljs-keyword">with</span> open(file_name, <span class="hljs-string">"rb"</span>) <span class="hljs-keyword">as</span> f:
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">return</span> dill.load(f)
+        <span class="hljs-keyword">except</span> Exception:
+            <span class="hljs-keyword">return</span> pk.load(f)
+</code></pre>
+<h2 id="序列排序">2.2 序列排序</h2>
+<p>Python中拥有内置函数实现排序，可以直接调用它们实现排序功能</p>
+<ul>
+<li><strong>list.sort()</strong>: 直接修改列表</li>
+<li><strong>sorted()</strong>: 从一个可迭代对象构建一个新的排序列表</li>
+</ul>
+<p>不管是 <code>list.sort</code> 方法还是 <code>sorted</code> 函数，都有两个可选的关键字参数</p>
+<blockquote>
+<p>list.sort(cmp=None, key=None, reverse=False)</p>
+</blockquote>
+<ul>
+<li><p><strong>cmp</strong> -- 可选参数, 如果指定了该参数会使用该参数的方法进行排序</p>
+</li>
+<li><p><strong>key</strong> -- 主要是用来进行比较的元素，只有一个参数，函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序</p>
+</li>
+<li><p><strong>reverse</strong> -- 排序规则，reverse = True 降序， reverse = False 升序(默认)</p>
+</li>
+</ul>
+<blockquote>
+<p>sorted(iterable, cmp=None, key=None, reverse=False)</p>
+</blockquote>
+<ul>
+<li><strong>erable</strong> -- 可迭代对象</li>
+<li><strong>cmp</strong> -- 比较的函数，这个具有两个参数，参数的值都是从可迭代对象中取出
+此函数必须遵守的规则为，大于则返回1，小于则返回-1，等于则返回0。</li>
+<li><strong>key</strong> -- 主要是用来进行比较的元素，只有一个参数，函数的参数就是取自于可迭代对象中，指定可迭代对象中的一个元素来进行排序</li>
+<li><strong>reverse</strong> -- 排序规则，reverse = True 降序 ，reverse = False 升序(默认)</li>
+</ul>
+<blockquote>
+<p>sort ()与sorted()区别</p>
+</blockquote>
+<p>sort() 是应用在 list 上的方法，sorted() 可以对所有可迭代的对象进行排序操作
+list 的 sort() 方法返回的是对已经存在的列表进行操作，无返回值
+而内建函数 sorted() 方法返回的是一个新的 list，而不是在原来的基础上进行的操作</p>
+<ul>
+<li><p>单关键字排序</p>
+<pre><code class="lang-python"># 默认情况下，sorted()已按升序对输入进行排序，而reverse关键字参数则按降序排序。
+&gt;&gt;&gt; sorted(['cat', 'dog', 'cheetah', 'rhino', 'bear'], reverse=True)
+['rhino', 'dog', 'cheetah', 'cat', 'bear]
+
+&gt;&gt;&gt; animals = [
+...     {'type': 'penguin', 'name': 'Stephanie', 'age': 8},
+...     {'type': 'elephant', 'name': 'Devon', 'age': 3},
+...     {'type': 'puma', 'name': 'Moe', 'age': 5},
+... ]
+&gt;&gt;&gt; sorted(animals, key=lambda animal: animal['age'])
+[
+    {'type': 'elephant', 'name': 'Devon', 'age': 3},
+    {'type': 'puma', 'name': 'Moe', 'age': 5},
+    {'type': 'penguin', 'name': 'Stephanie, 'age': 8},
+]
+# 通过传入一个返回每个元素年龄的lambda函数，可以轻松地按每个字典的单个值对字典列表进行排序。在这种情况下，字典现在按年龄按升序排序。
+</code></pre>
+</li>
+<li><p>多关键字排序</p>
+<pre><code class="lang-python"><span class="hljs-comment"># itemgetter() 函数也支持多个 keys</span>
+rows_by_lfname = sorted(rows, key=itemgetter(<span class="hljs-string">'lname'</span>,<span class="hljs-string">'fname'</span>))
+<span class="hljs-comment"># itemgetter() 有时候也可以用 lambda 表达式代替</span>
+rows_by_lfname = sorted(rows, key=<span class="hljs-keyword">lambda</span> r: (r[<span class="hljs-string">'lname'</span>],r[<span class="hljs-string">'fname'</span>]))
+</code></pre>
+</li>
+<li><p>使用 itemgetter() 方式会运行的稍微快点，如果你对性能要求比较高的话就使用 itemgetter() 方式</p>
+</li>
+</ul>
+<h2 id="import路径问题">2.3 import路径问题</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> sys
+sys.path.append(<span class="hljs-string">".."</span>)
+</code></pre>
+<h2 id="判断是否有中文">2.4 判断是否有中文</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_chinese</span><span class="hljs-params">(uchar)</span>:</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-string">u'\u4e00'</span> &lt;= uchar &lt;= <span class="hljs-string">u'\u9fff'</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+</code></pre>
+<h2 id="分割字符串并转换类型">2.5 分割字符串并转换类型</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+line = <span class="hljs-string">'12,26,31,17,90,28,88,40,77'</span>
+npyArray = np.fromstring(line, dtype=int, sep=<span class="hljs-string">','</span>)
+print(npyArray)
+
+array([<span class="hljs-number">12</span>, <span class="hljs-number">26</span>, <span class="hljs-number">31</span>, <span class="hljs-number">17</span>, <span class="hljs-number">90</span>, <span class="hljs-number">28</span>, <span class="hljs-number">88</span>, <span class="hljs-number">40</span>, <span class="hljs-number">77</span>])
+</code></pre>
+<h2 id="检查对象是否可调用">2.6 检查对象是否可调用</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fuunction</span><span class="hljs-params">(param)</span>:</span>
+    print(param)
+print(callable(fuunction))
+
+<span class="hljs-keyword">True</span>
+</code></pre>
+<h2 id="随机打乱多个数组">2.7 随机打乱多个数组</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">shuffledata</span><span class="hljs-params">(*arrs)</span>:</span>
+<span class="hljs-comment"># 調用案例 x,y = shuffledata(X,Y)</span>
+arrs = list(arrs)
+<span class="hljs-keyword">for</span> i, arr <span class="hljs-keyword">in</span> enumerate(arrs):
+   <span class="hljs-keyword">assert</span> len(arrs[<span class="hljs-number">0</span>]) == len(arrs[i])
+   arrs[i] = np.array(arr)
+p = np.random.permutation(len(arrs[<span class="hljs-number">0</span>]))
+<span class="hljs-keyword">return</span> tuple(arr[p] <span class="hljs-keyword">for</span> arr <span class="hljs-keyword">in</span> arrs)
+</code></pre>
+<h2 id="pandas读写csv">2.8 pandas读写csv</h2>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v0.1
+@author: narutohyc
+@file: hyc_test.py
+@Description: 
+@time: 2020/5/28 20:08
+"""</span>
+
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">csv_test</span><span class="hljs-params">()</span>:</span>
+    csv_name = <span class="hljs-string">'my_csv.csv'</span>
+    <span class="hljs-comment"># 初始化一个带表头的空表</span>
+    f1 = pd.DataFrame(<span class="hljs-keyword">None</span>, columns=[<span class="hljs-string">'name'</span>, <span class="hljs-string">'price'</span>, <span class="hljs-string">'marks'</span>])
+    f1.to_csv(csv_name, mode=<span class="hljs-string">'w'</span>, encoding=<span class="hljs-string">'utf-8'</span>, index=<span class="hljs-keyword">False</span>)
+
+    <span class="hljs-comment"># 追加数据到已存在的表</span>
+    data = {<span class="hljs-string">"name"</span>: [<span class="hljs-string">'google'</span>, <span class="hljs-string">'baidu'</span>, <span class="hljs-string">'yahoo'</span>], <span class="hljs-string">"marks"</span>: [<span class="hljs-number">100</span>, <span class="hljs-number">200</span>, <span class="hljs-number">300</span>], <span class="hljs-string">"price"</span>: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]}
+    f1 = pd.DataFrame(data, columns=[<span class="hljs-string">'name'</span>, <span class="hljs-string">'price'</span>, <span class="hljs-string">'marks'</span>])
+    f1.to_csv(csv_name, mode=<span class="hljs-string">'a'</span>, encoding=<span class="hljs-string">'utf-8'</span>, header=<span class="hljs-keyword">False</span>, index=<span class="hljs-keyword">False</span>)
+
+    <span class="hljs-comment"># 读取csv,index_col=False表示不存在索引列</span>
+    f2 = pd.read_csv(csv_name, encoding=<span class="hljs-string">'utf-8'</span>, index_col=<span class="hljs-keyword">False</span>)
+    print()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    csv_test()
+</code></pre>
+<h2 id="classmethod-和-staticmethod">2.9 classmethod 和 staticmethod</h2>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/20021164?sort=created" target="_blank">Python 中的 classmethod 和 staticmethod 有什么具体用途？</a></p>
+</blockquote>
+<h2 id="优雅判断数字所属等级">2.10 优雅判断数字所属等级</h2>
+<blockquote>
+<p>有从 A 到 F 的 5 个等级，现要判断某个数值（从 0 到 1 之间）所属的等级
+举例，如数值 &gt;= 0.9，则属于 A；若数值 &gt;= 0.8，则属于 B；以此类推</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> Iterable
+<span class="hljs-keyword">from</span> bisect <span class="hljs-keyword">import</span> bisect 
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cal_level</span><span class="hljs-params">(score: float, breakpoints: Iterable, name_codes: List)</span>:</span>
+ <span class="hljs-string">"""
+ 二分查找 计算分数等级
+ 示例：
+     obj = cal_level(score=78, breakpoints=(60, 70, 80, 90), name_codes='FDCBA')
+ :param score: 得分
+ :param breakpoints: 分值区间
+ :param name_codes: 各区间对应结果
+ :return: 该分值的对应结果
+ """</span>
+ <span class="hljs-keyword">return</span> name_codes[bisect(breakpoints, score)]
+</code></pre>
+<h2 id="取整操作">2.11 取整操作</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">learning</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> math
+    <span class="hljs-comment"># 向上取整</span>
+    math.ceil(<span class="hljs-number">2.3</span>)  <span class="hljs-comment"># 3</span>
+    math.ceil(<span class="hljs-number">2.6</span>)  <span class="hljs-comment"># 3</span>
+
+    <span class="hljs-comment"># 向下取整</span>
+    math.floor(<span class="hljs-number">2.3</span>)  <span class="hljs-comment"># 2</span>
+    math.floor(<span class="hljs-number">2.6</span>)  <span class="hljs-comment"># 2</span>
+
+    <span class="hljs-comment"># 四舍五入</span>
+    round(<span class="hljs-number">6.6</span>)  <span class="hljs-comment"># 7</span>
+    round(<span class="hljs-number">6.4</span>)  <span class="hljs-comment"># 6</span>
+    round(<span class="hljs-number">6.55</span>)  <span class="hljs-comment"># 7</span>
+
+    <span class="hljs-comment"># 只要不是.5的形式，也就是小数位不为5，round基本用法就是四舍五入。除此之外，round用于圆整，保留最近偶数：</span>
+    round(<span class="hljs-number">6.5</span>)  <span class="hljs-comment"># 6  是偶数</span>
+    round(<span class="hljs-number">7.5</span>)  <span class="hljs-comment"># 8 是偶数</span>
+
+    <span class="hljs-keyword">import</span> torch
+    <span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn
+    m = nn.Linear(<span class="hljs-number">20</span>, <span class="hljs-number">30</span>)
+    input = torch.randn(<span class="hljs-number">128</span>, <span class="hljs-number">20</span>)
+    output = m(input)
+    logger.info(output.shape)  <span class="hljs-comment"># torch.Size([128, 30])</span>
+
+    m = nn.Conv2d(<span class="hljs-number">16</span>, <span class="hljs-number">33</span>, <span class="hljs-number">3</span>, stride=<span class="hljs-number">2</span>)
+    input = torch.randn(<span class="hljs-number">20</span>, <span class="hljs-number">16</span>, <span class="hljs-number">50</span>, <span class="hljs-number">100</span>)
+    output = m(input)
+    logger.info(output.shape)  <span class="hljs-comment"># torch.Size([20, 33, 24, 95])     (190 + 2 * 0 - (3 - 1) - 1) / 2 + 1</span>
+
+    embedding = nn.Embedding(<span class="hljs-number">10</span>, <span class="hljs-number">3</span>)
+    input = torch.LongTensor([[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">9</span>]])
+    logger.info(input.shape)  <span class="hljs-comment"># torch.Size([2, 4])</span>
+    output = embedding(input)
+    logger.info(output.shape)  <span class="hljs-comment"># torch.Size([2, 4, 3])</span>
+</code></pre>
+<blockquote>
+<p><a href="https://cloud.tencent.com/developer/article/1982239" target="_blank">腾讯三面：40亿个QQ号码如何去重？</a></p>
+</blockquote>
+<h2 id="其他库">2.12 其他库</h2>
+<blockquote>
+<p><a href="https://www.zhihu.com/question/24590883" target="_blank">哪些 Python 库让你相见恨晚？</a></p>
+</blockquote>
+<h1 id="python-cookbook记录">3 python cookbook记录</h1>
+<h2 id="数据结构和算法">3.1 数据结构和算法</h2>
+<h3 id="最大或最小的-n-个元素">3.1.1 最大或最小的 N 个元素</h3>
+<blockquote>
+<p>怎样从一个集合中获得最大或者最小的 N 个元素列表？</p>
+<p>heapq 模块有两个函数：nlargest() 和 nsmallest() 可以完美解决这个问题。</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> heapq
+nums = [<span class="hljs-number">1</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">23</span>, <span class="hljs-number">7</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">18</span>, <span class="hljs-number">23</span>, <span class="hljs-number">42</span>, <span class="hljs-number">37</span>, <span class="hljs-number">2</span>]
+print(heapq.nlargest(<span class="hljs-number">3</span>, nums)) <span class="hljs-comment"># Prints [42, 37, 23]</span>
+print(heapq.nsmallest(<span class="hljs-number">3</span>, nums)) <span class="hljs-comment"># Prints [-4, 1, 2]</span>
+</code></pre>
+<p>两个函数都能接受一个关键字参数，用于更复杂的数据结构中：</p>
+<pre><code class="lang-python">portfolio = [
+{<span class="hljs-string">'name'</span>: <span class="hljs-string">'IBM'</span>, <span class="hljs-string">'shares'</span>: <span class="hljs-number">100</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">91.1</span>},
+{<span class="hljs-string">'name'</span>: <span class="hljs-string">'AAPL'</span>, <span class="hljs-string">'shares'</span>: <span class="hljs-number">50</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">543.22</span>},
+{<span class="hljs-string">'name'</span>: <span class="hljs-string">'FB'</span>, <span class="hljs-string">'shares'</span>: <span class="hljs-number">200</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">21.09</span>},
+{<span class="hljs-string">'name'</span>: <span class="hljs-string">'HPQ'</span>, <span class="hljs-string">'shares'</span>: <span class="hljs-number">35</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">31.75</span>},
+{<span class="hljs-string">'name'</span>: <span class="hljs-string">'YHOO'</span>, <span class="hljs-string">'shares'</span>: <span class="hljs-number">45</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">16.35</span>},
+{<span class="hljs-string">'name'</span>: <span class="hljs-string">'ACME'</span>, <span class="hljs-string">'shares'</span>: <span class="hljs-number">75</span>, <span class="hljs-string">'price'</span>: <span class="hljs-number">115.65</span>}
+]
+cheap = heapq.nsmallest(<span class="hljs-number">3</span>, portfolio, key=<span class="hljs-keyword">lambda</span> s: s[<span class="hljs-string">'price'</span>])
+expensive = heapq.nlargest(<span class="hljs-number">3</span>, portfolio, key=<span class="hljs-keyword">lambda</span> s: s[<span class="hljs-string">'price'</span>])
+</code></pre>
+<p>译者注：上面代码在对每个元素进行对比的时候，会以 price 的值进行比较</p>
+<p>如果你想在一个集合中查找最小或最大的 N 个元素，并且 N 小于集合元素数量，那么这些函数提供了很好的性能。因为在底层实现里面，首先会先将集合数据进行堆排序后放入一个列表中：</p>
+<pre><code class="lang-python">nums = [<span class="hljs-number">1</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">23</span>, <span class="hljs-number">7</span>, <span class="hljs-number">-4</span>, <span class="hljs-number">18</span>, <span class="hljs-number">23</span>, <span class="hljs-number">42</span>, <span class="hljs-number">37</span>, <span class="hljs-number">2</span>]
+<span class="hljs-keyword">import</span> heapq
+heap = list(nums)
+heapq.heapify(heap)
+heap
+[<span class="hljs-number">-4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">23</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">18</span>, <span class="hljs-number">23</span>, <span class="hljs-number">42</span>, <span class="hljs-number">37</span>, <span class="hljs-number">8</span>]
+</code></pre>
+<p>堆数据结构最重要的特征是 heap[0] 永远是最小的元素。并且剩余的元素可以很容易的通过调用heapq.heappop() 方法得到，该方法会先将第一个元素弹出来，然后用下一个最小的元素来取代被弹出元素（这种操作时间复杂度仅仅是$Olog(N)$，$N$是堆大小）。</p>
+<p><strong>小结</strong>：</p>
+<p>当要查找的元素个数相对比较小的时候，函数 nlargest() 和 nsmallest() 是很合适的。</p>
+<p>如果你仅仅想查找唯一的最小或最大（N=1）的元素的话，那么使用 min() 和max() 函数会更快些。</p>
+<p>类似的，如果 N 的大小和集合大小接近的时候，通常先排序这个集合然后再使用切片操作会更快点（sorted(items)[:N] 或者是 sorted(items)[-N:]）。</p>
+<p>需要在正确场合使用函数 nlargest() 和 nsmallest() 才能发挥它们的优势（如果N 快接近集合大小了，那么使用排序操作会更好些）。</p>
+</blockquote>
+<h3 id="实现一个优先级队列">3.1.2 实现一个优先级队列</h3>
+<blockquote>
+<p>怎样实现一个按优先级排序的队列？并且在这个队列上面每次 pop 操作总是返回优先级最高的那个元素</p>
+<p>利用 heapq 模块实现了一个简单的优先级队列：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> heapq
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PriorityQueue</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._queue = []
+        self._index = <span class="hljs-number">0</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">push</span><span class="hljs-params">(self, item, priority)</span>:</span>
+            heapq.heappush(self._queue, (-priority, self._index, item))
+            self._index += <span class="hljs-number">1</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pop</span><span class="hljs-params">(self)</span>:</span>
+            <span class="hljs-keyword">return</span> heapq.heappop(self._queue)[<span class="hljs-number">-1</span>]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Item</span>:</span>
+<span class="hljs-meta">... </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name)</span>:</span>
+<span class="hljs-meta">... </span>self.name = name
+<span class="hljs-meta">... </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+<span class="hljs-meta">... </span><span class="hljs-keyword">return</span> <span class="hljs-string">'Item({!r})'</span>.format(self.name)
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>q = PriorityQueue()
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.push(Item(<span class="hljs-string">'foo'</span>), <span class="hljs-number">1</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.push(Item(<span class="hljs-string">'bar'</span>), <span class="hljs-number">5</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.push(Item(<span class="hljs-string">'spam'</span>), <span class="hljs-number">4</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.push(Item(<span class="hljs-string">'grok'</span>), <span class="hljs-number">1</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.pop()
+Item(<span class="hljs-string">'bar'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.pop()
+Item(<span class="hljs-string">'spam'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.pop()
+Item(<span class="hljs-string">'foo'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.pop()
+Item(<span class="hljs-string">'grok'</span>)
+&gt;&gt;&gt;
+</code></pre>
+<p>仔细观察可以发现，第一个 pop() 操作返回优先级最高的元素。另外注意到如果两个有着相同优先级的元素（foo 和 grok ），pop 操作按照它们被插入到队列的顺序返回的。</p>
+<p>在上面代码中，队列包含了一个 (-priority, index, item) 的元组。优先级为负数的目的是使得元素按照优先级从高到低排序。这个跟普通的按优先级从低到高排序的堆排序恰巧相反。
+index 变量的作用是保证同等优先级元素的正确排序。通过保存一个不断增加的index 下标变量，可以确保元素按照它们插入的顺序排序。而且，index 变量也在相同优先级元素比较的时候起到重要作用</p>
+<p>通过引入另外的 index 变量组成三元组 (priority, index, item) ，就能很好的避免上面的错误，因为不可能有两个元素有相同的 index 值。Python 在做元组比较时候，如果前面的比较已经可以确定结果了，后面的比较操作就不会发生了：</p>
+<pre><code class="lang-python">a = (<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, Item(<span class="hljs-string">'foo'</span>))
+b = (<span class="hljs-number">5</span>, <span class="hljs-number">1</span>, Item(<span class="hljs-string">'bar'</span>))
+c = (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, Item(<span class="hljs-string">'grok'</span>))
+a &lt; b
+<span class="hljs-keyword">True</span>
+a &lt; c
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>如果你想在多个线程中使用同一个队列，那么你需要增加适当的锁和信号量机制。</p>
+</blockquote>
+<h3 id="字典的运算">3.1.3 字典的运算</h3>
+<blockquote>
+<p>怎样在数据字典中执行一些计算操作（比如求最小值、最大值、排序等等）？</p>
+<p>考虑下面的股票名和价格映射字典：</p>
+<pre><code class="lang-python">prices = {
+    <span class="hljs-string">'ACME'</span>: <span class="hljs-number">45.23</span>,
+    <span class="hljs-string">'AAPL'</span>: <span class="hljs-number">612.78</span>,
+    <span class="hljs-string">'IBM'</span>: <span class="hljs-number">205.55</span>,
+    <span class="hljs-string">'HPQ'</span>: <span class="hljs-number">37.20</span>,
+    <span class="hljs-string">'FB'</span>: <span class="hljs-number">10.75</span>}
+</code></pre>
+<p>为了对字典值执行计算操作，通常需要使用 zip() 函数先将键和值反转过来。比如，下面是查找最小和最大股票价格和股票值的代码</p>
+<pre><code class="lang-python">min_price = min(zip(prices.values(), prices.keys()))
+<span class="hljs-comment"># min_price is (10.75, 'FB')</span>
+max_price = max(zip(prices.values(), prices.keys()))
+<span class="hljs-comment"># max_price is (612.78, 'AAPL')</span>
+</code></pre>
+<p>类似的，可以使用 zip() 和 sorted() 函数来排列字典数据：</p>
+<pre><code class="lang-python">prices_sorted = sorted(zip(prices.values(), prices.keys()))
+<span class="hljs-comment"># prices_sorted is [(10.75, 'FB'), (37.2, 'HPQ'),</span>
+<span class="hljs-comment"># (45.23, 'ACME'), (205.55, 'IBM'),</span>
+<span class="hljs-comment"># (612.78, 'AAPL')]</span>
+</code></pre>
+<p>如果你在一个字典上执行普通的数学运算，你会发现它们仅仅作用于键，而不是值。</p>
+<p>需要注意的是在计算操作中使用到了 (值，键) 对。当多个实体拥有相同的值的时候，键会决定返回结果。比如，在执行 min() 和 max() 操作的时候，如果恰巧最小或最大值有重复的，那么拥有最小或最大键的实体会返回：</p>
+<pre><code class="lang-python">prices = { <span class="hljs-string">'AAA'</span> : <span class="hljs-number">45.23</span>, <span class="hljs-string">'ZZZ'</span>: <span class="hljs-number">45.23</span> }
+min(zip(prices.values(), prices.keys()))
+(<span class="hljs-number">45.23</span>, <span class="hljs-string">'AAA'</span>)
+max(zip(prices.values(), prices.keys()))
+(<span class="hljs-number">45.23</span>, <span class="hljs-string">'ZZZ'</span>)
+</code></pre>
+</blockquote>
+<h3 id="查找两字典的相同点">3.1.4 查找两字典的相同点</h3>
+<blockquote>
+<p>为了寻找两个字典的相同点，可以简单的在两字典的 keys() 或者 items() 方法返回结果上执行集合操作。</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Find keys in common</span>
+a.keys() &amp; b.keys() <span class="hljs-comment"># { 'x', 'y' }</span>
+<span class="hljs-comment"># Find keys in a that are not in b</span>
+a.keys() - b.keys() <span class="hljs-comment"># { 'z' }</span>
+<span class="hljs-comment"># Find (key,value) pairs in common</span>
+a.items() &amp; b.items() <span class="hljs-comment"># { ('y', 2) }</span>
+</code></pre>
+<p>这些操作也可以用于修改或者过滤字典元素。比如，假如你想以现有字典构造一个排除几个指定键的新字典。下面利用字典推导来实现这样的需求：</p>
+<pre><code class="lang-python"><span class="hljs-comment"># Make a new dictionary with certain keys removed</span>
+c = {key:a[key] <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> a.keys() - {<span class="hljs-string">'z'</span>, <span class="hljs-string">'w'</span>}}
+<span class="hljs-comment"># c is {'x': 1, 'y': 2}</span>
+</code></pre>
+<p><strong>小结</strong>：</p>
+<p>一个字典就是一个键集合与值集合的映射关系。字典的 keys() 方法返回一个展现键集合的键视图对象。键视图的一个很少被了解的特性就是它们也支持集合操作，比如集合并、交、差运算。所以，如果你想对集合的键执行一些普通的集合操作，可以直接使用键视图对象而不用先将它们转换成一个 set。
+字典的 items() 方法返回一个包含 (键，值) 对的元素视图对象。这个对象同样也支持集合操作，并且可以被用来查找两个字典有哪些相同的键值对。
+尽管字典的 values() 方法也是类似，但是它并不支持这里介绍的集合操作。某种程度上是因为值视图不能保证所有的值互不相同，这样会导致某些集合操作会出现问题。不过，如果你硬要在值上面执行这些集合操作的话，你可以先将值集合转换成 set，然后再执行集合运算就行了。</p>
+</blockquote>
+<h3 id="删除序列相同元素并保持顺序">3.1.5 删除序列相同元素并保持顺序</h3>
+<blockquote>
+<p>如果你想消除元素不可哈希（比如 dict 类型）的序列中重复元素的话</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dedupe</span><span class="hljs-params">(items, key=None)</span>:</span>
+seen = set()
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> items:
+val = item <span class="hljs-keyword">if</span> key <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">else</span> key(item)
+<span class="hljs-keyword">if</span> val <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> seen:
+<span class="hljs-keyword">yield</span> item
+seen.add(val)
+</code></pre>
+<p>这里的 key 参数指定了一个函数，将序列元素转换成 hashable 类型。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>a = [ {<span class="hljs-string">'x'</span>:<span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>:<span class="hljs-number">2</span>}, {<span class="hljs-string">'x'</span>:<span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>:<span class="hljs-number">3</span>}, {<span class="hljs-string">'x'</span>:<span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>:<span class="hljs-number">2</span>}, {<span class="hljs-string">'x'</span>:<span class="hljs-number">2</span>, <span class="hljs-string">'y'</span>:<span class="hljs-number">4</span>}]
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(dedupe(a, key=<span class="hljs-keyword">lambda</span> d: (d[<span class="hljs-string">'x'</span>],d[<span class="hljs-string">'y'</span>])))
+[{<span class="hljs-string">'x'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>: <span class="hljs-number">2</span>}, {<span class="hljs-string">'x'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>: <span class="hljs-number">3</span>}, {<span class="hljs-string">'x'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'y'</span>: <span class="hljs-number">4</span>}]
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(dedupe(a, key=<span class="hljs-keyword">lambda</span> d: d[<span class="hljs-string">'x'</span>]))
+[{<span class="hljs-string">'x'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'y'</span>: <span class="hljs-number">2</span>}, {<span class="hljs-string">'x'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'y'</span>: <span class="hljs-number">4</span>}]
+&gt;&gt;&gt;
+</code></pre>
+<p>如果你想基于单个字段、属性或者某个更大的数据结构来消除重复元素，第二种方案同样可以胜任。</p>
+</blockquote>
+<h3 id="命名切片">3.1.6 命名切片</h3>
+<blockquote>
+<p>内置的 slice() 函数创建了一个切片对象，可以被用在任何切片允许使用的地方。</p>
+<p>如果你有一个切片对象 a，你可以分别调用它的 a.start , a.stop , a.step 属性来获取更多的信息。</p>
+<p>还能通过调用切片的 indices(size) 方法将它映射到一个确定大小的序列上，这个方法返回一个三元组 (start, stop, step) ，所有值都会被合适的缩小以满足边界限制，从而使用的时候避免出现 IndexError 异常。</p>
+<pre><code class="lang-python">SHARES = slice(<span class="hljs-number">20</span>, <span class="hljs-number">23</span>)
+PRICE = slice(<span class="hljs-number">31</span>, <span class="hljs-number">37</span>)
+cost = int(record[SHARES]) * float(record[PRICE])
+</code></pre>
+</blockquote>
+<h2 id="字符串和文本">3.2 字符串和文本</h2>
+<h3 id="使用多个界定符分割字符串">3.2.1 使用多个界定符分割字符串</h3>
+<blockquote>
+<p>函数 re.split() 是非常实用的，因为它允许你为分隔符指定多个正则模式。比如，在上面的例子中，分隔符可以是逗号，分号或者是空格，并且后面紧跟着任意个的空格。只要这个模式被找到，那么匹配的分隔符两边的实体都会被当成是结果中的元素返回。返回结果为一个字段列表，这个跟 str.split() 返回值类型是一样的。</p>
+<p>当你使用 re.split() 函数时候，需要特别注意的是正则表达式中是否包含一个括号捕获分组。如果使用了捕获分组，那么被匹配的文本也将出现在结果列表中。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>fields = re.split(<span class="hljs-string">r'(;|,|\s)\s*'</span>, line)
+<span class="hljs-meta">&gt;&gt;&gt; </span>fields
+[<span class="hljs-string">'asdf'</span>, <span class="hljs-string">' '</span>, <span class="hljs-string">'fjdk'</span>, <span class="hljs-string">';'</span>, <span class="hljs-string">'afed'</span>, <span class="hljs-string">','</span>, <span class="hljs-string">'fjek'</span>, <span class="hljs-string">','</span>, <span class="hljs-string">'asdf'</span>, <span class="hljs-string">','</span>, <span class="hljs-string">'foo'</span>]
+</code></pre>
+</blockquote>
+<h3 id="用-shell-通配符匹配字符串">3.2.2 用 Shell 通配符匹配字符串</h3>
+<blockquote>
+<p>使用 Unix Shell 中常用的通配符 (比如 <em>.py , Dat[0-9]</em>.csv 等) 去匹配文本字符串</p>
+<p>fnmatch 模块提供了两个函数——fnmatch() 和 fnmatchcase() ，可以用来实现这样的匹配。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> fnmatch <span class="hljs-keyword">import</span> fnmatch, fnmatchcase
+<span class="hljs-meta">&gt;&gt;&gt; </span>fnmatch(<span class="hljs-string">'foo.txt'</span>, <span class="hljs-string">'*.txt'</span>)
+<span class="hljs-keyword">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>fnmatch(<span class="hljs-string">'foo.txt'</span>, <span class="hljs-string">'?oo.txt'</span>)
+<span class="hljs-keyword">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>fnmatch(<span class="hljs-string">'Dat45.csv'</span>, <span class="hljs-string">'Dat[0-9]*'</span>)
+<span class="hljs-keyword">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>names = [<span class="hljs-string">'Dat1.csv'</span>, <span class="hljs-string">'Dat2.csv'</span>, <span class="hljs-string">'config.ini'</span>, <span class="hljs-string">'foo.py'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>[name <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names <span class="hljs-keyword">if</span> fnmatch(name, <span class="hljs-string">'Dat*.csv'</span>)]
+[<span class="hljs-string">'Dat1.csv'</span>, <span class="hljs-string">'Dat2.csv'</span>]
+</code></pre>
+<p>fnmatch() 函数使用底层操作系统的大小写敏感规则 (不同的系统是不一样的) 来匹配模式。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># On OS X (Mac)</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>fnmatch(<span class="hljs-string">'foo.txt'</span>, <span class="hljs-string">'*.TXT'</span>)
+<span class="hljs-keyword">False</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># On Windows</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>fnmatch(<span class="hljs-string">'foo.txt'</span>, <span class="hljs-string">'*.TXT'</span>)
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>如果你对这个区别很在意，可以使用 fnmatchcase() 来代替。它完全使用你的模
+式大小写匹配</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>fnmatchcase(<span class="hljs-string">'foo.txt'</span>, <span class="hljs-string">'*.TXT'</span>)
+<span class="hljs-keyword">False</span>
+</code></pre>
+<p>fnmatch() 函数匹配能力介于简单的字符串方法和强大的正则表达式之间。</p>
+<p>如果在数据处理操作中只需要简单的通配符就能完成的时候，这通常是一个比较合理的方案。</p>
+<p>如果你的代码需要做文件名的匹配，最好使用 glob 模块。</p>
+</blockquote>
+<h3 id="字符串匹配和搜索">3.2.3 字符串匹配和搜索</h3>
+<blockquote>
+<p>匹配或者搜索特定模式的文本</p>
+<p>如果你想匹配的是字面字符串，那么你通常只需要调用基本字符串方法就行，比如str.find() , str.endswith() , str.startswith() 或者类似的方法</p>
+<p>对于复杂的匹配需要使用正则表达式和 re 模块。为了解释正则表达式的基本原理，假设你想匹配数字格式的日期字符串比如 11/27/2012 ，你可以这样做</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>text1 = <span class="hljs-string">'11/27/2012'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text2 = <span class="hljs-string">'Nov 27, 2012'</span>
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> re
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># Simple matching: \d+ means match one or more digits</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> re.match(<span class="hljs-string">r'\d+/\d+/\d+'</span>, text1):
+<span class="hljs-meta">... </span>print(<span class="hljs-string">'yes'</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">else</span>:
+<span class="hljs-meta">... </span>print(<span class="hljs-string">'no'</span>)
+...
+yes
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">if</span> re.match(<span class="hljs-string">r'\d+/\d+/\d+'</span>, text2):
+<span class="hljs-meta">... </span>print(<span class="hljs-string">'yes'</span>)
+<span class="hljs-meta">... </span><span class="hljs-keyword">else</span>:
+<span class="hljs-meta">... </span>print(<span class="hljs-string">'no'</span>)
+...
+no
+</code></pre>
+<p>如果你想使用同一个模式去做多次匹配，你应该先将模式字符串预编译为模式对象。</p>
+<p>match() 总是从字符串开始去匹配，如果你想查找字符串任意部分的模式出现位置，使用 findall() 方法去代替</p>
+<p>在定义正则式的时候，通常会利用括号去捕获分组。</p>
+<pre><code class="lang-python"> datepat = re.compile(<span class="hljs-string">r'(\d+)/(\d+)/(\d+)'</span>)
+</code></pre>
+<p>捕获分组可以使得后面的处理更加简单，因为可以分别将每个组的内容提取出来。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>m = datepat.match(<span class="hljs-string">'11/27/2012'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>m
+&lt;_sre.SRE_Match object at <span class="hljs-number">0x1005d2750</span>&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># Extract the contents of each group</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>m.group(<span class="hljs-number">0</span>)
+<span class="hljs-string">'11/27/2012'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>m.group(<span class="hljs-number">1</span>)
+<span class="hljs-string">'11'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>m.group(<span class="hljs-number">2</span>)
+<span class="hljs-string">'27'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>m.group(<span class="hljs-number">3</span>)
+<span class="hljs-string">'2012'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>m.groups()
+(<span class="hljs-string">'11'</span>, <span class="hljs-string">'27'</span>, <span class="hljs-string">'2012'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>month, day, year = m.groups()
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># Find all matches (notice splitting into tuples)</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text
+<span class="hljs-string">'Today is 11/27/2012. PyCon starts 3/13/2013.'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>datepat.findall(text)
+[(<span class="hljs-string">'11'</span>, <span class="hljs-string">'27'</span>, <span class="hljs-string">'2012'</span>), (<span class="hljs-string">'3'</span>, <span class="hljs-string">'13'</span>, <span class="hljs-string">'2013'</span>)]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> month, day, year <span class="hljs-keyword">in</span> datepat.findall(text):
+<span class="hljs-meta">... </span>print(<span class="hljs-string">'{}-{}-{}'</span>.format(year, month, day))
+...
+<span class="hljs-number">2012</span><span class="hljs-number">-11</span><span class="hljs-number">-27</span>
+<span class="hljs-number">2013</span><span class="hljs-number">-3</span><span class="hljs-number">-13</span>
+&gt;&gt;&gt;
+</code></pre>
+<p>findall() 方法会搜索文本并以列表形式返回所有的匹配。如果你想以迭代方式返回匹配，可以使用 finditer() 方法来代替</p>
+<p>核心步骤就是先使用 re.compile() 编译正则表达式字符串，然后使用 match() , findall() 或者 finditer() 等方法。</p>
+</blockquote>
+<h3 id="字符串搜索和替换">3.2.4 字符串搜索和替换</h3>
+<blockquote>
+<p>对于简单的字面模式，直接使用 str.replace() 方法即可</p>
+<p>对于复杂的模式，请使用 re 模块中的 sub() 函数。为了说明这个，假设你想将形式为 11/27/2012 的日期字符串改成 2012-11-27 。示例如下：</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>text = <span class="hljs-string">'Today is 11/27/2012. PyCon starts 3/13/2013.'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> re
+<span class="hljs-meta">&gt;&gt;&gt; </span>re.sub(<span class="hljs-string">r'(\d+)/(\d+)/(\d+)'</span>, <span class="hljs-string">r'\3-\1-\2'</span>, text)
+<span class="hljs-string">'Today is 2012-11-27. PyCon starts 2013-3-13.'</span>
+</code></pre>
+<p>sub() 函数中的第一个参数是被匹配的模式，第二个参数是替换模式。反斜杠数字比如 \3 指向前面模式的捕获组号。</p>
+<p>对于更加复杂的替换，可以传递一个替换回调函数来代替</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> calendar <span class="hljs-keyword">import</span> month_abbr
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">change_date</span><span class="hljs-params">(m)</span>:</span>
+<span class="hljs-meta">... </span>    mon_name = month_abbr[int(m.group(<span class="hljs-number">1</span>))]
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> <span class="hljs-string">'{} {} {}'</span>.format(m.group(<span class="hljs-number">2</span>), mon_name, m.group(<span class="hljs-number">3</span>))
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>datepat.sub(change_date, text)
+<span class="hljs-string">'Today is 27 Nov 2012. PyCon starts 13 Mar 2013.'</span>
+&gt;&gt;&gt;
+</code></pre>
+<p>一个替换回调函数的参数是一个 match 对象，也就是 match() 或者 find() 返回的对象。使用 group() 方法来提取特定的匹配部分。回调函数最后返回替换字符串。
+如果除了替换后的结果外，你还想知道有多少替换发生了，可以使用 re.subn()来代替。</p>
+</blockquote>
+<h3 id="将-unicode-文本标准化">3.2.5 将 Unicode 文本标准化</h3>
+<h3 id="删除字符串中不需要的字符">3.2.6 删除字符串中不需要的字符</h3>
+<blockquote>
+<p>去掉文本字符串开头，结尾或者中间不想要的字符，比如空白。</p>
+<p>strip() 方法能用于删除开始或结尾的字符。lstrip() 和 rstrip() 分别从左和从右执行删除操作。默认情况下，这些方法会去除空白字符，但是你也可以指定其他字符。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># Whitespace stripping</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s = <span class="hljs-string">' hello world \n'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s.strip()
+<span class="hljs-string">'hello world'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s.lstrip()
+<span class="hljs-string">'hello world \n'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>s.rstrip()
+<span class="hljs-string">' hello world'</span>
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-comment"># Character stripping</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>t = <span class="hljs-string">'-----hello====='</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>t.lstrip(<span class="hljs-string">'-'</span>)
+<span class="hljs-string">'hello====='</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>t.strip(<span class="hljs-string">'-='</span>)
+<span class="hljs-string">'hello'</span>
+&gt;&gt;&gt;
+</code></pre>
+<p>这些 strip() 方法在读取和清理数据以备后续处理的时候是经常会被用到的。比如，你可以用它们来去掉空格，引号和完成其他任务。
+但是需要注意的是去除操作不会对字符串的中间的文本产生任何影响。</p>
+<p>如果你想处理中间的空格，那么你需要求助其他技术。比如使用 replace() 方法或者是用正则表达式替换。</p>
+</blockquote>
+<h3 id="审查清理文本字符串">3.2.7 审查清理文本字符串</h3>
+<blockquote>
+<p>一些无聊的幼稚黑客在你的网站页面表单中输入文本”pýtĥöñ”，然后你想将这些字符清理掉。</p>
+<p>文本清理问题会涉及到包括文本解析与数据处理等一系列问题。在非常简单的情形下，你可能会选择使用字符串函数 (比如 str.upper() 和 str.lower() ) 将文本转为标准格式。使用 str.replace() 或者 re.sub() 的简单替换操作能删除或者改变指定的字符序列。你同样还可以使用 2.9 小节的 unicodedata.normalize() 函数将 nicode
+文本标准化。</p>
+</blockquote>
+<h3 id="字符串对齐">3.2.8 字符串对齐</h3>
+<blockquote>
+<p>对于基本的字符串对齐操作，可以使用字符串的 ljust() , rjust() 和 center()方法。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>text = <span class="hljs-string">'Hello World'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text.ljust(<span class="hljs-number">20</span>)
+<span class="hljs-string">'Hello World '</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text.rjust(<span class="hljs-number">20</span>)
+<span class="hljs-string">' Hello World'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text.center(<span class="hljs-number">20</span>)
+<span class="hljs-string">' Hello World '</span>
+</code></pre>
+<p>所有这些方法都能接受一个可选的填充字符。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>text.rjust(<span class="hljs-number">20</span>,<span class="hljs-string">'='</span>)
+<span class="hljs-string">'=========Hello World'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>text.center(<span class="hljs-number">20</span>,<span class="hljs-string">'*'</span>)
+<span class="hljs-string">'****Hello World*****'</span>
+</code></pre>
+<p>函数 format() 同样可以用来很容易的对齐字符串。你要做的就是使用 &lt;,&gt; 或者 ^字符后面紧跟一个指定的宽度。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>format(text, <span class="hljs-string">'&gt;20'</span>)
+<span class="hljs-string">' Hello World'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(text, <span class="hljs-string">'&lt;20'</span>)
+<span class="hljs-string">'Hello World '</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(text, <span class="hljs-string">'^20'</span>)
+<span class="hljs-string">' Hello World '</span>
+&gt;&gt;&gt;
+</code></pre>
+<p>如果你想指定一个非空格的填充字符，将它写到对齐字符的前面即可</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>format(text, <span class="hljs-string">'=&gt;20s'</span>)
+<span class="hljs-string">'=========Hello World'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(text, <span class="hljs-string">'*^20s'</span>)
+<span class="hljs-string">'****Hello World*****'</span>
+</code></pre>
+<p>当格式化多个值的时候，这些格式代码也可以被用在 format() 方法中。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">'{:&gt;10s} {:&gt;10s}'</span>.format(<span class="hljs-string">'Hello'</span>, <span class="hljs-string">'World'</span>)
+<span class="hljs-string">' Hello World'</span>
+</code></pre>
+<p>format() 函数的一个好处是它不仅适用于字符串。它可以用来格式化任何值，使得它非常的通用。比如，你可以用它来格式化数字：</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>x = <span class="hljs-number">1.2345</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(x, <span class="hljs-string">'&gt;10'</span>)
+<span class="hljs-string">' 1.2345'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>format(x, <span class="hljs-string">'^10.2f'</span>)
+<span class="hljs-string">' 1.23 '</span>
+</code></pre>
+<p>在新版本代码中，你应该优先选择 format() 函数或者方法。format() 要比% 操作符的功能更为强大。并且 format() 也比使用 ljust() , rjust() 或 center() 方法更通用，因为它可以用来格式化任意对象，而不仅仅是字符串。</p>
+</blockquote>
+<h3 id="以指定列宽格式化字符串">3.2.9 以指定列宽格式化字符串</h3>
+<blockquote>
+<p>使用 textwrap 模块来格式化字符串的输出。比如，假如你有下列的长字符串：</p>
+<pre><code class="lang-python">s = <span class="hljs-string">"Look into my eyes, look into my eyes, the eyes, the eyes, \
+the eyes, not around the eyes, don't look around the eyes, \
+look into my eyes, you're under."</span>
+</code></pre>
+<p>下面演示使用 textwrap 格式化字符串的多种方式：</p>
+<pre><code class="lang-python">&gt;&gt;&gt; import textwrap
+&gt;&gt;&gt; print(textwrap.fill(s, 70))
+Look into my eyes, look into my eyes, the eyes, the eyes, the eyes,
+not around the eyes, don't look around the eyes, look into my eyes,
+you're under.
+&gt;&gt;&gt; print(textwrap.fill(s, 40))
+Look into my eyes, look into my eyes,
+the eyes, the eyes, the eyes, not around
+the eyes, don't look around the eyes,
+look into my eyes, you're under.
+&gt;&gt;&gt; print(textwrap.fill(s, 40, initial_indent=' '))
+Look into my eyes, look into my
+eyes, the eyes, the eyes, the eyes, not
+around the eyes, don't look around the
+eyes, look into my eyes, you're under.
+&gt;&gt;&gt; print(textwrap.fill(s, 40, subsequent_indent=' '))
+Look into my eyes, look into my eyes,
+the eyes, the eyes, the eyes, not
+around the eyes, don't look around
+the eyes, look into my eyes, you're
+under.
+</code></pre>
+<p>textwrap 模块对于字符串打印是非常有用的，特别是当你希望输出自动匹配终端大小的时候。你可以使用 os.get_terminal_size() 方法来获取终端的大小尺寸。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> os
+<span class="hljs-meta">&gt;&gt;&gt; </span>os.get_terminal_size().columns
+<span class="hljs-number">80</span>
+</code></pre>
+<p>fill() 方法接受一些其他可选参数来控制 tab，语句结尾等。</p>
+</blockquote>
+<h3 id="在字符串中处理-html-和-xml">3.2.10 在字符串中处理 html 和 xml</h3>
+<h3 id="字符串令牌解析">3.2.11 字符串令牌解析</h3>
+<h2 id="迭代器与生成器">3.3 迭代器与生成器</h2>
+<h3 id="顺序迭代合并后的排序迭代对象">3.3.1 顺序迭代合并后的排序迭代对象</h3>
+<blockquote>
+<p>有一系列排序序列，想将它们合并后得到一个排序序列并在上面迭代遍历</p>
+<p>heapq.merge() 函数可以帮你解决这个问题</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> heapq
+<span class="hljs-meta">&gt;&gt;&gt; </span>a = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">10</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>b = [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">11</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> heapq.merge(a, b):
+<span class="hljs-meta">... </span>print(c)
+...
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">5</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">7</span>
+<span class="hljs-number">10</span>
+<span class="hljs-number">11</span>
+</code></pre>
+<p>heapq.merge 可迭代特性意味着它不会立马读取所有序列。这就意味着你可以在非常长的序列中使用它，而不会有太大的开销。</p>
+<p>要强调的是 heapq.merge() 需要所有输入序列必须是排过序的。特别的，它并不会预先读取所有数据到堆栈中或者预先排序，也不会对输入做任何的排序检测。</p>
+<p>它仅仅是检查所有序列的开始部分并返回最小的那个，这个过程一直会持续直到所有输入序列中的元素都被遍历完。</p>
+</blockquote>
+<h2 id="文件与-io">3.4 文件与 IO</h2>
+<h2 id="数据编码和处理">3.5 数据编码和处理</h2>
+<h2 id="函数">3.6 函数</h2>
+<h3 id="给函数参数增加元信息">3.6.1 给函数参数增加元信息</h3>
+<blockquote>
+<p>写好了一个函数，然后想为这个函数的参数增加一些额外的信息，这样的话其他使用者就能清楚的知道这个函数应该怎么使用。</p>
+<p>使用函数参数注解是一个很好的办法，它能提示程序员应该怎样正确使用这个函数。例如，下面有一个被注解了的函数：</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x:int, y:int)</span> -&gt; int:</span>
+    <span class="hljs-keyword">return</span> x + y
+</code></pre>
+<p>python 解释器不会对这些注解添加任何的语义。它们不会被类型检查，运行时跟没有加注解之前的效果也没有任何差距。</p>
+<p>尽管你可以使用任意类型的对象给函数添加注解 (例如数字，字符串，对象实例等等)，不过通常来讲使用类或者字符串会比较好点。</p>
+<p>函数注解只存储在函数的 __annotations__ 属性中</p>
+<pre><code class="lang-python">&gt;&gt;&gt; add.__annotations__
+{'y': &lt;class 'int'&gt;, 'return': &lt;class 'int'&gt;, 'x': &lt;class 'int'&gt;}
+</code></pre>
+<p>尽管注解的使用方法可能有很多种，但是它们的主要用途还是文档。</p>
+<p>因为 python并没有类型声明，通常来讲仅仅通过阅读源码很难知道应该传递什么样的参数给这个函数。</p>
+<p>这时候使用注解就能给程序员更多的提示，让他们可以正确的使用函数。</p>
+<p><strong>ps</strong>：这里可以结合元类，为参数做类型检测（narutohyc个人想法，还未实现）</p>
+</blockquote>
+<h3 id="将单方法的类转换为函数">3.6.2 将单方法的类转换为函数</h3>
+<blockquote>
+<p>你有一个除 __init__() 方法外只定义了一个方法的类。为了简化代码，你想将它转换成一个函数</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">urltemplate</span><span class="hljs-params">(template)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">opener</span><span class="hljs-params">(**kwargs)</span>:</span>
+        <span class="hljs-keyword">return</span> urlopen(template.format_map(kwargs))
+    <span class="hljs-keyword">return</span> opener
+<span class="hljs-comment"># Example use</span>
+yahoo = urltemplate(<span class="hljs-string">'http://finance.yahoo.com/d/quotes.csv?s={names}&amp;f=,→ {fields}'</span>)
+</code></pre>
+<p>大部分情况下，你拥有一个单方法类的原因是需要存储某些额外的状态来给方法使用。</p>
+</blockquote>
+<h3 id="带额外状态信息的回调函数">3.6.3 带额外状态信息的回调函数</h3>
+<blockquote>
+<p>你的代码中需要依赖到回调函数的使用 (比如事件处理器、等待后台任务完成后的回调等)，并且你还需要让回调函数拥有额外的状态值，以便在它的内部使用到。</p>
+</blockquote>
+<h3 id="内联回调函数">3.6.4 内联回调函数</h3>
+<blockquote>
+<p>当你编写使用回调函数的代码的时候，担心很多小函数的扩张可能会弄乱程序控制流。你希望找到某个方法来让代码看上去更像是一个普通的执行序列。</p>
+<p>通过使用生成器和协程可以使得回调函数内联在某个函数中。</p>
+<p>为了演示说明，假设你有如下所示的一个执行某种计算任务然后调用一个回调函数的函数</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">apply_async</span><span class="hljs-params">(func, args, *, callback)</span>:</span>
+    <span class="hljs-comment"># Compute the result</span>
+    result = func(*args)
+    <span class="hljs-comment"># Invoke the callback with the result</span>
+    callback(result)
+</code></pre>
+<p>接下来让我们看一下下面的代码，它包含了一个 Async 类和一个 inlined_async装饰器：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> queue <span class="hljs-keyword">import</span> Queue
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Async</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, func, args)</span>:</span>
+        self.func = func
+        self.args = args
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inlined_async</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args)</span>:</span>
+        f = func(*args)
+        result_queue = Queue()
+        result_queue.put(<span class="hljs-keyword">None</span>)
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            result = result_queue.get()
+            <span class="hljs-keyword">try</span>:
+                a = f.send(result)
+                apply_async(a.func, a.args, callback=result_queue.put)
+            <span class="hljs-keyword">except</span> StopIteration:
+                <span class="hljs-keyword">break</span>
+
+    <span class="hljs-keyword">return</span> wrapper
+</code></pre>
+<p>这两个代码片段允许你使用 yield 语句内联回调步骤。比如：</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-keyword">return</span> x + y
+<span class="hljs-meta">@inlined_async</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    r = <span class="hljs-keyword">yield</span> Async(add, (<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+    print(r)
+    r = <span class="hljs-keyword">yield</span> Async(add, (<span class="hljs-string">'hello'</span>, <span class="hljs-string">'world'</span>))
+    print(r)
+    <span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+        r = <span class="hljs-keyword">yield</span> Async(add, (n, n))
+        print(r)
+    print(<span class="hljs-string">'Goodbye'</span>)
+</code></pre>
+<p>如果你调用 test() ，你会得到类似如下的输出：</p>
+<pre><code class="lang-python"><span class="hljs-number">5</span>
+helloworld
+<span class="hljs-number">0</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">4</span>
+<span class="hljs-number">6</span>
+<span class="hljs-number">8</span>
+<span class="hljs-number">10</span>
+<span class="hljs-number">12</span>
+<span class="hljs-number">14</span>
+<span class="hljs-number">16</span>
+<span class="hljs-number">18</span>
+Goodbye
+</code></pre>
+<p>你会发现，除了那个特别的装饰器和 yield 语句外，其他地方并没有出现任何的回调函数 (其实是在后台定义的)。</p>
+<p>本小节会实实在在的测试你关于回调函数、生成器和控制流的知识。
+首先，在需要使用到回调的代码中，关键点在于当前计算工作会挂起并在将来的某个时候重启 (比如异步执行)。当计算重启时，回调函数被调用来继续处理结果。apply<em>async() 函数演示了执行回调的实际逻辑，尽管实际情况中它可能会更加复杂(包括线程、进程、事件处理器等等)。
+计算的暂停与重启思路跟生成器函数的执行模型不谋而合。具体来讲，yield 操作会使一个生成器函数产生一个值并暂停。接下来调用生成器的 \</em>_next__() 或 send()方法又会让它从暂停处继续执行。
+根据这个思路，这一小节的核心就在 inline_async() 装饰器函数中了。关键点就是，装饰器会逐步遍历生成器函数的所有 yield 语句，每一次一个。为了这样做，刚开始的时候创建了一个 result 队列并向里面放入一个 None 值。然后开始一个循环操作，从队列中取出结果值并发送给生成器，它会持续到下一个 yield 语句，在这里一个 Async 的实例被接受到。然后循环开始检查函数和参数，并开始进行异步计算apply_async() 。然而，这个计算有个最诡异部分是它并没有使用一个普通的回调函数，而是用队列的 put() 方法来回调。
+这时候，是时候详细解释下到底发生了什么了。主循环立即返回顶部并在队列上执行 get() 操作。如果数据存在，它一定是 put() 回调存放的结果。如果没有数据，那么先暂停操作并等待结果的到来。这个具体怎样实现是由 apply_async() 函数来决定的。如果你不相信会有这么神奇的事情，你可以使用 multiprocessing 库来试一下，在单独的进程中执行异步计算操作，如下所示：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    <span class="hljs-keyword">import</span> multiprocessing
+    pool = multiprocessing.Pool()
+    apply_async = pool.apply_async
+    <span class="hljs-comment"># Run the test function</span>
+    test()
+</code></pre>
+<p>实际上你会发现这个真的就是这样的，但是要解释清楚具体的控制流得需要点时间了。
+将复杂的控制流隐藏到生成器函数背后的例子在标准库和第三方包中都能看到。比如，在 contextlib 中的 @contextmanager 装饰器使用了一个令人费解的技巧，通过一个 yield 语句将进入和离开上下文管理器粘合在一起。另外非常流行的 Twisted 包中也包含了非常类似的内联回调。</p>
+</blockquote>
+<h3 id="访问闭包中定义的变量">3.6.5 访问闭包中定义的变量</h3>
+<h2 id="类与对象">3.7 类与对象</h2>
+<h2 id="元编程">3.8 元编程</h2>
+<h1 id="pycharm基础设置">4 pycharm基础设置</h1>
+<blockquote>
+<p>如果已经有setting.zip可以直接导入即可</p>
+<p>./res/5. python基础知识/settings.zip</p>
+</blockquote>
+<h2 id="pycharm激活">4.1 pycharm激活</h2>
+<blockquote>
+<p><a href="http://lookdiv.com/" target="_blank">idea PyCharm 全家桶激活码 - lookdiv</a></p>
+<p>秘钥: lookdiv.com</p>
+</blockquote>
+<h2 id="git配置">4.2 git配置</h2>
+<blockquote>
+<p>配置git路径</p>
+<p>Setting-&gt;Version Control-&gt;git</p>
+<p>Path to Git executable: S:\Git\cmd\git.exe</p>
+</blockquote>
+<h2 id="python模板设置">4.3 python模板设置</h2>
+<p>打开Setting-&gt;Editor-&gt;File and Code Templates-&gt;Files-&gt;Python Script</p>
+<p>配置如下信息(修改作者名，其他无需修改)：</p>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v0.1
+@author: narutohyc
+@file: ${NAME}.py
+@Description: 
+@time: ${DATE} ${TIME}
+"""</span>
+</code></pre>
+<h2 id="快捷键设置">4.4 快捷键设置</h2>
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>快捷键</th>
+<th>补充说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Reformat Code</td>
+<td>Ctrl+Alt+F</td>
+<td>格式化代码</td>
+</tr>
+<tr>
+<td>Close</td>
+<td>Ctrl+R</td>
+<td>关闭当前py文件窗口</td>
+</tr>
+<tr>
+<td>Split Vertically</td>
+<td>Ctrl+Shift+向右箭头</td>
+<td>垂直切分窗口</td>
+</tr>
+<tr>
+<td>Split Horizontally</td>
+<td>Ctrl+Shift+向左箭头</td>
+<td>水平切分窗口</td>
+</tr>
+<tr>
+<td>Git Pull</td>
+<td>Ctrl+Shift+L</td>
+<td>git pull</td>
+</tr>
+<tr>
+<td>Git commit File</td>
+<td>Ctrl+K</td>
+<td>git commit</td>
+</tr>
+<tr>
+<td>Git Commit and push</td>
+<td>Ctrl+Shift+K</td>
+<td>git push</td>
+</tr>
+<tr>
+<td>Change font size</td>
+<td></td>
+<td>ctrl+N-&gt;Actions-&gt;Change font size with Ctrl+Mouse Wheel</td>
+</tr>
+<tr>
+<td>Show in Explorer</td>
+<td>Crtl+Shift+S</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h1 id="项目依赖">5 项目依赖</h1>
+<h2 id="导出依赖">5.1 导出依赖</h2>
+<blockquote>
+<p>安装pipreqs</p>
+</blockquote>
+<pre><code class="lang-cmd">pip install pipreqs
+</code></pre>
+<blockquote>
+<p>导出依赖, 强制覆盖原先的依赖</p>
+</blockquote>
+<pre><code class="lang-cmd">pipreqs ./  --encoding=utf8 --force
+</code></pre>
+<h2 id="安装依赖">5.2 安装依赖</h2>
+<blockquote>
+<p>安装依赖库</p>
+</blockquote>
+<pre><code class="lang-cmd">pip install -r requirements.txt
+</code></pre>
+<h3 id="离线安装">5.2.1 离线安装</h3>
+<blockquote>
+<p>单个下载</p>
+</blockquote>
+<pre><code class="lang-cmd">pip download package_name -d "下载的路径(windows下双引号来表示文件夹)"
+</code></pre>
+<blockquote>
+<p>批量下载</p>
+</blockquote>
+<pre><code class="lang-cmd">pip download -d /tmp/packages -r requirements.txt
+</code></pre>
+<blockquote>
+<p>批量安装已经导出的包</p>
+<p>其中 --no-index 代表忽视pip 忽视默认的依赖包索引</p>
+<p>--find-links= 代表从你指定的目录寻下找离线包 </p>
+</blockquote>
+<pre><code class="lang-cmd">pip install --no-index --<span class="hljs-built_in">find</span>-links=/tmp/packages -r requirements.txt
+</code></pre>
+<h1 id="nginx">6 Nginx</h1>
+<blockquote>
+<p><a href="https://www.kuangstudy.com/bbs/1353634800149213186" target="_blank">Nginx快速入门</a></p>
+</blockquote>
+<h2 id="什么是nginx？">6.1 什么是Nginx？</h2>
+<p>Nginx (engine x) 是一个高性能的HTTP和反向代理web服务器，同时也提供了IMAP/POP3/SMTP服务。Nginx是由伊戈尔·赛索耶夫为俄罗斯访问量第二的Rambler.ru站点（俄文：Рамблер）开发的，第一个公开版本0.1.0发布于2004年10月4日。2011年6月1日，nginx 1.0.4发布。</p>
+<p>其特点是占有内存少，并发能力强，事实上nginx的并发能力在同类型的网页服务器中表现较好，中国大陆使用nginx网站用户有：百度、京东、新浪、网易、腾讯、淘宝等。在全球活跃的网站中有12.18%的使用比率，大约为2220万个网站。</p>
+<p>Nginx 是一个安装非常的简单、配置文件非常简洁（还能够支持perl语法）、Bug非常少的服务。Nginx 启动特别容易，并且几乎可以做到7*24不间断运行，即使运行数个月也不需要重新启动。你还能够不间断服务的情况下进行软件版本的升级。</p>
+<p>Nginx代码完全用C语言从头写成。官方数据测试表明能够支持高达 50,000 个并发连接数的响应。</p>
+<h2 id="nginx作用">6.2 Nginx作用</h2>
+<h3 id="http代理">6.2.1 Http代理</h3>
+<blockquote>
+<p>Http代理，反向代理：作为web服务器最常用的功能之一，尤其是反向代理。</p>
+</blockquote>
+<p>正向代理</p>
+<p><a data-lightbox="ca156fb9-759b-42c6-a7a6-d5775802500d" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy46bdad36-d3e0-43b0-a223-43360b7e8fc7.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy46bdad36-d3e0-43b0-a223-43360b7e8fc7.webp"/></a>
+反向代理</p>
+<p><a data-lightbox="b0e9133c-a5a6-4fd1-8459-8636ac8bfd20" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy62a15097-6e2a-4dbe-bcf5-f0d7cab81089.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy62a15097-6e2a-4dbe-bcf5-f0d7cab81089.webp"/></a></p>
+<h3 id="负载均衡">6.2.2 负载均衡</h3>
+<blockquote>
+<p>Nginx提供的负载均衡策略有2种：内置策略和扩展策略。内置策略为轮询，加权轮询，Ip hash。扩展策略，就天马行空，只有你想不到的没有他做不到的。</p>
+</blockquote>
+<h4 id="轮询"><a class="anchor-navigation-ex-anchor" href="#轮询" name="轮询"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#轮询" name="轮询"><i aria-hidden="true" class="fa fa-link"></i></a>轮询</h4>
+<p><a data-lightbox="b318507a-0955-4874-8b1e-6fac718827b5" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy62a15097-6e2a-4dbe-bcf5-f0d7cab81089.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy62a15097-6e2a-4dbe-bcf5-f0d7cab81089.webp"/></a></p>
+<h4 id="加权轮询"><a class="anchor-navigation-ex-anchor" href="#加权轮询" name="加权轮询"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#加权轮询" name="加权轮询"><i aria-hidden="true" class="fa fa-link"></i></a>加权轮询</h4>
+<p><a data-lightbox="65a38072-f3f7-463c-81b9-4629e7d840f2" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudyb1e3e440-4159-4259-a174-528b56cb04b2.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudyb1e3e440-4159-4259-a174-528b56cb04b2.webp"/></a></p>
+<h4 id="iphash"><a class="anchor-navigation-ex-anchor" href="#iphash" name="iphash"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#iphash" name="iphash"><i aria-hidden="true" class="fa fa-link"></i></a>iphash</h4>
+<p>对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。</p>
+<p><a data-lightbox="fb8f240a-3044-4810-b07e-c2ddfbca3766" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy64acb9a3-cd1a-4c0e-a1fa-9b220046a95a.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudy64acb9a3-cd1a-4c0e-a1fa-9b220046a95a.webp"/></a></p>
+<h4 id="fair"><a class="anchor-navigation-ex-anchor" href="#fair" name="fair"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#fair" name="fair"><i aria-hidden="true" class="fa fa-link"></i></a>fair</h4>
+<p>按后端服务器的响应时间来分配请求，响应时间短的优先分配。</p>
+<h4 id="urlhash"><a class="anchor-navigation-ex-anchor" href="#urlhash" name="urlhash"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#urlhash" name="urlhash"><i aria-hidden="true" class="fa fa-link"></i></a>url_hash</h4>
+<p>按访问url的hash结果来分配请求，使每个url定向到同一个后端服务器，后端服务器为缓存时比较有效。</p>
+<h3 id="动静分离">6.2.3 动静分离</h3>
+<blockquote>
+<p>动静分离，在我们的软件开发中，有些请求是需要后台处理的，有些请求是不需要经过后台处理的（如：css、html、jpg、js等等文件），这些不需要经过后台处理的文件称为静态文件。让动态网站里的动态网页根据一定规则把不变的资源和经常变的资源区分开来，动静资源做好了拆分以后，我们就可以根据静态资源的特点将其做缓存操作。提高资源响应的速度。</p>
+</blockquote>
+<p><a data-lightbox="f255088e-57b4-4a75-8da4-f8d2481d2fbb" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudyedb1bbd6-e530-4aba-8fde-68658a10e73f.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudyedb1bbd6-e530-4aba-8fde-68658a10e73f.webp"/></a></p>
+<h2 id="基本使用">6.3 基本使用</h2>
+<h3 id="配置监听">6.3.1 配置监听</h3>
+<p>nginx的配置文件是conf目录下的nginx.conf，默认配置的nginx监听的端口为80，如果80端口被占用可以修改为未被占用的端口即可。</p>
+<p><a data-lightbox="5517e8e4-2d4c-4119-9236-d2caaa921793" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudyf23105c4-b0b2-4e22-a1bf-b8098f40c144.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/14.python基础知识/kuangstudyf23105c4-b0b2-4e22-a1bf-b8098f40c144.webp"/></a>
+当我们修改了nginx的配置文件nginx.conf 时，不需要关闭nginx后重新启动nginx，只需要执行命令 <code>nginx -s reload</code> 即可让改动生效</p>
+<h3 id="关闭nginx">6.3.2 关闭nginx</h3>
+<p>如果使用cmd命令窗口启动nginx， 关闭cmd窗口是不能结束nginx进程的，可使用两种方法关闭nginx</p>
+<p>(1)输入nginx命令 <code>nginx -s stop</code>(快速停止nginx) 或 <code>nginx -s quit</code>(完整有序的停止nginx)</p>
+<p>(2)使用taskkill <code>taskkill /f /t /im nginx.exe</code></p>
+<pre><code class="lang-cmd"><span class="hljs-built_in">taskkill</span>是用来终止进程的，
+/f是强制终止 .
+/t终止指定的进程和任何由此启动的子进程。
+/im示指定的进程名称 .
+</code></pre>
+<h2 id="nginx常用命令">6.4 Nginx常用命令</h2>
+<h3 id="指令">6.4.1 指令</h3>
+<pre><code class="lang-cmd"><span class="hljs-built_in">cd</span> /usr/local/nginx/sbin/
+./nginx  启动
+./nginx -s stop  停止
+./nginx -s quit  安全退出
+./nginx -s reload  重新加载配置文件
+ps <span class="hljs-built_in">aux</span>|grep nginx  查看nginx进程
+</code></pre>
+<h3 id="防火墙">6.4.2 防火墙</h3>
+<pre><code class="lang-cmd"># 开启
+service firewalld <span class="hljs-built_in">start</span>
+# 重启
+service firewalld restart
+# 关闭
+service firewalld stop
+# 查看防火墙规则
+firewall-<span class="hljs-built_in">cmd</span> --list-all
+# 查询端口是否开放
+firewall-<span class="hljs-built_in">cmd</span> --query-port=<span class="hljs-number">8080</span>/tcp
+# 开放<span class="hljs-number">80</span>端口
+firewall-<span class="hljs-built_in">cmd</span> --permanent --add-port=<span class="hljs-number">80</span>/tcp
+# 移除端口
+firewall-<span class="hljs-built_in">cmd</span> --permanent --remove-port=<span class="hljs-number">8080</span>/tcp
+#重启防火墙(修改配置后要重启防火墙)
+firewall-<span class="hljs-built_in">cmd</span> --reload
+# 参数解释
+<span class="hljs-number">1</span>、firwall-<span class="hljs-built_in">cmd</span>：是Linux提供的操作firewall的一个工具；
+<span class="hljs-number">2</span>、--permanent：表示设置为持久；
+<span class="hljs-number">3</span>、--add-port：标识添加的端口；
+</code></pre>
+<h3 id="演示">6.4.3 演示</h3>
+<pre><code class="lang-cmd">upstream lb{
+    server <span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">8080</span> weight=<span class="hljs-number">1</span>;
+    server <span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>:<span class="hljs-number">8081</span> weight=<span class="hljs-number">1</span>;
+}
+location / {
+    proxy_pass http://lb;
+}
+</code></pre>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: 枚举类Enum" class="navigation navigation-prev" href="13.枚举类Enum.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: pythonic的几个办法" class="navigation navigation-next" href="15.Pythonic的几个办法.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python基础知识","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆0.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆0.webp","categories":["python"],"tags":["python","字符集","pycharm","random","时间库time和datetime","命令行传参","项目依赖"],"abbrlink":8258,"level":"1.15","depth":1,"next":{"title":"pythonic的几个办法","level":"1.16","depth":1,"path":"chapters/15.Pythonic的几个办法.md","ref":"chapters/15.Pythonic的几个办法.md","articles":[]},"previous":{"title":"枚举类Enum","level":"1.14","depth":1,"path":"chapters/13.枚举类Enum.md","ref":"chapters/13.枚举类Enum.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/14.python基础知识.md","mtime":"2023-08-13T04:38:31.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

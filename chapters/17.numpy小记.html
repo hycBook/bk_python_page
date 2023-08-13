@@ -1,0 +1,858 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>numpy小记 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="18.python_pipe包管道包学习.html" rel="next"/>
+<link href="16.pandas小记.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">numpy小记</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#numpy小记">1 numpy小记</a></li><li><span class="title-icon"></span><a href="#移动平均值">2 移动平均值</a></li><li><span class="title-icon"></span><a href="#第n个重复项的索引">3 第n个重复项的索引</a></li><li><span class="title-icon"></span><a href="#按列排序二维数组">4 按列排序二维数组</a></li><li><span class="title-icon"></span><a href="#pearsonr相关系数">5 pearsonr相关系数</a></li><li><span class="title-icon"></span><a href="#唯一值的数量">6 唯一值的数量</a></li><li><span class="title-icon"></span><a href="#多个条件过滤numpy数组">7 多个条件过滤numpy数组</a></li><li><span class="title-icon"></span><a href="#堆叠数组操作">8 堆叠数组操作</a></li><li><span class="title-icon"></span><a href="#提取范围内的所有数字">9 提取范围内的所有数字</a></li><li><span class="title-icon"></span><a href="#交换数组行列">10 交换数组行列</a></li><li><span class="title-icon"></span><a href="#反转2维数组行列">11 反转2维数组行列</a></li><li><span class="title-icon"></span><a href="#数组打印">12 数组打印</a></li><li><span class="title-icon"></span><a href="#标准化一个数组至0到1之间">13 标准化一个数组至0到1之间</a></li><li><span class="title-icon"></span><a href="#缺失值相关">14 缺失值相关</a></li><li><span class="title-icon"></span><a href="#数组交差集">15 数组交差集</a></li><li><span class="title-icon"></span><a href="#数组产生">16 数组产生</a></li><li><span class="title-icon"></span><a href="#元素查找">17 元素查找</a></li></ul></div><a href="#numpy小记" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="numpy小记">1 numpy小记</h1>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/a737cf162fcb" target="_blank">70个NumPy分级练习题：用Python一举搞定机器学习矩阵运算</a></p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> numpy <span class="hljs-keyword">as</span> np
+<span class="hljs-comment"># 1. 替换满足条件的元素而不影响原始数组</span>
+arr = np.arange(<span class="hljs-number">10</span>)
+out = np.where(arr%<span class="hljs-number">2</span>==<span class="hljs-number">1</span>, <span class="hljs-number">-1</span>, arr)
+arr
+Out[<span class="hljs-number">4</span>]: array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>])
+out
+Out[<span class="hljs-number">5</span>]: array([ <span class="hljs-number">0</span>, <span class="hljs-number">-1</span>,  <span class="hljs-number">2</span>, <span class="hljs-number">-1</span>,  <span class="hljs-number">4</span>, <span class="hljs-number">-1</span>,  <span class="hljs-number">6</span>, <span class="hljs-number">-1</span>,  <span class="hljs-number">8</span>, <span class="hljs-number">-1</span>])
+
+<span class="hljs-comment"># 7. 获取两个数组元素匹配的索引号</span>
+a = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])
+b = np.array([<span class="hljs-number">7</span>,<span class="hljs-number">2</span>,<span class="hljs-number">10</span>,<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span>])
+np.where(a==b)
+Out[<span class="hljs-number">33</span>]: (array([<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>], dtype=int64),)
+
+ <span class="hljs-comment"># 9. 将处理标量的python函数在numpy数组上运行</span>
+maxx = <span class="hljs-keyword">lambda</span> x,y: x <span class="hljs-keyword">if</span> x&gt;=y <span class="hljs-keyword">else</span> y
+pair_max = np.vectorize(maxx, otypes=[float])
+a = np.array([<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span>,<span class="hljs-number">6</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])
+ b = np.array([<span class="hljs-number">6</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>,<span class="hljs-number">7</span>,<span class="hljs-number">1</span>])
+pair_max(a,b)
+Out[<span class="hljs-number">45</span>]: array([<span class="hljs-number">6.</span>, <span class="hljs-number">7.</span>, <span class="hljs-number">9.</span>, <span class="hljs-number">8.</span>, <span class="hljs-number">9.</span>, <span class="hljs-number">7.</span>, <span class="hljs-number">5.</span>])
+
+ <span class="hljs-comment"># 18. 导入含有数字和文本的数据集，并保持的文本完整性</span>
+ url = <span class="hljs-string">"https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"</span>
+ irirs_ld = np.genfromtxt(url, delimiter=<span class="hljs-string">','</span>, dtype=<span class="hljs-keyword">None</span>)
+
+<span class="hljs-comment"># 21. 计算softmax值</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">softmax</span><span class="hljs-params">(x)</span>:</span>
+ ex = np.exp(x-np.max(x))
+ <span class="hljs-keyword">return</span> ex/ex.sum(axis=<span class="hljs-number">0</span>)
+
+<span class="hljs-comment"># 29. 概率抽样</span>
+<span class="hljs-comment"># 暂定</span>
+
+ <span class="hljs-comment"># 33. 两个数组之间的欧氏距离</span>
+ arr = np.arange(<span class="hljs-number">5</span>)
+ brr = np.arange(<span class="hljs-number">4</span>,<span class="hljs-number">9</span>)
+dist = np.linalg.norm(arr-brr)
+dist
+Out[<span class="hljs-number">176</span>]: <span class="hljs-number">8.94427190999916</span>
+
+<span class="hljs-comment"># 38. 不连续的日期数组。通过填补缺失的日期，使其成为连续的日期序列</span>
+ <span class="hljs-comment"># 39. 一维数组arr，使用步长生成一个二维数组，窗口长度为4，步长为2</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">gen_strides</span><span class="hljs-params">(arr, stride_len=<span class="hljs-number">5</span>, windows_len=<span class="hljs-number">5</span>)</span>:</span>
+    n_strides = ((arr.size-windows_len)//stride_len)+<span class="hljs-number">1</span>
+    <span class="hljs-keyword">return</span> np.array([arr[s:(s+windows_len)] <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> np.arange(<span class="hljs-number">0</span>, n_strides*stride_len,stride_len)])
+ gen_strides(np.arange(<span class="hljs-number">15</span>), stride_len=<span class="hljs-number">2</span>, windows_len=<span class="hljs-number">4</span>)
+Out[<span class="hljs-number">207</span>]: 
+array([[ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>,  <span class="hljs-number">3</span>],
+    [ <span class="hljs-number">2</span>,  <span class="hljs-number">3</span>,  <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>],
+     [ <span class="hljs-number">4</span>,  <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>],
+    [ <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>,  <span class="hljs-number">8</span>,  <span class="hljs-number">9</span>],
+    [ <span class="hljs-number">8</span>,  <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>],
+    [<span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>]])
+</code></pre>
+</blockquote>
+<h1 id="移动平均值">2 移动平均值</h1>
+<blockquote>
+<p>cumsum ：计算轴向元素累加和，返回由中间结果组成的数组</p>
+<p>cumprod ：计算轴向元素累乘积，返回由中间结果组成的数组</p>
+</blockquote>
+<pre><code class="lang-python">data = np.array([<span class="hljs-number">1</span>] * <span class="hljs-number">10</span>)
+acum = data.cumsum()
+cump = acum.cumprod()
+
+print(acum)
+[ <span class="hljs-number">1</span>  <span class="hljs-number">2</span>  <span class="hljs-number">3</span>  <span class="hljs-number">4</span>  <span class="hljs-number">5</span>  <span class="hljs-number">6</span>  <span class="hljs-number">7</span>  <span class="hljs-number">8</span>  <span class="hljs-number">9</span> <span class="hljs-number">10</span>]
+
+print(cump)
+array([      <span class="hljs-number">1</span>,       <span class="hljs-number">2</span>,       <span class="hljs-number">6</span>,      <span class="hljs-number">24</span>,     <span class="hljs-number">120</span>,     <span class="hljs-number">720</span>,    <span class="hljs-number">5040</span>,
+         <span class="hljs-number">40320</span>,  <span class="hljs-number">362880</span>, <span class="hljs-number">3628800</span>])
+</code></pre>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 37. 窗口大小为3的移动平均值</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">moving_average</span><span class="hljs-params">(a, n=<span class="hljs-number">3</span>)</span>:</span>
+    ret = np.cumsum(a, dtype=float)
+    ret[n:] = ret[n:]-ret[:-n]
+    <span class="hljs-keyword">return</span> ret[n<span class="hljs-number">-1</span>:]/n
+np.random.seed(<span class="hljs-number">100</span>)
+Z = np.random.randint(<span class="hljs-number">10</span>, size=<span class="hljs-number">10</span>)
+Z
+Out[<span class="hljs-number">191</span>]: array([<span class="hljs-number">8</span>, <span class="hljs-number">8</span>, <span class="hljs-number">3</span>, <span class="hljs-number">7</span>, <span class="hljs-number">7</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">2</span>])
+moving_average(Z, n=<span class="hljs-number">3</span>).round(<span class="hljs-number">2</span>)
+Out[<span class="hljs-number">192</span>]: array([<span class="hljs-number">6.33</span>, <span class="hljs-number">6.</span>  , <span class="hljs-number">5.67</span>, <span class="hljs-number">4.67</span>, <span class="hljs-number">3.67</span>, <span class="hljs-number">2.</span>  , <span class="hljs-number">3.67</span>, <span class="hljs-number">3.</span>  ])
+</code></pre>
+</blockquote>
+<h1 id="第n个重复项的索引">3 第n个重复项的索引</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 36. 第n个重复项的索引</span>
+<span class="hljs-comment"># 找出x中第1个重复n次的索引</span>
+arr = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">1</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>])
+n = <span class="hljs-number">5</span>
+[ii <span class="hljs-keyword">for</span> ii,kk <span class="hljs-keyword">in</span> enumerate(arr) <span class="hljs-keyword">if</span> kk==<span class="hljs-number">1</span>][n<span class="hljs-number">-1</span>]
+Out[<span class="hljs-number">186</span>]: <span class="hljs-number">8</span>
+np.where(arr==<span class="hljs-number">1</span>)[<span class="hljs-number">0</span>][n<span class="hljs-number">-1</span>]
+Out[<span class="hljs-number">187</span>]: <span class="hljs-number">8</span>
+</code></pre>
+</blockquote>
+<h1 id="按列排序二维数组">4 按列排序二维数组</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 31. 按列排序二维数组</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+arr
+Out[<span class="hljs-number">146</span>]: 
+array([[<span class="hljs-number">0.54040458</span>, <span class="hljs-number">0.29679375</span>, <span class="hljs-number">0.1107879</span> , <span class="hljs-number">0.3126403</span> ],
+ [<span class="hljs-number">0.45697913</span>, <span class="hljs-number">0.65894007</span>, <span class="hljs-number">0.25425752</span>, <span class="hljs-number">0.64110126</span>],
+ [<span class="hljs-number">0.20012361</span>, <span class="hljs-number">0.65762481</span>, <span class="hljs-number">0.77828922</span>, <span class="hljs-number">0.7795984</span> ]])
+arr[arr[:,<span class="hljs-number">1</span>].argsort()]
+Out[<span class="hljs-number">147</span>]: 
+array([[<span class="hljs-number">0.54040458</span>, <span class="hljs-number">0.29679375</span>, <span class="hljs-number">0.1107879</span> , <span class="hljs-number">0.3126403</span> ],
+ [<span class="hljs-number">0.20012361</span>, <span class="hljs-number">0.65762481</span>, <span class="hljs-number">0.77828922</span>, <span class="hljs-number">0.7795984</span> ],
+ [<span class="hljs-number">0.45697913</span>, <span class="hljs-number">0.65894007</span>, <span class="hljs-number">0.25425752</span>, <span class="hljs-number">0.64110126</span>]])
+</code></pre>
+</blockquote>
+<h1 id="pearsonr相关系数">5 pearsonr相关系数</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 25. 计算某两列的pearsonr相关系数</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+arr
+Out[<span class="hljs-number">114</span>]: 
+array([[<span class="hljs-number">0.59884338</span>, <span class="hljs-number">0.60380454</span>, <span class="hljs-number">0.10514769</span>, <span class="hljs-number">0.38194344</span>],
+ [<span class="hljs-number">0.03647606</span>, <span class="hljs-number">0.89041156</span>, <span class="hljs-number">0.98092086</span>, <span class="hljs-number">0.05994199</span>],
+ [<span class="hljs-number">0.89054594</span>, <span class="hljs-number">0.5769015</span> , <span class="hljs-number">0.74247969</span>, <span class="hljs-number">0.63018394</span>]])
+<span class="hljs-keyword">from</span> scipy.stats.stats <span class="hljs-keyword">import</span> pearsonr
+corr,p_value = pearsonr(arr[:,<span class="hljs-number">0</span>], arr[:,<span class="hljs-number">2</span>])
+corr
+Out[<span class="hljs-number">117</span>]: <span class="hljs-number">-0.432641494562719</span>
+</code></pre>
+</blockquote>
+<h1 id="唯一值的数量">6 唯一值的数量</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 27. 查找numpy数组中的唯一值的数量</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+np.unique(arr, return_counts=<span class="hljs-keyword">True</span>)
+Out[<span class="hljs-number">121</span>]: 
+(array([<span class="hljs-number">0.04486228</span>, <span class="hljs-number">0.14260031</span>, <span class="hljs-number">0.17808099</span>, <span class="hljs-number">0.23769421</span>, <span class="hljs-number">0.34019022</span>,
+  <span class="hljs-number">0.35479561</span>, <span class="hljs-number">0.37625245</span>, <span class="hljs-number">0.50543143</span>, <span class="hljs-number">0.5928054</span> , <span class="hljs-number">0.62994188</span>,
+  <span class="hljs-number">0.9338413</span> , <span class="hljs-number">0.94637988</span>]),
+array([<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>], dtype=int64))
+
+<span class="hljs-comment"># 28. 将数值转换为分类（文本）数组</span>
+<span class="hljs-comment"># 将iris_2d的花瓣长度（第3列）组成一个文本数组</span>
+<span class="hljs-comment"># &lt;3  -&gt; '小'</span>
+<span class="hljs-comment"># 3-5 -&gt; '中'</span>
+<span class="hljs-comment"># &gt;=5 -&gt; '大</span>
+<span class="hljs-keyword">from</span> sklearn <span class="hljs-keyword">import</span> datasets
+iris = datasets.load_iris().data
+petal_length_bin = np.digitize(iris[:,<span class="hljs-number">2</span>].astype(<span class="hljs-string">'float'</span>), [<span class="hljs-number">0</span>,<span class="hljs-number">3</span>,<span class="hljs-number">5</span>,<span class="hljs-number">10</span>])
+label_map = {<span class="hljs-number">1</span>:<span class="hljs-string">'small'</span>, <span class="hljs-number">2</span>:<span class="hljs-string">'medium'</span>, <span class="hljs-number">3</span>:<span class="hljs-string">'large'</span>, <span class="hljs-number">4</span>:np.nan}
+petal_length_cat = [label_map[x] <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> petal_length_bin]
+petal_length_cat[:<span class="hljs-number">4</span>]
+Out[<span class="hljs-number">130</span>]: [<span class="hljs-string">'small'</span>, <span class="hljs-string">'small'</span>, <span class="hljs-string">'small'</span>, <span class="hljs-string">'small'</span>]
+</code></pre>
+</blockquote>
+<h1 id="多个条件过滤numpy数组">7 多个条件过滤numpy数组</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 24. 根据两个或多个条件过滤一个numpy数组</span>
+<span class="hljs-comment"># 过滤具有arr（第3列）&gt; 0.5和arr（第1列）&lt;0.8的arr的行。</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+arr
+Out[<span class="hljs-number">110</span>]: 
+array([[<span class="hljs-number">0.81622475</span>, <span class="hljs-number">0.27407375</span>, <span class="hljs-number">0.43170418</span>, <span class="hljs-number">0.94002982</span>],
+ [<span class="hljs-number">0.81764938</span>, <span class="hljs-number">0.33611195</span>, <span class="hljs-number">0.17541045</span>, <span class="hljs-number">0.37283205</span>],
+ [<span class="hljs-number">0.00568851</span>, <span class="hljs-number">0.25242635</span>, <span class="hljs-number">0.79566251</span>, <span class="hljs-number">0.01525497</span>]])
+condition = (arr[:,<span class="hljs-number">2</span>]&gt;<span class="hljs-number">0.5</span>) &amp; (arr[:,<span class="hljs-number">0</span>]&lt;<span class="hljs-number">0.8</span>)
+arr[condition]
+Out[<span class="hljs-number">112</span>]: array([[<span class="hljs-number">0.00568851</span>, <span class="hljs-number">0.25242635</span>, <span class="hljs-number">0.79566251</span>, <span class="hljs-number">0.01525497</span>]])
+</code></pre>
+</blockquote>
+<h1 id="堆叠数组操作">8 堆叠数组操作</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 2. 垂直堆叠两个数组</span>
+a = np.arange(<span class="hljs-number">10</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">-1</span>)
+b = np.repeat(<span class="hljs-number">1</span>,<span class="hljs-number">10</span>).reshape(<span class="hljs-number">2</span>,<span class="hljs-number">-1</span>)
+a
+Out[<span class="hljs-number">10</span>]: 
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]])
+b
+Out[<span class="hljs-number">11</span>]: 
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+np.concatenate([a,b], axis=<span class="hljs-number">0</span>)
+Out[<span class="hljs-number">12</span>]: 
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+np.vstack([a,b])
+Out[<span class="hljs-number">13</span>]: 
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+np.r_[a,b]
+Out[<span class="hljs-number">14</span>]: 
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+
+<span class="hljs-comment"># 3. 水平堆叠两个数组</span>
+np.concatenate([a,b], axis=<span class="hljs-number">1</span>)
+Out[<span class="hljs-number">15</span>]: 
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+np.hstack([a,b])
+Out[<span class="hljs-number">16</span>]: 
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+np.c_[a,b]
+Out[<span class="hljs-number">17</span>]: 
+array([[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>]])
+</code></pre>
+</blockquote>
+<h1 id="提取范围内的所有数字">9 提取范围内的所有数字</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 8. 提取给定范围内的所有数字</span>
+a = np.arange(<span class="hljs-number">15</span>)
+index = np.where((a&gt;=<span class="hljs-number">5</span>) &amp; (a&lt;=<span class="hljs-number">10</span>))
+a[index]
+Out[<span class="hljs-number">36</span>]: array([ <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>,  <span class="hljs-number">8</span>,  <span class="hljs-number">9</span>, <span class="hljs-number">10</span>])
+index = np.where(np.logical_and(a&gt;=<span class="hljs-number">5</span>, a&lt;=<span class="hljs-number">10</span>))
+a[index]
+Out[<span class="hljs-number">38</span>]: array([ <span class="hljs-number">5</span>,  <span class="hljs-number">6</span>,  <span class="hljs-number">7</span>,  <span class="hljs-number">8</span>,  <span class="hljs-number">9</span>, <span class="hljs-number">10</span>])
+</code></pre>
+</blockquote>
+<h1 id="交换数组行列">10 交换数组行列</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 10. 交换2维numpy数组中的两个列</span>
+np.arange(<span class="hljs-number">9</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">3</span>)[:,[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>]]
+Out[<span class="hljs-number">46</span>]: 
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>],
+[<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>],
+[<span class="hljs-number">7</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>]])
+
+<span class="hljs-comment"># 11. 交换2维numpy数组中的两个行</span>
+np.arange(<span class="hljs-number">9</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">3</span>)[[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>], :]
+Out[<span class="hljs-number">47</span>]: 
+array([[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+[<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>]])
+</code></pre>
+</blockquote>
+<h1 id="反转2维数组行列">11 反转2维数组行列</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 12. 反转2维数组的行</span>
+np.arange(<span class="hljs-number">9</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">3</span>)[[<span class="hljs-number">1</span>,<span class="hljs-number">0</span>,<span class="hljs-number">2</span>], :]
+Out[<span class="hljs-number">51</span>]: 
+array([[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>],
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>],
+[<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>]])
+
+<span class="hljs-comment"># 13. 反转2维数组的列</span>
+np.arange(<span class="hljs-number">9</span>).reshape(<span class="hljs-number">3</span>,<span class="hljs-number">3</span>)[:,::<span class="hljs-number">-1</span>]
+Out[<span class="hljs-number">48</span>]: 
+array([[<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
+[<span class="hljs-number">5</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>],
+[<span class="hljs-number">8</span>, <span class="hljs-number">7</span>, <span class="hljs-number">6</span>]])
+</code></pre>
+</blockquote>
+<h1 id="数组打印">12 数组打印</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 15. 打印三位小数的numpy数组</span>
+np.set_printoptions(<span class="hljs-number">3</span>)
+np.random.uniform(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>,(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>))
+Out[<span class="hljs-number">59</span>]: 
+array([[<span class="hljs-number">5.427</span>, <span class="hljs-number">6.768</span>, <span class="hljs-number">6.71</span> ],
+[<span class="hljs-number">7.243</span>, <span class="hljs-number">6.434</span>, <span class="hljs-number">7.314</span>],
+[<span class="hljs-number">6.692</span>, <span class="hljs-number">8.417</span>, <span class="hljs-number">7.965</span>],
+[<span class="hljs-number">8.718</span>, <span class="hljs-number">5.061</span>, <span class="hljs-number">5.936</span>],
+[<span class="hljs-number">5.918</span>, <span class="hljs-number">8.064</span>, <span class="hljs-number">7.431</span>]])
+
+<span class="hljs-comment"># 16. 使用科学记数法（如1e10）漂亮的打印数组rand_arr</span>
+np.random.seed(<span class="hljs-number">100</span>)
+np.set_printoptions(suppress=<span class="hljs-keyword">True</span>)
+rand_arr = np.random.random([<span class="hljs-number">3</span>,<span class="hljs-number">3</span>])/<span class="hljs-number">1e3</span>
+rand_arr
+Out[<span class="hljs-number">68</span>]: 
+array([[<span class="hljs-number">0.000543</span>, <span class="hljs-number">0.000278</span>, <span class="hljs-number">0.000425</span>],
+[<span class="hljs-number">0.000845</span>, <span class="hljs-number">0.000005</span>, <span class="hljs-number">0.000122</span>],
+[<span class="hljs-number">0.000671</span>, <span class="hljs-number">0.000826</span>, <span class="hljs-number">0.000137</span>]])
+
+<span class="hljs-comment"># 17. 限制数组输出中打印元素的数量</span>
+np.set_printoptions(threshold=<span class="hljs-number">6</span>)
+arr = np.arange(<span class="hljs-number">15</span>)
+arr
+Out[<span class="hljs-number">73</span>]: array([ <span class="hljs-number">0</span>,  <span class="hljs-number">1</span>,  <span class="hljs-number">2</span>, ..., <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>])
+</code></pre>
+</blockquote>
+<h1 id="标准化一个数组至0到1之间">13 标准化一个数组至0到1之间</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 20. 标准化一个数组至0到1之间</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+arr
+Out[<span class="hljs-number">89</span>]: 
+array([[<span class="hljs-number">0.88959857</span>, <span class="hljs-number">0.64348368</span>, <span class="hljs-number">0.66692863</span>, <span class="hljs-number">0.41213651</span>],
+ [<span class="hljs-number">0.78437761</span>, <span class="hljs-number">0.75333385</span>, <span class="hljs-number">0.10293507</span>, <span class="hljs-number">0.7942196</span> ],
+ [<span class="hljs-number">0.82432451</span>, <span class="hljs-number">0.11447181</span>, <span class="hljs-number">0.30328525</span>, <span class="hljs-number">0.41767367</span>]])
+s_max,s_min = arr.max(axis=<span class="hljs-number">0</span>),arr.min(axis=<span class="hljs-number">0</span>)
+(arr-s_min)/(s_max-s_min)
+Out[<span class="hljs-number">91</span>]: 
+array([[<span class="hljs-number">1.</span> , <span class="hljs-number">0.82805338</span>, <span class="hljs-number">1.</span>  , <span class="hljs-number">0.</span>   ],
+[<span class="hljs-number">0.</span>  , <span class="hljs-number">1.</span>  , <span class="hljs-number">0.</span>  , <span class="hljs-number">1.</span>     ],
+[<span class="hljs-number">0.37964781</span>, <span class="hljs-number">0.</span> , <span class="hljs-number">0.35523487</span>, <span class="hljs-number">0.01449204</span>]])
+</code></pre>
+</blockquote>
+<h1 id="缺失值相关">14 缺失值相关</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 26. 找出数组是否有缺失的值</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+np.isnan(arr).any()
+Out[<span class="hljs-number">119</span>]: <span class="hljs-keyword">False</span>  
+
+<span class="hljs-comment"># 34. 删除所有nan值</span>
+arr = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,np.nan,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,np.nan])
+arr[~np.isnan(arr)]
+Out[<span class="hljs-number">167</span>]: array([<span class="hljs-number">1.</span>, <span class="hljs-number">2.</span>, <span class="hljs-number">3.</span>, <span class="hljs-number">5.</span>, <span class="hljs-number">6.</span>, <span class="hljs-number">7.</span>])
+
+<span class="hljs-comment"># 23. 数据集的5个随机位插入np.nan值</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+i,j = np.where(arr)
+np.random.seed(<span class="hljs-number">100</span>)
+arr[np.random.choice((i),<span class="hljs-number">5</span>), np.random.choice((j),<span class="hljs-number">5</span>)] = np.nan
+arr
+Out[<span class="hljs-number">103</span>]: 
+array([[  nan, <span class="hljs-number">0.57138137</span>, <span class="hljs-number">0.27694632</span>, <span class="hljs-number">0.06905881</span>],
+[<span class="hljs-number">0.25886229</span>, nan,  nan, <span class="hljs-number">0.0125819</span> ],
+[ nan, <span class="hljs-number">0.06872554</span>,  nan, <span class="hljs-number">0.28179248</span>]])
+np.where(np.isnan(arr))
+Out[<span class="hljs-number">105</span>]: (array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>], dtype=int64), array([<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>], dtype=int64))
+</code></pre>
+</blockquote>
+<h1 id="数组交差集">15 数组交差集</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 5. 数组之间的共同元素</span>
+a = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>])
+b = np.array([<span class="hljs-number">7</span>,<span class="hljs-number">2</span>,<span class="hljs-number">10</span>,<span class="hljs-number">2</span>,<span class="hljs-number">7</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">4</span>,<span class="hljs-number">9</span>,<span class="hljs-number">8</span>])
+np.intersect1d(a,b)
+Out[<span class="hljs-number">27</span>]: array([<span class="hljs-number">2</span>, <span class="hljs-number">4</span>])
+
+<span class="hljs-comment"># 6. 删除存在于另一个数组中的元素</span>
+a = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>])
+b = np.array([<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>])
+np.setdiff1d(a,b)
+Out[<span class="hljs-number">30</span>]: array([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>])
+</code></pre>
+</blockquote>
+<h1 id="数组产生">16 数组产生</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 4. 生成自定义序列</span>
+a = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
+np.r_[np.repeat(a,<span class="hljs-number">3</span>), np.tile(a,<span class="hljs-number">3</span>)].reshape(<span class="hljs-number">2</span>,<span class="hljs-number">-1</span>)
+Out[<span class="hljs-number">24</span>]: 
+array([[<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>],
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]])
+
+<span class="hljs-comment"># 14. 二维数组，以包含5到10之间的随机浮点数</span>
+rand_arr = np.random.randint(low=<span class="hljs-number">5</span>, high=<span class="hljs-number">10</span>, size=(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>)) + np.random.random((<span class="hljs-number">5</span>, <span class="hljs-number">3</span>))
+rand_arr
+Out[<span class="hljs-number">56</span>]: 
+array([[<span class="hljs-number">5.37441948</span>, <span class="hljs-number">8.61709329</span>, <span class="hljs-number">8.24544657</span>],
+[<span class="hljs-number">6.79517054</span>, <span class="hljs-number">6.43953972</span>, <span class="hljs-number">5.01129723</span>],
+[<span class="hljs-number">9.662239</span>  , <span class="hljs-number">6.24575781</span>, <span class="hljs-number">6.51341089</span>],
+[<span class="hljs-number">8.01997704</span>, <span class="hljs-number">6.66118956</span>, <span class="hljs-number">8.18283188</span>],
+[<span class="hljs-number">8.02228762</span>, <span class="hljs-number">6.9609364</span> , <span class="hljs-number">7.4676691</span> ]])
+rand_arr = np.random.uniform(<span class="hljs-number">5</span>,<span class="hljs-number">10</span>, size=(<span class="hljs-number">5</span>,<span class="hljs-number">3</span>))
+rand_arr
+Out[<span class="hljs-number">58</span>]: 
+array([[<span class="hljs-number">7.13046251</span>, <span class="hljs-number">7.4977751</span> , <span class="hljs-number">8.55210656</span>],
+[<span class="hljs-number">7.9222628</span> , <span class="hljs-number">5.7828763</span> , <span class="hljs-number">9.57743131</span>],
+[<span class="hljs-number">9.13648012</span>, <span class="hljs-number">5.71533963</span>, <span class="hljs-number">9.18622945</span>],
+[<span class="hljs-number">5.94241285</span>, <span class="hljs-number">8.08918632</span>, <span class="hljs-number">9.32716147</span>],
+[<span class="hljs-number">5.75027771</span>, <span class="hljs-number">8.83210586</span>, <span class="hljs-number">8.3991677</span> ]])
+</code></pre>
+</blockquote>
+<h1 id="元素查找">17 元素查找</h1>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 19. 从一维元组数组中提取特定的列</span>
+iris_2d = np.array([row.tolist()[:<span class="hljs-number">4</span>] <span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> irirs_ld])
+iris_2d[:<span class="hljs-number">4</span>]
+Out[<span class="hljs-number">78</span>]: 
+array([[<span class="hljs-number">5.1</span>, <span class="hljs-number">3.5</span>, <span class="hljs-number">1.4</span>, <span class="hljs-number">0.2</span>],
+ [<span class="hljs-number">4.9</span>, <span class="hljs-number">3.</span> , <span class="hljs-number">1.4</span>, <span class="hljs-number">0.2</span>],
+ [<span class="hljs-number">4.7</span>, <span class="hljs-number">3.2</span>, <span class="hljs-number">1.3</span>, <span class="hljs-number">0.2</span>],
+ [<span class="hljs-number">4.6</span>, <span class="hljs-number">3.1</span>, <span class="hljs-number">1.5</span>, <span class="hljs-number">0.2</span>]])
+
+<span class="hljs-comment"># 22. 找到数组的百分位的值</span>
+<span class="hljs-comment"># 第5位和第95百分位的值</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+np.percentile(arr, q=[<span class="hljs-number">5</span>,<span class="hljs-number">95</span>])
+Out[<span class="hljs-number">94</span>]: array([<span class="hljs-number">0.31394255</span>, <span class="hljs-number">0.87443495</span>])
+
+<span class="hljs-comment"># 30. 获得数组中第二大的元素值</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+np.unique(np.sort(arr))[<span class="hljs-number">-2</span>]
+Out[<span class="hljs-number">132</span>]: <span class="hljs-number">0.9570126003527981</span>
+
+<span class="hljs-comment"># 32. 首次出现的值大于给定值的位置</span>
+arr = np.random.uniform(size=(<span class="hljs-number">3</span>,<span class="hljs-number">4</span>))
+arr
+Out[<span class="hljs-number">150</span>]: 
+array([[<span class="hljs-number">0.61032815</span>, <span class="hljs-number">0.30900035</span>, <span class="hljs-number">0.69773491</span>, <span class="hljs-number">0.8596183</span> ],
+ [<span class="hljs-number">0.62532376</span>, <span class="hljs-number">0.98240783</span>, <span class="hljs-number">0.97650013</span>, <span class="hljs-number">0.16669413</span>],
+ [<span class="hljs-number">0.02317814</span>, <span class="hljs-number">0.16074455</span>, <span class="hljs-number">0.92349683</span>, <span class="hljs-number">0.95354985</span>]])
+np.argmax(arr[:,<span class="hljs-number">2</span>].astype(<span class="hljs-string">'float'</span>) &gt; <span class="hljs-number">0.7</span>)
+Out[<span class="hljs-number">151</span>]: <span class="hljs-number">1</span>
+
+<span class="hljs-comment"># 35. 一维数组所有局部最大值（或峰值）</span>
+arr = np.array([<span class="hljs-number">1</span>,<span class="hljs-number">3</span>,<span class="hljs-number">7</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">6</span>,<span class="hljs-number">0</span>,<span class="hljs-number">1</span>])
+doublediff = np.diff(np.sign(np.diff(arr)))
+peak_locations = np.where(doublediff==<span class="hljs-number">-2</span>)[<span class="hljs-number">0</span>]+<span class="hljs-number">1</span>
+peak_locations
+Out[<span class="hljs-number">180</span>]: array([<span class="hljs-number">2</span>, <span class="hljs-number">5</span>], dtype=int64)
+</code></pre>
+</blockquote>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: pandas小记" class="navigation navigation-prev" href="16.pandas小记.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: python_pipe包管道包学习" class="navigation navigation-next" href="18.python_pipe包管道包学习.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"numpy小记","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆3.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆3.webp","categories":["python"],"tags":["python","numpy"],"abbrlink":30791,"level":"1.18","depth":1,"next":{"title":"python_pipe包管道包学习","level":"1.19","depth":1,"path":"chapters/18.python_pipe包管道包学习.md","ref":"chapters/18.python_pipe包管道包学习.md","articles":[]},"previous":{"title":"pandas小记","level":"1.17","depth":1,"path":"chapters/16.pandas小记.md","ref":"chapters/16.pandas小记.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/17.numpy小记.md","mtime":"2023-08-13T04:38:31.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

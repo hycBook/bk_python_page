@@ -1,0 +1,1541 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>数据库相关操作 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="11.Regular_Expression_OP.html" rel="next"/>
+<link href="9.logging模块.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">数据库相关操作</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#elasticsearch数据库">1 Elasticsearch数据库</a></li><ul><li><span class="title-icon"></span><a href="#环境配置">1.1 环境配置</a></li><li><span class="title-icon"></span><a href="#esdao包装类">1.2 EsDao包装类</a></li><li><span class="title-icon"></span><a href="#使用案例">1.3 使用案例</a></li></ul><li><span class="title-icon"></span><a href="#oracle数据库">2 Oracle数据库</a></li><ul><li><span class="title-icon"></span><a href="#环境配置_1">2.1 环境配置</a></li><li><span class="title-icon"></span><a href="#sql基础">2.2 sql基础</a></li><ul><li><span class="title-icon"></span><a href="#建表">2.2.1 建表</a></li><li><span class="title-icon"></span><a href="#查询">2.2.2 查询</a></li></ul><li><span class="title-icon"></span><a href="#相关操作">2.3 相关操作</a></li></ul><li><span class="title-icon"></span><a href="#postgresql数据库">3 Postgresql数据库</a></li><ul><li><span class="title-icon"></span><a href="#离线安装数据库">3.1 离线安装数据库</a></li><li><span class="title-icon"></span><a href="#环境配置_2">3.2 环境配置</a></li><li><span class="title-icon"></span><a href="#sql语法">3.3 sql语法</a></li><ul><li><span class="title-icon"></span><a href="#数据库连接">3.3.1 数据库连接</a></li><li><span class="title-icon"></span><a href="#数据库信息">3.3.2 数据库信息</a></li><li><span class="title-icon"></span><a href="#数据备份与恢复">3.3.3 数据备份与恢复</a></li><li><span class="title-icon"></span><a href="#表空间">3.3.4 表空间</a></li><li><span class="title-icon"></span><a href="#锁表处理">3.3.5 锁表处理</a></li><li><span class="title-icon"></span><a href="#表结构修改">3.3.6 表结构修改</a></li><li><span class="title-icon"></span><a href="#数据更新和查询">3.3.7 数据更新和查询</a></li><li><span class="title-icon"></span><a href="#数据和结构复制">3.3.8 数据和结构复制</a></li><li><span class="title-icon"></span><a href="#分页查询">3.3.9 分页查询</a></li><li><span class="title-icon"></span><a href="#删除重复记录">3.3.10 删除重复记录</a></li><li><span class="title-icon"></span><a href="#索引">3.3.11 索引</a></li><li><span class="title-icon"></span><a href="#其他语法">3.3.12 其他语法</a></li></ul></ul><li><span class="title-icon"></span><a href="#orm框架">4 ORM框架</a></li><ul><li><span class="title-icon"></span><a href="#orm框架比较">4.1 ORM框架比较</a></li><li><span class="title-icon"></span><a href="#sqlalchemy">4.2 SQLAlchemy</a></li><ul><li><span class="title-icon"></span><a href="#session和scopedsession">4.2.1 session和scoped_session</a></li><li><span class="title-icon"></span><a href="#几种操作方式">4.2.2 几种操作方式</a></li></ul></ul></ul></div><a href="#elasticsearch数据库" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="elasticsearch数据库">1 Elasticsearch数据库</h1>
+<h2 id="环境配置">1.1 环境配置</h2>
+<blockquote>
+<p>安装环境</p>
+<p>pip install elasticsearch==7.6.0</p>
+</blockquote>
+<h2 id="esdao包装类">1.2 EsDao包装类</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v1.0
+@author: huangyc
+@file: EsDao.py
+@Description: Es统一操作类
+@time: 2020/4/27 10:22
+"""</span>
+
+<span class="hljs-keyword">from</span> elasticsearch.helpers <span class="hljs-keyword">import</span> bulk
+<span class="hljs-keyword">from</span> elasticsearch <span class="hljs-keyword">import</span> Elasticsearch
+<span class="hljs-keyword">import</span> pandas <span class="hljs-keyword">as</span> pd
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">EsDao</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-string">"""
+    ElasticSearch的数据操作类
+    """</span>
+    <span class="hljs-comment"># 查询批次大小</span>
+    DEFAULT_BATCH_SIZE = <span class="hljs-number">1000</span>
+
+    <span class="hljs-comment"># 写入批次大小</span>
+    BULK_BATCH_SIZE = <span class="hljs-number">10000</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, hosts, timeout=<span class="hljs-number">3600</span>*<span class="hljs-number">24</span>)</span>:</span>
+        self.hosts = hosts
+        self.timeout = timeout
+        self.es = Elasticsearch(hosts, timeout=self.timeout)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save_data_list</span><span class="hljs-params">(self, index_name, data_list)</span>:</span>
+        <span class="hljs-string">"""
+        保存数据列表到es的指定索引中
+        :param index_name: 索引名称
+        :param data_list: 数据列表，列表元素代表一行数据，元素类型为dict
+        :return:
+        """</span>
+        bulk_data_lst = [
+            data_list[i:i + self.BULK_BATCH_SIZE]
+            <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, len(data_list), self.BULK_BATCH_SIZE)
+        ]
+
+        <span class="hljs-keyword">if</span> len(data_list) &gt; <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-string">'_id'</span> <span class="hljs-keyword">in</span> data_list[<span class="hljs-number">0</span>]:
+            <span class="hljs-keyword">for</span> bulk_data <span class="hljs-keyword">in</span> bulk_data_lst:
+                actions = [{
+                    <span class="hljs-string">"_index"</span>: index_name,
+                    <span class="hljs-string">"_type"</span>: index_name,
+                    <span class="hljs-string">"_id"</span>: data.pop(<span class="hljs-string">"_id"</span>),
+                    <span class="hljs-string">"_source"</span>: data
+                }
+                    <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> bulk_data
+                ]
+                bulk(self.es, actions, index=index_name, raise_on_error=<span class="hljs-keyword">True</span>)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">for</span> bulk_data <span class="hljs-keyword">in</span> bulk_data_lst:
+                actions = [{
+                    <span class="hljs-string">"_index"</span>: index_name,
+                    <span class="hljs-string">"_type"</span>: index_name,
+                    <span class="hljs-string">"_source"</span>: data
+                }
+                    <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> bulk_data
+                ]
+                bulk(self.es, actions, index=index_name, raise_on_error=<span class="hljs-keyword">True</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_index_exists</span><span class="hljs-params">(self, index_name)</span>:</span>
+        <span class="hljs-string">"""
+        判断指定索引是否存在
+        :param index_name: 索引名称
+        :return:
+        """</span>
+        <span class="hljs-keyword">return</span> self.es.indices.exists(index=index_name)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">delete_by_query</span><span class="hljs-params">(self, index_name, query_body)</span>:</span>
+        <span class="hljs-string">"""
+        按查询结果删除数据
+        :param index_name:
+        :param query_body:
+        :return:
+        """</span>
+        <span class="hljs-keyword">return</span> self.es.delete_by_query(index_name, query_body)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">clear_index_data</span><span class="hljs-params">(self, index_name)</span>:</span>
+        <span class="hljs-string">"""
+        清空指定索引的数据
+        :param index_name:
+        :return:
+        """</span>
+        <span class="hljs-keyword">return</span> self.delete_by_query(
+            index_name=index_name,
+            query_body={
+                <span class="hljs-string">"query"</span>: {
+                    <span class="hljs-string">"match_all"</span>: {}
+                }
+            }
+        )
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">save_df_data</span><span class="hljs-params">(self, index_name, df)</span>:</span>
+        <span class="hljs-string">"""
+        保存pandas的DataFrame到es的指定索引中
+        :param index_name: 索引名称
+        :param df: 要保存的dataframe
+        :return:
+        """</span>
+        col_lst = df.columns.tolist()
+        dic_lst = [dict([(c, v) <span class="hljs-keyword">for</span> c, v <span class="hljs-keyword">in</span> zip(col_lst, r)]) <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> df.values.tolist()]
+        self.save_data_list(index_name=index_name, data_list=dic_lst)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_index</span><span class="hljs-params">(self, index_name, mapping_properties)</span>:</span>
+        <span class="hljs-string">"""
+        创建索引
+        :param index_name: 索引名称
+        :param mapping_properties: 索引mapping中的属性列表
+        :return:
+        """</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.es.indices.exists(index=index_name):
+            mapping = {
+                <span class="hljs-string">"mappings"</span>: {
+                    index_name: {
+                        <span class="hljs-string">"properties"</span>: mapping_properties
+                    }
+                }
+            }
+            res = self.es.indices.create(index=index_name, body=mapping)
+            <span class="hljs-keyword">if</span> res <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">and</span> <span class="hljs-string">'acknowledged'</span> <span class="hljs-keyword">in</span> res:
+                <span class="hljs-keyword">return</span> res.get(<span class="hljs-string">'acknowledged'</span>)
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_search_with_scroll</span><span class="hljs-params">(self, index_name, query_body)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-string">"size"</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> query_body:
+            query_body[<span class="hljs-string">"size"</span>] = self.DEFAULT_BATCH_SIZE
+        response = self.es.search(
+            index=index_name,
+            body=query_body,
+            search_type=<span class="hljs-string">"dfs_query_then_fetch"</span>,
+            scroll=<span class="hljs-string">"120m"</span>,
+            timeout=<span class="hljs-string">"60m"</span>
+        )
+        scroll_id = response[<span class="hljs-string">"_scroll_id"</span>]
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            sources = [doc[<span class="hljs-string">"_source"</span>] <span class="hljs-keyword">for</span> doc <span class="hljs-keyword">in</span> response[<span class="hljs-string">"hits"</span>][<span class="hljs-string">"hits"</span>]]
+            <span class="hljs-keyword">if</span> len(sources) == <span class="hljs-number">0</span>:
+                <span class="hljs-keyword">break</span>
+            <span class="hljs-keyword">yield</span> sources
+            response = self.es.scroll(scroll_id=scroll_id, scroll=<span class="hljs-string">"60m"</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">query_for_df</span><span class="hljs-params">(self, index_name, query_body)</span>:</span>
+        <span class="hljs-string">"""
+        执行查询并获取pandas.DataFrame格式的返回值
+        :param index_name: 索引名称
+        :param query_body: 查询条件
+        :return:
+        """</span>
+        sources = []
+        <span class="hljs-keyword">for</span> sub_source <span class="hljs-keyword">in</span> self._search_with_scroll(index_name=index_name, query_body=query_body):
+            sources.extend(sub_source)
+        <span class="hljs-keyword">return</span> pd.DataFrame(sources)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">query_for_df_with_batch</span><span class="hljs-params">(self, index_name, query_body, batch_size=DEFAULT_BATCH_SIZE)</span>:</span>
+        <span class="hljs-string">"""
+        按批次大小查询并返回pandas.DataFrame的generator格式的返回值
+        :param index_name: 索引名称
+        :param query_body: 查询条件
+        :param batch_size: 批次大小
+        :return:
+        """</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-string">"size"</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> query_body:
+            query_body[<span class="hljs-string">"size"</span>] = batch_size
+        <span class="hljs-keyword">for</span> sub_source <span class="hljs-keyword">in</span> self._search_with_scroll(index_name=index_name, query_body=query_body):
+            <span class="hljs-keyword">yield</span> pd.DataFrame(sub_source)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_first_row_with_df</span><span class="hljs-params">(self, index_name)</span>:</span>
+        <span class="hljs-string">"""
+        获取指定索引的首行数据，格式为pandas.DataFrame
+        可用于获取索引的元信息
+        :param index_name: 索引名称
+        :return:
+        """</span>
+        query_body = {
+            <span class="hljs-string">"size"</span>: <span class="hljs-number">1</span>,
+            <span class="hljs-string">"query"</span>: {
+                <span class="hljs-string">"match_all"</span>: {}
+            }
+        }
+        <span class="hljs-keyword">for</span> sub_source <span class="hljs-keyword">in</span> self._search_with_scroll(index_name=index_name, query_body=query_body):
+            <span class="hljs-keyword">return</span> pd.DataFrame(sub_source)
+</code></pre>
+<h2 id="使用案例">1.3 使用案例</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TaskMeta</span>:</span>
+    <span class="hljs-string">'''
+    数据元类
+    '''</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, text, doc_id, sentence_id, reg_lst, flag, has_reg, text_source=<span class="hljs-string">"primitive"</span>)</span>:</span>
+        self.text = text
+        self.doc_id = doc_id
+        self.sentence_id = sentence_id
+        self.reg_lst = reg_lst
+        self.flag = flag
+        self.has_reg = has_reg
+        self.text_source = text_source
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> f<span class="hljs-string">'{self.text} {self.doc_id} {self.sentence_id} {self.reg_lst} {self.flag} {self.has_reg} {self.text_source}'</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">to_dict</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> {<span class="hljs-string">"text"</span>: self.text,
+                <span class="hljs-string">"doc_id"</span>: self.doc_id,
+                <span class="hljs-string">"sentence_id"</span>: self.sentence_id,
+                <span class="hljs-string">"reg_lst"</span>: self.reg_lst,
+                <span class="hljs-string">"flag"</span>: self.flag,
+                <span class="hljs-string">"has_reg"</span>: self.has_reg,
+                <span class="hljs-string">"text_source"</span>: self.text_source}
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_index</span><span class="hljs-params">(target_es_dao, index_name, mapping)</span>:</span>
+    <span class="hljs-string">'''
+    创建es索引
+    :return: 是否创建成功
+    '''</span>
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> target_es_dao.is_index_exists(index_name):
+        target_es_dao.create_index(index_name, mapping)
+    <span class="hljs-keyword">else</span>:
+        target_es_dao.clear_index_data(index_name)
+        print(f<span class="hljs-string">"索引{index_name}已存在, 已清除数据"</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">writer_fun</span><span class="hljs-params">(target_es_dao, target_index, sample_lst)</span>:</span>
+    <span class="hljs-string">'''
+    写数据到es库
+    '''</span>
+    df_sample_lst = []
+    [df_sample_lst.append(sample.to_dict()) <span class="hljs-keyword">for</span> sample <span class="hljs-keyword">in</span> sample_lst]
+    df_sample_lst = pd.DataFrame(df_sample_lst)
+    target_es_dao.save_df_data(target_index, df_sample_lst)
+    print(f<span class="hljs-string">'写入数据{len(sample_lst)}条'</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">es_cal_test</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># 获取连接</span>
+    source_es_dao = EsDao(f<span class="hljs-string">"http://{aug_config.SOURCE_IP}:{aug_config.SOURCE_PORT}/"</span>)
+    query_condition = {
+        <span class="hljs-string">"query_string"</span>: {
+            <span class="hljs-string">"default_field"</span>: <span class="hljs-string">"has_reg"</span>,
+            <span class="hljs-string">"query"</span>: <span class="hljs-string">"true"</span>
+        }
+    }
+    query_body = {
+        <span class="hljs-string">"query"</span>: query_condition
+    }
+    <span class="hljs-comment"># 查询数据</span>
+    datas = source_es_dao.query_for_df(index_name=aug_config.SOURCE_INDEX, query_body=query_body)
+    records = datas.to_dict(orient=<span class="hljs-string">'record'</span>)
+    sample_lst = []
+    <span class="hljs-keyword">for</span> record <span class="hljs-keyword">in</span> records:
+        sample_lst.append(
+            TaskMeta(
+                text=record[<span class="hljs-string">"text"</span>],
+                doc_id=record[<span class="hljs-string">"doc_id"</span>],
+                sentence_id=record[<span class="hljs-string">"sentence_id"</span>],
+                reg_lst=record[<span class="hljs-string">"reg_lst"</span>],
+                flag=record[<span class="hljs-string">"flag"</span>],
+                has_reg=record[<span class="hljs-string">"has_reg"</span>]
+            )
+        )
+
+    <span class="hljs-comment"># 创建索引</span>
+    create_index(target_es_dao, aug_config.TARGET_INDEX, aug_config.MAPPING)
+    <span class="hljs-comment"># 写入数据</span>
+    writer_fun(target_es_dao, aug_config.TARGET_INDEX, sample_lst=sample_lst)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    es_cal_test()
+</code></pre>
+<h1 id="oracle数据库">2 Oracle数据库</h1>
+<blockquote>
+<p><a href="https://www.cnblogs.com/chenhuabin/p/12689163.html" target="_blank">Python操作Oracle数据库：cx_Oracle</a></p>
+</blockquote>
+<h2 id="环境配置_1">2.1 环境配置</h2>
+<blockquote>
+<p>第一步：安装库</p>
+<p>pip install cx-Oracle</p>
+<p>第二步：文件拷贝</p>
+<p>需要将<code>oci.dll、oraocci11.dll、oraociei11.dll</code>复制到sitepackages路径下</p>
+</blockquote>
+<h2 id="sql基础">2.2 sql基础</h2>
+<h3 id="建表">2.2.1 建表</h3>
+<pre><code class="lang-sql"><span class="hljs-comment">--blob字段插入实例</span>
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> blob_table_tmp(
+  <span class="hljs-keyword">id</span> <span class="hljs-built_in">number</span> primary <span class="hljs-keyword">key</span>,
+  blob_cl <span class="hljs-built_in">blob</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>,
+    clob_cl <span class="hljs-keyword">clob</span> <span class="hljs-keyword">not</span> <span class="hljs-literal">null</span>
+);
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> blob_table_tmp <span class="hljs-keyword">values</span>(<span class="hljs-number">1</span>,rawtohex(<span class="hljs-string">'11111000011111'</span>),<span class="hljs-string">'增加一条记录时，碰到插入blob类型数据出错'</span>);
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> blob_table_tmp <span class="hljs-keyword">values</span>(<span class="hljs-number">3</span>,rawtohex(<span class="hljs-string">'4561888'</span>),<span class="hljs-string">'增加一条记录时，碰到插入blob类型数据出错'</span>);
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> blob_table_tmp <span class="hljs-keyword">values</span>(<span class="hljs-number">4</span>,rawtohex(<span class="hljs-string">'增加一条记录时333'</span>),<span class="hljs-string">'增加一条记录时，碰到插入blob类型数据出错'</span>);
+</code></pre>
+<h3 id="查询">2.2.2 查询</h3>
+<blockquote>
+<p>获取连接</p>
+</blockquote>
+<pre><code class="lang-python">FINANCE_DB_HOST = <span class="hljs-string">"192.168.x.x"</span>
+FINANCE_DB_PORT = <span class="hljs-number">1521</span>
+FINANCE_DB_USER = <span class="hljs-string">"hyc"</span>
+FINANCE_DB_PASSWORD = <span class="hljs-string">"123456"</span>
+FINANCE_DB_DB = <span class="hljs-string">"ORCL"</span>
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OracleConn</span><span class="hljs-params">()</span>:</span>
+    config_path = <span class="hljs-string">''</span>
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_conn</span><span class="hljs-params">(conn_name, encoding=<span class="hljs-string">"UTF-8"</span>)</span>:</span>
+        conn_str = str(eval(<span class="hljs-string">"%s_DB_USER"</span> % (OracleConn.config_path, conn_name))) + <span class="hljs-string">"/"</span> + str(eval(<span class="hljs-string">"%s.%s_DB_PASSWORD"</span> % (OracleConn.config_path, conn_name)))
+        conn_str += <span class="hljs-string">"@"</span> + str(eval(<span class="hljs-string">"%s_DB_HOST"</span> % (OracleConn.config_path, conn_name)))
+        conn_str += <span class="hljs-string">":"</span> + str(eval(<span class="hljs-string">"%s_DB_PORT"</span> % (OracleConn.config_path, conn_name)))
+        conn_str += <span class="hljs-string">"/"</span> + str(eval(<span class="hljs-string">"%s_DB_DB"</span> % (OracleConn.config_path, conn_name)))
+        <span class="hljs-keyword">return</span> ora.connect(conn_str, encoding=encoding, nencoding=encoding)
+</code></pre>
+<blockquote>
+<p>读写数据库</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">oracle_test</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># 获取数据库连接</span>
+    conn = OracleConn.get_conn(<span class="hljs-string">"FINANCE"</span>)
+    cur = conn.cursor()
+
+    <span class="hljs-comment"># 查询数据</span>
+    sql = <span class="hljs-string">"select id,blob_cl,clob_cl from FINANCE.blob_table_tmp"</span>
+    datas = []
+    r = cur.execute(sql)
+    <span class="hljs-comment"># 假设name是clob字段类型</span>
+    [datas.append((gg[<span class="hljs-number">0</span>], gg[<span class="hljs-number">1</span>].read().decode(<span class="hljs-string">'utf-8'</span>), gg[<span class="hljs-number">2</span>].read())) <span class="hljs-keyword">for</span> gg <span class="hljs-keyword">in</span> r]
+
+    <span class="hljs-comment"># 写入数据</span>
+    insert_sql = <span class="hljs-string">"INSERT INTO new_table(id,new_name) VALUES (:ID,:NEW_NAME)"</span>
+    res = []
+    [res.append((data[<span class="hljs-number">0</span>], data[<span class="hljs-number">1</span>])) <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> datas]
+    cur.executemany(insert_sql, res)
+    cur.execute(<span class="hljs-string">'commit'</span>)
+
+    cur.close()
+    conn.close()
+    print(<span class="hljs-string">"写入结束"</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    oracle_test()
+</code></pre>
+<h2 id="相关操作">2.3 相关操作</h2>
+<blockquote>
+<p>关于数据库的连接，查询和写入</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> cx_Oracle
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Setting</span>:</span>
+    DB_USER = <span class="hljs-string">'narutohyc'</span>
+    DB_PASSWORD = <span class="hljs-string">'hyc'</span>
+    DB_IP = <span class="hljs-string">'192.168.0.1'</span>
+    DB_PORT = <span class="hljs-string">''</span>
+    DB_SERVICE = <span class="hljs-string">'dataBaseName'</span>
+setting = Setting()
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">oracle_test</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># 获取数据库连接</span>
+    conn = cx_Oracle.connect(<span class="hljs-string">'%s/%s@%s/%s'</span> % (setting.DB_USER, setting.DB_PASSWORD, setting.DB_IP, setting.DB_SERVICE), encoding=<span class="hljs-string">'utf-8'</span>)
+    cur = conn.cursor()
+
+    <span class="hljs-comment"># 查询数据</span>
+    sql = <span class="hljs-string">"select ID, name from hyc_database"</span>
+    datas = []
+    r = cur.execute(sql)
+    <span class="hljs-comment"># 假设name是clob字段类型</span>
+    [datas.append((gg[<span class="hljs-number">0</span>], gg[<span class="hljs-number">1</span>].read())) <span class="hljs-keyword">for</span> gg <span class="hljs-keyword">in</span> r]
+
+    <span class="hljs-comment"># 写入数据</span>
+    insert_sql = <span class="hljs-string">"INSERT INTO new_table(id,new_name) VALUES (:ID,:NEW_NAME)"</span>
+    res = []
+    [res.append((data[<span class="hljs-number">0</span>], data[<span class="hljs-number">1</span>])) <span class="hljs-keyword">for</span> data <span class="hljs-keyword">in</span> datas]
+    cur.executemany(insert_sql, res)
+    cur.execute(<span class="hljs-string">'commit'</span>)
+
+    cur.close()
+    conn.close()
+    print(<span class="hljs-string">"写入结束"</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    oracle_test()
+</code></pre>
+<h1 id="postgresql数据库">3 Postgresql数据库</h1>
+<blockquote>
+<p><a href="https://www.cnblogs.com/zszxz/p/12222201.html" target="_blank">我终于学会了使用python操作postgresql</a></p>
+<p><a href="https://blog.csdn.net/binglang2012/article/details/124210280" target="_blank">保姆级 CentOS 7离线安装PostgreSQL 14教程</a></p>
+<p><a href="https://www.yiibai.com/postgresql/postgresql-indexes.html" target="_blank">易百_PostgreSQL教程</a></p>
+</blockquote>
+<h2 id="离线安装数据库">3.1 离线安装数据库</h2>
+<blockquote>
+<p>先从<a href="https://yum.postgresql.org/14/redhat/rhel-7-x86_64/repoview/postgresqldbserver14.group.html" target="_blank">centos7-pg_14.2下载</a>下载rpm包(<a href="https://share.weiyun.com/6DmxKUrx" target="_blank">微云下载centos7.6_PostgreSQL14.2</a>)，或者直接<a href="https://www.postgresql.org/download/linux/redhat/" target="_blank">官方下载安装教程</a>安装，如果离线安装就下载rpm包</p>
+</blockquote>
+<pre><code class="lang-sh"><span class="hljs-comment"># 离线安装执行以下命令安装</span>
+rpm -ivh postgresql14-libs-14.2-1PGDG.rhel7.x86_64.rpm
+rpm -ivh postgresql14-14.2-1PGDG.rhel7.x86_64.rpm
+rpm -ivh postgresql14-server-14.2-1PGDG.rhel7.x86_64.rpm
+rpm -ivh postgresql14-contrib-14.2-1PGDG.rhel7.x86_64.rpm
+</code></pre>
+<p>出现OSError: Python library not found: libpython3.6mu.so.1.0, libpython3.6m.so.1.0, libpython3.6.so.1.0, libpython3.6m.so的解决办法</p>
+<pre><code class="lang-sh">yum install python3-devel
+</code></pre>
+<p>创建数据库data和log文件夹</p>
+<pre><code class="lang-sh"><span class="hljs-comment"># 创建数据库data和log文件夹</span>
+mkdir -p /home/postgres/pgsql_data
+mkdir -p /home/postgres/pgsql_<span class="hljs-built_in">log</span>
+
+<span class="hljs-comment"># 创建日志文件</span>
+touch /home/postgres/pgsql_<span class="hljs-built_in">log</span>/pgsql.log
+</code></pre>
+<p>授权给安装数据时自动创建的postgres用户</p>
+<pre><code class="lang-sh">chown -R postgres:postgres /home/postgres/pgsql_data
+chown -R postgres:postgres /home/postgres/pgsql_<span class="hljs-built_in">log</span>
+</code></pre>
+<p>切换到安装数据时自动创建的postgres用户</p>
+<pre><code class="lang-sh">su - postgres
+</code></pre>
+<p>初始化数据库到新建数据目录</p>
+<pre><code class="lang-sh">/usr/pgsql-14/bin/initdb -D /home/postgres/pgsql_data
+</code></pre>
+<p>启动服务器(初始化数据库日志文件)</p>
+<pre><code>/usr/pgsql-14/bin/pg_ctl -D  /home/postgres/pgsql_data/ -l /home/postgres/pgsql_log/pgsql.log start
+# 查看状态
+/usr/pgsql-14/bin/pg_ctl -D /home/postgres/pgsql_data/ -l /home/postgres/pgsql_log/pgsql.log status
+</code></pre><p>切换到管理员开启端口并重启防火墙</p>
+<pre><code class="lang-sh">su root
+firewall-cmd --zone=public --add-port=5432/tcp --permanent
+firewall-cmd --reload
+</code></pre>
+<p>修改配置文件实现远程访问<code>vi /home/postgres/pgsql_data/postgresql.conf</code></p>
+<pre><code class="lang-sh"><span class="hljs-comment"># 修改监听地址</span>
+listen_addresses = <span class="hljs-string">'*'</span>
+<span class="hljs-comment"># 修改最大连接数（按需）</span>
+max_connections = 1000
+<span class="hljs-comment"># 修改密码认证</span>
+password_encryption = md5
+</code></pre>
+<p>修改可访问的用户IP段</p>
+<pre><code class="lang-sh">vi /home/pgsql_data/pg_hba.conf（a进入编辑模式，esc退出编辑模式，:wq并按回车保存）
+IPV4下修改为或新增
+host    all             all             0.0.0.0/0               trust
+</code></pre>
+<p>postgres用户重启数据库服务</p>
+<pre><code class="lang-sh">su - postgres
+/usr/pgsql-14/bin/pg_ctl -D  /home/postgres/pgsql_data/ <span class="hljs-_">-l</span> /home/postgres/pgsql_<span class="hljs-built_in">log</span>/pgsql.log restart
+</code></pre>
+<p>数据库安装结束，管理员postgres，默认密码123456</p>
+<p><a data-lightbox="1f59a7ed-c002-4ee2-b524-9f135656986d" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/10.数据库相关操作/image-20220512140313497.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/10.数据库相关操作/image-20220512140313497.webp"/></a></p>
+<center>使用navicat连接pg库后新建数据库</center>
+<h2 id="环境配置_2">3.2 环境配置</h2>
+<blockquote>
+<p>pip install psycopg2</p>
+</blockquote>
+<h2 id="sql语法">3.3 sql语法</h2>
+<h3 id="数据库连接">3.3.1 数据库连接</h3>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 获取数据库实例连接数</span>
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">from</span> pg_stat_activity;
+<span class="hljs-comment">-- 获取数据库最大连接数</span>
+<span class="hljs-keyword">show</span> max_connections;
+<span class="hljs-comment">-- 查询当前连接数详细信息</span>
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> pg_stat_activity;
+<span class="hljs-comment">-- 查询数据库中各个用户名对应的数据库连接数</span>
+<span class="hljs-keyword">select</span> usename, <span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">from</span> pg_stat_activity <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> usename;
+</code></pre>
+<h3 id="数据库信息">3.3.2 数据库信息</h3>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 查询数据库大小</span>
+<span class="hljs-keyword">select</span> pg_size_pretty (pg_database_size(<span class="hljs-string">'pg_fac_stk'</span>));
+
+<span class="hljs-comment">-- 查询各表磁盘占用</span>
+<span class="hljs-keyword">SELECT</span>
+    table_schema || <span class="hljs-string">'.'</span> || table_name <span class="hljs-keyword">AS</span> table_full_name,
+    pg_size_pretty(pg_total_relation_size(<span class="hljs-string">'"'</span> || table_schema || <span class="hljs-string">'"."'</span> || table_name || <span class="hljs-string">'"'</span>)) <span class="hljs-keyword">AS</span> <span class="hljs-keyword">size</span>
+<span class="hljs-keyword">FROM</span> information_schema.<span class="hljs-keyword">tables</span> <span class="hljs-keyword">where</span> table_name <span class="hljs-keyword">like</span> <span class="hljs-string">'finance_%'</span>
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span>
+    pg_total_relation_size(<span class="hljs-string">'"'</span> || table_schema || <span class="hljs-string">'"."'</span> || table_name || <span class="hljs-string">'"'</span>) <span class="hljs-keyword">DESC</span>;
+
+<span class="hljs-comment">-- 获取各个表中的数据记录数</span>
+<span class="hljs-keyword">select</span> relname <span class="hljs-keyword">as</span> TABLE_NAME, reltuples <span class="hljs-keyword">as</span> rowCounts <span class="hljs-keyword">from</span> pg_class <span class="hljs-keyword">where</span> relkind = <span class="hljs-string">'r'</span> <span class="hljs-keyword">order</span> <span class="hljs-keyword">by</span> rowCounts <span class="hljs-keyword">desc</span>;
+
+<span class="hljs-comment">-- 查看数据库表对应的数据文件</span>
+<span class="hljs-keyword">select</span> pg_relation_filepath(<span class="hljs-string">'product'</span>);
+
+<span class="hljs-comment">-- 查看数据库实例的版本</span>
+<span class="hljs-keyword">select</span> <span class="hljs-keyword">version</span>();
+
+<span class="hljs-comment">-- 分析评估SQL执行情况</span>
+<span class="hljs-keyword">EXPLAIN</span> <span class="hljs-keyword">ANALYZE</span> <span class="hljs-keyword">SELECT</span> * <span class="hljs-keyword">FROM</span> t_cfg_opinfo;
+
+<span class="hljs-comment">-- 获取数据库当前的回滚事务数以及死锁数</span>
+<span class="hljs-keyword">select</span> datname,xact_rollback,deadlocks <span class="hljs-keyword">from</span> pg_stat_database;
+</code></pre>
+<h3 id="数据备份与恢复">3.3.3 数据备份与恢复</h3>
+<blockquote>
+<p><a href="https://www.python100.com/html/Q0655O1LU5QH.html" target="_blank">使用pgdump备份数据库</a></p>
+</blockquote>
+<p>pgdump是PostgreSQL官方提供的备份工具，可以将数据库的数据和架构保存到一个文件中，使用pgdump备份的优点包括：</p>
+<ol>
+<li>备份数据可以保持原有的结构和特性，还原时可以保证数据准确性</li>
+<li>备份文件可以跨平台传输，方便进行远程备份</li>
+<li>备份文件可以进行压缩，减小文件大小，方便传输和存储</li>
+</ol>
+<blockquote>
+<p>可以新建数据库，建几张表做测试</p>
+</blockquote>
+<pre><code class="lang-sql"># 学生表
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> students (
+    <span class="hljs-keyword">id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+    <span class="hljs-keyword">name</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    gender <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">10</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    age <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    <span class="hljs-keyword">class</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">20</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+);
+# 学科表
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> subjects (
+    <span class="hljs-keyword">id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+    <span class="hljs-keyword">name</span> <span class="hljs-built_in">VARCHAR</span>(<span class="hljs-number">100</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>
+);
+# 成绩表
+<span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> scores (
+    <span class="hljs-keyword">id</span> <span class="hljs-built_in">SERIAL</span> PRIMARY <span class="hljs-keyword">KEY</span>,
+    student_id <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    subject_id <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    score <span class="hljs-built_in">INTEGER</span> <span class="hljs-keyword">NOT</span> <span class="hljs-literal">NULL</span>,
+    FOREIGN <span class="hljs-keyword">KEY</span> (student_id) <span class="hljs-keyword">REFERENCES</span> students (<span class="hljs-keyword">id</span>),
+    FOREIGN <span class="hljs-keyword">KEY</span> (subject_id) <span class="hljs-keyword">REFERENCES</span> subjects (<span class="hljs-keyword">id</span>)
+);
+
+# 插入一些测试数据
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> students (<span class="hljs-keyword">name</span>, gender, age, <span class="hljs-keyword">class</span>)
+<span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-string">'Alice'</span>, <span class="hljs-string">'Female'</span>, <span class="hljs-number">18</span>, <span class="hljs-string">'Class A'</span>),
+    (<span class="hljs-string">'Bob'</span>, <span class="hljs-string">'Male'</span>, <span class="hljs-number">17</span>, <span class="hljs-string">'Class B'</span>),
+    (<span class="hljs-string">'Charlie'</span>, <span class="hljs-string">'Male'</span>, <span class="hljs-number">19</span>, <span class="hljs-string">'Class A'</span>),
+    (<span class="hljs-string">'Diana'</span>, <span class="hljs-string">'Female'</span>, <span class="hljs-number">18</span>, <span class="hljs-string">'Class B'</span>);
+
+# 插入学科表数据
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> subjects (<span class="hljs-keyword">name</span>)
+<span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-string">'Mathematics'</span>),
+    (<span class="hljs-string">'English'</span>),
+    (<span class="hljs-string">'Science'</span>);
+
+<span class="hljs-comment">-- Alice 的成绩</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> scores (student_id, subject_id, score)
+<span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">90</span>),
+    (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">85</span>),
+    (<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">92</span>);
+<span class="hljs-comment">-- Bob 的成绩</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> scores (student_id, subject_id, score)
+<span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">78</span>),
+    (<span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">80</span>),
+    (<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">75</span>);
+<span class="hljs-comment">-- Charlie 的成绩</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> scores (student_id, subject_id, score)
+<span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">88</span>),
+    (<span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">92</span>),
+    (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">90</span>);
+<span class="hljs-comment">-- Diana 的成绩</span>
+<span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> scores (student_id, subject_id, score)
+<span class="hljs-keyword">VALUES</span>
+    (<span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">95</span>),
+    (<span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">88</span>),
+    (<span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">92</span>);
+</code></pre>
+<h4 id="备份"><a class="anchor-navigation-ex-anchor" href="#备份" name="备份"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#备份" name="备份"><i aria-hidden="true" class="fa fa-link"></i></a>备份</h4>
+<p>使用pgdump备份数据库非常简单，只需要在终端中输入相应的命令即可</p>
+<ul>
+<li><p>备份整个数据库</p>
+<pre><code class="lang-cmd">pg_dump -h &lt;数据库地址&gt; -p &lt;数据库端口&gt; -U &lt;数据库用户名&gt; -F c -b -v -f &lt;备份文件路径&gt; &lt;数据库名称&gt;
+
+# 示例
+/usr/pgsql-<span class="hljs-number">14</span>/bin/pg_dump -h <span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span> -U postgres -p <span class="hljs-number">5432</span> -F t -b -v -f build_hyc_test.sql.tar hyc_test
+</code></pre>
+</li>
+<li><p>备份指定表或数据</p>
+<pre><code class="lang-cmd">pg_dump -h &lt;数据库地址&gt; -p &lt;数据库端口&gt; -U &lt;数据库用户名&gt; -F c -b -v -t &lt;表名<span class="hljs-number">1</span>&gt; -t &lt;表名<span class="hljs-number">2</span>&gt; -f &lt;备份文件路径&gt; &lt;数据库名称&gt;
+
+# 示例
+-- 备份指定表到sql文件
+-- '-c --<span class="hljs-keyword">if</span>-exists' 会生成 'drop table <span class="hljs-keyword">if</span> <span class="hljs-keyword">exist</span>' 命令
+-- '--no-owner' 是一个选项，用于指定在导出数据库时不包括拥有者信息
+pg_dump --verbose --host=<span class="hljs-number">192</span>.<span class="hljs-number">168</span>.xx.xx --port=<span class="hljs-number">5432</span> --username=postgres --file /home/huangyc/pg_bak_test/bak_hyc.sql --encoding=UTF-<span class="hljs-number">8</span> -t "public.tushare_wz_index" -t "public.tushare_us_basic" -t "public.dim_fund" -t "public.dim_index" -c --<span class="hljs-keyword">if</span>-exists --no-owner pg_fac_stk
+</code></pre>
+</li>
+</ul>
+<p>具体参数的含义如下：</p>
+<ul>
+<li>-h：数据库服务所在主机地址，可以是本地地址localhost或者IP地址</li>
+<li>-p：数据库服务的监听端口，一般为默认端口5432</li>
+<li>-U：连接数据库的用户名</li>
+<li>-F：备份文件的格式，包括自定义格式c，纯文本格式p和归档格式t</li>
+<li>-b：在备份文件中包含备份的数据库的模式信息</li>
+<li>-v：备份过程中输出详细的信息</li>
+<li>-f：备份文件的保存路径和文件名</li>
+<li>-t：只备份指定的表和数据</li>
+</ul>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 备份postgres库并tar打包</span>
+pg_dump -h 127.0.0.1 -p 5432 -U postgres -f postgres.sql.tar -Ft;
+
+<span class="hljs-comment">-- 备份postgres库，转储数据为带列名的INSERT命令</span>
+pg_dumpall -d postgres -U postgres -f postgres.sql <span class="hljs-comment">--column-inserts;</span>
+</code></pre>
+<h4 id="还原"><a class="anchor-navigation-ex-anchor" href="#还原" name="还原"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#还原" name="还原"><i aria-hidden="true" class="fa fa-link"></i></a>还原</h4>
+<p>使用备份文件进行恢复也非常简单，只需要在终端中输入相应的命令即可</p>
+<ul>
+<li><p>恢复整个库</p>
+<pre><code class="lang-cmd">pg_restore -h &lt;数据库地址&gt; -p &lt;数据库端口&gt; -U &lt;数据库用户名&gt; -d &lt;数据库名称&gt; &lt;备份文件路径&gt;
+
+# 示例
+/usr/pgsql-<span class="hljs-number">14</span>/bin/pg_restore -h <span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span> -U postgres -p <span class="hljs-number">5432</span> -d hyc_test_bak build_hyc_test.sql.tar
+</code></pre>
+</li>
+<li><p>恢复指定数据</p>
+<pre><code class="lang-cmd">pg_restore -h &lt;数据库地址&gt; -p &lt;数据库端口&gt; -U &lt;数据库用户名&gt; -t &lt;表名<span class="hljs-number">1</span>&gt; -t &lt;表名<span class="hljs-number">2</span>&gt; -d &lt;数据库名称&gt; &lt;备份文件路径&gt;
+
+# 示例
+-- 对于pg_dump备份出来的sql文件，直接执行sql文件即可恢复
+-- 还原指定sql文件到bak_test库(需要自己建库)
+psql --host=<span class="hljs-number">192</span>.<span class="hljs-number">168</span>.xx.xx --port=<span class="hljs-number">5432</span> --username=postgres -d bak_test --file /home/huangyc/pg_bak_test/bak_hyc.sql.tar
+</code></pre>
+</li>
+</ul>
+<p>具体参数的含义如下：</p>
+<ul>
+<li>-h：数据库服务所在主机地址，可以是本地地址localhost或者IP地址</li>
+<li>-p：数据库服务的监听端口，一般为默认端口5432</li>
+<li>-U：连接数据库的用户名</li>
+<li>-d：恢复数据的目标数据库名称</li>
+<li>-t：只恢复指定的表和数据</li>
+</ul>
+<h4 id="命令详解"><a class="anchor-navigation-ex-anchor" href="#命令详解" name="命令详解"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#命令详解" name="命令详解"><i aria-hidden="true" class="fa fa-link"></i></a>命令详解</h4>
+<pre><code class="lang-sh">[postgres@pg01 ~]$ pg_dump --help
+用法:
+  pg_dump [选项]... [数据库名字]
+**一般选项**:
+  <span class="hljs-_">-f</span>, --file=FILENAME          输出文件或目录名
+  -F, --format=c|d|t|p         输出文件格式 (c=custom, d=directory, t=tar,p=plain,plain就是sql纯文本 (默认值))
+  -j, --jobs=NUM               执行多个并行任务进行备份转储工作
+  -v, --verbose                详细模式
+  -V, --version                输出版本信息，然后退出
+  -Z, --compress=0-9           被压缩格式的压缩级别，0表示不压缩
+  --lock-wait-timeout=TIMEOUT  在等待表锁超时后操作失败
+  --no-sync                    不用等待变化安全写入磁盘
+  -?, --help                   显示此帮助, 然后退出
+**控制输出内容选项(常用)**:
+  <span class="hljs-_">-a</span>, --data-only              只转储数据,不包括模式,只对纯文本输出有意义
+  <span class="hljs-_">-s</span>, --schema-only            只转储模式, 不包括数据
+  -c, --clean                  在重新创建之前，先清除（删除）数据库对象，如drop table。只对纯文本输出有意义
+  -C, --create                 指定输出文件中是否生成create database语句,只对纯文本输出有意义
+  -n, --schema=PATTERN         指定要导出的schema，不指定则导出所有的非系统schema
+  -N, --exclude-schema=PATTERN 排除导出哪些schema
+  -O, --no-owner               在明文格式中, 忽略恢复对象所属者
+  -t, --table=PATTERN          指定导出的表、视图、序列，可以使用多个-t匹配多个表，使用-t之后，-n和-N就失效了
+  -T, --exclude-table=PATTERN  排除表
+  -x, --no-privileges          不要转储权限 (grant/revoke)
+  --disable-triggers           在只恢复数据的过程中禁用触发器
+  --exclude-table-data=PATTERN <span class="hljs-keyword">do</span> NOT dump data <span class="hljs-keyword">for</span> the specified table(s)
+  --if-exists                  当删除对象时使用IF EXISTS
+  --inserts                    以INSERT命令，而不是COPY命令的形式转储数据，使用该选项可以把数据加载到非pg数据库，会使恢复非常慢
+                               该选项为每行生成1个单独的insert命令，?在恢复过程中遇到错误，将会丢失1行而不是全部表数据
+  --column-inserts             以带有列名的INSERT命令形式转储数据，例如insert into table_name(column,...) values(value1,...)
+  --load-via-partition-root    通过根表加载分区
+  --no-comments                不转储注释
+  --no-tablespaces             不转储表空间分配信息
+  --no-unlogged-table-data     不转储没有日志的表数据
+  --on-conflict-do-nothing     将ON CONFLICT DO NOTHING添加到INSERT命令
+**控制输出内容选项(不常用)**:
+  -S, --superuser=NAME         指定关闭触发器时需要用到的超级用户名。 它只有在使用了--disable-triggers时才有影响。一般情况下，最好不要输入该参数，而是用 超级用户启动生成的脚本。
+  -b, --blobs                  在转储中包括大对象
+  -B, --no-blobs               排除转储中的大型对象
+  -E, --encoding=ENCODING      转储以ENCODING形式编码的数据
+  --binary-upgrade             只能由升级工具使用
+  --enable-row-security        启用行安全性（只转储用户能够访问的内容）
+  --extra-float-digits=NUM     覆盖extra_<span class="hljs-built_in">float</span>_digits的默认设置
+  --disable-dollar-quoting     取消美元 (符号) 引号, 使用 SQL 标准引号
+  --no-publications            不转储发布
+  --no-security-labels         不转储安全标签的分配
+  --no-subscriptions           不转储订阅
+  --no-synchronized-snapshots  在并行工作集中不使用同步快照
+  --quote-all-identifiers      所有标识符加引号，即使不是关键字
+  --rows-per-insert=NROWS      每个插入的行数；意味着--inserts
+  --section=SECTION            备份命名的节 (数据前, 数据, 及 数据后)
+  --serializable-deferrable    等到备份可以无异常运行
+  --snapshot=SNAPSHOT          为转储使用给定的快照
+  --strict-names               要求每个表和(或)schema包括模式以匹配至少一个实体
+  --use-set-session-authorization
+                               使用 SESSION AUTHORIZATION 命令代替
+                               ALTER OWNER 命令来设置所有权
+**联接选项**:
+  <span class="hljs-_">-d</span>, --dbname=DBNAME      对数据库 DBNAME备份
+  -h, --host=主机名        数据库服务器的主机名或套接字目录
+  -p, --port=端口号        数据库服务器的端口号
+  -U, --username=名字      以指定的数据库用户联接
+  -w, --no-password        永远不提示输入口令
+  -W, --password           强制口令提示 (自动)
+  --role=ROLENAME          在转储前运行SET ROLE
+</code></pre>
+<blockquote>
+<p>对于pg_dump的自定义备份custom和tar类型的备份，需要使用pg_restore进行恢复，pg_restore语法如下</p>
+</blockquote>
+<pre><code class="lang-sh">[postgres@pg01 pg_backup]$ pg_restore --help
+pg_restore 从一个归档中恢复一个由 pg_dump 创建的 PostgreSQL 数据库.
+用法:
+  pg_restore [选项]... [文件名]
+一般选项:
+  <span class="hljs-_">-d</span>, --dbname=名字        连接数据库名字
+  <span class="hljs-_">-f</span>, --file=文件名       输出文件名(- 对于stdout)
+  -F, --format=c|d|t       备份文件格式(应该自动进行)
+  <span class="hljs-_">-l</span>, --list               打印归档文件的 TOC 概述
+  -v, --verbose            详细模式
+  -V, --version            输出版本信息, 然后退出
+  -?, --help               显示此帮助, 然后退出
+恢复控制选项:
+  <span class="hljs-_">-a</span>, --data-only              只恢复数据, 不包括模式
+  -c, --clean                  在重新创建之前，先清除（删除）数据库对象
+  -C, --create                 创建目标数据库
+  <span class="hljs-_">-e</span>, --exit-on-error          发生错误退出, 默认为继续
+  -I, --index=NAME             恢复指定名称的索引
+  -j, --jobs=NUM               执行多个并行任务进行恢复工作
+  -L, --use-list=FILENAME      从这个文件中使用指定的内容表排序
+                               输出
+  -n, --schema=NAME            在这个模式中只恢复对象
+  -N, --exclude-schema=NAME    不恢复此模式中的对象
+  -O, --no-owner               不恢复对象所属者
+  -P, --function=NAME(args)    恢复指定名字的函数
+  <span class="hljs-_">-s</span>, --schema-only            只恢复模式, 不包括数据
+  -S, --superuser=NAME         使用指定的超级用户来禁用触发器
+  -t, --table=NAME             恢复命名关系（表、视图等）
+  -T, --trigger=NAME           恢复指定名字的触发器
+  -x, --no-privileges          跳过处理权限的恢复 (grant/revoke)
+  -1, --single-transaction     作为单个事务恢复
+  --disable-triggers           在只恢复数据的过程中禁用触发器
+  --enable-row-security        启用行安全性
+  --if-exists                  当删除对象时使用IF EXISTS
+  --no-comments                不恢复注释
+  --no-data-for-failed-tables  对那些无法创建的表不进行
+                               数据恢复
+  --no-publications            不恢复发行
+  --no-security-labels         不恢复安全标签信息
+  --no-subscriptions           不恢复订阅
+  --no-tablespaces             不恢复表空间的分配信息
+  --section=SECTION            恢复命名节 (数据前、数据及数据后)
+  --strict-names               要求每个表和(或)schema包括模式以匹配至少一个实体
+  --use-set-session-authorization
+                               使用 SESSION AUTHORIZATION 命令代替
+                               ALTER OWNER 命令来设置所有权
+联接选项:
+  -h, --host=主机名        数据库服务器的主机名或套接字目录
+  -p, --port=端口号        数据库服务器的端口号
+  -U, --username=名字      以指定的数据库用户联接
+  -w, --no-password        永远不提示输入口令
+  -W, --password           强制口令提示 (自动)
+  --role=ROLENAME          在恢复前执行SET ROLE操作
+选项 -I, -n, -N, -P, -t, -T, 以及 --section 可以组合使用和指定
+多次用于选择多个对象.
+如果没有提供输入文件名, 则使用标准输入.
+</code></pre>
+<h3 id="表空间">3.3.4 表空间</h3>
+<blockquote>
+<p>新建表空间</p>
+</blockquote>
+<pre><code class="lang-sh"><span class="hljs-comment"># 新建表空间目录 t_fac_ts</span>
+mkdir /home/huangyc/t_fac_ts
+<span class="hljs-comment"># 修改表空间的用户权限</span>
+chown postgres /home/huangyc/t_fac_ts
+</code></pre>
+<blockquote>
+<p>pg库新建表空间</p>
+</blockquote>
+<pre><code class="lang-sh">create tablespace t_fac_ts owner postgres location <span class="hljs-string">'/home/huangyc/t_fac_ts'</span>;
+</code></pre>
+<blockquote>
+<p>表空间有关的一些语法</p>
+</blockquote>
+<pre><code class="lang-sql"># 删除表空间 (需要先<span class="hljs-keyword">drop</span>表空间所有的表, 或者将该空间下所有的表移除才能<span class="hljs-keyword">drop</span>表空间)
+<span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLESPACE</span> t_fac_ts;
+# 修改具体的表到指定表空间下
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> t_fac_tushare_stock_basic <span class="hljs-keyword">SET</span> <span class="hljs-keyword">TABLESPACE</span> t_fac_ts;
+# 修改指定库到指定表空间下
+<span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">DATABASE</span> <span class="hljs-keyword">name</span> <span class="hljs-keyword">SET</span> <span class="hljs-keyword">TABLESPACE</span> new_tablespace;
+</code></pre>
+<h3 id="锁表处理">3.3.5 锁表处理</h3>
+<blockquote>
+<p>pg锁表解锁</p>
+</blockquote>
+<ol>
+<li><p>查看被锁的表</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> a.locktype,a.<span class="hljs-keyword">database</span>,a.pid,a.<span class="hljs-keyword">mode</span>,a.relation,b.relname
+<span class="hljs-keyword">from</span> pg_locks a
+<span class="hljs-keyword">join</span> pg_class b <span class="hljs-keyword">on</span> a.relation = b.<span class="hljs-keyword">oid</span> <span class="hljs-keyword">where</span> relname=<span class="hljs-string">'t_opt_strhdk_blsj'</span>;
+</code></pre>
+</li>
+<li><p>杀死被锁的pid</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> pg_terminate_backend(pid);
+</code></pre>
+</li>
+</ol>
+<h3 id="表结构修改">3.3.6 表结构修改</h3>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 修改表名</span>
+<span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> <span class="hljs-string">"user"</span> <span class="hljs-keyword">rename</span> <span class="hljs-keyword">to</span> <span class="hljs-string">"ts_user"</span>;
+<span class="hljs-comment">-- 添加新字段</span>
+<span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> table_name <span class="hljs-keyword">add</span> <span class="hljs-keyword">column</span> col_name <span class="hljs-built_in">varchar</span>(<span class="hljs-number">50</span>);
+<span class="hljs-comment">-- 丢弃某列</span>
+<span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> table_name <span class="hljs-keyword">drop</span> <span class="hljs-keyword">column</span> col_name;
+<span class="hljs-comment">-- 添加主键</span>
+<span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> table_name <span class="hljs-keyword">add</span> primary <span class="hljs-keyword">key</span>(<span class="hljs-string">"col_name"</span>);
+<span class="hljs-comment">-- 修改字段名</span>
+<span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> table_name <span class="hljs-keyword">rename</span> <span class="hljs-keyword">column</span> old_col_name <span class="hljs-keyword">to</span> new_col_name;
+</code></pre>
+<h3 id="数据更新和查询">3.3.7 数据更新和查询</h3>
+<blockquote>
+<p>设置某字段的值</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 设置某字段的值</span>
+<span class="hljs-keyword">update</span> table_name <span class="hljs-keyword">set</span> col_name=new_value;
+</code></pre>
+<blockquote>
+<p>删除表中重复数据</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 查询[旧表]数据的重复情况</span>
+<span class="hljs-keyword">select</span> col1,col2,<span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">from</span> old_table <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> col1,col2;
+
+<span class="hljs-comment">-- 所有字段都一样的情况</span>
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> bak_table <span class="hljs-keyword">as</span> <span class="hljs-keyword">select</span> <span class="hljs-keyword">distinct</span> * <span class="hljs-keyword">from</span> table_name;
+
+<span class="hljs-comment">-- 查询[新表]数据的重复情况</span>
+<span class="hljs-keyword">select</span> col1,col2,<span class="hljs-keyword">count</span>(*) <span class="hljs-keyword">from</span> bak_table <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> col1,col2;
+<span class="hljs-keyword">truncate</span> <span class="hljs-keyword">table</span> old_table;
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> old_table (col1,col2) <span class="hljs-keyword">select</span> col1,col2 <span class="hljs-keyword">from</span> bak_table;
+</code></pre>
+<blockquote>
+<p>不存在插入，存在更新</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> ... <span class="hljs-keyword">on</span> conflict(column_name) <span class="hljs-keyword">do</span> <span class="hljs-keyword">update</span> <span class="hljs-keyword">set</span> ...
+</code></pre>
+<p>conflict(column_name): column_name字段是判断要查找的数据是否存在，作为判断条件</p>
+<p>column_name必须是<a href="https://so.csdn.net/so/search?q=主键&amp;spm=1001.2101.3001.7020" target="_blank">主键</a>或者其他具有唯一性的字段(如唯一键或排他键)</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> <span class="hljs-keyword">user</span>(<span class="hljs-keyword">id</span>,username,address,create_date,create_by) 
+<span class="hljs-keyword">values</span>(<span class="hljs-string">'1'</span>,<span class="hljs-string">'刘德华'</span>,<span class="hljs-string">'香港'</span>,<span class="hljs-keyword">now</span>(),<span class="hljs-string">'system'</span>) 
+<span class="hljs-keyword">on</span> conflict(<span class="hljs-keyword">id</span>) 
+<span class="hljs-keyword">do</span> <span class="hljs-keyword">update</span> <span class="hljs-keyword">set</span> address=<span class="hljs-string">'中国'</span>,update_date=<span class="hljs-keyword">now</span>(),update_by=<span class="hljs-string">'system'</span>;
+</code></pre>
+<pre><code class="lang-sql"># 批量的方式
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> testunnest(<span class="hljs-keyword">id</span>, age, <span class="hljs-keyword">name</span>) <span class="hljs-keyword">values</span> (unnest(<span class="hljs-built_in">array</span>[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>]), unnest(<span class="hljs-built_in">array</span>[<span class="hljs-number">18</span>,<span class="hljs-number">10</span>]), unnest(<span class="hljs-built_in">array</span>[<span class="hljs-string">'valupdated'</span>, <span class="hljs-string">'val3'</span>])) <span class="hljs-keyword">on</span> conflict (<span class="hljs-keyword">id</span>) <span class="hljs-keyword">do</span> <span class="hljs-keyword">update</span> <span class="hljs-keyword">set</span> age = excluded.age, <span class="hljs-keyword">name</span> = excluded.<span class="hljs-keyword">name</span>;
+</code></pre>
+<h3 id="数据和结构复制">3.3.8 数据和结构复制</h3>
+<pre><code class="lang-sql"><span class="hljs-comment">-- [复制表和数据] 复制表结构和数据 自动建表，不会复制主键什么的</span>
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> new_table <span class="hljs-keyword">as</span> <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> old_table;
+<span class="hljs-comment">-- [复制数据] 复制数据到 新表 表需要提前建，并且表字段要一致，不会复制主键什么的</span>
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> new_table (col_0, col_1) <span class="hljs-keyword">select</span> col_0, col_1 <span class="hljs-keyword">from</span> old_table;
+</code></pre>
+<h3 id="分页查询">3.3.9 分页查询</h3>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> table_name <span class="hljs-keyword">limit</span> <span class="hljs-number">10000</span> <span class="hljs-keyword">offset</span> <span class="hljs-number">20000</span>;
+</code></pre>
+<h3 id="删除重复记录">3.3.10 删除重复记录</h3>
+<blockquote>
+<p><a href="https://blog.csdn.net/Hehuyi_In/article/details/105781257" target="_blank">postgresql 常用的删除重复数据方法</a></p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 初始化数据</span>
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> hyc_tmp_del_test(<span class="hljs-keyword">id</span> <span class="hljs-built_in">int</span>, <span class="hljs-keyword">name</span> <span class="hljs-built_in">varchar</span>(<span class="hljs-number">255</span>));
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">table</span> hyc_tmp_del_test_bk (<span class="hljs-keyword">like</span> hyc_tmp_del_test);
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> hyc_tmp_del_test <span class="hljs-keyword">select</span> generate_series(<span class="hljs-number">1</span>, <span class="hljs-number">10000</span>), <span class="hljs-string">'huangyc'</span>;
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> hyc_tmp_del_test <span class="hljs-keyword">select</span> generate_series(<span class="hljs-number">1</span>, <span class="hljs-number">10000</span>), <span class="hljs-string">'huangyc'</span>;
+<span class="hljs-keyword">insert</span> <span class="hljs-keyword">into</span> hyc_tmp_del_test_bk <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> hyc_tmp_del_test;
+
+<span class="hljs-comment">-- 最容易想到的方法就是判断数据是否重复，对于重复的数据只保留ctid最小（或最大）的数据，删除其他的</span>
+<span class="hljs-comment">-- id相同的数据，保留ctid最小的，其他的删除</span>
+<span class="hljs-keyword">explain</span> analyse <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> hyc_tmp_del_test_bk a <span class="hljs-keyword">where</span> a.ctid &lt;&gt; (<span class="hljs-keyword">select</span> <span class="hljs-keyword">min</span>(t.ctid) <span class="hljs-keyword">from</span> hyc_tmp_del_test_bk t <span class="hljs-keyword">where</span> a.<span class="hljs-keyword">id</span>=t.<span class="hljs-keyword">id</span>); <span class="hljs-comment">-- 17.112s</span>
+
+<span class="hljs-comment">-- group by方法通过分组找到ctid最小的数据，然后删除其他数据</span>
+<span class="hljs-keyword">explain</span> analyse <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> hyc_tmp_del_test_bk a <span class="hljs-keyword">where</span> a.ctid <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> (<span class="hljs-keyword">select</span> <span class="hljs-keyword">min</span>(ctid) <span class="hljs-keyword">from</span> hyc_tmp_del_test_bk <span class="hljs-keyword">group</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">id</span>); <span class="hljs-comment">-- 0.052s</span>
+
+<span class="hljs-comment">-- 高效删除方法</span>
+<span class="hljs-keyword">explain</span> <span class="hljs-keyword">analyze</span> <span class="hljs-keyword">delete</span> <span class="hljs-keyword">from</span> hyc_tmp_del_test_bk a <span class="hljs-keyword">where</span> a.ctid = <span class="hljs-keyword">any</span>(<span class="hljs-built_in">array</span> (<span class="hljs-keyword">select</span> ctid <span class="hljs-keyword">from</span> (<span class="hljs-keyword">select</span> row_number() <span class="hljs-keyword">over</span> (<span class="hljs-keyword">partition</span> <span class="hljs-keyword">by</span> <span class="hljs-keyword">id</span>), ctid <span class="hljs-keyword">from</span> hyc_tmp_del_test_bk) t <span class="hljs-keyword">where</span> t.row_number &gt; <span class="hljs-number">1</span>)); <span class="hljs-comment">-- 0.055s</span>
+</code></pre>
+<p>第二种和第三种感觉差不多，原文说是第三种快不少，这里pg库是14.x版本</p>
+<blockquote>
+<p>关键</p>
+</blockquote>
+<p>pg中每个表都有几个系统隐藏列：tableoid， xmin， xmax，cmin，cmax，ctid</p>
+<p>其中tableoid表示表的oid，cmin、cmax、xmin和xmax是mvcc的实现有关</p>
+<p>ctid表示行版本在表中的<strong>物理位置</strong>: 它属于对象标识符类型(oid，Object Identifier Types)，是一种行标识符，它的数据使用的元组标识符(tid，tuple identifier)。元组ID是一对(块号，块内的元组索引)，用于标识当前行的物理位置。</p>
+<h3 id="索引">3.3.11 索引</h3>
+<pre><code class="lang-sql"><span class="hljs-comment">-- 获取数据库表中的索引</span>
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> pg_indexes <span class="hljs-keyword">where</span> tablename = <span class="hljs-string">'t_cfg_opinfo'</span>; 
+<span class="hljs-comment">-- 创建索引</span>
+<span class="hljs-keyword">create</span> <span class="hljs-keyword">index</span> index_name <span class="hljs-keyword">on</span> table_name (col_0, col_1);
+<span class="hljs-comment">-- 查询索引</span>
+<span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> pg_indexes <span class="hljs-keyword">where</span> tablename=<span class="hljs-string">'table_name'</span>;
+<span class="hljs-comment">-- 删除索引</span>
+<span class="hljs-keyword">drop</span> <span class="hljs-keyword">index</span> index_name;
+</code></pre>
+<blockquote>
+<p>什么情况下要避免使用索引？</p>
+</blockquote>
+<p>虽然索引的目的在于提高数据库的性能，但这里有几个情况需要避免使用索引</p>
+<p><strong>使用索引时，需要考虑下列准则</strong>：</p>
+<ul>
+<li>索引不应该使用在较小的表上</li>
+<li>索引不应该使用在有频繁的大批量的更新或插入操作的表上</li>
+<li>索引不应该使用在含有大量的 NULL 值的列上</li>
+<li>索引不应该使用在频繁操作的列上</li>
+</ul>
+<h3 id="其他语法">3.3.12 其他语法</h3>
+<blockquote>
+<p>筛选某列，逗号拼接</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> string_agg(bs_org_id,<span class="hljs-string">','</span>) <span class="hljs-keyword">as</span> bs_org_ids 
+  <span class="hljs-keyword">from</span> bs_org 
+  <span class="hljs-keyword">where</span> par_org_id =<span class="hljs-string">'100'</span>
+</code></pre>
+<blockquote>
+<p>日期转换</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> to_char(col_name,<span class="hljs-string">'yyyyMMDD'</span>)-<span class="hljs-built_in">interval</span> <span class="hljs-string">'2 day'</span> <span class="hljs-keyword">from</span> table_name
+<span class="hljs-comment">-- -interval '2 day' 表示往前2天</span>
+</code></pre>
+<blockquote>
+<p>转时间戳</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-keyword">select</span> <span class="hljs-string">'2011-01-06 09:57:59'</span>::<span class="hljs-keyword">timestamp</span>;
+TO_TIMESTAMP('2011-01-06 09:57:59', 'YYYY-MM-DD HH24:MI:S')
+</code></pre>
+<blockquote>
+<p>postgresql 获取分组第一条数据 窗口函数</p>
+</blockquote>
+<ol>
+<li>给数据分组并排名，使用 <code>row_number() over (partition by 分组的字段名 order by 排序规则) as 排名</code></li>
+<li>从上述第一步中取出，排名为第一的数据，即为第一条数据 <code>select * from 上述第一步 where 排名=1</code></li>
+<li>获取前N名的数据，将一中第二步的条件换成<code>where 排名 &lt; N+1</code></li>
+</ol>
+<blockquote>
+<p> distributed key</p>
+</blockquote>
+<pre><code class="lang-sql"><span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> table_name <span class="hljs-keyword">set</span> <span class="hljs-keyword">distributed</span> <span class="hljs-keyword">by</span> (<span class="hljs-keyword">id</span>);
+<span class="hljs-keyword">alter</span> <span class="hljs-keyword">table</span> table_name <span class="hljs-keyword">add</span> primary <span class="hljs-keyword">key</span> (<span class="hljs-keyword">id</span>);
+</code></pre>
+<h1 id="orm框架">4 ORM框架</h1>
+<h2 id="orm框架比较">4.1 ORM框架比较</h2>
+<blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/64428869" target="_blank">一文了解 Python 的三种数据源架构模式</a></p>
+<p><a href="https://www.oschina.net/translate/sqlalchemy-vs-orms" target="_blank">SQLAlchemy 和其他的 ORM 框架</a></p>
+<p>SQLObject</p>
+</blockquote>
+<ul>
+<li><p>优点：</p>
+<p>采用了易懂的ActiveRecord 模式</p>
+<p>一个相对较小的代码库</p>
+</li>
+<li><p>缺点：</p>
+<p>方法和类的命名遵循了Java 的小驼峰风格</p>
+<p>不支持数据库session隔离工作单元</p>
+</li>
+</ul>
+<blockquote>
+<p>Storm</p>
+</blockquote>
+<ul>
+<li><p>优点：</p>
+<p>清爽轻量的API，短学习曲线和长期可维护性</p>
+<p>不需要特殊的类构造函数，也没有必要的基类</p>
+</li>
+<li><p>缺点：</p>
+<p>迫使程序员手工写表格创建的DDL语句，而不是从模型类自动派生</p>
+<p>Storm的贡献者必须把他们的贡献的版权给Canonical公司</p>
+</li>
+</ul>
+<blockquote>
+<p>Django's ORM</p>
+</blockquote>
+<ul>
+<li><p>优点：</p>
+<p>易用，学习曲线短</p>
+<p>和Django紧密集合，用Django时使用约定俗成的方法去操作数据库</p>
+</li>
+<li><p>缺点：</p>
+<p>不好处理复杂的查询，强制开发者回到原生SQL</p>
+<p>紧密和Django集成，使得在Django环境外很难使用</p>
+</li>
+</ul>
+<blockquote>
+<p>peewee</p>
+</blockquote>
+<ul>
+<li><p>优点：</p>
+<p>Django式的API，使其易用</p>
+<p>轻量实现，很容易和任意web框架集成</p>
+</li>
+<li><p>缺点：</p>
+<p>不支持自动化 schema 迁移</p>
+<p>多对多查询写起来不直观</p>
+</li>
+</ul>
+<blockquote>
+<p>SQLAlchemy</p>
+</blockquote>
+<ul>
+<li><p>优点：</p>
+<p>企业级API，使得代码有健壮性和适应性</p>
+<p>灵活的设计，使得能轻松写复杂查询</p>
+</li>
+<li><p>缺点：</p>
+<p>工作单元概念不常见</p>
+<p>重量级API，导致长学习曲线</p>
+</li>
+</ul>
+<p>相比其他的ORM， SQLAlchemy 意味着，无论你何时写SQLAlchemy代码， 都专注于工作单元的前沿概念 。DB Session 的概念可能最初很难理解和正确使用，但是后来你会欣赏这额外的复杂性，这让意外的时序提交相关的数据库bug减少到0。在SQLAlchemy中处理多数据库是棘手的， 因为每个DB session 都限定了一个数据库连接。但是，这种类型的限制实际上是好事， 因为这样强制你绞尽脑汁去想在多个数据库之间的交互， 从而使得数据库交互代码很容易调试。</p>
+<h2 id="sqlalchemy">4.2 SQLAlchemy</h2>
+<blockquote>
+<p><a href="https://www.osgeo.cn/sqlalchemy/index.html#" target="_blank">SQLAlchemy 1.4 Documentation</a></p>
+<p><a href="https://www.cnblogs.com/xiaonq/p/8420826.html" target="_blank">sqlalchemy操作数据库</a></p>
+<p><a href="https://www.cnblogs.com/goldsunshine/p/9269880.html" target="_blank">sqlalchemy外键和relationship查询</a></p>
+<p><a href="https://www.cnblogs.com/goldsunshine/p/10124859.htmlhttps://www.cnblogs.com/goldsunshine/p/10124859.html" target="_blank">SQLALlchemy数据查询小集合</a></p>
+<p><a href="https://sanyuesha.com/2019/01/02/sqlalchemy-pool-mechanism/" target="_blank">SQLAlchemy 的连接池机制</a></p>
+<p><a href="https://www.cnblogs.com/ChangAn223/p/11277468.html" target="_blank">SQLAlchemy 中的 Session、sessionmaker、scoped_session</a></p>
+<p><a href="https://docs.sqlalchemy.org/en/13/orm/contextual.html#unitofwork-contextual" target="_blank">Contextual/Thread-local Sessions</a></p>
+<p><a href="https://www.cnblogs.com/xintiao-/p/10376708.html" target="_blank">SQLAlchemy(常用的SQLAlchemy列选项)</a></p>
+<p><a href="https://docs.sqlalchemy.org/en/14/orm/tutorial.html?highlight=from_statement#using-literal-sql" target="_blank">查询官网例子Object Relational Tutorial (1.x API)</a></p>
+<p><a href="https://www.cnblogs.com/goldsunshine/p/9269880.html#SsSph3tf" target="_blank">sqlalchemy外键和relationship查询</a></p>
+</blockquote>
+<h3 id="session和scopedsession">4.2.1 session和scoped_session</h3>
+<p>session用于创建程序和数据库之间的会话，所有对象的载入和保存都需通过session对象 。
+通过sessionmaker调用创建一个工厂，并关联Engine以确保每个session都可以使用该Engine连接资源
+scoped_session 实现了一个线程的隔离，保证不同的线程拿到不同的session, 同一个线程拿到的session 是同一个值</p>
+<pre><code class="lang-python">s1 = Session()
+s2 = Session()
+s1.add(person)
+s1.commit()
+<span class="hljs-comment"># 必须先close，s2才能继续操作person</span>
+s1.close()
+s2.add(person)
+</code></pre>
+<p>session 和scoped_session本质上都是用来操作数据库的，只是session 只适合在单线程下面使用
+官方文档提到了scoped_session的正确使用方法。request结束后要调用scoped_session.remove()</p>
+<blockquote>
+<p><a href="http://sunnyingit.github.io/book/section_python/SQLalchemy-engine.html" target="_blank">Engine Configuration</a></p>
+</blockquote>
+<p>使用 <code>create_engine</code>创建我们需要的<code>DB starting point</code></p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> sqlalchemy <span class="hljs-keyword">import</span> create_engine
+
+scheme = <span class="hljs-string">'mysql+pymysql://root:123456@localhost:3306/dev_shopping?charset=utf8'</span>
+engine = create_engine(scheme, pool_size=<span class="hljs-number">10</span> , max_overflow=<span class="hljs-number">-1</span>, pool_recycle=<span class="hljs-number">1200</span>)
+</code></pre>
+<p><code>create_engine</code> 函数常用参数：</p>
+<ul>
+<li>pool_size=10 # 连接池的大小，0表示连接数无限制</li>
+<li>pool_recycle=-1 # 连接池回收连接的时间，如果设置为-1，表示没有no timeout, 注意，mysql会自动断开超过8小时的连接，所以sqlalchemy沿用被mysql断开的连接会抛出MySQL has gone away</li>
+<li>max_overflow=-1 # 连接池中允许‘溢出’的连接个数，如果设置为-1，表示连接池中可以创建任意数量的连接</li>
+<li>pool_timeout=30 # 在连接池获取一个空闲连接等待的时间</li>
+<li>echo=False # 如果设置True, Engine将会记录所有的日志，日志默认会输出到sys.stdout</li>
+</ul>
+<p>创建<code>Engine</code>之后，接下来的问题，就是如何使用<code>Engine</code></p>
+<p>在单进程中，建议在在初始化的模块的时候创建<code>Engine</code>, 使<code>Engine</code>成为全局变量， 而不是为每个调用<code>Engine</code>的对象或者函数中创建, <code>Engine</code>不同于<code>connect</code>, <code>connect</code>函数会创建数据库连接的资源，<code>Engine</code>是管理<code>connect</code>创建的连接资源</p>
+<p>在多进程中，为每个子进程都创建各自的<code>Engine</code>, 因为进程之间是不能共享<code>Engine</code></p>
+<h3 id="几种操作方式">4.2.2 几种操作方式</h3>
+<blockquote>
+<p><a href="https://docs.sqlalchemy.org/en/14/core/connections.html#basic-usage" target="_blank">Working with Engines and Connections</a></p>
+<p><a href="https://blog.csdn.net/qq_36622490/article/details/109850409" target="_blank">SqlAlchemy的Engine，Connection和Session 区别？适合什么时候用？</a></p>
+<p>Engine方式</p>
+</blockquote>
+<p>Engine是SQLAlchemy中连接数据库最底层级别的对象，它维护了一个连接池，可以在应用程序需要和数据库对话时使用。在Engine.execute(close_with_result=True) close_with_result=True 表示连接自动关闭；</p>
+<pre><code class="lang-python">result = engine.execute(<span class="hljs-string">'SELECT * FROM tablename;'</span>) 
+conn = engine.connect(close_with_result=<span class="hljs-keyword">True</span>)
+result = conn.execute(<span class="hljs-string">'SELECT * FROM tablename;'</span>)
+<span class="hljs-keyword">for</span> row <span class="hljs-keyword">in</span> result:
+    print(result[<span class="hljs-string">'columnname'</span>]
+result.close()
+</code></pre>
+<blockquote>
+<p>Connection方式</p>
+</blockquote>
+<p>Connection，实际上是执行SQL查询的工作，每当你想更好的控制连接的属性，如何时关闭等都建议使用这个操作；比如在一个事务中，要控制它提交commit的时间，在connection控制中就可以运行多个不同的SQL语句，如果其中一个出现问题，则其他所有的语句都会撤销更改；</p>
+<pre><code class="lang-python">connection = engine.connect()
+trans = connection.begin()
+<span class="hljs-keyword">try</span>:
+    connection.execute(<span class="hljs-string">"INSERT INTO films VALUES ('Comedy', '82 minutes');"</span>)
+    connection.execute(<span class="hljs-string">"INSERT INTO datalog VALUES ('added a comedy');"</span>)
+    trans.commit()
+<span class="hljs-keyword">except</span>:
+    trans.rollback()
+    <span class="hljs-keyword">raise</span>
+</code></pre>
+<blockquote>
+<p>Session方式</p>
+</blockquote>
+<p>Session，一般都是用于ORM中，因为在ORM中，会自动生成SQL语句以及自动连接数据库（自己配置），使用session.execute（）也是个编辑的方法，可以将会话绑定到任何对象；如果你确定使用ORM，就建议使用session来处理execute(),否则还是使用connection更好方便；</p>
+<blockquote>
+<p>总结: 从应用角度来看，可以把这三类分为两种：</p>
+</blockquote>
+<ol>
+<li><p>直接使用Engine.execute() 或Connection.execute()，更加灵活，可以使用原生SQL语句</p>
+</li>
+<li><p>使用Session处理交易类型的数据，因为方便使用session.add(), session.rollback(), session.commit(), session.close()等，它是使用ORM时推荐的一种和数据库交互的方式</p>
+</li>
+</ol>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: logging模块" class="navigation navigation-prev" href="9.logging模块.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: RegularExpressionOP" class="navigation navigation-next" href="11.Regular_Expression_OP.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"数据库相关操作","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i//hexo/post_imgs/蕾姆9.webp","cover":"https://pic.hycbook.com/i//hexo/post_cover/蕾姆9.webp","categories":["python"],"tags":["python","数据库","Elasticsearch","Oracle","Postgresql","sql","orm","SqlAlchemy"],"abbrlink":59006,"level":"1.11","depth":1,"next":{"title":"RegularExpressionOP","level":"1.12","depth":1,"path":"chapters/11.Regular_Expression_OP.md","ref":"chapters/11.Regular_Expression_OP.md","articles":[]},"previous":{"title":"logging模块","level":"1.10","depth":1,"path":"chapters/9.logging模块.md","ref":"chapters/9.logging模块.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/10.数据库相关操作.md","mtime":"2023-08-13T04:38:31.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

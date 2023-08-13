@@ -1,0 +1,1658 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>python装饰器 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="python装饰器学习以及函数式编程的库介绍" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="6.python魔法函数.html" rel="next"/>
+<link href="4.python异步编程.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">python装饰器</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#函数基础">1 函数基础</a></li><ul><li><span class="title-icon"></span><a href="#函数定义">1.1 函数定义</a></li><ul><li><span class="title-icon"></span><a href="#函数和方法">1.1.1 函数和方法</a></li></ul><li><span class="title-icon"></span><a href="#可调用对象">1.2 可调用对象</a></li><li><span class="title-icon"></span><a href="#函数内省">1.3 函数内省</a></li><li><span class="title-icon"></span><a href="#参数传递">1.4 参数传递</a></li><ul><li><span class="title-icon"></span><a href="#args、kwargs用法">1.4.1 args、*kwargs用法</a></li><li><span class="title-icon"></span><a href="#args、kwargs用法_1">1.4.2 args、*kwargs用法</a></li><li><span class="title-icon"></span><a href="#有限个参数">1.4.3 有限个参数</a></li><li><span class="title-icon"></span><a href="#可变参数">1.4.4 可变参数</a></li></ul><li><span class="title-icon"></span><a href="#函数注解">1.5 函数注解</a></li></ul><li><span class="title-icon"></span><a href="#函数式编程包">2 函数式编程包</a></li><ul><li><span class="title-icon"></span><a href="#operator模块">2.1 operator模块</a></li><ul><li><span class="title-icon"></span><a href="#reduce">2.1.1 reduce</a></li><li><span class="title-icon"></span><a href="#itemgetter">2.1.2 itemgetter</a></li><li><span class="title-icon"></span><a href="#attrgetter">2.1.3 attrgetter</a></li><li><span class="title-icon"></span><a href="#methodcaller">2.1.4 methodcaller</a></li><li><span class="title-icon"></span><a href="#其他模块">2.1.5 其他模块</a></li></ul><li><span class="title-icon"></span><a href="#functools模块">2.2 functools模块</a></li><ul><li><span class="title-icon"></span><a href="#partial">2.2.1 partial</a></li><li><span class="title-icon"></span><a href="#partialmethod">2.2.2 partialmethod</a></li><li><span class="title-icon"></span><a href="#totalordering">2.2.3 total_ordering</a></li><li><span class="title-icon"></span><a href="#cmptokey">2.2.4 cmp_to_key</a></li><li><span class="title-icon"></span><a href="#lrucache">2.2.5 lru_cache</a></li><li><span class="title-icon"></span><a href="#singledispatch">2.2.6 singledispatch</a></li><li><span class="title-icon"></span><a href="#wraps">2.2.7 wraps</a></li><li><span class="title-icon"></span><a href="#updatewrapper">2.2.8 update_wrapper</a></li></ul></ul><li><span class="title-icon"></span><a href="#装饰器dercrator">3 装饰器(Dercrator)</a></li><ul><li><span class="title-icon"></span><a href="#globals关键字">3.1 globals关键字</a></li><li><span class="title-icon"></span><a href="#闭包">3.2 闭包</a></li><ul><li><span class="title-icon"></span><a href="#global关键字">3.2.1 global关键字</a></li><li><span class="title-icon"></span><a href="#自由变量">3.2.2 自由变量</a></li><li><span class="title-icon"></span><a href="#nonlocal声明">3.2.3 nonlocal声明</a></li></ul><li><span class="title-icon"></span><a href="#函数装饰函数">3.3 函数装饰函数</a></li><ul><li><span class="title-icon"></span><a href="#functoolswrap装饰器">3.3.1 functools.wrap装饰器</a></li><li><span class="title-icon"></span><a href="#带参数的装饰器3层">3.3.2 带参数的装饰器(3层)</a></li><li><span class="title-icon"></span><a href="#带有不定参数的装饰器">3.3.3 带有不定参数的装饰器</a></li><li><span class="title-icon"></span><a href="#多个装饰器">3.3.4 多个装饰器</a></li></ul><li><span class="title-icon"></span><a href="#函数装饰类">3.4 函数装饰类</a></li><li><span class="title-icon"></span><a href="#类装饰函数">3.5 类装饰函数</a></li><li><span class="title-icon"></span><a href="#类装饰类">3.6 类装饰类</a></li><li><span class="title-icon"></span><a href="#内置装饰器">3.7 内置装饰器</a></li><ul><li><span class="title-icon"></span><a href="#命令行神器click">3.7.1 命令行神器Click</a></li><li><span class="title-icon"></span><a href="#property和classmethod">3.7.2 @property和@classmethod</a></li><li><span class="title-icon"></span><a href="#functools模块的内置装饰器">3.7.3 functools模块的内置装饰器</a></li></ul></ul><li><span class="title-icon"></span><a href="#柯里化">4 柯里化</a></li><li><span class="title-icon"></span><a href="#案例">5 案例</a></li><ul><li><span class="title-icon"></span><a href="#时间装饰器">5.1 时间装饰器</a></li></ul></ul></div><a href="#函数基础" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="函数基础">1 函数基础</h1>
+<h2 id="函数定义">1.1 函数定义</h2>
+<blockquote>
+<p>在 Python 中，函数是一等对象，编程语言理论家把“一等对象”定义为满足下述条件的程序实体：</p>
+<ul>
+<li>在运行时创建</li>
+<li>能赋值给变量或数据结构中的元素</li>
+<li>能作为参数传给函数</li>
+<li>能作为函数的返回结果</li>
+</ul>
+<p>有了一等函数，就可以使用函数式风格编程。</p>
+<p><code>函数式编程</code>的特点之一是使用高阶函数——接受函数为参数，或者把函数作为结果返回的函数是<strong>高阶函数</strong>（higher-order function）。</p>
+<p>在函数式编程范式中，最为人熟知的高阶函数有 <code>map</code>、<code>filter</code>、<code>reduce</code> 和 <code>apply</code>。</p>
+<p>在 Python 3 中，<code>map</code> 和 <code>filter</code> 还是内置函数，但是由于引入了列表推导和生成器表达式，它们变得没那么重要了。</p>
+<p><code>sum</code> 和 <code>reduce</code> 的通用思想是把某个操作连续应用到序列的元素上，累计之前的结果，把一系列值归约成一个值。</p>
+<p><code>all</code> 和 <code>any</code> 也是内置的归约函数。</p>
+<p>all(iterable): 如果 <code>iterable</code> 的每个元素都是真值，返回 <code>True</code>；<code>all([])</code> 返回 <code>True</code>。</p>
+<p>any(iterable): 只要 <code>iterable</code> 中有元素是真值，就返回 <code>True</code>；<code>any([])</code> 返回 <code>False</code>。</p>
+<p><code>lambda</code> 关键字在 Python 表达式内创建匿名函数。</p>
+<p><code>lambda</code> 函数的定义体中不能赋值，也不能使用 <code>while</code> 和 <code>try</code> 等 Python 语句。</p>
+<p><code>lambda</code> 句法只是语法糖：与 <code>def</code> 语句一样，<code>lambda</code> 表达式会创建函数对象。</p>
+</blockquote>
+<h3 id="函数和方法">1.1.1 函数和方法</h3>
+<blockquote>
+<p><a href="https://www.cnblogs.com/mayugang/p/9977914.html" target="_blank">从几个维度来介绍下python中函数和方法的区别</a>：</p>
+</blockquote>
+<h4 id="分类角度分析"><a class="anchor-navigation-ex-anchor" href="#分类角度分析" name="分类角度分析"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#分类角度分析" name="分类角度分析"><i aria-hidden="true" class="fa fa-link"></i></a>分类角度分析</h4>
+<blockquote>
+<p>(1) 函数的分类：</p>
+<ul>
+<li>内置函数：python内嵌的一些函数。</li>
+<li>匿名函数：一行代码实现一个函数功能。</li>
+<li>递归函数</li>
+<li>自定义函数：根据自己的需求，来进行定义函数。</li>
+</ul>
+<p>(2) 方法的分类：</p>
+<ul>
+<li>普通方法：直接用self调用的方法。</li>
+<li>私有方法：__函数名，只能在类中被调用的方法。</li>
+<li>属性方法：@property，将方法伪装成为属性，让代码看起来更合理。</li>
+<li>特殊方法(双下划线方法)：以__init__为例，是用来封装实例化对象的属性，<strong>只要是实例化对象就一定会执行__init__方法</strong>，如果对象子类中没有则会寻找父类（超类），如果父类（超类）也没有，则直接继承object(python 3.x)类，执行类中的__init__方法。</li>
+<li>类方法：通过类名的调用去操作公共模板中的属性和方法。</li>
+<li>静态方法：不用传入类空间、对象的方法， 作用是保证代码的一致性，规范性，可以完全独立类外的一个方法，但是为了代码的一致性统一的放到某个模块(py文件)中。</li>
+</ul>
+</blockquote>
+<h4 id="作用域角度分析"><a class="anchor-navigation-ex-anchor" href="#作用域角度分析" name="作用域角度分析"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#作用域角度分析" name="作用域角度分析"><i aria-hidden="true" class="fa fa-link"></i></a>作用域角度分析</h4>
+<blockquote>
+<p>(1) 函数作用域：从函数调用开始至函数执行完成，返回给调用者后，在执行过程中开辟的空间<strong>会自动释放</strong>，也就是说函数执行完成后，函数体内部通过赋值等方式修改变量的值不会保留，会随着返回给调用者后，开辟的空间会自动释放。</p>
+<p>(2) 方法作用域：通过实例化的对象进行方法的调用，调用后开辟的空间<strong>不会释放</strong>，也就是说调用方法中对变量的修改值会一直保留。</p>
+</blockquote>
+<h4 id="调用方式分析"><a class="anchor-navigation-ex-anchor" href="#调用方式分析" name="调用方式分析"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#调用方式分析" name="调用方式分析"><i aria-hidden="true" class="fa fa-link"></i></a>调用方式分析</h4>
+<blockquote>
+<p>(1) 函数：通过<code>函数名()</code>的方式进行调用。</p>
+<p>(2) 方法：通过<code>对象.方法名()</code>的方式进行调用。</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-comment">#实例化</span>
+obj = Foo()
+
+<span class="hljs-comment"># 执行方式一:调用的func是方法</span>
+obj.func() <span class="hljs-comment">#func 方法</span>
+
+<span class="hljs-comment"># 执行方式二：调用的func是函数</span>
+Foo.func(<span class="hljs-number">123</span>) <span class="hljs-comment"># 函数</span>
+</code></pre>
+</blockquote>
+<h2 id="可调用对象">1.2 可调用对象</h2>
+<blockquote>
+<p>除了用户定义的函数，调用运算符（即 <code>()</code>）还可以应用到其他对象上。如果想判断对象能否调用，可以使用内置的 <code>callable()</code> 函数。</p>
+<p>如果类定义了 <code>__call__</code> 方法，那么它的实例可以作为函数调用。</p>
+<p>判断对象能否调用，最安全的方法是使用内置的 <code>callable()</code> 函数</p>
+<p>任何 Python 对象都可以表现得像函数。为此，只需实现实例方法 <code>__call__</code>。</p>
+</blockquote>
+<h2 id="函数内省">1.3 函数内省</h2>
+<blockquote>
+<p>除了 <code>__doc__</code>，函数对象还有很多属性。使用 <code>dir</code> 函数可以探知 <code>factorial</code> 具有下述属性：</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>dir(factorial)
+[<span class="hljs-string">'__annotations__'</span>, <span class="hljs-string">'__call__'</span>, <span class="hljs-string">'__class__'</span>, <span class="hljs-string">'__closure__'</span>, <span class="hljs-string">'__code__'</span>,
+<span class="hljs-string">'__defaults__'</span>, <span class="hljs-string">'__delattr__'</span>, <span class="hljs-string">'__dict__'</span>, <span class="hljs-string">'__dir__'</span>, <span class="hljs-string">'__doc__'</span>, <span class="hljs-string">'__eq__'</span>,<span class="hljs-string">'__format__'</span>, <span class="hljs-string">'__ge__'</span>, <span class="hljs-string">'__get__'</span>, <span class="hljs-string">'__getattribute__'</span>, <span class="hljs-string">'__globals__'</span>,
+<span class="hljs-string">'__gt__'</span>, <span class="hljs-string">'__hash__'</span>, <span class="hljs-string">'__init__'</span>, <span class="hljs-string">'__kwdefaults__'</span>, <span class="hljs-string">'__le__'</span>, <span class="hljs-string">'__lt__'</span>,
+<span class="hljs-string">'__module__'</span>, <span class="hljs-string">'__name__'</span>, <span class="hljs-string">'__ne__'</span>, <span class="hljs-string">'__new__'</span>, <span class="hljs-string">'__qualname__'</span>, <span class="hljs-string">'__reduce__'</span>,
+<span class="hljs-string">'__reduce_ex__'</span>, <span class="hljs-string">'__repr__'</span>, <span class="hljs-string">'__setattr__'</span>, <span class="hljs-string">'__sizeof__'</span>, <span class="hljs-string">'__str__'</span>,
+<span class="hljs-string">'__subclasshook__'</span>]
+&gt;&gt;&gt;
+</code></pre>
+<p><strong>用户定义的函数的属性</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">类型</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>__annotations__</code></td>
+<td style="text-align:center"><code>dict</code></td>
+<td style="text-align:center">参数和返回值的注解</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__call__</code></td>
+<td style="text-align:center"><code>method-wrapper</code></td>
+<td style="text-align:center">实现 <code>()</code> 运算符；即可调用对象协议</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__closure__</code></td>
+<td style="text-align:center"><code>tuple</code></td>
+<td style="text-align:center">函数闭包，即自由变量的绑定（通常是 <code>None</code>）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__code__</code></td>
+<td style="text-align:center"><code>code</code></td>
+<td style="text-align:center">编译成字节码的函数元数据和函数定义体</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__defaults__</code></td>
+<td style="text-align:center"><code>tuple</code></td>
+<td style="text-align:center">形式参数的默认值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__get__</code></td>
+<td style="text-align:center"><code>method-wrapper</code></td>
+<td style="text-align:center">实现只读描述符协议（参见第 20 章）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__globals__</code></td>
+<td style="text-align:center"><code>dict</code></td>
+<td style="text-align:center">函数所在模块中的全局变量</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__kwdefaults__</code></td>
+<td style="text-align:center"><code>dict</code></td>
+<td style="text-align:center">仅限关键字形式参数的默认值</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__name__</code></td>
+<td style="text-align:center"><code>str</code></td>
+<td style="text-align:center">函数名称</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>__qualname__</code></td>
+<td style="text-align:center"><code>str</code></td>
+<td style="text-align:center">函数的限定名称，如 <code>Random.choice</code>（ 参阅<a href="https://www.python.org/dev/peps/pep-3155/" target="_blank">PEP 3155</a>）</td>
+</tr>
+</tbody>
+</table>
+<p> <code>__defaults__</code>、<code>__code__</code> 和 <code>__annotations__</code> 属性，IDE 和框架使用它们提取关于函数签名的信息。</p>
+</blockquote>
+<h2 id="参数传递">1.4 参数传递</h2>
+<h3 id="args、kwargs用法">1.4.1 args、*kwargs用法</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># *args是用来发送一个非键值对的可变数量的参数列表给一个函数</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test_var_args</span><span class="hljs-params">(f_arg, *argv)</span>:</span>
+    print(<span class="hljs-string">"first normal arg:"</span>, f_arg)
+    <span class="hljs-keyword">for</span> arg <span class="hljs-keyword">in</span> argv:
+        print(<span class="hljs-string">"another arg through *argv:"</span>, arg)
+
+test_var_args(<span class="hljs-string">'yasoob'</span>, <span class="hljs-string">'python'</span>, <span class="hljs-string">'eggs'</span>, <span class="hljs-string">'test'</span>)
+
+
+first normal arg: yasoob
+another arg through *argv: python
+another arg through *argv: eggs
+another arg through *argv: test
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># ** kwargs允许您将keyworded可变长度的参数传递给函数。如果要在函数中处理命名参数，则应使用** kwargs </span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">greet_me</span><span class="hljs-params">(**kwargs)</span>:</span>
+    <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> kwargs.items():
+        print(<span class="hljs-string">"{0} = {1}"</span>.format(key, value))
+<span class="hljs-comment"># 必须含有key</span>
+greet_me(name=<span class="hljs-string">"yasoob"</span>,age=<span class="hljs-string">"19"</span>,sex=<span class="hljs-string">"girl"</span>)
+
+name = yasoob
+age = <span class="hljs-number">19</span>
+sex = girl
+</code></pre>
+<h3 id="args、kwargs用法_1">1.4.2 args、*kwargs用法</h3>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">foo</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+    print(<span class="hljs-string">'args = '</span>, args)
+    print(<span class="hljs-string">'kwargs = '</span>, kwargs)
+    print(<span class="hljs-string">'---------------------------------------'</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    foo(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>)
+    foo(a=<span class="hljs-number">1</span>,b=<span class="hljs-number">2</span>,c=<span class="hljs-number">3</span>)
+    foo(<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>, a=<span class="hljs-number">1</span>,b=<span class="hljs-number">2</span>,c=<span class="hljs-number">3</span>)
+    foo(<span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>, <span class="hljs-keyword">None</span>, a=<span class="hljs-number">1</span>, b=<span class="hljs-string">'2'</span>, c=<span class="hljs-number">3</span>)
+
+args =  (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+kwargs =  {}
+---------------------------------------
+args =  ()
+kwargs =  {<span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'b'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'c'</span>: <span class="hljs-number">3</span>}
+---------------------------------------
+args =  (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+kwargs =  {<span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'b'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'c'</span>: <span class="hljs-number">3</span>}
+---------------------------------------
+args =  (<span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>, <span class="hljs-keyword">None</span>)
+kwargs =  {<span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'b'</span>: <span class="hljs-string">'2'</span>, <span class="hljs-string">'c'</span>: <span class="hljs-number">3</span>}
+---------------------------------------
+</code></pre>
+<ul>
+<li>*args`表示任何多个无名参数，它是一个tuple</li>
+<li><code>**kwargs</code>表示关键字参数，它是一个dict</li>
+<li>同时使用<code>*args</code>和<code>**kwargs</code>时，必须<code>*args</code>参数列要在<code>**kwargs</code>前</li>
+</ul>
+<h3 id="有限个参数">1.4.3 有限个参数</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># -*- coding: UTF-8 -*- </span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(a,b)</span>:</span>
+        print(<span class="hljs-string">"call test(%d，%d)"</span> %(a,b))
+        <span class="hljs-keyword">return</span> func(a,b)
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@log</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">(a,b)</span>:</span>
+    print(<span class="hljs-string">"sum = %d"</span> % (a+b))
+
+test(<span class="hljs-number">2</span>,<span class="hljs-number">4</span>)
+
+
+call test(<span class="hljs-number">2</span>，<span class="hljs-number">4</span>)
+sum = <span class="hljs-number">6</span>
+</code></pre>
+<h3 id="可变参数">1.4.4 可变参数</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># 当装饰器不知道业务函数到底有多少个参数时，用*args 来代替</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args)</span>:</span>
+        print(<span class="hljs-string">"call test()"</span> )
+        <span class="hljs-keyword">return</span> func(*args)
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@log</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">(a,b,c)</span>:</span>
+    print(<span class="hljs-string">"sum = %d"</span> % (a+b+c))
+
+test(<span class="hljs-number">2</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>)
+
+
+call test()
+sum = <span class="hljs-number">11</span>
+</code></pre>
+<h2 id="函数注解">1.5 函数注解</h2>
+<blockquote>
+<p>函数声明中的各个参数可以在 <code>:</code> 之后增加注解表达式。如果参数有默认值，注解放在参数名和 <code>=</code> 号之间。如果想注解返回值，在 <code>)</code> 和函数声明末尾的 <code>:</code> 之间添加 <code>-&gt;</code> 和一个表达式。</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> typing <span class="hljs-keyword">import</span> List
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(num: int = <span class="hljs-number">0</span>, type: str = <span class="hljs-string">'default'</span>)</span> -&gt; List[int]:</span>
+   <span class="hljs-keyword">return</span> [num, num]
+
+func(num=<span class="hljs-number">2</span>)
+Out[<span class="hljs-number">3</span>]: [<span class="hljs-number">2</span>, <span class="hljs-number">2</span>]
+</code></pre>
+<p>注解不会做任何处理，只是存储在函数的 <code>__annotations__</code> 属性（一个字典）</p>
+<p>Python 对注解所做的唯一的事情是，把它们存储在函数的 <code>__annotations__</code> 属性里。仅此而已，Python 不做检查、不做强制、不做验证，什么操作都不做。换句话说，注解对 Python 解释器没有任何意义。注解只是元数据，可以供 IDE、框架和装饰器等工具使用。</p>
+<p>标准库中还没有什么会用到这些元数据，唯有 <code>inspect.signature()</code> 函数知道怎么提取注解</p>
+<p><code>signature</code> 函数返回一个 <code>Signature</code> 对象，它有一个 <code>return_annotation</code> 属性和一个 <code>parameters</code> 属性，后者是一个字典，把参数名映射到 <code>Parameter</code> 对象上。每个 <code>Parameter</code> 对象自己也有 <code>annotation</code> 属性</p>
+<p><code>inspect.signature</code> 函数返回一个 inspect.Signature 对象，它有一个 parameters 属性，这是一个有序映射，把参数名和 inspect.Parameter 对象对应起来。</p>
+<p>各个 Parameter 属性也有自己的属性，例如 name 、 default 和 kind 。特殊的 inspect._empty 值表示没有默认值，考虑到 None 是有效的默认值（也经常这么做），而且这么做是合理的。
+kind 属性的值是 <strong>_ParameterKind</strong> 类中的 5 个值之一，列举如下。</p>
+<pre><code class="lang-python">POSITIONAL_OR_KEYWORD
+可以通过定位参数和关键字参数传入的形参（多数 Python 函数的参数属于此类）。
+VAR_POSITIONAL
+定位参数元组。
+VAR_KEYWORD
+关键字参数字典。
+KEYWORD_ONLY
+仅限关键字参数（Python <span class="hljs-number">3</span> 新增）。
+POSITIONAL_ONLY
+仅限定位参数；目前，Python 声明函数的句法不支持，但是有些使用 C 语言实现且不接受关键字参数的函数（如 divmod ）支持。
+</code></pre>
+<p>除了 name 、 default 和 kind ， inspect.Parameter 对象还有一个 annotation （注解）属性，它的值通常是 inspect._empty</p>
+<p>inspect.Signature 对象有个 bind 方法，它可以把任意个参数绑定到签名中的形参上，所用的规则与实参到形参的匹配方式一样。</p>
+</blockquote>
+<h1 id="函数式编程包">2 函数式编程包</h1>
+<h2 id="operator模块">2.1 operator模块</h2>
+<blockquote>
+<p>Python 的目标不是变成函数式编程语言，但是得益于 <a href="https://docs.python.org/2.7/library/operator.html#module-operator" target="_blank"><code>operator</code></a> 和 <code>functools</code> 等包的支持，函数式编程风格也可以信手拈来。</p>
+</blockquote>
+<h3 id="reduce">2.1.1 reduce</h3>
+<blockquote>
+<p>在函数式编程中，经常需要把算术运算符当作函数使用。例如，不使用递归计算阶乘。求和可以使用 <code>sum</code> 函数，但是求积则没有这样的函数。我们可以使用 <code>reduce</code></p>
+<p><code>operator</code> 模块为多个算术运算符提供了对应的函数，从而避免编写 <code>lambda a, b: a*b</code> 这种平凡的匿名函数</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> reduce
+<span class="hljs-keyword">from</span> operator <span class="hljs-keyword">import</span> mul
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fact</span><span class="hljs-params">(n)</span>:</span>
+       <span class="hljs-keyword">return</span> reduce(mul, range(<span class="hljs-number">1</span>, n+<span class="hljs-number">1</span>))
+</code></pre>
+<p><code>operator</code> 模块中还有一类函数，能替代从序列中取出元素或读取对象属性的 <code>lambda</code> 表达式：因此，<code>itemgetter</code> 和 <code>attrgetter</code> 其实会自行构建函数。</p>
+</blockquote>
+<h3 id="itemgetter">2.1.2 itemgetter</h3>
+<blockquote>
+<p><code>itemgetter</code> 的常见用途：根据元组的某个字段给元组列表排序。</p>
+<p><code>itemgetter(1)</code> 的作用与 <code>lambda fields: fields[1]</code> 一样：创建一个接受集合的函数，返回索引位 1 上的元素。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>metro_data = [
+<span class="hljs-meta">... </span>    (<span class="hljs-string">'Tokyo'</span>, <span class="hljs-string">'JP'</span>, <span class="hljs-number">36.933</span>, (<span class="hljs-number">35.689722</span>, <span class="hljs-number">139.691667</span>)),
+<span class="hljs-meta">... </span>    (<span class="hljs-string">'Delhi NCR'</span>, <span class="hljs-string">'IN'</span>, <span class="hljs-number">21.935</span>, (<span class="hljs-number">28.613889</span>, <span class="hljs-number">77.208889</span>)),
+<span class="hljs-meta">... </span>    (<span class="hljs-string">'Mexico City'</span>, <span class="hljs-string">'MX'</span>, <span class="hljs-number">20.142</span>, (<span class="hljs-number">19.433333</span>, <span class="hljs-number">-99.133333</span>)),
+<span class="hljs-meta">... </span>    (<span class="hljs-string">'New York-Newark'</span>, <span class="hljs-string">'US'</span>, <span class="hljs-number">20.104</span>, (<span class="hljs-number">40.808611</span>, <span class="hljs-number">-74.020386</span>)),
+<span class="hljs-meta">... </span>    (<span class="hljs-string">'Sao Paulo'</span>, <span class="hljs-string">'BR'</span>, <span class="hljs-number">19.649</span>, (<span class="hljs-number">-23.547778</span>, <span class="hljs-number">-46.635833</span>)),
+<span class="hljs-meta">... </span>]
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> operator <span class="hljs-keyword">import</span> itemgetter
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> city <span class="hljs-keyword">in</span> sorted(metro_data, key=itemgetter(<span class="hljs-number">1</span>)):
+<span class="hljs-meta">... </span>    print(city)
+...
+(<span class="hljs-string">'Sao Paulo'</span>, <span class="hljs-string">'BR'</span>, <span class="hljs-number">19.649</span>, (<span class="hljs-number">-23.547778</span>, <span class="hljs-number">-46.635833</span>))
+(<span class="hljs-string">'Delhi NCR'</span>, <span class="hljs-string">'IN'</span>, <span class="hljs-number">21.935</span>, (<span class="hljs-number">28.613889</span>, <span class="hljs-number">77.208889</span>))
+(<span class="hljs-string">'Tokyo'</span>, <span class="hljs-string">'JP'</span>, <span class="hljs-number">36.933</span>, (<span class="hljs-number">35.689722</span>, <span class="hljs-number">139.691667</span>))
+(<span class="hljs-string">'Mexico City'</span>, <span class="hljs-string">'MX'</span>, <span class="hljs-number">20.142</span>, (<span class="hljs-number">19.433333</span>, <span class="hljs-number">-99.133333</span>))
+(<span class="hljs-string">'New York-Newark'</span>, <span class="hljs-string">'US'</span>, <span class="hljs-number">20.104</span>, (<span class="hljs-number">40.808611</span>, <span class="hljs-number">-74.020386</span>))
+
+d = {<span class="hljs-string">"a"</span>:<span class="hljs-number">1</span>,<span class="hljs-string">"b"</span>:<span class="hljs-number">2</span>,<span class="hljs-string">"c"</span>:<span class="hljs-number">3</span>}
+itemgetter(<span class="hljs-string">"a"</span>,<span class="hljs-string">'b'</span>)(d)
+Out[<span class="hljs-number">67</span>]: (<span class="hljs-number">1</span>, <span class="hljs-number">2</span>)
+</code></pre>
+</blockquote>
+<h3 id="attrgetter">2.1.3 attrgetter</h3>
+<blockquote>
+<p><code>attrgetter</code> 与 <code>itemgetter</code> 作用类似，它创建的函数根据名称提取对象的属性。如果把多个属性名传给 <code>attrgetter</code>，它也会返回提取的值构成的元组。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> city <span class="hljs-keyword">in</span> sorted(metro_areas, key=attrgetter(<span class="hljs-string">'coord.lat'</span>)):
+<span class="hljs-meta">... </span>    print(name_lat(city))
+</code></pre>
+</blockquote>
+<h3 id="methodcaller">2.1.4 methodcaller</h3>
+<blockquote>
+<p><code>methodcaller</code>。它的作用与 <code>attrgetter</code> 和 <code>itemgetter</code> 类似，它会自行创建函数。<code>methodcaller</code> 创建的函数会在对象上调用参数指定的方法</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> operator <span class="hljs-keyword">import</span> methodcaller
+<span class="hljs-meta">&gt;&gt;&gt; </span>s = <span class="hljs-string">'The time has come'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>upcase = methodcaller(<span class="hljs-string">'upper'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>upcase(s)
+<span class="hljs-string">'THE TIME HAS COME'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>hiphenate = methodcaller(<span class="hljs-string">'replace'</span>, <span class="hljs-string">' '</span>, <span class="hljs-string">'-'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>hiphenate(s)
+<span class="hljs-string">'The-time-has-come'</span>
+</code></pre>
+</blockquote>
+<h3 id="其他模块">2.1.5 其他模块</h3>
+<blockquote>
+<p>下面是 <code>operator</code> 模块中定义的部分函数（省略了以 <code>_</code> 开头的名称，因为它们基本上是实现细节）：Python 3.5 中增加了 <code>imatmul</code> 和 <code>matmul</code>。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>[name <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> dir(operator) <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> name.startswith(<span class="hljs-string">'_'</span>)]
+[<span class="hljs-string">'abs'</span>, <span class="hljs-string">'add'</span>, <span class="hljs-string">'and_'</span>, <span class="hljs-string">'attrgetter'</span>, <span class="hljs-string">'concat'</span>, <span class="hljs-string">'contains'</span>,
+<span class="hljs-string">'countOf'</span>, <span class="hljs-string">'delitem'</span>, <span class="hljs-string">'eq'</span>, <span class="hljs-string">'floordiv'</span>, <span class="hljs-string">'ge'</span>, <span class="hljs-string">'getitem'</span>, <span class="hljs-string">'gt'</span>,
+<span class="hljs-string">'iadd'</span>, <span class="hljs-string">'iand'</span>, <span class="hljs-string">'iconcat'</span>, <span class="hljs-string">'ifloordiv'</span>, <span class="hljs-string">'ilshift'</span>, <span class="hljs-string">'imod'</span>, <span class="hljs-string">'imul'</span>,
+<span class="hljs-string">'index'</span>, <span class="hljs-string">'indexOf'</span>, <span class="hljs-string">'inv'</span>, <span class="hljs-string">'invert'</span>, <span class="hljs-string">'ior'</span>, <span class="hljs-string">'ipow'</span>, <span class="hljs-string">'irshift'</span>,
+<span class="hljs-string">'is_'</span>, <span class="hljs-string">'is_not'</span>, <span class="hljs-string">'isub'</span>, <span class="hljs-string">'itemgetter'</span>, <span class="hljs-string">'itruediv'</span>, <span class="hljs-string">'ixor'</span>, <span class="hljs-string">'le'</span>,
+<span class="hljs-string">'length_hint'</span>, <span class="hljs-string">'lshift'</span>, <span class="hljs-string">'lt'</span>, <span class="hljs-string">'methodcaller'</span>, <span class="hljs-string">'mod'</span>, <span class="hljs-string">'mul'</span>, <span class="hljs-string">'ne'</span>,
+<span class="hljs-string">'neg'</span>, <span class="hljs-string">'not_'</span>, <span class="hljs-string">'or_'</span>, <span class="hljs-string">'pos'</span>, <span class="hljs-string">'pow'</span>, <span class="hljs-string">'rshift'</span>, <span class="hljs-string">'setitem'</span>, <span class="hljs-string">'sub'</span>,
+<span class="hljs-string">'truediv'</span>, <span class="hljs-string">'truth'</span>, <span class="hljs-string">'xor'</span>]
+</code></pre>
+<p>这 52 个名称中大部分的作用不言而喻。以 <code>i</code> 开头、后面是另一个运算符的那些名称（如 <code>iadd</code>、<code>iand</code> 等），对应的是增量赋值运算符（如 <code>+=</code>、<code>&amp;=</code> 等）。如果第一个参数是可变的，那么这些运算符函数会就地修改它；否则，作用与不带 <code>i</code> 的函数一样，直接返回运算结果</p>
+<p>以下表格显示了抽象运算是如何对应于 Python 语法中的运算符和 <a href="https://docs.python.org/zh-cn/3.7/library/operator.html#module-operator" target="_blank"><code>operator</code></a> 模块中的函数的。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">运算</th>
+<th style="text-align:left">语法</th>
+<th style="text-align:left">函数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">加法</td>
+<td style="text-align:left"><code>a + b</code></td>
+<td style="text-align:left"><code>add(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">字符串拼接</td>
+<td style="text-align:left"><code>seq1 + seq2</code></td>
+<td style="text-align:left"><code>concat(seq1, seq2)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">包含测试</td>
+<td style="text-align:left"><code>obj in seq</code></td>
+<td style="text-align:left"><code>contains(seq, obj)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">除法</td>
+<td style="text-align:left"><code>a / b</code></td>
+<td style="text-align:left"><code>truediv(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">整除法</td>
+<td style="text-align:left"><code>a // b</code></td>
+<td style="text-align:left"><code>floordiv(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">按位与</td>
+<td style="text-align:left"><code>a &amp; b</code></td>
+<td style="text-align:left"><code>and_(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">按位异或</td>
+<td style="text-align:left"><code>a ^ b</code></td>
+<td style="text-align:left"><code>xor(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">按位取反</td>
+<td style="text-align:left"><code>~ a</code></td>
+<td style="text-align:left"><code>invert(a)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">按位或</td>
+<td style="text-align:left"><code>a</code>  |  <code>b</code></td>
+<td style="text-align:left"><code>or_(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">取幂</td>
+<td style="text-align:left"><code>a ** b</code></td>
+<td style="text-align:left"><code>pow(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">一致标识</td>
+<td style="text-align:left"><code>a is b</code></td>
+<td style="text-align:left"><code>is_(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">一致标识</td>
+<td style="text-align:left"><code>a is not b</code></td>
+<td style="text-align:left"><code>is_not(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">索引赋值</td>
+<td style="text-align:left"><code>obj[k] = v</code></td>
+<td style="text-align:left"><code>setitem(obj, k, v)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">索引删除</td>
+<td style="text-align:left"><code>del obj[k]</code></td>
+<td style="text-align:left"><code>delitem(obj, k)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">索引取值</td>
+<td style="text-align:left"><code>obj[k]</code></td>
+<td style="text-align:left"><code>getitem(obj, k)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">左移</td>
+<td style="text-align:left"><code>a &lt;&lt; b</code></td>
+<td style="text-align:left"><code>lshift(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">取模</td>
+<td style="text-align:left"><code>a % b</code></td>
+<td style="text-align:left"><code>mod(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">乘法</td>
+<td style="text-align:left"><code>a * b</code></td>
+<td style="text-align:left"><code>mul(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">矩阵乘法</td>
+<td style="text-align:left"><code>a @ b</code></td>
+<td style="text-align:left"><code>matmul(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">取反（算术）</td>
+<td style="text-align:left"><code>- a</code></td>
+<td style="text-align:left"><code>neg(a)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">取反（逻辑）</td>
+<td style="text-align:left"><code>not a</code></td>
+<td style="text-align:left"><code>not_(a)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">正数</td>
+<td style="text-align:left"><code>+ a</code></td>
+<td style="text-align:left"><code>pos(a)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">右移</td>
+<td style="text-align:left"><code>a &gt;&gt; b</code></td>
+<td style="text-align:left"><code>rshift(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">切片赋值</td>
+<td style="text-align:left"><code>seq[i:j] = values</code></td>
+<td style="text-align:left"><code>setitem(seq, slice(i, j), values)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">切片删除</td>
+<td style="text-align:left"><code>del seq[i:j]</code></td>
+<td style="text-align:left"><code>delitem(seq, slice(i, j))</code></td>
+</tr>
+<tr>
+<td style="text-align:left">切片取值</td>
+<td style="text-align:left"><code>seq[i:j]</code></td>
+<td style="text-align:left"><code>getitem(seq, slice(i, j))</code></td>
+</tr>
+<tr>
+<td style="text-align:left">字符串格式化</td>
+<td style="text-align:left"><code>s % obj</code></td>
+<td style="text-align:left"><code>mod(s, obj)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">减法</td>
+<td style="text-align:left"><code>a - b</code></td>
+<td style="text-align:left"><code>sub(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">真值测试</td>
+<td style="text-align:left"><code>obj</code></td>
+<td style="text-align:left"><code>truth(obj)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left"><code>a &lt; b</code></td>
+<td style="text-align:left"><code>lt(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left"><code>a &lt;= b</code></td>
+<td style="text-align:left"><code>le(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">相等</td>
+<td style="text-align:left"><code>a == b</code></td>
+<td style="text-align:left"><code>eq(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">不等</td>
+<td style="text-align:left"><code>a != b</code></td>
+<td style="text-align:left"><code>ne(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left"><code>a &gt;= b</code></td>
+<td style="text-align:left"><code>ge(a, b)</code></td>
+</tr>
+<tr>
+<td style="text-align:left">比较</td>
+<td style="text-align:left"><code>a &gt; b</code></td>
+<td style="text-align:left"><code>gt(a, b)</code></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="functools模块">2.2 functools模块</h2>
+<blockquote>
+<p><a href="https://juejin.im/post/5be95831e51d451d2363490a" target="_blank">每周一个 Python 模块 | functools</a></p>
+<p><a href="https://blog.windrunner.me/python/functools.html" target="_blank">Python functools 模块</a></p>
+<p>说到高阶函数，这是函数式编程范式中很重要的一个概念，简单地说， 就是一个可以接受函数作为参数或者以函数作为返回值的函数，因为 Python 中函数是一类对象， 因此很容易支持这样的函数式特性。</p>
+<p>functools 模块中函数只有 <code>cmp_to_key</code>、<code>partial</code>、<code>reduce</code>、<code>total_ordering</code>、<code>update_wrapper</code>、<code>wraps</code>、<code>lru_cache</code> 这几个：</p>
+</blockquote>
+<h3 id="partial">2.2.1 partial</h3>
+<blockquote>
+<p>用于创建一个偏函数，它用一些默认参数包装一个可调用对象，返回结果是可调用对象，并且可以像原始对象一样对待，这样可以简化函数调用。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> partial
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-keyword">return</span> x + y
+add_y = partial(add, <span class="hljs-number">3</span>)  <span class="hljs-comment"># add_y 是一个函数</span>
+add_y(<span class="hljs-number">4</span>)                 <span class="hljs-comment"># 结果是 7</span>
+</code></pre>
+<h3 id="partialmethod">2.2.2 partialmethod</h3>
+<blockquote>
+<p><code>partialmethod</code>是 Python 3.4 中新引入的装饰器，作用基本类似于 <code>partial</code>， 不过仅作用于方法(函数和方法的异同见上方)。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Cell</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        self._alive = <span class="hljs-keyword">False</span>
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">alive</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self._alive
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_state</span><span class="hljs-params">(self, state)</span>:</span>
+        self._alive = bool(state)
+    set_alive = partialmethod(set_state, <span class="hljs-keyword">True</span>)
+    set_dead = partialmethod(set_state, <span class="hljs-keyword">False</span>)
+
+c = Cell()
+c.alive         <span class="hljs-comment"># False</span>
+c.set_alive()
+c.alive         <span class="hljs-comment"># True</span>
+</code></pre>
+<h3 id="totalordering">2.2.3 total_ordering</h3>
+<blockquote>
+<p><code>total_ordering</code> 同样是 Python 2.7 中新增函数，用于简化比较函数的写法。如果你已经定义了 <code>__eq__</code> 方法，以及 <code>__lt__</code>、<code>__le__</code>、<code>__gt__</code> 或者 <code>__ge__()</code> 其中之一， 即可自动生成其它比较方法。官方示例：</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-meta">@total_ordering</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__eq__</span><span class="hljs-params">(self, other)</span>:</span>
+        <span class="hljs-keyword">return</span> ((self.lastname.lower(), self.firstname.lower()) ==
+                (other.lastname.lower(), other.firstname.lower()))
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__lt__</span><span class="hljs-params">(self, other)</span>:</span>
+        <span class="hljs-keyword">return</span> ((self.lastname.lower(), self.firstname.lower()) &lt;
+                (other.lastname.lower(), other.firstname.lower()))
+
+dir(Student)    <span class="hljs-comment"># ['__doc__', '__eq__', '__ge__', '__gt__', '__le__', '__lt__', '__module__']</span>
+</code></pre>
+<h3 id="cmptokey">2.2.4 cmp_to_key</h3>
+<blockquote>
+<p><code>cmp_to_key</code> 是 Python 2.7 中新增的函数，用于将比较函数转换为 key 函数， 这样就可以应用在接受 key 函数为参数的函数中。比如 <code>sorted()</code>、<code>min()</code>、 <code>max()</code>、 <code>heapq.nlargest()</code>、 <code>itertools.groupby()</code> 等。</p>
+</blockquote>
+<pre><code class="lang-python">sorted(range(<span class="hljs-number">5</span>), key=cmp_to_key(<span class="hljs-keyword">lambda</span> x, y: y-x))      <span class="hljs-comment"># [4, 3, 2, 1, 0]</span>
+</code></pre>
+<h3 id="lrucache">2.2.5 lru_cache</h3>
+<blockquote>
+<p>一个装饰器是在 Python3 中新加的，在 Python2 中如果想要使用可以安装第三方库 <code>functools32</code>。该装饰器用于缓存函数的调用结果，对于需要多次调用的函数，而且每次调用参数都相同，则可以用该装饰器缓存调用结果，从而加快程序运行。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> lru_cache
+
+<span class="hljs-meta">@lru_cache(None)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add</span><span class="hljs-params">(x, y)</span>:</span>
+    print(<span class="hljs-string">"calculating: %s + %s"</span> % (x, y))
+    <span class="hljs-keyword">return</span> x + y
+
+print(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))
+print(add(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>))  <span class="hljs-comment"># 直接返回缓存信息</span>
+print(add(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>))
+
+calculating: <span class="hljs-number">1</span> + <span class="hljs-number">2</span>
+<span class="hljs-number">3</span>
+<span class="hljs-number">3</span>
+calculating: <span class="hljs-number">2</span> + <span class="hljs-number">3</span>
+<span class="hljs-number">5</span>
+</code></pre>
+<p>由于该装饰器会将不同的调用结果缓存在内存中，因此需要注意内存占用问题，避免占用过多内存，从而影响系统性能。</p>
+<blockquote>
+<p><code>lru_cache</code> 可以使用两个可选的参数来配置</p>
+<p><code>maxsize</code> 参数指定存储多少个调用的结果。缓存满了之后，旧的结果会被扔掉，腾出空间。为了得到最佳性能，<code>maxsize</code> 应该设为 2 的幂。<code>typed</code> 参数如果设为 <code>True</code>，把不同参数类型得到的结果分开保存，即把通常认为相等的浮点数和整数参数（如 <code>1</code> 和 <code>1.0</code>）区分开。顺便说一下，因为 <code>lru_cache</code> 使用字典存储结果，而且键根据调用时传入的定位参数和关键字参数创建，所以被 <code>lru_cache</code> 装饰的函数，它的所有参数都必须是<strong>可散列的</strong>。</p>
+</blockquote>
+<h3 id="singledispatch">2.2.6 singledispatch</h3>
+<blockquote>
+<p>见本页-单分派泛函数singledispatch</p>
+</blockquote>
+<h3 id="wraps">2.2.7 wraps</h3>
+<blockquote>
+<p>使用装饰器极大地复用了代码，但是他有一个缺点就是原函数的元信息不见了，比如函数的docstring、<strong>name</strong>、参数列表
+functools.wraps，wraps本身也是一个装饰器，它能把原函数的元信息拷贝到装饰器里面的 func 函数中，这使得装饰器里面的log函数也有和原函数test一样的元信息了</p>
+<p>说到“接受函数为参数，以函数为返回值”，在 Python 中最常用的当属装饰器了。 functools 库中装饰器相关的函数是 <code>update_wrapper</code>、<code>wraps</code>，还搭配 <code>WRAPPER_ASSIGNMENTS</code> 和 <code>WRAPPER_UPDATES</code> 两个常量使用，作用就是消除 Python 装饰器的一些负面作用。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">()</span>:</span>
+        print(<span class="hljs-string">"call test()"</span>)
+        <span class="hljs-keyword">return</span> func()
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@log</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"this is what I want"</span>)
+
+test()
+print(test.__name__)
+
+call test()
+this <span class="hljs-keyword">is</span> what I want
+wrapper
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> functools
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">log</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @functools.wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">()</span>:</span>
+        print(<span class="hljs-string">"call test()"</span>)
+        <span class="hljs-keyword">return</span> func()
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@log</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"this is what I want"</span>)
+
+test()
+print(test.__name__)
+
+
+call test()
+this <span class="hljs-keyword">is</span> what I want
+test
+</code></pre>
+<h3 id="updatewrapper">2.2.8 update_wrapper</h3>
+<blockquote>
+<p><code>update_wrapper</code> 的作用与 <code>wraps</code> 类似，不过功能更加强大，换句话说，<code>wraps</code> 其实是 <code>update_wrapper</code> 的特殊化，实际上 <code>wraps(wrapped)</code> 相当于 <code>partial(update_wrapper, wrapped=wrapped, **kwargs)</code>。</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        <span class="hljs-keyword">return</span> func(*args, **kwargs)
+    <span class="hljs-keyword">return</span> update_wrapper(wrapper, func)
+</code></pre>
+</blockquote>
+<h1 id="装饰器dercrator">3 装饰器(Dercrator)</h1>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/d1afd5067dae" target="_blank">必须会 Python 装饰器的五个理由</a></p>
+<p><a href="https://www.jianshu.com/p/18239508fe4c" target="_blank">Python装饰器</a></p>
+<p>用于有切面需求的场景，比如：插入日志、性能测试、事务处理、缓存、权限校验等场景
+用装饰器抽离出大量与函数功能本身无关的雷同代码到装饰器中并继续重用</p>
+<p>严格来说，装饰器只是语法糖，装饰器的两大特性是：</p>
+<ol>
+<li>能把被装饰的函数替换成其他函数</li>
+<li>函数装饰器在加载模块时立即执行(Python 加载模块时)，被装饰的函数只有在明确调用时运行，这突出了导入时和运行时的区别。</li>
+</ol>
+<p>装饰器的4种类型：<strong>函数装饰函数、函数装饰类、类装饰函数、类装饰类</strong></p>
+</blockquote>
+<h2 id="globals关键字">3.1 globals关键字</h2>
+<blockquote>
+<p>返回一个字典，表示当前的全局符号表。这个符号表始终针对当前模块（对函数或方法来说，是指定义它们的模块，而不是调用它们的模块）。</p>
+<font color="#0BD5D6">方式一</font>
+<p> <code>globals</code> 函数帮助 <code>best_promo</code> 自动找到其他可用的 <code>*_promo</code> 函数</p>
+<pre><code class="lang-python">promos = [globals()[name] <span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> globals()  ➊
+            <span class="hljs-keyword">if</span> name.endswith(<span class="hljs-string">'_promo'</span>)  ➋
+            <span class="hljs-keyword">and</span> name != <span class="hljs-string">'best_promo'</span>]   ➌
+</code></pre>
+<font color="#0BD5D6">方式二</font>
+<p>收集所有可用促销的另一种方法是，在一个单独的模块中保存所有策略函数，把 <code>best_promo</code> 排除在外。</p>
+<p>最大的变化是内省名为 <code>promotions</code> 的独立模块，构建策略函数列表。</p>
+<pre><code class="lang-python">promos = [func <span class="hljs-keyword">for</span> name, func <span class="hljs-keyword">in</span>
+                inspect.getmembers(promotions, inspect.isfunction)]
+</code></pre>
+</blockquote>
+<h2 id="闭包">3.2 闭包</h2>
+<blockquote>
+<p>创建保有内部状态的函数，还有一种截然不同的方式——使用闭包。</p>
+<p>在表达式中引用变量时，Python解释器将按如下顺序遍历各作用域，以解析该引用:</p>
+<ol>
+<li>当前函数的作用域</li>
+<li>任何外围作用域(例如，包含当前函数的其他函数)</li>
+<li>包含当前代码的那个模块的作用域(也叫全局作用域，global scope)</li>
+<li>内置作用域(也就是包含len及str等函数的那个作用域)</li>
+</ol>
+<p>如果上面这些地方都没有定义过名称相符的变量，那就抛出NameError异常。</p>
+<p>nonlocal语句清楚地表明: 如果在闭包内给该变量赋值，那么修改的其实是闭包外那个作用域中的变量。</p>
+<p>这与global语句互为补充，global 用来表示对该变量的赋值操作，将会直接修改模块作用域里的那个变量。</p>
+<p><strong>ps</strong>：按照我们正常的认知，一个函数结束的时候，会把自己的临时变量都释放还给内存，之后变量都不存在了。一般情况下，确实是这样的。</p>
+<p>但是闭包是一个特别的情况，外部函数发现，自己的临时变量会在将来的内部函数中用到，自己在结束的时候，返回内函数的同时，会把外函数的临时变量送给内函数绑定在一起。</p>
+<p>所以外函数已经结束了，调用内函数的时候仍然能够使用外函数的临时变量。 </p>
+</blockquote>
+<h3 id="global关键字">3.2.1 global关键字</h3>
+<blockquote>
+<p>如果在函数中赋值时想让解释器把 b 当成全局变量，要使用 global 声明：</p>
+<pre><code class="lang-python">b = <span class="hljs-number">6</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(a)</span>:</span>
+       <span class="hljs-keyword">global</span> b
+       print(a)
+       print(b)
+       b = <span class="hljs-number">9</span>
+</code></pre>
+</blockquote>
+<h3 id="自由变量">3.2.2 自由变量</h3>
+<blockquote>
+<p><code>闭包</code>：<strong>只有涉及嵌套函数时才有闭包问题</strong></p>
+<p><strong>闭包指延伸了作用域的函数，其中包含函数定义体中引用、但是不在定义体中定义的非全局变量。</strong></p>
+<p>函数是不是匿名的没有关系，关键是它能访问定义体之外定义的非全局变量。</p>
+<p>在 <code>averager</code> 函数中，<code>series</code> 是<strong>自由变量</strong>（free variable），指未在本地作用域中绑定的变量</p>
+</blockquote>
+<p><a data-lightbox="32398713-4f3a-4ded-bc48-c6ac7aa541d2" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/5.python装饰器/自由变量示例图.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/5.python装饰器/自由变量示例图.webp"/></a></p>
+<blockquote>
+<p><strong><code>averager</code> 的闭包延伸到那个函数的作用域之外，包含自由变量 <code>series</code> 的绑定</strong></p>
+<p>只有嵌套在其他函数中的函数才可能需要处理不在全局作用域中的外部变量</p>
+</blockquote>
+<h3 id="nonlocal声明">3.2.3 nonlocal声明</h3>
+<blockquote>
+<p>但是对<strong>数字、字符串、元组</strong>等<code>不可变类型</code>来说，只能读取，不能更新。</p>
+<p>如果尝试重新绑定，例如 <code>count = count + 1</code>，其实会隐式创建局部变量 <code>count</code>。</p>
+<p>这样，<code>count</code> 就不是自由变量了，因此不会保存在闭包中，为了解决这个问题，Python 3 引入了 <code>nonlocal</code> 声明。</p>
+<p><strong>它的作用是把变量标记为自由变量，即使在函数中为变量赋予新值了，也会变成自由变量。</strong></p>
+<p>如果为 <code>nonlocal</code> 声明的变量赋予新值，闭包中保存的绑定会更新。</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">make_averager</span><span class="hljs-params">()</span>:</span>
+    count, total = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">averager</span><span class="hljs-params">(new_value)</span>:</span>
+        <span class="hljs-keyword">nonlocal</span> count, total
+        count += <span class="hljs-number">1</span>
+        total += new_value
+        <span class="hljs-keyword">return</span> total / count
+
+    <span class="hljs-keyword">return</span> averager
+</code></pre>
+<p><strong>小结</strong>：外函数内部定义<code>可变类型</code>的变量可以在内函数使用，对<strong>数字、字符串、元组</strong>等<code>不可变类型</code>来说，需要使用 <code>nonlocal</code> 声明变量为<strong>自由变量</strong>，内函数才可以访问到。</p>
+</blockquote>
+<h2 id="函数装饰函数">3.3 函数装饰函数</h2>
+<blockquote>
+<p>装饰器的典型行为：把被装饰的函数替换成新函数，二者接受相同的参数，而且（通常）返回被装饰的函数本该返回的值，同时还会做些额外操作。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        print(<span class="hljs-string">'before...........'</span>)
+        res = func(*args, **kwargs)
+        print(<span class="hljs-string">'after............'</span>)
+        <span class="hljs-keyword">return</span> res
+    <span class="hljs-keyword">return</span> inner
+
+<span class="hljs-meta">@decorator</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">'run...............'</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    run()
+    run.__name__
+    <span class="hljs-comment"># 此时decorator叫做装饰器</span>
+------------------------------------------
+before...........
+run...............
+after............
+inner
+---------------------
+</code></pre>
+<h3 id="functoolswrap装饰器">3.3.1 functools.wrap装饰器</h3>
+<blockquote>
+<p>inner的返回值要与func的一致，并且inner与func参数相同</p>
+<p>为了不改变被装饰函数或类的性质，添加functools.wrap装饰器</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner</span><span class="hljs-params">()</span>:</span>
+        print(<span class="hljs-string">'before...........'</span>)
+        res = func()
+        print(<span class="hljs-string">'after............'</span>)
+        <span class="hljs-keyword">return</span> res
+    <span class="hljs-keyword">return</span> inner
+
+<span class="hljs-meta">@decorator</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">'run...............'</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    run()
+    print(run.__name__)
+------------------------------------------
+before...........
+run...............
+after............
+run
+---------------------
+</code></pre>
+<h3 id="带参数的装饰器3层">3.3.2 带参数的装饰器(3层)</h3>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+<span class="hljs-keyword">from</span> datetime <span class="hljs-keyword">import</span> datetime
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> datetime.now()
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">end</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> datetime.now()
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Filter</span><span class="hljs-params">(start_time, end_time)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">decorator</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">        @wraps(func)</span>
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+            s = start_time()
+            res = func(*args,**kwargs)
+            e = end_time()
+            print(<span class="hljs-string">"耗时 {} s"</span>.format((e-s).total_seconds()))
+            <span class="hljs-keyword">return</span> res
+        <span class="hljs-keyword">return</span> inner
+    <span class="hljs-keyword">return</span> decorator
+
+<span class="hljs-meta">@Filter(start, end)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>):
+        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>):
+            print(j)
+    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    run()
+
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+<span class="hljs-number">0</span>
+<span class="hljs-number">1</span>
+<span class="hljs-number">2</span>
+耗时 <span class="hljs-number">0.003987</span> s
+</code></pre>
+<h3 id="带有不定参数的装饰器">3.3.3 带有不定参数的装饰器</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># 带有不定参数的装饰器</span>
+<span class="hljs-comment"># 拓展的函数好多可是有参数，有的参数还是个数不定的那种</span>
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deco</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        startTime = time.time()
+        func(*args, **kwargs)
+        endTime = time.time()
+        msecs = (endTime - startTime) * <span class="hljs-number">1000</span>
+        print(<span class="hljs-string">"time is %d ms"</span> % msecs)
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@deco</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(a, b)</span>:</span>
+    print(<span class="hljs-string">"hello,here is a func for add:"</span>)
+    time.sleep(<span class="hljs-number">1</span>)
+    print(<span class="hljs-string">"result is %d"</span> % (a + b))
+
+<span class="hljs-meta">@deco</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func2</span><span class="hljs-params">(a, b, c)</span>:</span>
+    print(<span class="hljs-string">"hello,here is a func for add:"</span>)
+    time.sleep(<span class="hljs-number">1</span>)
+    print(<span class="hljs-string">"result is %d"</span> % (a + b + c))
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    f = func
+    func2(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>)
+    f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+
+hello,here <span class="hljs-keyword">is</span> a func <span class="hljs-keyword">for</span> add:
+result <span class="hljs-keyword">is</span> <span class="hljs-number">12</span>
+time <span class="hljs-keyword">is</span> <span class="hljs-number">1000</span> ms
+hello,here <span class="hljs-keyword">is</span> a func <span class="hljs-keyword">for</span> add:
+result <span class="hljs-keyword">is</span> <span class="hljs-number">7</span>
+time <span class="hljs-keyword">is</span> <span class="hljs-number">1000</span> ms
+</code></pre>
+<h3 id="多个装饰器">3.3.4 多个装饰器</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># 一个函数需要加入很多功能，一个装饰器怕是搞不定，装饰器能支持多个嘛</span>
+<span class="hljs-comment"># 多个装饰器执行的顺序就是从最后一个装饰器开始，执行到第一个装饰器，再执行函数本身。</span>
+<span class="hljs-comment"># 多个装饰器</span>
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deco01</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">urapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        print(<span class="hljs-string">"this is decoe1"</span>)
+        startTime = time.time()
+        func(*args, **kwargs)
+        endTime = time.time()
+        msecs = (endTime - startTime) * <span class="hljs-number">1000</span>
+        print(<span class="hljs-string">"time is %d ms"</span> % msecs)
+        print(<span class="hljs-string">"decoe1 end here"</span>)
+    <span class="hljs-keyword">return</span> urapper
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">deco02</span><span class="hljs-params">(func)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        print(<span class="hljs-string">"this is decoe2"</span>)
+        func(*args, **kwargs)
+        print(<span class="hljs-string">"decoe2 end here"</span>)
+    <span class="hljs-keyword">return</span> wrapper
+
+<span class="hljs-meta">@deco01</span>
+<span class="hljs-meta">@deco02</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(a, b)</span>:</span>
+    print(<span class="hljs-string">"hello,here is a func for add:"</span>)
+    time.sleep(<span class="hljs-number">1</span>)
+    print(<span class="hljs-string">"result is %d"</span> % (a + b))
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    f = func
+    f(<span class="hljs-number">3</span>, <span class="hljs-number">4</span>)
+
+this <span class="hljs-keyword">is</span> decoe1
+this <span class="hljs-keyword">is</span> decoe2
+hello,here <span class="hljs-keyword">is</span> a func <span class="hljs-keyword">for</span> add:
+result <span class="hljs-keyword">is</span> <span class="hljs-number">7</span>
+decoe2 end here
+time <span class="hljs-keyword">is</span> <span class="hljs-number">1003</span> ms
+decoe1 end here
+</code></pre>
+<h2 id="函数装饰类">3.4 函数装饰类</h2>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapClass</span><span class="hljs-params">(cls)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner</span><span class="hljs-params">(a)</span>:</span>
+        print(<span class="hljs-string">'class name:'</span>, cls.__name__)
+        <span class="hljs-keyword">return</span> cls(a)
+    <span class="hljs-keyword">return</span> inner
+
+<span class="hljs-meta">@wrapClass</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foo</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, a)</span>:</span>
+        self.a = a
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">'self.a ='</span>, self.a)
+
+m = Foo(<span class="hljs-string">'xiemanR'</span>)
+m.fun()
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">name</span>:</span> Foo
+self.a = xiemanR
+</code></pre>
+<ol>
+<li><p><strong>定义</strong></p>
+</li>
+<li><p>装饰器<strong>不仅可以是函数，还可以是类</strong> </p>
+</li>
+<li>相比函数装饰器，类装饰器具有灵活度大、高内聚、封装性等优点</li>
+<li><p>像<code>__call__</code>这样前后都带下划线的方法在Python中被称为内置(魔法)方法。重载这些魔法方法一般会改变对象的内部行为</p>
+</li>
+<li><p><strong>用法</strong></p>
+</li>
+<li><p>让类的构造函数<code>__init__()</code>接受一个函数</p>
+</li>
+<li><strong>重载<strong>call</strong>()并 返回一个函数</strong></li>
+<li>使用<code>@类</code>形式将装饰器附加到业务函数上</li>
+</ol>
+<h2 id="类装饰函数">3.5 类装饰函数</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShowFunName</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, func)</span>:</span>
+        self._func = func
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, a)</span>:</span>
+        print(<span class="hljs-string">'function name:'</span>, self._func.__name__)
+        <span class="hljs-keyword">return</span> self._func(a)
+<span class="hljs-meta">@ShowFunName</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Bar</span><span class="hljs-params">(a)</span>:</span>
+    <span class="hljs-keyword">return</span> a
+print(Bar(<span class="hljs-string">'xiemanR'</span>))
+
+function name: Bar
+xiemanR
+</code></pre>
+<h2 id="类装饰类">3.6 类装饰类</h2>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ShowClassName</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, cls)</span>:</span>
+        self._cls = cls
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__call__</span><span class="hljs-params">(self, a)</span>:</span>
+        print(<span class="hljs-string">'class name:'</span>, self._cls.__name__)
+        <span class="hljs-keyword">return</span> self._cls(a)
+<span class="hljs-meta">@ShowClassName</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foobar</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, a)</span>:</span>
+        self.value = a
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun</span><span class="hljs-params">(self)</span>:</span>
+        print(self.value)
+a = Foobar(<span class="hljs-string">'xiemanR'</span>)
+a.fun()
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">name</span>:</span> Foobar
+xiemanR
+</code></pre>
+<h2 id="内置装饰器">3.7 内置装饰器</h2>
+<h3 id="命令行神器click">3.7.1 命令行神器Click</h3>
+<blockquote>
+<ol>
+<li><a href="https://www.jianshu.com/p/d2b61a892c32" target="_blank">命令行神器 Click教程A篇</a></li>
+</ol>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># -*- coding: utf-8 -*</span>
+<span class="hljs-keyword">import</span> click
+<span class="hljs-meta">@click.command()</span>
+<span class="hljs-meta">@click.option('--count', default=1, help='Number of greetings.')</span>
+<span class="hljs-meta">@click.option('--name', prompt='Your name', help='The person to greet.')</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">(count, name)</span>:</span>
+    <span class="hljs-string">"""Simple program that greets NAME for a total of COUNT times."""</span>
+    <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> range(count):
+        click.echo(<span class="hljs-string">'Hello %s!'</span> % name)
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    hello()
+
+Q:\pyCharmWS&gt;python ./tempTest.py --count=<span class="hljs-number">3</span> --name=Ethan
+Hello Ethan!
+Hello Ethan!
+Hello Ethan!
+</code></pre>
+<h3 id="property和classmethod">3.7.2 @property和@classmethod</h3>
+<blockquote>
+<ol>
+<li><a href="https://blog.csdn.net/felix_yujing/article/details/79749944" target="_blank">python中常用的内置装饰器</a></li>
+</ol>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># @property</span>
+<span class="hljs-comment"># 使调用类中的方法像引用类中的字段属性一样。被修饰的特性方法，内部可以实现处理逻辑，但对外提供统一的调用方式。遵循了统一访问的原则。</span>
+<span class="hljs-comment"># @classmethod</span>
+<span class="hljs-comment"># 类方法的第一个参数是类，将类本身作为操作的方法。类方法被哪个类调用，就传入哪个类作为第一个参数进行操作。</span>
+<span class="hljs-comment"># 注意，静态方法和类方法是为类操作准备的。虽然通过实例也能调用，但是不建议</span>
+
+<span class="hljs-comment"># -*- coding: utf-8 -*-</span>
+<span class="hljs-comment"># coding: utf-8</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestClass</span>:</span>
+    name = <span class="hljs-string">"test"</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, name)</span>:</span>
+        self.name = name
+<span class="hljs-meta">    @property</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sayHello</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">"hello"</span>, self.name)
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun</span><span class="hljs-params">(self, x, y)</span>:</span>
+        <span class="hljs-keyword">return</span> x + y
+cls = TestClass(<span class="hljs-string">"felix"</span>)
+print(f<span class="hljs-string">"通过实例引用属性: {cls.name}"</span>)
+print(f<span class="hljs-string">"像引用属性一样调用@property修饰的方法: {cls.sayHello}"</span>)
+print(f<span class="hljs-string">"类名直接引用静态方法: {TestClass.fun(None, 2, 3)}"</span>)
+
+通过实例引用属性: felix
+hello felix
+像引用属性一样调用@property修饰的方法: <span class="hljs-keyword">None</span>
+类名直接引用静态方法: <span class="hljs-number">5</span>
+</code></pre>
+<h3 id="functools模块的内置装饰器">3.7.3 functools模块的内置装饰器</h3>
+<blockquote>
+<p>更详细的见上方的functools模块</p>
+</blockquote>
+<h4 id="lrucache做备忘"><a class="anchor-navigation-ex-anchor" href="#lrucache做备忘" name="lrucache做备忘"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#lrucache做备忘" name="lrucache做备忘"><i aria-hidden="true" class="fa fa-link"></i></a>lru_cache做备忘</h4>
+<blockquote>
+<p><code>functools.lru_cache</code> 是非常实用的装饰器，它实现了备忘（memoization）功能。</p>
+<p>这是一项优化技术，它把耗时的函数的结果保存起来，避免传入相同的参数时重复计算。</p>
+<p>LRU 三个字母是“Least Recently Used”的缩写，表明缓存不会无限制增长，一段时间不用的缓存会被扔掉。</p>
+<p>生成第 <em>n</em> 个斐波纳契数这种慢速递归函数适合使用 <code>lru_cache</code></p>
+</blockquote>
+<pre><code class="lang-python">import functools
+from clockdeco import clock
+
+@functools.lru_cache() # ➊
+@clock  # ➋
+def fibonacci(n):
+    if n &lt; 2:
+        return n
+    return fibonacci(n-2) + fibonacci(n-1)
+
+if __name__=='__main__':
+    print(fibonacci(6))
+
+# 这样一来，执行时间减半了，而且 n 的每个值只调用一次函数
+[0.00000119s] fibonacci(0) -&gt; 0
+[0.00000119s] fibonacci(1) -&gt; 1
+[0.00010800s] fibonacci(2) -&gt; 1
+[0.00000787s] fibonacci(3) -&gt; 2
+[0.00016093s] fibonacci(4) -&gt; 3
+[0.00001216s] fibonacci(5) -&gt; 5
+[0.00025296s] fibonacci(6) -&gt; 8
+</code></pre>
+<blockquote>
+<p>除了优化递归算法之外，<code>lru_cache</code> 在从 Web 中获取信息的应用中也能发挥巨大作用。</p>
+<p>特别要注意，<code>lru_cache</code> 可以使用两个可选的参数来配置。它的签名是：</p>
+</blockquote>
+<pre><code>functools.lru_cache(maxsize=128, typed=False)
+</code></pre><blockquote>
+<p><code>maxsize</code> 参数指定存储多少个调用的结果。缓存满了之后，旧的结果会被扔掉，腾出空间。为了得到最佳性能，<code>maxsize</code> 应该设为 2 的幂。<code>typed</code> 参数如果设为 <code>True</code>，把不同参数类型得到的结果分开保存，即把通常认为相等的浮点数和整数参数（如 <code>1</code> 和 <code>1.0</code>）区分开。</p>
+<p>顺便说一下，因为 <code>lru_cache</code> 使用字典存储结果，而且键根据调用时传入的定位参数和关键字参数创建，所以被 <code>lru_cache</code> 装饰的函数，它的所有参数都必须是<strong>可散列的</strong>。</p>
+</blockquote>
+<h4 id="单分派泛函数singledispatch"><a class="anchor-navigation-ex-anchor" href="#单分派泛函数singledispatch" name="单分派泛函数singledispatch"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#单分派泛函数singledispatch" name="单分派泛函数singledispatch"><i aria-hidden="true" class="fa fa-link"></i></a>单分派泛函数singledispatch</h4>
+<blockquote>
+<p><a href="https://www.python.org/dev/peps/pep-0443/" target="_blank">PEP 443 -- Single-dispatch generic functions</a></p>
+<p><code>functools.singledispatch</code> 是 Python 3.4 增加的，PyPI 中的 <a href="https://pypi.python.org/pypi/singledispatch" target="_blank"><code>singledispatch</code>包</a>可以向后兼容 Python 2.6 到 Python 3.3。</p>
+<p>假设我们在开发一个调试 Web 应用的工具，我们想生成 HTML，显示不同类型的 Python 对象。</p>
+<p>我们可能会编写这样的函数：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> html
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">htmlize</span><span class="hljs-params">(obj)</span>:</span>
+    content = html.escape(repr(obj))
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;{}&lt;/pre&gt;'</span>.format(content)
+</code></pre>
+<p>这个函数适用于任何 Python 类型，但是现在我们想做个扩展，让它使用特别的方式显示某些类型。</p>
+<ul>
+<li><code>str</code>：把内部的换行符替换为 <code>' \n'</code>；不使用 <code>，而是使用</code></li>
+<li><code>int</code>：以十进制和十六进制显示数字</li>
+<li><code>list</code>：输出一个 HTML 列表，根据各个元素的类型进行格式化</li>
+</ul>
+<p>因为 Python 不支持重载方法或函数，所以我们不能使用不同的签名定义 <code>htmlize</code> 的变体，也无法使用不同的方式处理不同的数据类型。在 Python 中，一种常见的做法是把 <code>htmlize</code> 变成一个分派函数，使用一串 <code>if/elif/elif</code>，调用专门的函数，如 <code>htmlize_str</code>、<code>htmlize_int</code>，等等。这样不便于模块的用户扩展，还显得笨拙：时间一长，分派函数 <code>htmlize</code> 会变得很大，而且它与各个专门函数之间的耦合也很紧密。</p>
+<p>Python 3.4 新增的 <code>functools.singledispatch</code> 装饰器可以把整体方案拆分成多个模块，甚至可以为你无法修改的类提供专门的函数。使用 <code>@singledispatch</code> 装饰的普通函数会变成<strong>泛函数</strong>（generic function）：根据第一个参数的类型，以不同方式执行相同操作的一组函数</p>
+<p>如果根据多个参数选择专门的函数，那就是<code>多分派</code>了。</p>
+<p><code>singledispatch</code> 创建一个自定义的 <code>htmlize.register</code> 装饰器，把多个函数绑在一起组成一个泛函数</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> singledispatch
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> abc
+<span class="hljs-keyword">import</span> numbers
+<span class="hljs-keyword">import</span> html
+
+<span class="hljs-meta">@singledispatch  ➊</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">htmlize</span><span class="hljs-params">(obj)</span>:</span>
+    content = html.escape(repr(obj))
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;{}&lt;/pre&gt;'</span>.format(content)
+
+<span class="hljs-meta">@htmlize.register(str)  ➋</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_</span><span class="hljs-params">(text)</span>:</span>            ➌
+    content = html.escape(text).replace(<span class="hljs-string">'\n'</span>, <span class="hljs-string">'&lt;br&gt;\n'</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;p&gt;{0}&lt;/p&gt;'</span>.format(content)
+
+<span class="hljs-meta">@htmlize.register(numbers.Integral)  ➍</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_</span><span class="hljs-params">(n)</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;pre&gt;{0} (0x{0:x})&lt;/pre&gt;'</span>.format(n)
+
+<span class="hljs-meta">@htmlize.register(tuple)  ➎</span>
+<span class="hljs-meta">@htmlize.register(abc.MutableSequence)</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_</span><span class="hljs-params">(seq)</span>:</span>
+    inner = <span class="hljs-string">'&lt;/li&gt;\n&lt;li&gt;'</span>.join(htmlize(item) <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> seq)
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'&lt;ul&gt;\n&lt;li&gt;'</span> + inner + <span class="hljs-string">'&lt;/li&gt;\n&lt;/ul&gt;'</span>
+</code></pre>
+<blockquote>
+<p>❶ <code>@singledispatch</code> 标记处理 <code>object</code> 类型的基函数。</p>
+<p>❷ 各个专门函数使用 <code>@«base_function».register(«type»)</code> 装饰。</p>
+<p>❸ 专门函数的名称无关紧要；<code>_</code> 是个不错的选择，简单明了。</p>
+<p>❹ 为每个需要特殊处理的类型注册一个函数。<code>numbers.Integral</code> 是 <code>int</code> 的虚拟超类。</p>
+<p>❺ 可以叠放多个 <code>register</code> 装饰器，让同一个函数支持不同类型。</p>
+<p>只要可能，注册的专门函数应该处理抽象基类（如 <code>numbers.Integral</code> 和 <code>abc.MutableSequence</code>），不要处理具体实现（如 <code>int</code> 和 <code>list</code>）。这样，代码支持的兼容类型更广泛。例如，Python 扩展可以子类化 <code>numbers.Integral</code>，使用固定的位数实现 <code>int</code> 类型。</p>
+</blockquote>
+<p><code>singledispatch</code> 机制的一个显著特征是，你可以在系统的任何地方和任何模块中注册专门函数。如果后来在新的模块中定义了新的类型，可以轻松地添加一个新的专门函数来处理那个类型。</p>
+<p>此外，你还可以为不是自己编写的或者不能修改的类添加自定义函数。</p>
+<blockquote>
+<p><code>@singledispatch</code> 不是为了把 Java 的那种方法重载带入 Python。在一个类中为同一个方法定义多个重载变体，比在一个函数中使用一长串 <code>if/elif/elif/elif</code> 块要更好。但是这两种方案都有缺陷，因为它们让代码单元（类或函数）承担的职责太多。<code>@singledispath</code> 的优点是支持模块化扩展：各个模块可以为它支持的各个类型注册一个专门函数。</p>
+</blockquote>
+<h1 id="柯里化">4 柯里化</h1>
+<blockquote>
+<p>柯里化（Currying）</p>
+</blockquote>
+<p>将原来接受两个参数的函数变成新的接受一个参数的函数的过程。</p>
+<p>新的函数返回一个以原有第二个参数为参数的函数。</p>
+<blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># pip install simplecurry -i https://pypi.tuna.tsinghua.edu.cn/simple</span>
+<span class="hljs-keyword">from</span> simplecurry <span class="hljs-keyword">import</span> curried
+
+<span class="hljs-meta">@curried</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">add2</span><span class="hljs-params">(a,b,c)</span>:</span>
+   <span class="hljs-keyword">return</span> c * a + b
+add2(<span class="hljs-number">2</span>)(<span class="hljs-number">5</span>)(<span class="hljs-number">8</span>)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-number">21</span>
+</code></pre>
+<blockquote>
+<p>curry化最大的意义在于把多个参数的function等价转化成多个单参数function的级联，这样所有的函数就都统一了，方便做lambda演算。 在scala里，curry化对类型推演也有帮助，scala的类型推演是局部的，在同一个参数列表中后面的参数不能借助前面的参数类型进行推演，curry化以后，放在两个参数列表里，后面一个参数列表里的参数可以借助前面一个参数列表里的参数类型进行推演。这就是为什么 foldLeft这种函数的定义都是curry的形式。</p>
+</blockquote>
+</blockquote>
+<h1 id="案例">5 案例</h1>
+<h2 id="时间装饰器">5.1 时间装饰器</h2>
+<blockquote>
+<p>计算函数运行时间</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+
+<span class="hljs-comment"># 作为装饰器使用，返回函数执行需要花费的时间</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">time_this_function</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">    @wraps(func)</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print(f<span class="hljs-string">'{func.__name__}, 耗时{round(end - start, 4)}s'</span>)
+        <span class="hljs-keyword">return</span> result
+    <span class="hljs-keyword">return</span> wrapper
+</code></pre>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python异步编程" class="navigation navigation-prev" href="4.python异步编程.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: python魔法函数" class="navigation navigation-next" href="6.python魔法函数.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python装饰器","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i//hexo/post_imgs/蕾姆4.webp","cover":"https://pic.hycbook.com/i//hexo/post_cover/蕾姆4.webp","categories":["python"],"tags":["python","函数式","operator","functools","装饰器","闭包","柯里化"],"description":"python装饰器学习以及函数式编程的库介绍","abbrlink":45122,"level":"1.6","depth":1,"next":{"title":"python魔法函数","level":"1.7","depth":1,"path":"chapters/6.python魔法函数.md","ref":"chapters/6.python魔法函数.md","articles":[]},"previous":{"title":"python异步编程","level":"1.5","depth":1,"path":"chapters/4.python异步编程.md","ref":"chapters/4.python异步编程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/5.python装饰器.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

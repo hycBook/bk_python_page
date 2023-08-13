@@ -1,0 +1,1067 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>pythonic的几个办法 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="16.pandas小记.html" rel="next"/>
+<link href="14.python基础知识.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">pythonic的几个办法</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#pythonic的几个办法">1 Pythonic的几个办法</a></li><li><span class="title-icon"></span><a href="#确认python版本">2 确认python版本</a></li><li><span class="title-icon"></span><a href="#enumerate迭代">3 enumerate迭代</a></li><li><span class="title-icon"></span><a href="#列表递推式">4 列表递推式</a></li><li><span class="title-icon"></span><a href="#生成器表达式">5 生成器表达式</a></li><li><span class="title-icon"></span><a href="#列表展平">6 列表展平</a></li><li><span class="title-icon"></span><a href="#字典展平">7 字典展平</a></li><li><span class="title-icon"></span><a href="#找list的最值索引">8 找list的最值索引</a></li><li><span class="title-icon"></span><a href="#list去重并保留顺序">9 list去重并保留顺序</a></li><li><span class="title-icon"></span><a href="#代码里面调用-pip">10 代码里面调用 pip</a></li><li><span class="title-icon"></span><a href="#使用f-strings格式化字符串">11 使用f-Strings格式化字符串</a></li><li><span class="title-icon"></span><a href="#集合论">12 集合论</a></li><li><span class="title-icon"></span><a href="#使用字符串常量访问公共字符串组">13 使用字符串常量访问公共字符串组</a></li><li><span class="title-icon"></span><a href="#使用itertools生成排列和组合">14 使用Itertools生成排列和组合</a></li><li><span class="title-icon"></span><a href="#漂亮的打印出json">15 漂亮的打印出JSON</a></li><li><span class="title-icon"></span><a href="#with上下文管理">16 with上下文管理</a></li><ul><li><span class="title-icon"></span><a href="#with模块">16.1 with模块</a></li><li><span class="title-icon"></span><a href="#上下文装饰器">16.2 上下文装饰器</a></li><li><span class="title-icon"></span><a href="#forelse块">16.3 for/else块</a></li></ul><li><span class="title-icon"></span><a href="#合理使用列表">17 合理使用列表</a></li><li><span class="title-icon"></span><a href="#序列解包">18 序列解包</a></li><li><span class="title-icon"></span><a href="#链式比较操作">19 链式比较操作</a></li><li><span class="title-icon"></span><a href="#assert用法">20 assert用法</a></li><li><span class="title-icon"></span><a href="#slots优化内存">21 slots优化内存</a></li><li><span class="title-icon"></span><a href="#暂留">22 暂留</a></li></ul></div><a href="#pythonic的几个办法" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="pythonic的几个办法">1 Pythonic的几个办法</h1>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/5a7dfaa35abc" target="_blank">Python难点解析---高级篇2.Pythonic</a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/78832659" target="_blank">Python 实用冷门知识整理</a></p>
+</blockquote>
+<p>这些年来，Python 开发者用Pythonic这个形容词来描述那种符合特定风格的代码。这种Pythonice风格，既不是非常严密的规范，也不是由编译器强加给开发者的规则，而是大家在使用Python语言协同工作的过程中逐渐形成的习惯。</p>
+<h1 id="确认python版本">2 确认python版本</h1>
+<blockquote>
+<pre><code class="lang-cmd">python --version
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> sys
+print(sys.version)
+<span class="hljs-number">3.7</span><span class="hljs-number">.6</span> (default, Jan  <span class="hljs-number">8</span> <span class="hljs-number">2020</span>, <span class="hljs-number">20</span>:<span class="hljs-number">23</span>:<span class="hljs-number">39</span>) [MSC v<span class="hljs-number">.1916</span> <span class="hljs-number">64</span> bit (AMD64)]
+print(sys.version_info)
+sys.version_info(major=<span class="hljs-number">3</span>, minor=<span class="hljs-number">7</span>, micro=<span class="hljs-number">6</span>, releaselevel=<span class="hljs-string">'final'</span>, serial=<span class="hljs-number">0</span>)
+</code></pre>
+<p>有很多种流行的Python运行时环境，例如，CPython、 Jython、 IronPython 以及PyPy等。</p>
+</blockquote>
+<h1 id="enumerate迭代">3 enumerate迭代</h1>
+<blockquote>
+<p>enumerate可以把各种迭代器包装为生成器，以便稍后产生输出值。</p>
+<p>可以给enumerate提供第二个参数，以指定开始计数时所用的值(默认为0)。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>numbers = [<span class="hljs-number">45</span>, <span class="hljs-number">22</span>, <span class="hljs-number">14</span>, <span class="hljs-number">65</span>, <span class="hljs-number">97</span>, <span class="hljs-number">72</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> i, num <span class="hljs-keyword">in</span> enumerate(numbers):
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">if</span> num % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> num % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>:
+<span class="hljs-meta">... </span>        numbers[i] = <span class="hljs-string">'fizzbuzz'</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">elif</span> num % <span class="hljs-number">3</span> == <span class="hljs-number">0</span>:
+<span class="hljs-meta">... </span>        numbers[i] = <span class="hljs-string">'fizz'</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">elif</span> num % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>:
+<span class="hljs-meta">... </span>        numbers[i] = <span class="hljs-string">'buzz'</span>
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>numbers
+[<span class="hljs-string">'fizzbuzz'</span>, <span class="hljs-number">22</span>, <span class="hljs-number">14</span>, <span class="hljs-string">'buzz'</span>, <span class="hljs-number">97</span>, <span class="hljs-string">'fizz'</span>]
+<span class="hljs-comment"># 对于每个元素，enumerate()返回一个计数器和元素值。计数器默认为0，也是元素的索引。不想在0开始你的计数？只需使用可选的start参数来设置偏移量</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>numbers = [<span class="hljs-number">45</span>, <span class="hljs-number">22</span>, <span class="hljs-number">14</span>, <span class="hljs-number">65</span>, <span class="hljs-number">97</span>, <span class="hljs-number">72</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> i, num <span class="hljs-keyword">in</span> enumerate(numbers, start=<span class="hljs-number">52</span>):
+<span class="hljs-meta">... </span>    print(i, num)
+...
+<span class="hljs-number">52</span> <span class="hljs-number">45</span>
+<span class="hljs-number">53</span> <span class="hljs-number">22</span>
+<span class="hljs-number">54</span> <span class="hljs-number">14</span>
+<span class="hljs-number">55</span> <span class="hljs-number">65</span>
+<span class="hljs-number">56</span> <span class="hljs-number">97</span>
+<span class="hljs-number">57</span> <span class="hljs-number">72</span>
+</code></pre>
+<h1 id="列表递推式">4 列表递推式</h1>
+<blockquote>
+<p>列表推导是构建列表（<code>list</code>）的快捷方式，而生成器表达式则可以用来创建其他任何类型的序列。</p>
+<p>通常的原则是，只用列表推导来创建新的列表，并且尽量保持简短。如果列表推导的代码超过了两行，你可能就要考虑是不是得用 <code>for</code> 循环重写了。</p>
+<p>在 Python 3 中都有了自己的局部作用域，就像函数似的。表达式内部的变量和赋值只在局部起作用，表达式的上下文里的同名变量还可以被正常引用，局部变量并不会影响到它们。</p>
+<p>列表推导可以帮助我们把一个序列或是其他可迭代类型中的元素过滤或是加工，然后再新建一个列表。</p>
+<p>列表推导的作用只有一个：生成列表。如果想生成其他类型的序列，生成器表达式就派上了用场。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>numbers = [<span class="hljs-number">4</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">9</span>, <span class="hljs-number">7</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">square</span><span class="hljs-params">(x)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> x*x
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(map(square, numbers))
+[<span class="hljs-number">16</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">36</span>, <span class="hljs-number">81</span>, <span class="hljs-number">49</span>]
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>[square(x) <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> numbers]
+[<span class="hljs-number">16</span>, <span class="hljs-number">4</span>, <span class="hljs-number">1</span>, <span class="hljs-number">36</span>, <span class="hljs-number">81</span>, <span class="hljs-number">49</span>]
+<span class="hljs-comment"># 使用map()和列表推导的两种方法都返回相同的值，但列表推导更容易阅读和理解。</span>
+
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_odd</span><span class="hljs-params">(x)</span>:</span>
+<span class="hljs-meta">... </span>   <span class="hljs-keyword">return</span> bool(x % <span class="hljs-number">2</span>)
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(filter(is_odd, numbers))
+[<span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">7</span>]
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>[x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> numbers <span class="hljs-keyword">if</span> is_odd(x)]
+[<span class="hljs-number">1</span>, <span class="hljs-number">9</span>, <span class="hljs-number">7</span>]
+<span class="hljs-comment"># ，filter和列表推导方法返回相同的值，但列表推导更容易理解。</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># 列表推导也支持多个if条件。处在同-循环级别中的多项条件，彼此之间默认形成and表达式。</span>
+<span class="hljs-comment"># 例如，要从数字列表中选出大于4的偶数，那么下面这两种列表推导方式是等效的。</span>
+a = [i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
+b = [x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> a <span class="hljs-keyword">if</span> x&gt;<span class="hljs-number">4</span> <span class="hljs-keyword">if</span> x%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>]
+c = [x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> a <span class="hljs-keyword">if</span> x&gt;<span class="hljs-number">4</span> <span class="hljs-keyword">and</span> x%<span class="hljs-number">2</span>==<span class="hljs-number">0</span>]
+</code></pre>
+<h1 id="生成器表达式">5 生成器表达式</h1>
+<blockquote>
+<p>生成器表达式背后遵守了迭代器协议，可以逐个地产出元素，而不是先建立一个完整的列表，然后再把这个列表传递到某个构造函数里。</p>
+<p>生成器表达式的语法跟列表推导差不多，只不过把方括号换成圆括号而已。</p>
+<p>如果生成器表达式是一个函数调用过程中的唯一参数，那么不需要额外再用括号把它围起来。</p>
+<p>生成器表达式就可以帮忙省掉运行 <code>for</code> 循环的开销</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 前面提到，列表推导是方便的工具，但有时会导致不必要的内存使用。</span>
+<span class="hljs-comment"># 错误方式</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>sum([i * i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">1001</span>)])
+<span class="hljs-number">333833500</span>
+<span class="hljs-comment"># 正确方式</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>sum((i * i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">1001</span>)))
+<span class="hljs-number">333833500</span>
+<span class="hljs-comment"># 换出括号会将列表推导更改为生成器表达式。当你知道要从序列中检索数据，但不需要同时访问所有数据的时候，生成器表达式非常适合。 </span>
+
+<span class="hljs-comment"># 生成器表达式返回生成器对象，而不是创建列表。该对象知道它在当前状态中的位置（例如，i = 49）并且仅在被要求时计算下一个值。 </span>
+
+<span class="hljs-comment"># 因此，当sum通过重复调用.__ next __()来迭代生成器对象时，生成器检查i等于多少，计算i * i，在内部递增i，并将正确的值返回到sum。该设计允许生成器用于大量数据序列，因为一次只有一个元素存在于内存中。</span>
+</code></pre>
+<h1 id="列表展平">6 列表展平</h1>
+<blockquote>
+<p><a href="https://cloud.tencent.com/developer/article/1477248?from=10680" target="_blank">一日一技：如何把多层嵌套的列表展平</a></p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">flat</span><span class="hljs-params">(deep_list, result)</span>:</span>
+    <span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> deep_list:
+        <span class="hljs-keyword">if</span> isinstance(element, list):
+            flat(element, result)
+        <span class="hljs-keyword">else</span>:
+            result.append(element)
+
+a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>], <span class="hljs-number">8</span>], <span class="hljs-number">9</span>, [<span class="hljs-number">10</span>, <span class="hljs-number">11</span>]]
+result = []
+flat(a, result)
+print(result)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">list_flat</span><span class="hljs-params">(deep_list, ignore_types=<span class="hljs-params">(str, bytes)</span>)</span> -&gt; List:</span>
+    <span class="hljs-string">"""
+    列表嵌套展平为一维列表
+    @param deep_list: 嵌套列表
+    @param ignore_types: 不做展平的类型
+    @rtype: 一维列表
+    """</span>
+    <span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> deep_list:
+        <span class="hljs-keyword">if</span> isinstance(element, list) <span class="hljs-keyword">and</span> <span class="hljs-keyword">not</span> isinstance(element, ignore_types):
+            <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> list_flat(element, ignore_types=ignore_types)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">yield</span> element
+
+a = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, [<span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>], <span class="hljs-number">8</span>], <span class="hljs-number">9</span>, [<span class="hljs-number">10</span>, <span class="hljs-number">11</span>]]
+result = [x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> list_flat(a)]
+print(result)
+</code></pre>
+<p>所以，当代码运行到</p>
+<pre><code class="lang-python">[x <span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> flat(a)]
+</code></pre>
+<p>的时候，每一次循环都会进入到 <code>flat</code>生成器里面。在 <code>flat</code>里面，对传入的参数使用for循环进行迭代，如果拿到的元素不是列表，那么就直接抛出，送到上一层。如果当前已经是最上层了，那么就再一次抛出给外面的列表推导式。如果当前元素是列表，那么继续生成一个生成器，并对这个新的生成器进行迭代，并把每一个结果继续往上层抛出。</p>
+<p>最终，每一个数字都会被一层一层往上抛出给列表推导式，从而获得需要的结果。</p>
+<h1 id="字典展平">7 字典展平</h1>
+<pre><code class="lang-python">nest_dict = {
+    <span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">'b'</span>: {
+        <span class="hljs-string">'c'</span>: <span class="hljs-number">2</span>,
+        <span class="hljs-string">'d'</span>: <span class="hljs-number">3</span>,
+        <span class="hljs-string">'e'</span>: {<span class="hljs-string">'f'</span>: <span class="hljs-number">4</span>}
+    },
+    <span class="hljs-string">'g'</span>: {<span class="hljs-string">'h'</span>: <span class="hljs-number">5</span>},
+    <span class="hljs-string">'i'</span>: <span class="hljs-number">6</span>,
+    <span class="hljs-string">'j'</span>: {<span class="hljs-string">'k'</span>: {<span class="hljs-string">'l'</span>: {<span class="hljs-string">'m'</span>: <span class="hljs-number">8</span>}}}
+}
+</code></pre>
+<p>使用<code>yield</code>关键字来实现这个需求，在<code>不炫技</code>的情况下，只需要8行代码。在炫技的情况下，只需要3行代码。</p>
+<p>要快速地把这个嵌套字典压扁，我们需要从下向上来处理字段。例如对于<code>b-&gt;e-&gt;f-&gt;4</code>这条路径，我们首先把最里面的<code>{'f': 4}</code>转换为一个元组<code>('f', 4)</code>。然后，把这个元组向上抛出，于是得到了元组<code>('e', ('f', 4))</code>。我们把 <code>e</code>拼接到<code>f</code>的前面，变为：<code>('e_f', 4)</code>，继续往上抛出，得到<code>('b', ('e_f', 4))</code>。再把<code>b</code>拼接到<code>e_f</code>上面，得到<code>('b_e_f', 4)</code>。完成一条线路的组装。</p>
+<p>这个逻辑如果使用<code>yield</code>关键字来实现，就是：</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">map_flat</span><span class="hljs-params">(deep_map, full_key: bool = True)</span> -&gt; Dict:</span>
+    <span class="hljs-string">"""
+    字典嵌套展平为一维字典
+    @param deep_map: 嵌套字典
+    @param full_key: 是否使用完整的key
+    @rtype: 一维字典
+    """</span>
+    <span class="hljs-keyword">for</span> key, value <span class="hljs-keyword">in</span> deep_map.items():
+        <span class="hljs-keyword">if</span> isinstance(value, dict):
+            <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> map_flat(value, full_key):
+                <span class="hljs-keyword">yield</span> (f<span class="hljs-string">'{key}_{k}'</span>, v) <span class="hljs-keyword">if</span> full_key <span class="hljs-keyword">else</span> (k, v)
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">yield</span> key, value
+</code></pre>
+<pre><code class="lang-python">{k:v <span class="hljs-keyword">for</span> k,v <span class="hljs-keyword">in</span> map_flat(nest_dict)}
+{
+    <span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">'b_c'</span>: <span class="hljs-number">2</span>,
+    <span class="hljs-string">'b_d'</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-string">'b_e_f'</span>: <span class="hljs-number">4</span>,
+    <span class="hljs-string">'g_h'</span>: <span class="hljs-number">5</span>,
+    <span class="hljs-string">'i'</span>: <span class="hljs-number">6</span>,
+    <span class="hljs-string">'j_k_l_m'</span>: <span class="hljs-number">8</span>
+}
+</code></pre>
+<p>通过使用 <code>yield</code>关键字，字典的<code>key</code>会像是在流水线上一样，一层一层从内向外进行组装，从而形成完整的路径。</p>
+<h1 id="找list的最值索引">8 找list的最值索引</h1>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">max_idx</span><span class="hljs-params">(lst)</span>:</span>
+    <span class="hljs-keyword">return</span> max(range(len(lst)), key=lst.__getitem__)
+
+max_idx([<span class="hljs-number">1</span>,<span class="hljs-number">5</span>,<span class="hljs-number">7</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])
+Out[<span class="hljs-number">62</span>]: <span class="hljs-number">2</span>
+</code></pre>
+<h1 id="list去重并保留顺序">9 list去重并保留顺序</h1>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+
+a = [<span class="hljs-string">'heelo'</span>,<span class="hljs-string">'world'</span>,<span class="hljs-string">'world'</span>,<span class="hljs-string">'a'</span>,<span class="hljs-string">'hello'</span>]
+list(OrderedDict.fromkeys(a).keys())
+Out[<span class="hljs-number">65</span>]: [<span class="hljs-string">'heelo'</span>, <span class="hljs-string">'world'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'hello'</span>]
+
+a = [<span class="hljs-string">'hello'</span>,<span class="hljs-string">'world'</span>,<span class="hljs-string">'world'</span>,<span class="hljs-string">'a'</span>,<span class="hljs-string">'hello'</span>]
+list(OrderedDict.fromkeys(a).keys())
+Out[<span class="hljs-number">67</span>]: [<span class="hljs-string">'hello'</span>, <span class="hljs-string">'world'</span>, <span class="hljs-string">'a'</span>]
+</code></pre>
+<h1 id="代码里面调用-pip">10 代码里面调用 pip</h1>
+<p>说到安装 Python 的第三方库，会 Python 的同学都知道，在终端使用<code>pip install xxx</code>即可。</p>
+<p>那么如果我想在代码里面安装第三方库怎么办呢？可能有人想到使用 <code>os</code> 模块：</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> os
+package_name = <span class="hljs-string">'requests'</span>
+os.system(f<span class="hljs-string">'pip install {package_name}'</span>)
+</code></pre>
+<p>这种方法确实可行，并且即使你在虚拟环境中使用这种方式安装，也确实不会安装到系统的 Python 环境中。</p>
+<p>但是这种方式总感觉有点奇怪。而且如果这个<code>package_name</code>字符串经过精心构造，可以执行任意系统命令，例如：</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> os
+package_name = <span class="hljs-string">'requests &amp;&amp; rm -rf *'</span>
+os.system(f<span class="hljs-string">'pip install {package_name}'</span>)
+</code></pre>
+<p>为了防止这种情况发生，我们可以直接调用<code>pip</code>这个 Python 包：</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">from</span> pip._internal <span class="hljs-keyword">import</span> main
+main.main([<span class="hljs-string">'install'</span>, <span class="hljs-string">'第三方库名'</span>])
+</code></pre>
+<p>命令行下面的参数都可以通过转换为列表的形式执行，例如：</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">from</span> pip._internal <span class="hljs-keyword">import</span> main
+
+main.main([<span class="hljs-string">'install'</span>, <span class="hljs-string">'-r'</span>, <span class="hljs-string">'requirements.txt'</span>])
+</code></pre>
+<h1 id="使用f-strings格式化字符串">11 使用f-Strings格式化字符串</h1>
+<pre><code class="lang-python"># f-strings支持使用字符串格式化迷你语言，以及强大的字符串插值。这些功能允许你添加变量甚至有效的Python表达式，并在添加到字符串之前在运行时对它们进行评估：
+&gt;&gt;&gt; def get_name_and_decades(name, age):
+...     return f"My name is {name} and I'm {age / 10:.5f} decades old."
+...
+&gt;&gt;&gt; get_name_and_decades("Maria", 31)
+My name is Maria and I'm 3.10000 decades old.
+</code></pre>
+<h1 id="集合论">12 集合论</h1>
+<blockquote>
+<p>集合的本质是许多唯一对象的聚集。因此，集合可以用于去重</p>
+<p>集合中的元素必须是可散列的，<code>set</code> 类型本身是不可散列的，但是 <code>frozenset</code> 可以。因此可以创建一个包含不同 <code>frozenset</code> 的 <code>set</code>。</p>
+<p>给定两个集合 <code>a</code> 和 <code>b</code>，<code>a | b</code> 返回的是它们的合集，<code>a &amp; b</code> 得到的是交集，而 <code>a - b</code> 得到的是差集。</p>
+<p>除空集之外，集合的字面量——<code>{1}</code>、<code>{1, 2}</code>，等等——看起来跟它的数学形式一模一样。如果是空集，那么必须写成 <code>set()</code> 的形式。</p>
+<p>在 Python 3 里面，除了空集，集合的字符串表示形式总是以 <code>{...}</code> 的形式出现。</p>
+<p>像 <code>{1, 2, 3}</code> 这种字面量句法相比于构造方法（<code>set([1, 2, 3])</code>）要更快且更易读。后者的速度要慢一些，因为 Python 必须先从 <code>set</code> 这个名字来查询构造方法，然后新建一个列表，最后再把这个列表传入到构造方法里。但是如果是像 <code>{1, 2, 3}</code> 这样的字面量，Python 会利用一个专门的叫作 <code>BUILD_SET</code> 的字节码来创建集合。</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>数学符号</th>
+<th>python运算符</th>
+<th>方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><code>set</code>的实现以及导致的结果</p>
+<p><code>set</code> 和 <code>frozenset</code> 的实现也依赖散列表，但在它们的散列表里存放的只有元素的引用（就像在字典里只存放键而没有相应的值）。在 <code>set</code> 加入到 Python 之前，我们都是把字典加上无意义的值当作集合来用的。</p>
+<p>这些特点总结如下。</p>
+<ul>
+<li>集合里的元素必须是可散列的。</li>
+<li>集合很消耗内存。</li>
+<li>可以很高效地判断元素是否存在于某个集合。</li>
+<li>元素的次序取决于被添加到集合里的次序。</li>
+<li>往集合里添加元素，可能会改变集合里已有元素的次序。</li>
+</ul>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> random
+<span class="hljs-meta">&gt;&gt;&gt; </span>all_words = <span class="hljs-string">"all the words in the world"</span>.split()
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_random_word</span><span class="hljs-params">()</span>:</span>
+<span class="hljs-meta">... </span>   <span class="hljs-keyword">return</span> random.choice(all_words)
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_unique_words</span><span class="hljs-params">()</span>:</span>
+<span class="hljs-meta">... </span>    words = set()
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000</span>):
+<span class="hljs-meta">... </span>        words.add(get_random_word())
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> words
+<span class="hljs-meta">&gt;&gt;&gt; </span>get_unique_words()
+{<span class="hljs-string">'world'</span>, <span class="hljs-string">'all'</span>, <span class="hljs-string">'the'</span>, <span class="hljs-string">'words'</span>}
+</code></pre>
+<h1 id="使用字符串常量访问公共字符串组">13 使用字符串常量访问公共字符串组</h1>
+<pre><code class="lang-python"><span class="hljs-comment"># 可以使用is_upper()，它返回字符串中的所有字符是否都是大写字母：</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> string
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_upper</span><span class="hljs-params">(word)</span>:</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">for</span> letter <span class="hljs-keyword">in</span> word:
+<span class="hljs-meta">... </span>        <span class="hljs-keyword">if</span> letter <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> string.ascii_uppercase:
+<span class="hljs-meta">... </span>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+...
+<span class="hljs-meta">&gt;&gt;&gt; </span>is_upper(<span class="hljs-string">'Thanks Geir'</span>)
+<span class="hljs-keyword">False</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>is_upper(<span class="hljs-string">'LOL'</span>)
+<span class="hljs-keyword">True</span>
+
+<span class="hljs-comment"># is_upper()迭代word中的字母，并检查字母是否为string.ascii_大写字母的一部分。如果你打印出string.ascii_大写，你会发现它只是一个字符串，该值设置为文本“ABCDEFGHIJKLMNOPQRSTUVWXYZ”。</span>
+
+所有字符串常量都只是经常引用的字符串值的字符串。其中包括以下内容：
+string.ascii_letters
+string.ascii_uppercase
+string.ascii_lowercase
+string.digits
+string.hexdigits
+string.octdigits
+string.punctuation
+string.printable
+string.whitespace
+</code></pre>
+<h1 id="使用itertools生成排列和组合">14 使用Itertools生成排列和组合</h1>
+<pre><code class="lang-python"><span class="hljs-comment"># itertools.permutations()构建所有排列的列表，这意味着它是输入值的每个可能分组的列表，其长度与count参数匹配。r关键字参数允许我们指定每个分组中有多少值：</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> itertools
+<span class="hljs-meta">&gt;&gt;&gt; </span>friends = [<span class="hljs-string">'Monique'</span>, <span class="hljs-string">'Ashish'</span>, <span class="hljs-string">'Devon'</span>, <span class="hljs-string">'Bernie'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(itertools.permutations(friends, r=<span class="hljs-number">2</span>))
+[(<span class="hljs-string">'Monique'</span>, <span class="hljs-string">'Ashish'</span>), (<span class="hljs-string">'Monique'</span>, <span class="hljs-string">'Devon'</span>), (<span class="hljs-string">'Monique'</span>, <span class="hljs-string">'Bernie'</span>),
+(<span class="hljs-string">'Ashish'</span>, <span class="hljs-string">'Monique'</span>), (<span class="hljs-string">'Ashish'</span>, <span class="hljs-string">'Devon'</span>), (<span class="hljs-string">'Ashish'</span>, <span class="hljs-string">'Bernie'</span>),
+(<span class="hljs-string">'Devon'</span>, <span class="hljs-string">'Monique'</span>), (<span class="hljs-string">'Devon'</span>, <span class="hljs-string">'Ashish'</span>), (<span class="hljs-string">'Devon'</span>, <span class="hljs-string">'Bernie'</span>),
+(<span class="hljs-string">'Bernie'</span>, <span class="hljs-string">'Monique'</span>), (<span class="hljs-string">'Bernie'</span>, <span class="hljs-string">'Ashish'</span>), (<span class="hljs-string">'Bernie'</span>, <span class="hljs-string">'Devon'</span>)]
+
+<span class="hljs-comment"># itertools.combinations()生成组合。这些也是输入值的可能分组，但现在值的顺序无关紧要。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(itertools.combinations(friends, r=<span class="hljs-number">2</span>))
+[(<span class="hljs-string">'Monique'</span>, <span class="hljs-string">'Ashish'</span>), (<span class="hljs-string">'Monique'</span>, <span class="hljs-string">'Devon'</span>), (<span class="hljs-string">'Monique'</span>, <span class="hljs-string">'Bernie'</span>),
+(<span class="hljs-string">'Ashish'</span>, <span class="hljs-string">'Devon'</span>), (<span class="hljs-string">'Ashish'</span>, <span class="hljs-string">'Bernie'</span>), (<span class="hljs-string">'Devon'</span>, <span class="hljs-string">'Bernie'</span>)]
+</code></pre>
+<h1 id="漂亮的打印出json">15 漂亮的打印出JSON</h1>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> json
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(json.dumps(data))  <span class="hljs-comment"># No indention</span>
+{<span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>, <span class="hljs-string">"count"</span>: <span class="hljs-number">2</span>, <span class="hljs-string">"results"</span>: [{<span class="hljs-string">"age"</span>: <span class="hljs-number">27</span>, <span class="hljs-string">"name"</span>: <span class="hljs-string">"Oz"</span>, <span class="hljs-string">"lactose_intolerant"</span>: true}, {<span class="hljs-string">"age"</span>: <span class="hljs-number">29</span>, <span class="hljs-string">"name"</span>: <span class="hljs-string">"Joe"</span>, <span class="hljs-string">"lactose_intolerant"</span>: false}]}
+<span class="hljs-meta">&gt;&gt;&gt; </span>print(json.dumps(data, indent=<span class="hljs-number">2</span>))  <span class="hljs-comment"># With indention</span>
+{
+  <span class="hljs-string">"status"</span>: <span class="hljs-string">"OK"</span>,
+  <span class="hljs-string">"count"</span>: <span class="hljs-number">2</span>,
+  <span class="hljs-string">"results"</span>: [
+    {
+      <span class="hljs-string">"age"</span>: <span class="hljs-number">27</span>,
+      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Oz"</span>,
+      <span class="hljs-string">"lactose_intolerant"</span>: true
+    },
+    {
+      <span class="hljs-string">"age"</span>: <span class="hljs-number">29</span>,
+
+      <span class="hljs-string">"name"</span>: <span class="hljs-string">"Joe"</span>,
+      <span class="hljs-string">"lactose_intolerant"</span>: false
+    }
+  ]
+}
+</code></pre>
+<h1 id="with上下文管理">16 with上下文管理</h1>
+<h2 id="with模块">16.1 with模块</h2>
+<blockquote>
+<font color="DeepSkyBlue">with 语句会设置一个临时的上下文，交给上下文管理器对象控制，并且负责清理上下文。这么做能避免错误并减少样板代码，因此 API 更安全，而且更易于使用。</font>
+<p>上下文管理器对象存在的目的是管理 <code>with</code> 语句，就像迭代器的存在是为了管理 <code>for</code> 语句一样。</p>
+<p><code>with</code> 语句的目的是简化 <code>try/finally</code> 模式。<code>finally</code> 子句中的代码通常用于释放重要的资源，或者还原临时变更的状态。</p>
+<p>上下文管理器协议包含 <code>__enter__</code> 和 <code>__exit__</code> 两个方法。</p>
+<ul>
+<li><p>with 语句开始运行时，会在上下文管理器对象上调用__enter__ 方法。</p>
+</li>
+<li><p>with 语句运行结束后，会在上下文管理器对象上调用__exit__方法，以此扮演 <code>finally</code> 子句的角色。</p>
+</li>
+</ul>
+</blockquote>
+<font color="Olive" size="5">with的行为</font>
+<blockquote>
+<p>执行 <code>with</code> 后面的表达式得到的结果是上下文管理器对象，不过，把值绑定到目标变量上（<code>as</code> 子句）是在上下文管理器对象上调用 <code>__enter__</code> 方法的结果。</p>
+<ul>
+<li><code>__enter__</code> 方法除了返回上下文管理器之外，还可能返回其他对象。</li>
+<li>不管控制流程以哪种方式退出 <code>with</code> 块，都会在上下文管理器对象上调用 <code>__exit__</code> 方法，而不是在 <code>__enter__</code> 方法返回的对象上调用。</li>
+<li><code>with</code> 语句的 <code>as</code> 子句是可选的。对 <code>open</code> 函数来说，必须加上 <code>as</code> 子句，以便获取文件的引用。</li>
+</ul>
+</blockquote>
+<font color="DeepSkyBlue">如果 `__exit__` 方法返回 `None`，或者 `True` 之外的值，`with` 块中的任何异常都会向上冒泡。</font>
+<blockquote>
+<p>解释器调用 <code>__enter__</code> 方法时，除了隐式的 <code>self</code> 之外，不会传入任何参数。传给 <code>__exit__</code> 方法的三个参数列举如下。</p>
+<pre><code>exc_type
+</code></pre><p>　　异常类（例如 <code>ZeroDivisionError</code>）。</p>
+<pre><code>exc_value
+</code></pre><p>　　异常实例。有时会有参数传给异常构造方法，例如错误消息，这些参数可以使用 <code>exc_value.args</code> 获取。</p>
+<pre><code>traceback
+</code></pre><p>　　<code>traceback</code> 对象。</p>
+</blockquote>
+<font color="DeepSkyBlue">可以手动调用 `__enter__` 和 `__exit__` 方法。</font>
+<p><code>with</code> 不仅能管理资源，还能用于去掉常规的设置和清理代码，或者在另一个过程前后执行的操作</p>
+<pre><code class="lang-python"><span class="hljs-keyword">with</span> allocate_resource() <span class="hljs-keyword">as</span> resource:
+    resource.use()
+
+<span class="hljs-comment"># 打开/关闭文件</span>
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'data.txt'</span>) <span class="hljs-keyword">as</span> f:
+    data = f.read()
+</code></pre>
+<h2 id="上下文装饰器">16.2 上下文装饰器</h2>
+<blockquote>
+<font color="DeepSkyBlue" size="5">contextlib 模块中的实用工具</font>
+<ol>
+<li><p><strong>closing</strong>: 如果对象提供了 <code>close()</code> 方法，但没有实现 <code>__enter__/__exit__</code> 协议，那么可以使用这个函数构建上下文管理器。</p>
+</li>
+<li><p><strong>suppress</strong>: 构建临时忽略指定异常的上下文管理器。</p>
+</li>
+<li><p><strong>@contextmanager</strong>: 这个装饰器把简单的生成器函数变成上下文管理器，这样就不用创建类去实现管理器协议了。</p>
+</li>
+<li><p><strong>ContextDecorator</strong>: 这是个基类，用于定义基于类的上下文管理器。这种上下文管理器也能用于装饰函数，在受管理的上下文中运行整个函数。</p>
+</li>
+<li><p><strong>ExitStack</strong>: 这个上下文管理器能进入多个上下文管理器。<code>with</code> 块结束时，<code>ExitStack</code> 按照后进先出的顺序调用栈中各个上下文管理器的 <code>__exit__</code> 方法。如果事先不知道 <code>with</code> 块要进入多少个上下文管理器，可以使用这个类。例如，同时打开任意一个文件列表中的所有文件。</p>
+</li>
+</ol>
+<p>显然，在这些实用工具中，使用最广泛的是 <code>@contextmanager</code> 装饰器，因此要格外留心。</p>
+<p>这个装饰器也有迷惑人的一面，因为它与迭代无关，却要使用 <code>yield</code> 语句。</p>
+</blockquote>
+<font color="DeepSkyBlue" size="5">重点介绍下**@contextmanager**</font>
+<blockquote>
+<p><code>@contextmanager</code> 装饰器能减少创建上下文管理器的样板代码量，因为不用编写一个完整的类，定义 <code>__enter__</code> 和 <code>__exit__</code> 方法，而只需实现有一个 yield 语句的生成器，生成想让 <code>__enter__</code> 方法返回的值。</p>
+<p>在使用 <code>@contextmanager</code> 装饰的生成器中，<code>yield</code> 语句的作用是把函数的定义体分成两部分：<code>yield</code> 语句前面的所有代码在 <code>with</code> 块开始时（即解释器调用 <code>__enter__</code> 方法时）执行， <code>yield</code> 语句后面的代码在 <code>with</code> 块结束时（即调用 <code>__exit__</code> 方法时）执行。</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> contextlib
+<span class="hljs-meta">@contextlib.contextmanager  ➊</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">looking_glass</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> sys
+    original_write = sys.stdout.write  ➋
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse_write</span><span class="hljs-params">(text)</span>:</span>  ➌
+        original_write(text[::<span class="hljs-number">-1</span>])
+
+    sys.stdout.write = reverse_write  ➍
+    <span class="hljs-keyword">yield</span> <span class="hljs-string">'JABBERWOCKY'</span>  ➎
+    sys.stdout.write = original_write  ➏ <span class="hljs-comment"># 这里相当于__exit__</span>
+</code></pre>
+<p>这个类的 <code>__enter__</code> 方法有如下作用。</p>
+<p>(1) 调用生成器函数，保存生成器对象（这里把它称为 <code>gen</code>）。</p>
+<p>(2) 调用 <code>next(gen)</code>，执行到 <code>yield</code> 关键字所在的位置。</p>
+<p>(3) 返回 <code>next(gen)</code> 产出的值，以便把产出的值绑定到 <code>with/as</code> 语句中的目标变量上。</p>
+</blockquote>
+<font color="Orange" size="4">with 块终止时，`__exit__` 方法会做以下几件事：</font>
+<blockquote>
+<ol>
+<li><p>检查有没有把异常传给 <code>exc_type</code>；如果有，调用 <code>gen.throw(exception)</code>，在生成器函数定义体中包含 <code>yield</code> 关键字的那一行抛出异常。</p>
+</li>
+<li><p>否则，调用 <code>next(gen)</code>，继续执行生成器函数定义体中 <code>yield</code> 语句之后的代码。</p>
+</li>
+</ol>
+<p>上文示例有一个严重的错误：如果在 <code>with</code> 块中抛出了异常，Python 解释器会将其捕获，然后在 <code>looking_glass</code> 函数的 <code>yield</code> 表达式里再次抛出。</p>
+<p>但是，那里没有处理错误的代码，因此 <code>looking_glass</code> 函数会中止，永远无法恢复成原来的 <code>sys.stdout.write</code> 方法，导致系统处于无效状态。</p>
+<p>以下代码是基于生成器的上下文管理器，而且实现了异常处理——从外部看，行为与前文一样</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> contextlib
+
+<span class="hljs-meta">@contextlib.contextmanager</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">looking_glass</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">import</span> sys
+    original_write = sys.stdout.write
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">reverse_write</span><span class="hljs-params">(text)</span>:</span>
+        original_write(text[::<span class="hljs-number">-1</span>])
+
+    sys.stdout.write = reverse_write
+    msg = <span class="hljs-string">''</span>  ➊
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">yield</span> <span class="hljs-string">'JABBERWOCKY'</span>
+    <span class="hljs-keyword">except</span> ZeroDivisionError:  ➋
+        msg = <span class="hljs-string">'Please DO NOT divide by zero!'</span>
+    <span class="hljs-keyword">finally</span>:
+        sys.stdout.write = original_write  ➌
+        <span class="hljs-keyword">if</span> msg:
+            print(msg)  ➍
+</code></pre>
+<p>前面说过，为了告诉解释器异常已经处理了，<code>__exit__</code> 方法会返回 <code>True</code>，此时解释器会压制异常。如果 <code>__exit__</code> 方法没有显式返回一个值，那么解释器得到的是 <code>None</code>，然后向上冒泡异常。使用 <code>@contextmanager</code> 装饰器时，默认的行为是相反的：装饰器提供的<code>__exit__</code> 方法假定发给生成器的所有异常都得到处理了，因此应该压制异常。6 如果不想让 <code>@contextmanager</code> 压制异常，必须在被装饰的函数中显式重新抛出异常。</p>
+<p>在 <code>@contextmanager</code> 装饰器装饰的生成器中，<code>yield</code> 与迭代没有任何关系。</p>
+<p><code>@contextmanager</code> 装饰器能把包含一个 <code>yield</code> 语句的简单生成器变成上下文管理器——这比定义一个至少包含两个方法的类要更简洁。</p>
+</blockquote>
+<h2 id="forelse块">16.3 for/else块</h2>
+<font color="DeepSkyBlue" size="4">`else` 子句不仅能在 if 语句中使用，还能在 for、while 和 try 语句中使用。</font>
+<font color="DeepSkyBlue" size="4">`for/else`、`while/else` 和 `try/else` 的语义关系紧密，不过与 `if/else` 差别很大。</font>
+<blockquote>
+<p>在循环中，<code>else</code> 的语义恰好相反：“运行这个循环，然后做那件事。”
+<code>else</code> 子句的行为如下。</p>
+<p>for: 仅当 <code>for</code> 循环运行完毕时（即 <code>for</code> 循环没有被 <code>break</code> 语句中止）才运行 <code>else</code> 块。</p>
+<p>while: 仅当 <code>while</code> 循环因为条件为<strong>假值</strong>而退出时（即 <code>while</code> 循环没有被 <code>break</code> 语句中止）才运行 <code>else</code> 块。</p>
+<p>try: 仅当 <code>try</code> 块中没有异常抛出时才运行 <code>else</code> 块。<a href="https://docs.python.org/3/reference/compound_stmts.html" target="_blank">官方文档</a>还指出：“<code>else</code> 子句抛出的异常不会由前面的 <code>except</code> 子句处理。”</p>
+<p>在所有情况下，如果异常或者 <code>return</code>、<code>break</code> 或 <code>continue</code> 语句导致控制权跳到了复合语句的主块之外，<code>else</code> 子句也会被跳过。</p>
+<p>在这些语句中使用 <code>else</code> 子句通常能让代码更易于阅读，而且能省去一些麻烦，不用设置控制标志或者添加额外的 <code>if</code> 语句。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># for else 是 Python 中特有的语法格式，else 中的代码在 for 循环遍历完所有元素之后执行</span>
+<span class="hljs-comment"># 如果for循环正常结束，else中语句执行。如果是break的，则不执行。</span>
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> mylist:
+    <span class="hljs-keyword">if</span> i == theflag:
+        <span class="hljs-keyword">break</span>
+    process(i)
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-keyword">raise</span> ValueError(<span class="hljs-string">"List argument missing terminal flag."</span>)
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># 方式一</span>
+flag = <span class="hljs-keyword">False</span>
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> xx:
+    <span class="hljs-keyword">if</span> some condition:
+        flag = <span class="hljs-keyword">True</span>
+        <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">if</span> flag:
+    <span class="hljs-keyword">print</span> <span class="hljs-string">'no break'</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># 方式二</span>
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> xx:
+    <span class="hljs-keyword">if</span> some condition:
+        <span class="hljs-keyword">break</span>
+<span class="hljs-keyword">else</span>:
+    <span class="hljs-keyword">print</span> <span class="hljs-string">'no break'</span>
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># 判断质数/素数——我知道的最快的方法</span>
+<span class="hljs-comment"># https://blog.csdn.net/songyunli1111/article/details/78690447</span>
+<span class="hljs-comment"># Example</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_prime</span><span class="hljs-params">(n = <span class="hljs-number">20</span>)</span>:</span>
+    is_p = <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span> <span class="hljs-keyword">if</span> n&gt;=<span class="hljs-number">2</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span>, int(math.sqrt(n))+<span class="hljs-number">1</span>):
+        <span class="hljs-keyword">if</span> n%ii == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">break</span>
+    <span class="hljs-keyword">else</span>:
+        is_p = <span class="hljs-keyword">True</span>
+    <span class="hljs-keyword">return</span> is_p
+<span class="hljs-comment"># 或者直接写成</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">is_prime</span><span class="hljs-params">(n = <span class="hljs-number">20</span>)</span>:</span>
+    <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span> <span class="hljs-keyword">if</span> n&gt;=<span class="hljs-number">2</span> <span class="hljs-keyword">else</span> <span class="hljs-number">1</span>, int(math.sqrt(n))+<span class="hljs-number">1</span>):
+        <span class="hljs-keyword">if</span> n%ii == <span class="hljs-number">0</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">False</span>
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+<span class="hljs-comment"># 获取n=50以内的素数列表</span>
+<span class="hljs-keyword">import</span> math
+n = <span class="hljs-number">50</span>
+data = [ii <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> range(n)]
+res = itertools.compress(data,[is_prime(da) <span class="hljs-keyword">for</span> da <span class="hljs-keyword">in</span> data])
+print([r <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> res])
+Out[<span class="hljs-number">30</span>]: [<span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">11</span>, <span class="hljs-number">13</span>, <span class="hljs-number">17</span>, <span class="hljs-number">19</span>, <span class="hljs-number">23</span>, <span class="hljs-number">29</span>, <span class="hljs-number">31</span>, <span class="hljs-number">37</span>, <span class="hljs-number">41</span>, <span class="hljs-number">43</span>, <span class="hljs-number">47</span>]
+</code></pre>
+<h1 id="合理使用列表">17 合理使用列表</h1>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+names = deque([<span class="hljs-string">'raymond'</span>, <span class="hljs-string">'rachel'</span>, <span class="hljs-string">'matthew'</span>, <span class="hljs-string">'roger'</span>,
+               <span class="hljs-string">'betty'</span>, <span class="hljs-string">'melissa'</span>, <span class="hljs-string">'judith'</span>, <span class="hljs-string">'charlie'</span>])
+names.popleft()
+
+Out[<span class="hljs-number">10</span>]: <span class="hljs-string">'raymond'</span>
+</code></pre>
+<ol>
+<li>列表对象（list）是一个查询效率高于更新操作的数据结构，删除和插入需要对剩下的元素做移动操作</li>
+<li>deque 是一个双向队列的数据结构，删除元素和插入元素会很快</li>
+</ol>
+<h1 id="序列解包">18 序列解包</h1>
+<blockquote>
+<p>元组拆包可以应用到任何可迭代对象上，唯一的硬性要求是，被可迭代对象中的元素数量必须要跟接受这些元素的元组的空档数一致。除非我们用 <code>*</code> 来表示忽略多余的元素。</p>
+<p>os.path.split() 函数就会返回以路径和最后一个文件名组成的元组 (path, last_part)</p>
+<p>在平行赋值中，<code>*</code> 前缀只能用在一个变量名前面，但是这个变量可以出现在赋值表达式的任意位置</p>
+</blockquote>
+<pre><code class="lang-python">p = <span class="hljs-string">'vttalk'</span>, <span class="hljs-string">'female'</span>, <span class="hljs-number">30</span>, <span class="hljs-string">'python@qq.com'</span>
+name, gender, age, email = p
+name, gender, age, email
+Out[<span class="hljs-number">13</span>]: (<span class="hljs-string">'vttalk'</span>, <span class="hljs-string">'female'</span>, <span class="hljs-number">30</span>, <span class="hljs-string">'python@qq.com'</span>)
+
+num_list = [<span class="hljs-number">100</span>, <span class="hljs-number">19</span>, <span class="hljs-number">20</span>, <span class="hljs-number">98</span>]
+first, *left_num_list, last = num_list
+print(first, left_num_list, last)
+Out[<span class="hljs-number">14</span>]: <span class="hljs-number">100</span> [<span class="hljs-number">19</span>, <span class="hljs-number">20</span>] <span class="hljs-number">98</span>
+
+string = <span class="hljs-string">'xuexiao 4 fuzhou daxue'</span>
+tag,start_index,value = string.split(<span class="hljs-string">' '</span>,<span class="hljs-number">2</span>)
+</code></pre>
+<h1 id="链式比较操作">19 链式比较操作</h1>
+<pre><code class="lang-python"><span class="hljs-keyword">if</span> <span class="hljs-number">18</span> &lt; age &lt; <span class="hljs-number">60</span>:
+    print(<span class="hljs-string">"yong man"</span>)
+</code></pre>
+<h1 id="assert用法">20 assert用法</h1>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">assert</span> mul(<span class="hljs-number">2</span>, <span class="hljs-number">3</span>) == <span class="hljs-number">7</span>, <span class="hljs-string">'This statement is wrong!!!!!!'</span>
+Traceback (most recent call last):
+  File <span class="hljs-string">"&lt;stdin&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+AssertionError: This statement <span class="hljs-keyword">is</span> wrong!!!!!!
+</code></pre>
+<h1 id="slots优化内存">21 slots优化内存</h1>
+<blockquote>
+<p>使用<strong>slots</strong>使用了100M内存，比使用<strong>dict</strong>存储属性值节省了2倍。
+其实使用collection模块的namedtuple也可以实现<strong>slots</strong>相同的功能。namedtuple其实就是继承自tuple，同时也因为<strong>slots</strong>的值被设置成了一个空tuple以避免创建<strong>dict</strong>
+collection 和普通创建类方式相比，也节省了不少的内存。所在在确定类的属性值固定的情况下，可以使用<strong>slots</strong>方式对内存进行优化。但是这项技术不应该被滥用于静态类或者其他类似场合，那不是python程序的精神所在。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 未使用__slots__</span>
+<span class="hljs-comment"># -*- coding: utf-8 -*</span>
+<span class="hljs-keyword">from</span> memory_profiler <span class="hljs-keyword">import</span> profile
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foobar</span><span class="hljs-params">(object)</span>:</span>
+    <span class="hljs-comment"># __slots__ = ('x')</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x)</span>:</span>
+        self.x = x
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    f = [Foobar(<span class="hljs-number">42</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000000</span>)]
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    main()
+
+
+Line <span class="hljs-comment">#    Mem usage    Increment   Line Contents</span>
+================================================
+   <span class="hljs-number">137</span>     <span class="hljs-number">45.7</span> MiB     <span class="hljs-number">45.7</span> MiB   @profile
+   <span class="hljs-number">138</span>                             <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+   <span class="hljs-number">139</span>    <span class="hljs-number">215.9</span> MiB      <span class="hljs-number">0.9</span> MiB       f = [Foobar(<span class="hljs-number">42</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000000</span>)]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># 使用__slots__</span>
+<span class="hljs-comment"># -*- coding: utf-8 -*</span>
+<span class="hljs-keyword">from</span> memory_profiler <span class="hljs-keyword">import</span> profile
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Foobar</span><span class="hljs-params">(object)</span>:</span>
+    __slots__ = (<span class="hljs-string">'x'</span>)
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, x)</span>:</span>
+        self.x = x
+<span class="hljs-meta">@profile</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    f = [Foobar(<span class="hljs-number">42</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000000</span>)]
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    main()
+
+Line <span class="hljs-comment">#    Mem usage    Increment   Line Contents</span>
+================================================
+   <span class="hljs-number">132</span>     <span class="hljs-number">45.7</span> MiB     <span class="hljs-number">45.7</span> MiB   @profile
+   <span class="hljs-number">133</span>                             <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+   <span class="hljs-number">134</span>     <span class="hljs-number">99.8</span> MiB      <span class="hljs-number">0.4</span> MiB       f = [Foobar(<span class="hljs-number">42</span>) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000000</span>)]
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># 使用__slots__要注意，__slots__定义的属性仅对当前类起作用，对继承的子类是不起作用的</span>
+<span class="hljs-comment"># 除非在子类中也定义__slots__，这样，子类允许定义的属性就是自身的__slots__加上父类的__slots__。</span>
+</code></pre>
+<h1 id="暂留">22 暂留</h1>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python基础知识" class="navigation navigation-prev" href="14.python基础知识.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: pandas小记" class="navigation navigation-next" href="16.pandas小记.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"pythonic的几个办法","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆1.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆1.webp","categories":["python"],"tags":["python","pythonic","slots"],"abbrlink":31834,"level":"1.16","depth":1,"next":{"title":"pandas小记","level":"1.17","depth":1,"path":"chapters/16.pandas小记.md","ref":"chapters/16.pandas小记.md","articles":[]},"previous":{"title":"python基础知识","level":"1.15","depth":1,"path":"chapters/14.python基础知识.md","ref":"chapters/14.python基础知识.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/15.Pythonic的几个办法.md","mtime":"2023-08-13T04:38:31.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

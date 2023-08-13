@@ -1,0 +1,1206 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>python网络编程 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="30.Anaconda开发环境.html" rel="next"/>
+<link href="21.python性能优化模块.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">python网络编程</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#网络编程">1 网络编程</a></li><li><span class="title-icon"></span><a href="#socket">2 socket</a></li><ul><li><span class="title-icon"></span><a href="#tcp通讯流程">2.1 TCP通讯流程</a></li><li><span class="title-icon"></span><a href="#基于udp的socket">2.2 基于UDP的socket</a></li><li><span class="title-icon"></span><a href="#粘包问题">2.3 粘包问题</a></li><ul><li><span class="title-icon"></span><a href="#粘包的解决方案">2.3.1 粘包的解决方案</a></li><li><span class="title-icon"></span><a href="#自定义报头解决粘包">2.3.2 自定义报头解决粘包</a></li></ul></ul><li><span class="title-icon"></span><a href="#urllib">3 urllib</a></li><ul><li><span class="title-icon"></span><a href="#基本概述">3.1 基本概述</a></li><li><span class="title-icon"></span><a href="#重要模块">3.2 重要模块</a></li><ul><li><span class="title-icon"></span><a href="#urlopen">3.2.1 urlopen</a></li><li><span class="title-icon"></span><a href="#request">3.2.2 request</a></li><li><span class="title-icon"></span><a href="#handler">3.2.3 handler</a></li><li><span class="title-icon"></span><a href="#except">3.2.4 except</a></li></ul><li><span class="title-icon"></span><a href="#url-parse相关">3.3 url parse相关</a></li><ul><li><span class="title-icon"></span><a href="#urlparse">3.3.1 urlparse</a></li><li><span class="title-icon"></span><a href="#urlunpars">3.3.2 urlunpars</a></li><li><span class="title-icon"></span><a href="#urljoin">3.3.3 urljoin</a></li><li><span class="title-icon"></span><a href="#urlencode">3.3.4 urlencode</a></li></ul><li><span class="title-icon"></span><a href="#cookie">3.4 cookie</a></li></ul><li><span class="title-icon"></span><a href="#urllib3">4 urllib3</a></li><li><span class="title-icon"></span><a href="#requests">5 requests</a></li></ul></div><a href="#网络编程" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="网络编程">1 网络编程</h1>
+<blockquote>
+<p>socket和urllib的关系</p>
+</blockquote>
+<p>提供对多种不同类型套接字的低级访问，您可以使用这些套接字通过任何端口和协议进行通信。例如，您可以将其用于电子邮件、SSH、远程桌面等，也可以用于侦听端口（对于服务器）。几乎所有Python网络库，包括<code>urllib</code>，都以某种方式使用<code>socket</code>。在<code>urllib</code>专门用于套接字的特定用途，即HTTP（和可选的TLS）和FTP协议的客户端，通常（但不总是）使用端口80、443或21。</p>
+<blockquote>
+<p><a href="https://blog.csdn.net/jiduochou963/article/details/87564467" target="_blank">Python urllib、urllib2、urllib3用法及区别</a></p>
+</blockquote>
+<p>urllib、urllib2是老版本，urllib3是新版本，requests是基于urllib3写的。其中urllib和urllib2是内置库</p>
+<p>模块urllib和urllib2的功能差不多，简单来说urllib2是urllib的增强——urllib2更好一些，但是urllib中有urllib2中所没有的函数。对于简单的下载， urllib绰绰有余。 
+如果需要实现HTTP身份验证或Cookie亦或编写扩展来处理自己的协议，urllib2可能是更好的选择。在Python2.x中主要为urllib和urllib2，这<strong>两个标准库是不可相互替代</strong>的。但是<strong>在Python3.x中将urllib2合并到了urllib</strong>，这一点值得注意。</p>
+<ul>
+<li>urllib支持设置编码的函数urllib.urlencode，在模拟登陆的时候经常需要传递经过post编码之后的参数，如果不想使用第三方库完成模拟登录，就必须使用到标准库中的urllib。urllib提供一些比较原始基础的方法而urllib2并没有，比如urllib中的urlencode方法用来GET查询字符串的产生。</li>
+<li>urllib2比较有优势的地方在于urllib2.openurl中可以接受一个Request类的实例来设置Request参数，来修改/设置Header头从而达到控制HTTP Request的header部分的目的，也可以修改用户代理,设置cookie等，但urllib仅可以接受URL。如果你访问一个网站想更改User Agent(可以伪装你的浏览器)，你就需要使用urllib2。urllib2模块没有加入urllib.urlretrieve函数以及urllib.quote等一系列quote和unquote功能，这个时候就需要urllib的辅助。</li>
+</ul>
+<h1 id="socket">2 socket</h1>
+<blockquote>
+<p><a href="https://blog.csdn.net/cc1949/article/details/79063439" target="_blank">网络7层协议，4层，5层？理清容易混淆的几个概念</a>
+<a href="https://blog.51cto.com/u_15023272/2558327" target="_blank">爬虫遇到 Socket，莫慌，肝就完了！</a>
+<a href="https://www.cnblogs.com/ellisonzhang/p/10430118.html" target="_blank">Python3中的SocketServer</a></p>
+<p>socket是应用层与TCP/IP协议族通信的中间软件抽象层，它是一组接口。</p>
+</blockquote>
+<p>在设计模式中，Socket其实就是一个门面模式，它把复杂的TCP/IP协议族隐藏在Socket接口后面，对用户来说，一组简单的接口就是全部，让Socket去组织数据，以符合指定的协议。</p>
+<p><a data-lightbox="46b4d454-d6d9-499c-b4c1-6a05269f2223" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/22.python网络编程/SouthEast.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/22.python网络编程/SouthEast.webp"/></a>
+<strong>Socke</strong>t 被称为套接字，是对 <strong>TCP/IP </strong>协议的封装，它是传输层和应用层间的抽象层
+相比 <strong>HTTP</strong> 的短连接通信方式，Socket 可实现客户端和服务器的长连接通信
+<strong>Fiddler、Charles</strong> 只能抓取应用层的数据，如果你想抓其他层，比如：网络层、传输层、数据链路层的数据，强烈建议使用：<strong>Wireshark</strong></p>
+<p>在标准的OIS模型中并没有规定说必须有socket层，也就是说不使用socket也能完成通讯，是的，的确如此
+那为什么需要socket呢？一个字<strong>懒</strong>，程序员都是懒的
+我们发现还没有开始实现应用程序逻辑，就需要花大把时间来实现各种协议，太费事了，就有人专门把协议中一堆复杂的事情进行了封装，于是socket就诞生了
+有了socket以后，无需自己编写代码实现三次握手，四次挥手，ARP请求，打包数据等等，socket已经封装好了，只需要遵循socket的规定去编程，写出的程序自然就是遵循tcp/udp标准的</p>
+<blockquote>
+<p>socket的发展</p>
+</blockquote>
+<p>套接字起源于<strong>20世纪70年代</strong>加利福尼亚大学伯克利分校版本的 Unix，即人们所说的 BSD Unix
+因此，有时人们也把套接字称为“伯克利套接字”或“BSD 套接字”
+一开始,套接字被设计用在同 一台主机上多个应用程序之间的通讯，这也被称进程间通讯或 IPC
+<strong>套接字有两种</strong>(或者称为有两个种族)，分别是基于文件型的和基于网络型的</p>
+<ol>
+<li><p><strong>基于文件类型的套接字家族</strong>：AF_UNIX</p>
+<p>unix一切皆文件，基于文件的套接字调用的就是底层的文件系统来取数据，两个套接字进程运行在同一机器，可以通过访问同一个文件系统间接完成通信</p>
+</li>
+<li><p><strong>基于网络类型的套接字家族</strong>：AF_INET</p>
+<p>还有AF_INET6被用于ipv6，还有一些其他的地址家族，不过，他们要么是只用于某个平台，要么就是已经被废弃，或者是很少被使用，或者是根本没有实现，所有地址家族中，AF_INET是使用最广泛的一个，python支持很多种地址家族，但是由于大部通讯都是网络通讯，所以大部分时候使用AF_INET</p>
+</li>
+</ol>
+<blockquote>
+<p>socket示例</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 1.导入socket模块</span>
+<span class="hljs-keyword">import</span> socket
+<span class="hljs-comment"># 2.创建socket对象 函数定义如下</span>
+socket.socket(socket_family,socket_type,protocal=<span class="hljs-number">0</span>)
+<span class="hljs-comment">#socket_family 可以是 AF_UNIX 或 AF_INET。</span>
+<span class="hljs-comment">#socket_type 可以是 SOCK_STREAM表示TCP协议 或 SOCK_DGRAM表示UDP协议。</span>
+<span class="hljs-comment">#protocol 一般不填,默认值为 0。</span>
+
+<span class="hljs-comment"># 2.1获取TCP 套接字</span>
+tcpSock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+<span class="hljs-comment"># 或者 后面的参数都有默认值,可以不写,默认创建的是TCP协议socket</span>
+tcpSock = socket.socket()
+
+<span class="hljs-comment"># 2.2获取udp/ip套接字</span>
+udpSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+</code></pre>
+<blockquote>
+<p>服务端套接字函数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">服务端套接字函数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">s.bind()</td>
+<td>绑定(主机,端口号)到套接字</td>
+</tr>
+<tr>
+<td style="text-align:left">s.listen()</td>
+<td>开始TCP监听</td>
+</tr>
+<tr>
+<td style="text-align:left">s.accept()</td>
+<td>被动接受TCP客户的连接,(阻塞式)等待连接的到来</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>客户端套接字函数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>客户端套接字函数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.connect()</td>
+<td>主动初始化TCP服务器连接</td>
+</tr>
+<tr>
+<td>s.connect_ex()</td>
+<td>connect()函数的扩展版本,出错时返回出错码,而不是抛出异常</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>公共用途的套接字函数</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>公共用途的套接字函数</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.recv()</td>
+<td>接收TCP数据</td>
+</tr>
+<tr>
+<td>s.send()</td>
+<td>发送TCP数据(send在待发送数据量大于己端缓存区剩余空间时,数据丢失,不会发完)</td>
+</tr>
+<tr>
+<td>s.sendall()</td>
+<td>发送完整的TCP数据(本质就是循环调用send<br/>sendall在待发送数据量大于己端缓存区剩余空间时，数据不丢失，循环调用send直到发完)</td>
+</tr>
+<tr>
+<td>s.recvfrom()</td>
+<td>接收UDP数据</td>
+</tr>
+<tr>
+<td>s.sendto()</td>
+<td>发送UDP数据</td>
+</tr>
+<tr>
+<td>s.getpeername()</td>
+<td>连接到当前套接字的远端的地址</td>
+</tr>
+<tr>
+<td>s.getsockname()</td>
+<td>当前套接字的地址</td>
+</tr>
+<tr>
+<td>s.getsockopt()</td>
+<td>返回指定套接字的参数</td>
+</tr>
+<tr>
+<td>s.setsockopt()</td>
+<td>设置指定套接字的参数</td>
+</tr>
+<tr>
+<td>s.close()</td>
+<td>关闭套接字</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>面向锁的套接字方法</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>面向锁的套接字方法</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>s.setblocking()</td>
+<td>设置套接字的阻塞与非阻塞模式</td>
+</tr>
+<tr>
+<td>s.settimeout()</td>
+<td>设置阻塞套接字操作的超时时间</td>
+</tr>
+<tr>
+<td>s.gettimeout()</td>
+<td>得到阻塞套接字操作的超时时间</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tcp通讯流程">2.1 TCP通讯流程</h2>
+<blockquote>
+<p>TCP的通讯流程与打电话的过程非常相似</p>
+</blockquote>
+<ol>
+<li>买手机 == socket()</li>
+<li>装进手机卡 == bind()</li>
+<li>待机 == listen()</li>
+<li>电话来了、接受通话 == accept()</li>
+<li>听 == read()</li>
+<li>说 == write()</li>
+<li>挂电话 ==  close()</li>
+</ol>
+<blockquote>
+<p>TCP服务端</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+
+ip_port = (<span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-number">9000</span>)  <span class="hljs-comment"># 电话卡</span>
+BUFSIZE = <span class="hljs-number">1024</span>  <span class="hljs-comment"># 收发消息的尺寸</span>
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  <span class="hljs-comment"># 买手机</span>
+s.bind(ip_port)  <span class="hljs-comment"># 手机插卡</span>
+s.listen(<span class="hljs-number">5</span>)  <span class="hljs-comment"># 手机待机</span>
+conn, addr = s.accept()  <span class="hljs-comment"># 手机接电话</span>
+print(<span class="hljs-string">'接到来自%s的电话'</span> % addr[<span class="hljs-number">0</span>])
+msg = conn.recv(BUFSIZE)  <span class="hljs-comment"># 听消息,听话</span>
+print(msg, type(msg))
+conn.send(msg.upper())  <span class="hljs-comment"># 发消息,说话</span>
+conn.close()  <span class="hljs-comment"># 挂电话</span>
+s.close()  <span class="hljs-comment"># 手机关机</span>
+</code></pre>
+<blockquote>
+<p>TCP客户端</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+
+ip_port = (<span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-number">9000</span>)
+BUFSIZE = <span class="hljs-number">1024</span>
+s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+s.connect_ex(ip_port)  <span class="hljs-comment"># 拨电话</span>
+s.send(<span class="hljs-string">'linhaifeng nb'</span>.encode(<span class="hljs-string">'utf-8'</span>))  <span class="hljs-comment"># 发消息,说话(只能发送字节类型)</span>
+feedback = s.recv(BUFSIZE)  <span class="hljs-comment"># 收消息,听话</span>
+print(feedback.decode(<span class="hljs-string">'utf-8'</span>))
+s.close()  <span class="hljs-comment"># 挂电话</span>
+</code></pre>
+<p style="color:red">注意TCP中必须先启动服务器再启动客户端,否则客户端由于无法链接服务器,直接报错!</p>
+<p>如上就完成了一个最基本的TCP通讯，但是建立是为了传输数据，二传输数据很多时候并不是一次性就传输完成了，需要多次收发过程，所以需要给代码加上循环</p>
+<blockquote>
+<p>改进版服务器端</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+ip_port=(<span class="hljs-string">'127.0.0.1'</span>,<span class="hljs-number">8081</span>)<span class="hljs-comment">#电话卡</span>
+BUFSIZE=<span class="hljs-number">1024</span>
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM) <span class="hljs-comment">#买手机</span>
+s.bind(ip_port) <span class="hljs-comment">#手机插卡</span>
+s.listen(<span class="hljs-number">5</span>)     <span class="hljs-comment">#手机待机</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:                         <span class="hljs-comment">#新增接收链接循环,可以不停的接电话</span>
+    conn,addr=s.accept()            <span class="hljs-comment">#手机接电话</span>
+    <span class="hljs-comment"># print(conn)</span>
+    <span class="hljs-comment"># print(addr)</span>
+    print(<span class="hljs-string">'接到来自%s的电话'</span> �dr[<span class="hljs-number">0</span>])
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:                         <span class="hljs-comment">#新增通信循环,可以不断的通信,收发消息</span>
+        msg=conn.recv(BUFSIZE)             <span class="hljs-comment">#听消息,听话</span>
+        print(msg,type(msg))
+        conn.send(msg.upper())          <span class="hljs-comment">#发消息,说话</span>
+    conn.close()                    <span class="hljs-comment">#挂电话</span>
+s.close()                       <span class="hljs-comment">#手机关机</span>
+</code></pre>
+<blockquote>
+<p>改进版客户端</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+ip_port=(<span class="hljs-string">'127.0.0.1'</span>,<span class="hljs-number">8081</span>)
+BUFSIZE=<span class="hljs-number">1024</span>
+s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+s.connect_ex(ip_port)           <span class="hljs-comment">#拨电话</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:                             <span class="hljs-comment">#新增通信循环,客户端可以不断发收消息</span>
+    msg=input(<span class="hljs-string">'&gt;&gt;: '</span>).strip()
+    <span class="hljs-keyword">if</span> len(msg) == <span class="hljs-number">0</span>:<span class="hljs-keyword">continue</span>
+    s.send(msg.encode(<span class="hljs-string">'utf-8'</span>))         <span class="hljs-comment">#发消息,说话(只能发送字节类型)</span>
+
+    feedback=s.recv(BUFSIZE)                           <span class="hljs-comment">#收消息,听话</span>
+    print(feedback.decode(<span class="hljs-string">'utf-8'</span>))
+s.close()                                       <span class="hljs-comment">#挂电话</span>
+</code></pre>
+<h2 id="基于udp的socket">2.2 基于UDP的socket</h2>
+<blockquote>
+<p>UDP通讯流程与对讲机非常类似(由于不需要建立连接所以省去TCP的listen()和accept()这两步)</p>
+</blockquote>
+<ol>
+<li>买传呼机 ==  socket()</li>
+<li>固定对讲频道 == bind()</li>
+<li>收信号 == recvfrom()</li>
+<li>发信号 == sendto()</li>
+</ol>
+<blockquote>
+<p>UDP服务器端</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+ip_port=(<span class="hljs-string">'127.0.0.1'</span>,<span class="hljs-number">9000</span>) <span class="hljs-comment"># 固定通讯频道</span>
+BUFSIZE=<span class="hljs-number">1024</span>
+<span class="hljs-comment">#在TCP中socket的初始化参数可以省略, 因为默认创建的就是TCP协议的socket</span>
+<span class="hljs-comment">#而UDP则必须手动指定相关参数</span>
+udp_server_client=socket.socket(socket.AF_INET,socket.SOCK_DGRAM) <span class="hljs-comment"># 买对讲机</span>
+udp_server_client.bind(ip_port)
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    msg,addr=udp_server_client.recvfrom(BUFSIZE) <span class="hljs-comment">#收信息</span>
+    print(msg,addr)
+    udp_server_client.sendto(msg.upper(),addr) <span class="hljs-comment"># 发信息</span>
+</code></pre>
+<blockquote>
+<p>UDP客户端</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+ip_port=(<span class="hljs-string">'127.0.0.1'</span>,<span class="hljs-number">9000</span>) <span class="hljs-comment">#确定通讯频道</span>
+BUFSIZE=<span class="hljs-number">1024</span>
+udp_server_client=socket.socket(socket.AF_INET,socket.SOCK_DGRAM) <span class="hljs-comment"># 买对讲机</span>
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    msg=input(<span class="hljs-string">'&gt;&gt;: '</span>).strip()
+    <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> msg:<span class="hljs-keyword">continue</span>
+    udp_server_client.sendto(msg.encode(<span class="hljs-string">'utf-8'</span>),ip_port) <span class="hljs-comment"># 发消息</span>
+    back_msg,addr=udp_server_client.recvfrom(BUFSIZE) <span class="hljs-comment">#收消息</span>
+</code></pre>
+<p>udp是无链接的，先启动哪一端都不会报错，即使对方地址根本不存在也不会报错，强制关闭任何一方也没有任何问
+另外，由于无连接的特点，服务器不需要针对摸个客户端进行循环，只要循环的接收即可，谁发来的消息都可以被处理，基于这个特点我们可以编写一个UDP程序，实现多个客户端同时与服务器通讯</p>
+<blockquote>
+<p>UDP聊天服务器</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+ip_port=(<span class="hljs-string">'127.0.0.1'</span>,<span class="hljs-number">8081</span>)
+udp_server_sock=socket.socket(socket.AF_INET,socket.SOCK_DGRAM) <span class="hljs-comment">#买手机</span>
+udp_server_sock.bind(ip_port)
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    qq_msg,addr=udp_server_sock.recvfrom(<span class="hljs-number">1024</span>)
+    print(<span class="hljs-string">'来自[%s:%s]的一条消息:\033[1;44m%s\033[0m'</span> %(addr[<span class="hljs-number">0</span>],addr[<span class="hljs-number">1</span>],qq_msg.decode(<span class="hljs-string">'utf-8'</span>)))
+    back_msg=input(<span class="hljs-string">'回复消息: '</span>).strip()
+    udp_server_sock.sendto(back_msg.encode(<span class="hljs-string">'utf-8'</span>),addr)
+</code></pre>
+<blockquote>
+<p>UDP聊天客户端</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+
+BUFSIZE = <span class="hljs-number">1024</span>
+udp_client_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+qq_name_dic = {
+    <span class="hljs-string">'狗哥'</span>: (<span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-number">8081</span>),
+    <span class="hljs-string">'天线宝宝'</span>: (<span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-number">8081</span>),
+    <span class="hljs-string">'巴拉巴拉小魔女'</span>: (<span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-number">8081</span>),
+    <span class="hljs-string">'王尼玛'</span>: (<span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-number">8081</span>),
+}
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    qq_name = input(<span class="hljs-string">'请选择聊天对象: '</span>).strip()
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        msg = input(<span class="hljs-string">'请输入消息,回车发送: '</span>).strip()
+        <span class="hljs-keyword">if</span> msg == <span class="hljs-string">'quit'</span>: <span class="hljs-keyword">break</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> msg <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span> qq_name <span class="hljs-keyword">or</span> qq_name <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> qq_name_dic: <span class="hljs-keyword">continue</span>
+        udp_client_socket.sendto(msg.encode(<span class="hljs-string">'utf-8'</span>), qq_name_dic[qq_name])
+        back_msg, addr = udp_client_socket.recvfrom(BUFSIZE)
+        print(<span class="hljs-string">'来自[%s:%s]的一条消息:\033[1;44m%s\033[0m'</span> % (addr[<span class="hljs-number">0</span>], addr[<span class="hljs-number">1</span>], back_msg.decode(<span class="hljs-string">'utf-8'</span>)))
+udp_client_socket.close()
+</code></pre>
+<h2 id="粘包问题">2.3 粘包问题</h2>
+<p>粘包指的是数据与数据之间没有明确的分界线，导致不能正确读取数据！
+要理解粘包问题，需要先了解TCP协议传输数据时的具体流程，TCP协议也称之为流式协议(UDP称为数据报协议)
+应用程序无法直接操作硬件，应用程序想要发送数据则必须将数据交给操作系统，而操作系统需要需要同时为所有应用程序提供数据传输服务，也就意味着，操作系统不可能立马就能将应用程序的数据发送出去，就需要为应用程序提供一个缓冲区，用于临时存放数据，具体流程如下：</p>
+<ol>
+<li>发送方：当应用程序调用send函数时，应用程序会将数据从应用程序拷贝到操作系统缓存，再由操作系统从缓冲区读取数据并发送出去</li>
+<li>接收方：对方计算机收到数据也是操作系统先收到，至于应用程序何时处理这些数据，操作系统并不清楚，所以同样需要将数据先存储到操作系统的缓冲区中，当应用程序调用recv时，实际上是从操作系统缓冲区中将数据拷贝到应用程序的过程
+上述过程对于TCP与UDP都是相同的不同之处在于：<ul>
+<li>UDP: UDP在收发数据时是基于数据包的，即一个包一个包的发送，包与包之间有着明确的分界，到达对方操作系统缓冲区后也是一个一个独立的数据包，接收方从操作系统缓冲区中将数据包拷贝到应用程序
+这种方式存在的问题：<ol>
+<li>发送方发送的数据长度每个操作系统会有不同的限制，数据超过限制则无法发送</li>
+<li>接收方接收数据时如果应用程序的提供的缓存容量小于数据包的长度将造成数据丢失，而缓冲区大小不可能无限大</li>
+</ol>
+</li>
+<li>TCP: 当我们需要传输较大的数据，或需要保证数据完整性时，最简单的方式就是使用TCP协议了
+与UDP不同的是，TCP增加了一套校验规则来保证数据的完整性，会将超过TCP包最大长度的数据拆分为多个TCP包 并在传输数据时为每一个TCP数据包指定一个顺序号，接收方在收到TCP数据包后按照顺序将数据包进行重组，重组后的数据全都是二进制数据，且每次收到的二进制数据之间没有明显的分界</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>基于这种工作机制TCP在三种情况下会发送粘包问题</p>
+</blockquote>
+<ol>
+<li>当单个数据包较小时接收方可能一次性读取了多个包的数据</li>
+<li>当整体数据较大时接收方可能一次仅读取了一个包的一部分内容</li>
+<li>另外TCP协议为了提高效率，增加了一种优化机制，会将数据较小且发送间隔较短的数据合并发送，该机制也会导致发送方将两个数据包粘在一起发送</li>
+</ol>
+<h3 id="粘包的解决方案">2.3.1 粘包的解决方案</h3>
+<blockquote>
+<p>解决方案：在发送数据前先发送数据长度</p>
+</blockquote>
+<p>上述方案看起来解决了粘包问题，但是由于negle优化机制的存在，长度信息和数据还是有可能会粘包，而接受方并不知道长度信息具体几个字节，所以现在的问题是如何能够长度信息做成一个固定长度的bytes数据
+我们可以将字符串拼接为一个固定长度的字符 但是这样太麻烦，struct模块为我们提供了一个功能，可以将整数类型转换为固定长度的bytes，此时就派上用场了</p>
+<h3 id="自定义报头解决粘包">2.3.2 自定义报头解决粘包</h3>
+<p>上述方案已经完美解决了粘包问题，但是扩展性不高，例如我们要实现文件上传下载，不光要传输文件数据，还需要传输文件名字，md5值等等，如何能实现呢，具体思路：</p>
+<blockquote>
+<p>发送端：</p>
+</blockquote>
+<ol>
+<li>先将所有的额外信息打包到一个头中</li>
+<li>然后先发送头部数据</li>
+<li>最后发送真实数据</li>
+</ol>
+<blockquote>
+<p>接收端：</p>
+</blockquote>
+<ol>
+<li>接收固定长度的头部长度数据</li>
+<li>根据长度数据获取头部数据</li>
+<li>根据头部数据获取真实数据</li>
+</ol>
+<blockquote>
+<p>客户端：</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+<span class="hljs-keyword">import</span> struct
+<span class="hljs-keyword">import</span> json
+c = socket.socket()
+c.connect((<span class="hljs-string">"127.0.0.1"</span>,<span class="hljs-number">8888</span>))
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    cmd = input(<span class="hljs-string">"&gt;&gt;&gt;:"</span>).strip()
+    c.send(cmd.encode(<span class="hljs-string">"utf-8"</span>))
+
+    <span class="hljs-comment"># 头部数据</span>
+    data = c.recv(<span class="hljs-number">4</span>)
+    head_length = struct.unpack(<span class="hljs-string">"i"</span>,data)[<span class="hljs-number">0</span>]
+    head_data = c.recv(head_length).decode(<span class="hljs-string">"utf-8"</span>)
+    head = json.loads(head_data)
+    print(head)
+    <span class="hljs-comment"># 真实数据长度</span>
+    data_length = head[<span class="hljs-string">"data_size"</span>]
+    <span class="hljs-comment">#接收真实数据</span>
+    size = <span class="hljs-number">0</span>
+    res = <span class="hljs-string">b""</span>
+    <span class="hljs-keyword">while</span> size &lt; data_length:
+        temp = c.recv(<span class="hljs-number">1024</span>)
+        size += len(temp)
+        res += temp
+    print(res.decode(<span class="hljs-string">"gbk"</span>))
+</code></pre>
+<blockquote>
+<p>服务器：</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> socket
+<span class="hljs-keyword">import</span> subprocess
+<span class="hljs-keyword">import</span> struct
+<span class="hljs-keyword">import</span> json
+server = socket.socket()
+server.bind((<span class="hljs-string">"127.0.0.1"</span>,<span class="hljs-number">8888</span>))
+server.listen()
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    client, addr = server.accept()
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        cmd = client.recv(<span class="hljs-number">1024</span>).decode(<span class="hljs-string">"utf-8"</span>)
+        p = subprocess.Popen(cmd,shell=<span class="hljs-keyword">True</span>,stdout=<span class="hljs-number">-1</span>,stderr=<span class="hljs-number">-1</span>)
+
+        <span class="hljs-comment"># 真实数据</span>
+        data = p.stdout.read() + p.stderr.read()
+
+        <span class="hljs-comment"># 头部数据</span>
+        head = {<span class="hljs-string">"data_size"</span>:len(data),<span class="hljs-string">"额外信息"</span>:<span class="hljs-string">"额外的值"</span>}
+        head_data = json.dumps(head).encode(<span class="hljs-string">"utf-8"</span>)
+        <span class="hljs-comment">#头部长度</span>
+        head_len = struct.pack(<span class="hljs-string">"i"</span>,len(head_data))
+        <span class="hljs-comment">#逐个发送</span>
+        client.send(head_len)
+        client.send(head_data)
+        client.send(data)
+</code></pre>
+<h1 id="urllib">3 urllib</h1>
+<blockquote>
+<p><a href="https://docs.python.org/3/library/urllib.html" target="_blank">urllib—URL handling modules</a></p>
+<p><a href="https://www.cnblogs.com/zhaof/p/6910871.html" target="_blank">python爬虫从入门到放弃（三）之 Urllib库的基本使用</a></p>
+</blockquote>
+<h2 id="基本概述">3.1 基本概述</h2>
+<blockquote>
+<p>urllib是python内置的HTTP请求库，包括以下模块</p>
+</blockquote>
+<ul>
+<li>urllib.request: 最基本的HTTP请求模块，用来发起请求，就和人们在浏览器上输入网址来访问网页一样</li>
+<li>urllib.error: 异常处理模块，如果在请求时出现错误，用这个模块来抓住异常，保证程序不会因为抛出异常而挂掉</li>
+<li>urllib.parse url: 工具模块，提供了许多URL处理方法，比如URL的拆分、合并等等</li>
+<li>urllib.robotparser: 用来识别目标网站的robot.txt文件(基本用不上)</li>
+</ul>
+<h2 id="重要模块">3.2 重要模块</h2>
+<h3 id="urlopen">3.2.1 urlopen</h3>
+<p>关于urllib.request.urlopen参数的介绍：</p>
+<pre><code class="lang-python">urllib.request.urlopen(url, data=<span class="hljs-keyword">None</span>, [timeout, ]*, cafile=<span class="hljs-keyword">None</span>, capath=<span class="hljs-keyword">None</span>, cadefault=<span class="hljs-keyword">False</span>, context=<span class="hljs-keyword">None</span>)
+</code></pre>
+<blockquote>
+<p>请求</p>
+</blockquote>
+<p>urlopen一般常用的有三个参数，它的参数如下：urllib.requeset.urlopen(url,data,timeout)</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-comment"># Get请求</span>
+response = urllib.request.urlopen(<span class="hljs-string">'http://www.baidu.com'</span>)
+<span class="hljs-comment"># response.read()可以获取到网页的内容</span>
+print(response.read().decode(<span class="hljs-string">'utf-8'</span>))
+
+<span class="hljs-comment"># Post请求</span>
+<span class="hljs-keyword">import</span> urllib.parse
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-comment"># 通过bytes(urllib.parse.urlencode())可以将post数据进行转换放到urllib.request.urlopen的data参数中。这样就完成了一次post请求</span>
+data = bytes(urllib.parse.urlencode({<span class="hljs-string">'word'</span>: <span class="hljs-string">'hello'</span>}), encoding=<span class="hljs-string">'utf8'</span>)
+print(data)
+response = urllib.request.urlopen(<span class="hljs-string">'http://httpbin.org/post'</span>, data=data)
+print(response.read())
+
+<span class="hljs-comment"># Timeout参数</span>
+<span class="hljs-comment"># 在某些网络情况不好或者服务器端异常的情况会出现请求慢的情况，或者请求异常</span>
+<span class="hljs-comment"># 所以这个时候我们需要给请求设置一个超时时间，而不是让程序一直在等待结果</span>
+response = urllib.request.urlopen(<span class="hljs-string">'http://httpbin.org/get'</span>, timeout=<span class="hljs-number">1</span>)
+print(response.read())
+</code></pre>
+<p>如果我们添加data参数的时候就是以post请求方式请求，如果没有data参数就是get请求方式</p>
+<blockquote>
+<p>响应</p>
+</blockquote>
+<p>通过response.status、response.getheaders().response.getheader("server")，获取状态码以及头部信息response.read()获得的是响应体的内容</p>
+<pre><code class="lang-python">print(response.status)
+<span class="hljs-number">200</span>
+print(response.getheaders())
+[(<span class="hljs-string">'Connection'</span>, <span class="hljs-string">'close'</span>), (<span class="hljs-string">'Content-Length'</span>, <span class="hljs-string">'49589'</span>), (<span class="hljs-string">'Server'</span>, <span class="hljs-string">'nginx'</span>), (<span class="hljs-string">'Content-Type'</span>, <span class="hljs-string">'text/html; charset=utf-8'</span>), (<span class="hljs-string">'X-Frame-Options'</span>, <span class="hljs-string">'DENY'</span>), (<span class="hljs-string">'Via'</span>, <span class="hljs-string">'1.1 vegur, 1.1 varnish, 1.1 varnish'</span>), (<span class="hljs-string">'Accept-Ranges'</span>, <span class="hljs-string">'bytes'</span>), (<span class="hljs-string">'Date'</span>, <span class="hljs-string">'Wed, 18 Aug 2021 07:37:14 GMT'</span>), (<span class="hljs-string">'Age'</span>, <span class="hljs-string">'1496'</span>), (<span class="hljs-string">'X-Served-By'</span>, <span class="hljs-string">'cache-bwi5120-BWI, cache-nrt18321-NRT'</span>), (<span class="hljs-string">'X-Cache'</span>, <span class="hljs-string">'HIT, HIT'</span>), (<span class="hljs-string">'X-Cache-Hits'</span>, <span class="hljs-string">'2, 1285'</span>), (<span class="hljs-string">'X-Timer'</span>, <span class="hljs-string">'S1629272234.003034,VS0,VE0'</span>), (<span class="hljs-string">'Vary'</span>, <span class="hljs-string">'Cookie'</span>), (<span class="hljs-string">'Strict-Transport-Security'</span>, <span class="hljs-string">'max-age=63072000; includeSubDomains'</span>)]
+print(response.getheader(<span class="hljs-string">"server"</span>))
+nginx
+print(response.read())
+响应体的内容
+</code></pre>
+<h3 id="request">3.2.2 request</h3>
+<p>上述的urlopen只能用于一些简单的请求，因为它无法添加一些header信息，如果后面写爬虫我们可以知道，很多情况下我们是需要添加头部信息去访问目标站的，这个时候就用到了urllib.request
+urllib中，request这个模块主要负责构造和发起网络请求，并在其中加入Headers、Proxy等。利用它可以模拟浏览器的一个请求发起过程</p>
+<blockquote>
+<p>设置Headers</p>
+</blockquote>
+<p>有很多网站为了防止程序爬虫爬网站造成网站瘫痪，会需要携带一些headers头部信息才能访问</p>
+<p>最长见的有user-agent参数</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> request, parse
+
+<span class="hljs-comment"># 方式一</span>
+url = <span class="hljs-string">'http://httpbin.org/post'</span>
+headers = {
+    <span class="hljs-string">'User-Agent'</span>: <span class="hljs-string">'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'</span>,
+    <span class="hljs-string">'Host'</span>: <span class="hljs-string">'httpbin.org'</span>
+}
+dict = {<span class="hljs-string">'name'</span>: <span class="hljs-string">'hyc'</span>}
+data = bytes(parse.urlencode(dict), encoding=<span class="hljs-string">'utf8'</span>)
+req = request.Request(url=url, data=data, headers=headers, method=<span class="hljs-string">'POST'</span>)
+response = request.urlopen(req)
+
+<span class="hljs-comment"># 方式二</span>
+data = bytes(parse.urlencode(dict), encoding=<span class="hljs-string">'utf8'</span>)
+req = request.Request(url=url, data=data, method=<span class="hljs-string">'POST'</span>)
+<span class="hljs-comment"># 好处是自己可以定义一个请求头字典，然后循环进行添加</span>
+req.add_header(<span class="hljs-string">'User-Agent'</span>, <span class="hljs-string">'Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)'</span>)
+response = request.urlopen(req)
+</code></pre>
+<blockquote>
+<p>urlretrieve下载文件</p>
+</blockquote>
+<p>urlretrieve()方法直接将远程数据下载到本地。</p>
+<pre><code class="lang-python">urlretrieve(url, filename=<span class="hljs-keyword">None</span>, reporthook=<span class="hljs-keyword">None</span>, data=<span class="hljs-keyword">None</span>)
+</code></pre>
+<ol>
+<li><strong>url</strong>：下载链接地址</li>
+<li><strong>filename</strong>：指定了保存本地路径(如果参数未指定，urllib会生成一个临时文件保存数据)</li>
+<li><strong>reporthook</strong>：是一个回调函数，当连接上服务器、以及相应的数据块传输完毕时会触发该回调，我们可以利用这个回调函数来显示当前的下载进度</li>
+<li><strong>data</strong>：指post导服务器的数据，该方法返回一个包含两个元素的(filename, headers) 元组，filename 表示保存到本地的路径，header表示服务器的响应头</li>
+</ol>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> six.moves <span class="hljs-keyword">import</span> urllib
+<span class="hljs-keyword">import</span> sys
+
+DATA_URL = <span class="hljs-string">'http://www.python.org/ftp/python/2.7.5/Python-2.7.5.tar.bz2'</span>
+filename = DATA_URL.split(<span class="hljs-string">'/'</span>)[<span class="hljs-number">-1</span>]
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">_progress</span><span class="hljs-params">(block_num, block_size, total_size)</span>:</span>
+    <span class="hljs-string">'''回调函数
+       @block_num: 已经下载的数据块
+       @block_size: 数据块的大小
+       @total_size: 远程文件的大小
+    '''</span>
+    sys.stdout.write(<span class="hljs-string">'\r&gt;&gt; Downloading %s %.1f%%'</span> % (filename,
+                     float(block_num * block_size) / float(total_size) * <span class="hljs-number">100.0</span>))
+    sys.stdout.flush()
+
+filepath, _ = urllib.request.urlretrieve(DATA_URL, filename, _progress)
+</code></pre>
+<h3 id="handler">3.2.3 handler</h3>
+<blockquote>
+<p>ProxyHandler</p>
+</blockquote>
+<p>通过rulllib.request.ProxyHandler()可以设置代理,网站它会检测某一段时间某个IP 的访问次数，如果访问次数过多，它会禁止你的访问,所以这个时候需要通过设置代理来爬取数据</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> urllib.request
+
+proxy_handler = urllib.request.ProxyHandler({
+    <span class="hljs-string">'http'</span>: <span class="hljs-string">'http://127.0.0.1:9743'</span>,
+    <span class="hljs-string">'https'</span>: <span class="hljs-string">'https://127.0.0.1:9743'</span>
+})
+opener = urllib.request.build_opener(proxy_handler)
+response = opener.open(<span class="hljs-string">'http://httpbin.org/get'</span>)
+print(response.read())
+</code></pre>
+<blockquote>
+<p>HTTPCookiProcessor</p>
+</blockquote>
+<p>cookie中保存中我们常见的登录信息，有时候爬取网站需要携带cookie信息访问,这里用到了http.cookijar，用于获取cookie以及存储cookie</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> http.cookiejar, urllib.request
+<span class="hljs-comment"># 方式一：直接打印</span>
+cookie = http.cookiejar.CookieJar()
+handler = urllib.request.HTTPCookieProcessor(cookie)
+opener = urllib.request.build_opener(handler)
+response = opener.open(<span class="hljs-string">'http://www.baidu.com'</span>)
+<span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> cookie:
+    print(item.name+<span class="hljs-string">"="</span>+item.value)
+
+<span class="hljs-comment"># 方式二：MozillaCookieJar()方式</span>
+<span class="hljs-keyword">import</span> http.cookiejar, urllib.request
+filename = <span class="hljs-string">"cookie.txt"</span>
+cookie = http.cookiejar.MozillaCookieJar(filename)
+handler = urllib.request.HTTPCookieProcessor(cookie)
+opener = urllib.request.build_opener(handler)
+response = opener.open(<span class="hljs-string">'http://www.baidu.com'</span>)
+cookie.save(ignore_discard=<span class="hljs-keyword">True</span>, ignore_expires=<span class="hljs-keyword">True</span>)
+
+<span class="hljs-comment"># 方式三：LWPCookieJar()方式</span>
+<span class="hljs-keyword">import</span> http.cookiejar, urllib.request
+filename = <span class="hljs-string">'cookie.txt'</span>
+cookie = http.cookiejar.LWPCookieJar(filename)
+handler = urllib.request.HTTPCookieProcessor(cookie)
+opener = urllib.request.build_opener(handler)
+response = opener.open(<span class="hljs-string">'http://www.baidu.com'</span>)
+cookie.save(ignore_discard=<span class="hljs-keyword">True</span>, ignore_expires=<span class="hljs-keyword">True</span>)
+
+<span class="hljs-comment"># 读取cookie</span>
+<span class="hljs-keyword">import</span> http.cookiejar, urllib.request
+cookie = http.cookiejar.LWPCookieJar()
+cookie.load(<span class="hljs-string">'cookie.txt'</span>, ignore_discard=<span class="hljs-keyword">True</span>, ignore_expires=<span class="hljs-keyword">True</span>)
+handler = urllib.request.HTTPCookieProcessor(cookie)
+opener = urllib.request.build_opener(handler)
+response = opener.open(<span class="hljs-string">'http://www.baidu.com'</span>)
+print(response.read().decode(<span class="hljs-string">'utf-8'</span>))
+</code></pre>
+<h3 id="except">3.2.4 except</h3>
+<p>urllib库实现了三个异常类：</p>
+<ol>
+<li>URLError里只有一个属性：reason,即抓异常的时候只能打印错误信息</li>
+<li>HTTPError里有三个属性：code,reason,headers</li>
+<li>ContentTooShortError里有三个属性：reason,content</li>
+</ol>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> urllib <span class="hljs-keyword">import</span> request,error
+<span class="hljs-keyword">try</span>:
+    response = request.urlopen(<span class="hljs-string">"http://pythonsite.com/1111.html"</span>)
+<span class="hljs-keyword">except</span> error.HTTPError <span class="hljs-keyword">as</span> e:
+    print(e.reason)
+    print(e.code)
+    print(e.headers)
+<span class="hljs-keyword">except</span> error.URLError <span class="hljs-keyword">as</span> e:
+    print(e.reason)
+    <span class="hljs-comment"># e.reason其实也可以在做深入的判断</span>
+    <span class="hljs-keyword">if</span> isinstance(e.reason,socket.timeout):
+        print(<span class="hljs-string">"time out"</span>)
+
+<span class="hljs-keyword">else</span>:
+    print(<span class="hljs-string">"reqeust successfully"</span>)
+</code></pre>
+<h2 id="url-parse相关">3.3 url parse相关</h2>
+<h3 id="urlparse">3.3.1 urlparse</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># urllib.parse.urlparse(urlstring, scheme='', allow_fragments=True)</span>
+
+<span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> urlparse
+
+result = urlparse(<span class="hljs-string">"http://www.baidu.com/index.html;user?id=5#comment"</span>)
+print(result)
+</code></pre>
+<h3 id="urlunpars">3.3.2 urlunpars</h3>
+<p>功能和urlparse的功能相反，它是用于拼接</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> urlunparse
+
+data = [<span class="hljs-string">'http'</span>,<span class="hljs-string">'www.baidu.com'</span>,<span class="hljs-string">'index.html'</span>,<span class="hljs-string">'user'</span>,<span class="hljs-string">'a=123'</span>,<span class="hljs-string">'commit'</span>]
+print(urlunparse(data))
+</code></pre>
+<h3 id="urljoin">3.3.3 urljoin</h3>
+<p>这个的功能其实是做拼接的</p>
+<pre><code class="lang-python">from urllib.parse import urljoin
+
+print(urljoin('http://www.baidu.com', 'FAQ.html'))
+print(urljoin('http://www.baidu.com', 'https://pythonsite.com/FAQ.html'))
+print(urljoin('http://www.baidu.com/about.html', 'https://pythonsite.com/FAQ.html'))
+print(urljoin('http://www.baidu.com/about.html', 'https://pythonsite.com/FAQ.html?question=2'))
+print(urljoin('http://www.baidu.com?wd=abc', 'https://pythonsite.com/index.php'))
+print(urljoin('http://www.baidu.com', '?category=2#comment'))
+print(urljoin('www.baidu.com', '?category=2#comment'))
+print(urljoin('www.baidu.com#comment', '?category=2'))
+
+# 从拼接的结果我们可以看出，拼接的时候后面的优先级高于前面的url
+http://www.baidu.com/FAQ.html
+https://pythonsite.com/FAQ.html
+https://pythonsite.com/FAQ.html
+https://pythonsite.com/FAQ.html?question=2
+https://pythonsite.com/index.php
+http://www.baidu.com?category=2#comment
+www.baidu.com?category=2#comment
+www.baidu.com?category=2
+</code></pre>
+<h3 id="urlencode">3.3.4 urlencode</h3>
+<p>这个方法可以将字典转换为url参数</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> urllib.parse <span class="hljs-keyword">import</span> urlencode
+
+params = {<span class="hljs-string">"name"</span>:<span class="hljs-string">"hyc"</span>, <span class="hljs-string">"age"</span>:<span class="hljs-number">28</span>}
+base_url = <span class="hljs-string">"http://www.baidu.com?"</span>
+url = base_url+urlencode(params)
+print(url)
+</code></pre>
+<h2 id="cookie">3.4 cookie</h2>
+<p>登录后，得到cookie，带着这个cookie可以访问登录后的内容</p>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v1.0
+@author: huangyc
+@file: cookie_test.py
+@Description: 
+@time: 2022/11/3 11:34
+"""</span>
+<span class="hljs-keyword">import</span> urllib.parse
+<span class="hljs-keyword">import</span> urllib.parse
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-keyword">import</span> urllib.request
+<span class="hljs-keyword">from</span> http <span class="hljs-keyword">import</span> cookiejar
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">cookie_test</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># 定义请求头</span>
+    headers = {<span class="hljs-string">"content-type"</span>: <span class="hljs-string">"application/x-www-form-urlencoded"</span>,
+               <span class="hljs-string">"Users-Agent"</span>: <span class="hljs-string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"</span>}
+
+    <span class="hljs-comment"># 登录的网址</span>
+    login_url = <span class="hljs-string">"https://xx.hycbook.com/xx.php"</span>
+
+    <span class="hljs-comment"># 登录的参数</span>
+    login_form_data = {<span class="hljs-string">"fm_usr"</span>: <span class="hljs-string">"xxx"</span>, <span class="hljs-string">"fm_pwd"</span>: <span class="hljs-string">"xxx"</span>}
+    <span class="hljs-comment"># 使用urllib.request时  post方法所携带的参数不能是字典形式</span>
+    login_form_data_final = urllib.parse.urlencode(login_form_data)
+
+    <span class="hljs-comment"># 发送登录请求POST, 自动保存cookie</span>
+    cook_jar = cookiejar.MozillaCookieJar()
+    <span class="hljs-comment"># 定义有添加 cookie功能的处理器</span>
+    cook_handler = urllib.request.HTTPCookieProcessor(cook_jar)
+
+    <span class="hljs-comment"># 根据处理器生成opener</span>
+    opener = urllib.request.build_opener(cook_handler)
+
+    <span class="hljs-comment"># 此时headers里面还没有cookie, 还没有登录</span>
+    login_request = urllib.request.Request(login_url, headers=headers, data=login_form_data_final.encode(<span class="hljs-string">"utf-8"</span>))
+    <span class="hljs-comment"># 如果登录成功. cookjar自动保存cookie, opener里面有cookjar, 所以opener里有cookie</span>
+    resp = opener.open(login_request)
+    res_text = resp.read().decode(<span class="hljs-string">'utf-8'</span>)
+    cook_jar.save(<span class="hljs-string">"cookie.txt"</span>)
+
+    <span class="hljs-comment"># 创建管理器</span>
+    cookie_handler = urllib.request.HTTPCookieProcessor(cook_jar)
+    http_handler = urllib.request.HTTPHandler()
+    https_handler = urllib.request.HTTPSHandler()
+
+    <span class="hljs-comment"># 创建请求求管理器, 此处将登录过的cookie带进去</span>
+    opener = urllib.request.build_opener(cookie_handler, http_handler, https_handler)
+
+    look_url = f<span class="hljs-string">"https://xx.hycbook.com"</span>
+    req = urllib.request.Request(look_url)
+
+    <span class="hljs-comment"># 发起请求</span>
+    response = opener.open(req)
+
+    print(<span class="hljs-string">"结束"</span>)
+</code></pre>
+<h1 id="urllib3">4 urllib3</h1>
+<h1 id="requests">5 requests</h1>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python性能优化模块" class="navigation navigation-prev" href="21.python性能优化模块.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: Anaconda开发环境" class="navigation navigation-next" href="30.Anaconda开发环境.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python网络编程","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆8.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆8.webp","categories":["python"],"tags":["python","网络编程","socket","urllib3","requests"],"abbrlink":55054,"level":"1.23","depth":1,"next":{"title":"Anaconda开发环境","level":"1.24","depth":1,"path":"chapters/30.Anaconda开发环境.md","ref":"chapters/30.Anaconda开发环境.md","articles":[]},"previous":{"title":"python性能优化模块","level":"1.22","depth":1,"path":"chapters/21.python性能优化模块.md","ref":"chapters/21.python性能优化模块.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/22.python网络编程.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

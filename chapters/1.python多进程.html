@@ -1,0 +1,1214 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>python多进程 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="2.python多线程.html" rel="next"/>
+<link href="../" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">python多进程</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#python多进程">1 python多进程</a></li><ul><li><span class="title-icon"></span><a href="#基本概念">1.1 基本概念</a></li><li><span class="title-icon"></span><a href="#任务类型">1.2 任务类型</a></li></ul><li><span class="title-icon"></span><a href="#多进程实现方式">2 多进程实现方式</a></li><ul><li><span class="title-icon"></span><a href="#process">2.1 Process</a></li><li><span class="title-icon"></span><a href="#进程池">2.2 进程池</a></li><li><span class="title-icon"></span><a href="#其他进程池">2.3 其他进程池</a></li></ul><li><span class="title-icon"></span><a href="#多进程通信">3 多进程通信</a></li><ul><li><span class="title-icon"></span><a href="#进程队列queue">3.1 进程队列Queue</a></li><li><span class="title-icon"></span><a href="#joinablequeue队列">3.2 JoinableQueue队列</a></li><li><span class="title-icon"></span><a href="#管道pipe">3.3 管道Pipe</a></li><li><span class="title-icon"></span><a href="#managers">3.4 Managers</a></li></ul><li><span class="title-icon"></span><a href="#注意事项">4 注意事项</a></li><ul><li><span class="title-icon"></span><a href="#无法调用多层生成器待验证">4.1 无法调用多层生成器(待验证)</a></li></ul></ul></div><a href="#python多进程" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="python多进程">1 python多进程</h1>
+<h2 id="基本概念">1.1 基本概念</h2>
+<blockquote>
+<p>Python中的多进程是通过<code>multiprocessing</code>包来实现的，和多线程的threading.Thread差不多，它可以利用multiprocessing.Process对象来创建一个进程对象</p>
+<p>这个进程对象的方法和线程对象的方法差不多也有start()，run()，join()等方法，其中有一个方法不同Thread线程对象中的守护线程方法是setDeamon，而Process进程对象的守护进程是通过设置daemon属性来完成的</p>
+</blockquote>
+<p>与多线程的共享式内存不同，由于各个进程都是相互独立的，因此进程间通信再多进程中扮演这非常重要的角色，Python中我们可以使用multiprocessing模块中的<code>pipe</code>、<code>queue</code>、<code>Array</code>、<code>Value</code>等等工具来实现进程间通讯和数据共享，但是在编写起来仍然具有很大的不灵活性</p>
+<p><a data-lightbox="7924141b-a229-4656-a803-40441e704e20" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/1.python多进程/13088413-c5ced16c6b0c2d29.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/1.python多进程/13088413-c5ced16c6b0c2d29.webp"/></a></p>
+<h2 id="任务类型">1.2 任务类型</h2>
+<blockquote>
+<p>同步与异步</p>
+</blockquote>
+<ul>
+<li><strong>同步</strong>就是指一个进程在执行某个请求的时候，若该请求需要一段时间才能返回信息
+那么这个进程将会<strong>一直等待</strong>下去，直到收到返回信息才继续执行下去</li>
+<li><strong>异步</strong>是指进程<strong>不需要一直等</strong>下去，而是继续执行下面的操作，不管其他进程的状态
+当有消息返回时系统会通知进程进行处理，这样可以提高执行的效率</li>
+</ul>
+<blockquote>
+<p>IO密集和计算密集</p>
+</blockquote>
+<ul>
+<li><strong>对于IO密集型任务</strong>: python的多线程能够节省时间</li>
+<li><strong>对于计算(CPU)密集型任务</strong>: Python的多线程并没有用处，建议使用多进程</li>
+</ul>
+<blockquote>
+<p>其他组合搭配</p>
+</blockquote>
+<p>python使用多核，即开多个进程</p>
+<ul>
+<li><p>方法一: 协程+多进程，使用方法简单，效率还可以，一般使用该方法</p>
+<p>协程yield是你自己写的，是自己定义什么时候切换进程</p>
+</li>
+<li><p>方法二：IO多路复用，使用复杂，但效率很高，不常用</p>
+</li>
+</ul>
+<blockquote>
+<p>多进程相关模块</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 创建管理进程模块：</span>
+Process(用于创建进程):通过创建一个Process对象然后调用它的start()方法来生成进程。Process遵循threading.Thread的API。
+Pool(用于创建进程管理池)：可以创建一个进程池，该进程将执行与Pool该类一起提交给它的任务，当子进程较多需要管理时使用。
+Queue（用于进程通信，资源共享）：进程间通信，保证进程安全。
+Value，Array（用于进程通信，资源共享）：
+Pipe（用于管道通信）：管道操作。
+Manager（用于资源共享）：创建进程间共享的数据，包括在不同机器上运行的进程之间的网络共享。
+
+<span class="hljs-comment"># 同步子进程模块：</span>
+Condition
+Event：用来实现进程间同步通信。
+Lock：当多个进程需要访问共享资源的时候，Lock可以用来避免访问的冲突。
+RLock
+Semaphore：用来控制对共享资源的访问数量，例如池的最大连接数。
+</code></pre>
+<blockquote>
+<p>python多线程低效原因</p>
+</blockquote>
+<p><strong>GIL</strong>的全称是 Global Interpreter Lock(全局解释器锁)，来源是 Python 设计之初的考虑，为了数据安全所做的决定</p>
+<p>某个线程想要执行，必须先拿到 GIL，我们可以把 GIL 看作是“通行证”，并且在一个 Python 进程中，GIL 只有一个</p>
+<p>拿不到通行证的线程，就不允许进入 CPU 执行</p>
+<blockquote>
+<p>目前 Python 的解释器有多种，例如：</p>
+</blockquote>
+<ul>
+<li><strong>CPython</strong>：CPython 是用C语言实现的 Python 解释器，作为官方实现，它是最广泛使用的 Python 解释器</li>
+<li><strong>PyPy</strong>：PyPy 是用RPython实现的解释器。RPython 是 Python 的子集， 具有静态类型。这个解释器的特点是即时编译，支持多重后端(C, CLI, JVM)。PyPy 旨在提高性能，同时保持最大兼容性(参考 CPython 的实现)</li>
+<li><strong>Jython</strong>：Jython 是一个将 Python 代码编译成 Java 字节码的实现，运行在JVM(Java Virtual Machine)上。另外，它可以像是用 Python 模块一样，导入 并使用任何Java类</li>
+<li><strong>IronPython</strong>：IronPython 是一个针对 .NET 框架的 Python 实现。它 可以用 Python 和 .NET framewor k的库，也能将 Python 代码暴露给 .NET 框架中的其他语言</li>
+</ul>
+<p><strong>GIL 只在 CPython 中才有，而在 PyPy 和 Jython 中是没有 GIL 的</strong></p>
+<p>注意: <font color="#dd00dd">每次释放GIL锁，线程进行锁竞争、切换线程，会消耗资源</font></p>
+<p>这就导致打印线程执行时长，会发现耗时更长的原因</p>
+<p>并且由于 GIL 锁存在，Python 里一个进程永远只能同时执行一个线程(拿到 GIL 的线程才能执行)，这就是为什么在多核CPU上，Python 的多线程效率并不高的根本原因</p>
+<h1 id="多进程实现方式">2 多进程实现方式</h1>
+<h2 id="process">2.1 Process</h2>
+<blockquote>
+<p>普通Process</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span>  Process
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func</span><span class="hljs-params">(name)</span>:</span>
+    print(<span class="hljs-string">'测试%s多进程'</span> %name)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    process_list = []
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):  <span class="hljs-comment">#开启5个子进程执行fun1函数</span>
+        p = Process(target=func, args=(<span class="hljs-string">'Python'</span>,)) <span class="hljs-comment">#实例化进程对象</span>
+        p.start()
+        process_list.append(p)
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> process_list:
+        p.join()
+
+    print(<span class="hljs-string">'结束测试'</span>)
+</code></pre>
+<pre><code class="lang-powershell">测试Python多进程
+测试Python多进程
+测试Python多进程
+测试Python多进程
+测试Python多进程
+结束测试
+
+<span class="hljs-keyword">Process</span> finished with <span class="hljs-keyword">exit</span> code <span class="hljs-number">0</span>
+</code></pre>
+<p>上面的代码开启了5个子进程去执行函数，我们可以观察结果，是同时打印的，这里实现了真正的并行操作，就是多个CPU同时执行任务。</p>
+<p>我们知道<strong>进程是python中最小的资源分配单元</strong>，也就是进程中间的数据，<strong>内存是不共享的</strong>，每启动一个进程，都要独立分配资源和拷贝访问的数据，所以<strong>进程的启动和销毁的代价是比较大</strong>了，所以在实际中使用多进程，要根据服务器的配置来设定。</p>
+<blockquote>
+<p>继承Process</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span>  Process
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyProcess</span><span class="hljs-params">(Process)</span>:</span> <span class="hljs-comment">#继承Process类</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self,name)</span>:</span>
+        super(MyProcess,self).__init__()
+        self.name = name
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">'测试%s多进程'</span> % self.name)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    process_list = []
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):  <span class="hljs-comment">#开启5个子进程执行fun1函数</span>
+        p = MyProcess(<span class="hljs-string">'Python'</span>) <span class="hljs-comment">#实例化进程对象</span>
+        p.start()
+        process_list.append(p)
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> process_list:
+        p.join()
+
+    print(<span class="hljs-string">'结束测试'</span>)
+</code></pre>
+<pre><code class="lang-powershell">测试Python多进程
+测试Python多进程
+测试Python多进程
+测试Python多进程
+测试Python多进程
+结束测试
+
+<span class="hljs-keyword">Process</span> finished with <span class="hljs-keyword">exit</span> code <span class="hljs-number">0</span>
+</code></pre>
+<p>通过类继承的方法来实现的，python多进程的第二种实现方式也是一样的，效果和第一种方式一样</p>
+<blockquote>
+<p>Process类的其他方法</p>
+</blockquote>
+<pre><code class="lang-powershell">构造方法：
+
+<span class="hljs-keyword">Process</span>([group [, target [, name [, args [, kwargs]]]]])
+　　group: 线程组 
+　　target: 要执行的方法
+　　name: 进程名
+　　args/kwargs: 要传入方法的参数
+
+实例方法：
+　　is_alive()：返回进程是否在运行,bool类型。
+　　join([timeout])：阻塞当前上下文环境的进程程，直到调用此方法的进程终止或到达指定的timeout（可选参数）。
+　　start()：进程准备就绪，等待CPU调度
+　　run()：strat()调用run方法，如果实例进程时未制定传入target，这star执行t默认run()方法。
+　　terminate()：不管任务是否完成，立即停止工作进程
+
+属性：
+　　daemon：和线程的setDeamon功能一样
+　　name：进程名字
+　　pid：进程号
+</code></pre>
+<h2 id="进程池">2.2 进程池</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># apply_async：异步</span>
+<span class="hljs-keyword">from</span>  multiprocessing <span class="hljs-keyword">import</span> Pool,cpu_count
+<span class="hljs-keyword">import</span> os, time, random
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun1</span><span class="hljs-params">(name)</span>:</span>
+    print(<span class="hljs-string">'Run task %s (%s)...'</span> % (name, os.getpid()))
+    start = time.time()
+    time.sleep(random.random() * <span class="hljs-number">3</span>)
+    end = time.time()
+    print(<span class="hljs-string">'Task %s runs %0.2f seconds.'</span> % (name, (end - start)))
+    <span class="hljs-keyword">return</span> f<span class="hljs-string">'{name}: {os.getpid()}'</span>
+
+<span class="hljs-keyword">if</span> __name__==<span class="hljs-string">'__main__'</span>:
+    results = []
+    pool = Pool(cpu_count()<span class="hljs-number">-1</span>)
+
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">4</span>):
+        results.append(pool.apply_async(func=fun1, args=(i,)))
+
+    pool.close()
+    pool.join()
+    print()
+    <span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> results:
+        print(result.get())
+    print(<span class="hljs-string">'All Done!!!'</span>)
+
+    print(<span class="hljs-string">'结束测试'</span>)
+</code></pre>
+<pre><code class="lang-powershell">Run task <span class="hljs-number">0</span> (<span class="hljs-number">30716</span>)...
+Run task <span class="hljs-number">1</span> (<span class="hljs-number">15020</span>)...
+Run task <span class="hljs-number">2</span> (<span class="hljs-number">23200</span>)...
+Run task <span class="hljs-number">3</span> (<span class="hljs-number">5884</span>)...
+Task <span class="hljs-number">0</span> runs <span class="hljs-number">1.34</span> seconds.
+Task <span class="hljs-number">2</span> runs <span class="hljs-number">1.53</span> seconds.
+Task <span class="hljs-number">1</span> runs <span class="hljs-number">1.88</span> seconds.
+Task <span class="hljs-number">3</span> runs <span class="hljs-number">2.48</span> seconds.
+
+<span class="hljs-number">0</span>: <span class="hljs-number">30716</span>
+<span class="hljs-number">1</span>: <span class="hljs-number">15020</span>
+<span class="hljs-number">2</span>: <span class="hljs-number">23200</span>
+<span class="hljs-number">3</span>: <span class="hljs-number">5884</span>
+All Done!!!
+结束测试
+
+<span class="hljs-keyword">Process</span> finished with <span class="hljs-keyword">exit</span> code <span class="hljs-number">0</span>
+</code></pre>
+<p>对Pool对象调用join()方法会等待所有子进程执行完毕，调用join()之前必须先调用close()，调用close()之后就不能继续添加新的Process了</p>
+<pre><code class="lang-python"><span class="hljs-comment"># map_async：异步</span>
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Pool, cpu_count, Manager
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> partial
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">job</span><span class="hljs-params">(data, mgrDicTask, lock)</span>:</span>
+    res = f<span class="hljs-string">'a+b = {data[0] + data[1]}'</span>
+    lock.acquire()
+    <span class="hljs-comment"># Manager对象无法监测到它引用的可变对象值的修改，需要通过触发__setitem__方法来让它获得通知</span>
+    tempDic = list(mgrDicTask[<span class="hljs-string">'result'</span>])
+    tempDic.append(res)
+    mgrDicTask[<span class="hljs-string">'result'</span>] = tempDic
+    lock.release()
+    <span class="hljs-keyword">return</span> res
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    data = [[<span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">5</span>]]
+    pool = Pool(processes=cpu_count() - <span class="hljs-number">1</span>)
+
+    mgr = Manager()
+    lock = mgr.Lock()
+    mgrDicTask = mgr.dict()
+    mgrDicTask[<span class="hljs-string">'result'</span>] = []
+
+    fun = partial(job, mgrDicTask=mgrDicTask, lock=lock)
+    pool.map_async(fun, data)
+    pool.close()
+    pool.join()
+
+    print(mgrDicTask[<span class="hljs-string">'result'</span>])
+    print(<span class="hljs-string">'All Done!!!'</span>)
+</code></pre>
+<pre><code class="lang-powershell">[<span class="hljs-string">'a+b = 7'</span>, <span class="hljs-string">'a+b = 7'</span>, <span class="hljs-string">'a+b = 5'</span>]
+All Done!!!
+
+<span class="hljs-keyword">Process</span> finished with <span class="hljs-keyword">exit</span> code <span class="hljs-number">0</span>
+</code></pre>
+<h2 id="其他进程池">2.3 其他进程池</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># 进程池的另外一种创建方式，跟线程池的创建方式一样。其方法等也相同。</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">process_pool_test</span><span class="hljs-params">(url_list)</span>:</span>
+    book_list = []
+    <span class="hljs-comment"># 创建进程池</span>
+    pool = ProcessPoolExecutor(max_workers=<span class="hljs-number">20</span>)
+    start = time.time()
+    <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> url_list:
+        time.sleep(<span class="hljs-number">0.5</span>)
+        result = pool.submit(get_book_info, url)
+        book_list.append(result)
+
+    pool.shutdown()
+    print(<span class="hljs-string">'time: '</span>, time.time() - start)
+
+    book_name_list = []
+    author_list = []
+    author_info_list = []
+    print(<span class="hljs-string">'book_list: '</span>, len(book_list))
+    <span class="hljs-keyword">for</span> future <span class="hljs-keyword">in</span> book_list:
+        book_name_list.extend(future.result()[<span class="hljs-string">'name'</span>])
+        author_list.extend(future.result()[<span class="hljs-string">'author'</span>])
+        author_info_list.extend(future.result()[<span class="hljs-string">'info'</span>])
+    ExcelUtils.write_data_to_excel(<span class="hljs-string">'bookInfo'</span>, book_name_list, author_list, author_info_list)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    sys.setrecursionlimit(<span class="hljs-number">10000</span>)
+    url_list = [<span class="hljs-string">'https://www.edge.org/library'</span>]
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1</span>, <span class="hljs-number">52</span>):
+        url_list.append(<span class="hljs-string">'https://www.edge.org/library?page=%s'</span> % i)
+
+    thread_pool_test(url_list)
+</code></pre>
+<h1 id="多进程通信">3 多进程通信</h1>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/865d73b70ec7" target="_blank">内容提取神器 beautiful Soup 的用法</a></p>
+</blockquote>
+<p>进程是系统独立调度核分配系统资源(CPU、内存)的基本单位，<strong>进程之间是相互独立的</strong>，每启动一个新的进程相当于把数据进行了一次克隆，子进程里的数据修改无法影响到主进程中的数据，不同子进程之间的数据也不能共享，这是多进程在使用中与多线程最明显的区别</p>
+<p>但是难道Python多进程中间难道就是孤立的吗？</p>
+<p>当然不是，python也提供了多种方法实现了多进程中间的通信和数据共享(可以修改一份数据)</p>
+<h2 id="进程队列queue">3.1 进程队列Queue</h2>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v1.0
+@author: narutohyc
+@file: multiprocessing_queue.py
+@Description: 多进程队列使用示例
+@time: 2020/5/14 15:53
+"""</span>
+
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process, Queue, Manager
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> cpu_count
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> time
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Task</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, task_name: str, data: list, **kwargs)</span>:</span>
+        self.task_name = task_name
+        self.data = data
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> f<span class="hljs-string">'task_name:{self.task_name} data:{self.data}'</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiProcessingQueue</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># 进程数</span>
+        self.num_of_worker = cpu_count()
+
+        <span class="hljs-comment"># 进程队列大小，根据不同的任务需求</span>
+        self.size_of_queue = <span class="hljs-number">10</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_work</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">"start_work 开始"</span>)
+
+        <span class="hljs-comment"># 进程队列</span>
+        process_list = []
+
+        <span class="hljs-comment"># 新建一个大小为10的队列</span>
+        work_queue = Queue(self.size_of_queue)
+
+        <span class="hljs-comment"># 进程间共享列表, 其他的还有共享字典等，都是进程安全的</span>
+        dealed_sample_lst = Manager().list()
+
+        <span class="hljs-comment"># 一个生产者</span>
+        sent = Process(target=self.productor, args=(work_queue, dealed_sample_lst,))
+        sent.start()
+        process_list.append(sent)
+
+        <span class="hljs-comment"># 多个消费者</span>
+        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(self.num_of_worker - <span class="hljs-number">1</span>):
+            process = Process(target=self.consumer, args=(work_queue, dealed_sample_lst,))
+            process.start()
+            process_list.append(process)
+        [process.join() <span class="hljs-keyword">for</span> process <span class="hljs-keyword">in</span> process_list]
+        print(<span class="hljs-string">"start_work 结束"</span>)
+        <span class="hljs-keyword">return</span> dealed_sample_lst
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">productor</span><span class="hljs-params">(self, work_queue: Queue, dealed_sample_lst)</span>:</span>
+        print(<span class="hljs-string">"生产者开始工作"</span>)
+        <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):
+            work_queue.put(Task(task_name=f<span class="hljs-string">'{str(os.getpid())}-{str(ii)}'</span>, data=[ii <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>)]))
+            <span class="hljs-keyword">if</span> ii % <span class="hljs-number">30</span> == <span class="hljs-number">0</span>:
+                time.sleep(<span class="hljs-number">1</span>)
+                print(<span class="hljs-string">"生产者休息ing"</span>)
+
+        <span class="hljs-string">'''
+        JoinableQueue 比Queue多了task_done() 与join()两个函数，多用于生产者消费者问题。
+        task_done()是用在get()后，发送通知说我get完了
+        join()是说Queue里所有的task都已处理。
+        '''</span>
+        <span class="hljs-comment"># 这里需要加入结束标识，还有就是JoinableQueue的方式</span>
+        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(self.num_of_worker - <span class="hljs-number">1</span>):
+            work_queue.put(<span class="hljs-keyword">None</span>)
+        print(<span class="hljs-string">"生产者工作结束"</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">consumer</span><span class="hljs-params">(self, work_queue: Queue, dealed_sample_lst)</span>:</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            task: Task = work_queue.get()
+            <span class="hljs-keyword">if</span> task <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+                <span class="hljs-keyword">break</span>
+
+            <span class="hljs-comment"># 处理数据</span>
+            task.data = [ii * <span class="hljs-number">2</span> <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> task.data]
+            dealed_sample_lst.append(task)
+            print(task)
+
+        print(f<span class="hljs-string">'进程{os.getpid()} 处理结束'</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multiprocessing_queue_test</span><span class="hljs-params">()</span>:</span>
+    multiprocessing_queue = MultiProcessingQueue()
+    dealed_sample_lst = multiprocessing_queue.start_work()
+    <span class="hljs-comment"># for sample in dealed_sample_lst:</span>
+    <span class="hljs-comment">#     print(sample)</span>
+    print(<span class="hljs-string">"测试结束"</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    multiprocessing_queue_test()
+</code></pre>
+<pre><code class="lang-powershell">start_work 开始
+生产者开始工作
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">0</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+生产者休息ing
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">1</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">2</span>, <span class="hljs-number">2</span>]
+...
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">6</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">12</span>, <span class="hljs-number">12</span>]
+生产者休息ing
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">31</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">62</span>, <span class="hljs-number">62</span>]
+...
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">58</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">116</span>, <span class="hljs-number">116</span>]
+生产者休息ing
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">61</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">122</span>, <span class="hljs-number">122</span>]
+...
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">64</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">128</span>, <span class="hljs-number">128</span>]
+...
+生产者休息ing
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">91</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">182</span>, <span class="hljs-number">182</span>]
+...
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">96</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">192</span>, <span class="hljs-number">192</span>]
+生产者工作结束
+进程<span class="hljs-number">29208</span> 处理结束
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">97</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">194</span>, <span class="hljs-number">194</span>]
+进程<span class="hljs-number">20632</span> 处理结束
+进程<span class="hljs-number">28496</span> 处理结束
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">98</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">196</span>, <span class="hljs-number">196</span>]
+进程<span class="hljs-number">30200</span> 处理结束
+进程<span class="hljs-number">26512</span> 处理结束
+进程<span class="hljs-number">29776</span> 处理结束
+task_name:<span class="hljs-number">28868</span>-<span class="hljs-number">99</span> <span class="hljs-keyword">data</span>:[<span class="hljs-number">198</span>, <span class="hljs-number">198</span>]
+进程<span class="hljs-number">30072</span> 处理结束
+start_work 结束
+测试结束
+</code></pre>
+<p>上面的代码结果可以看到我们主进程中可以通过Queue获取子进程中put的数据，实现进程间的通信</p>
+<h2 id="joinablequeue队列">3.2 JoinableQueue队列</h2>
+<p>JoinableQueue([maxsize])：这就像是一个Queue对象，但队列允许项目的使用者通知生成者项目已经被成功处理</p>
+<p>通知进程是使用共享的信号和条件变量来实现的</p>
+<ul>
+<li>参数介绍：<ul>
+<li><strong>maxsize</strong>: 是队列中允许最大项数，省略则无大小限制</li>
+</ul>
+</li>
+<li>方法介绍：<ul>
+<li><strong>q.task_done()</strong>：使用者使用此方法发出信号，表示q.get()的返回项目已经被处理
+如果调用此方法的次数大于从队列中删除项目的数量将引发ValueError异常</li>
+<li><strong>q.join()</strong>:生产者调用此方法进行阻塞，直到队列中所有的项目均被处理
+阻塞将持续到队列中的每个项目均调用q.task_done()方法为止</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>示例代码</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v1.0
+@author: narutohyc
+@file: multiprocessing_queue.py
+@Description: 多进程队列使用示例
+@time: 2020/5/14 15:53
+"""</span>
+
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process, Queue, JoinableQueue, Manager
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> cpu_count
+<span class="hljs-keyword">import</span> os, time
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Task</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, task_name: str, data: list, **kwargs)</span>:</span>
+        self.task_name = task_name
+        self.data = data
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> f<span class="hljs-string">'task_name:{self.task_name} data:{self.data}'</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MultiProcessingJoinableQueue</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># 进程数</span>
+        self.num_of_worker = cpu_count()
+
+        <span class="hljs-comment"># 进程队列大小，根据不同的任务需求</span>
+        self.size_of_queue = <span class="hljs-number">10</span>
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_work</span><span class="hljs-params">(self)</span>:</span>
+        print(<span class="hljs-string">"start_work 开始"</span>)
+
+        <span class="hljs-comment"># 进程队列</span>
+        process_list = []
+
+        <span class="hljs-comment"># 新建一个大小为10的队列</span>
+        work_queue = JoinableQueue(self.size_of_queue)
+
+        <span class="hljs-comment"># 进程间共享列表, 其他的还有共享字典等，都是进程安全的</span>
+        dealed_sample_lst = Manager().list()
+
+        <span class="hljs-comment"># 一个生产者</span>
+        sent = Process(target=self.productor, args=(work_queue, dealed_sample_lst,))
+        process_list.append(sent)
+
+        <span class="hljs-comment"># 多个消费者</span>
+        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(self.num_of_worker - <span class="hljs-number">1</span>):
+            process = Process(target=self.consumer, args=(work_queue, dealed_sample_lst,))
+            process.daemon = <span class="hljs-keyword">True</span>
+            process_list.append(process)
+
+        [process.start() <span class="hljs-keyword">for</span> process <span class="hljs-keyword">in</span> process_list]
+        <span class="hljs-comment"># 这里需要注意的一点是，这里join只需要调用生产者(别调消费者的join，否则无法正常退出)</span>
+        <span class="hljs-comment"># 消费者不需要，个人感觉应该是生产者那边已经调用了work_queue.join()的方法</span>
+        <span class="hljs-comment"># 消费者结束后，整个程序退出</span>
+        [process.join() <span class="hljs-keyword">for</span> process <span class="hljs-keyword">in</span> process_list[:<span class="hljs-number">1</span>]]
+
+        print(<span class="hljs-string">"start_work 结束"</span>)
+        <span class="hljs-keyword">return</span> dealed_sample_lst
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">productor</span><span class="hljs-params">(self, work_queue: Queue, dealed_sample_lst)</span>:</span>
+        print(<span class="hljs-string">"生产者开始工作"</span>)
+        <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> range(<span class="hljs-number">100</span>):
+            work_queue.put(Task(task_name=f<span class="hljs-string">'{str(os.getpid())}-{str(ii)}'</span>, data=[ii <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">2</span>)]))
+            <span class="hljs-keyword">if</span> ii % <span class="hljs-number">30</span> == <span class="hljs-number">0</span>:
+                time.sleep(<span class="hljs-number">1</span>)
+                print(<span class="hljs-string">"生产者休息ing"</span>)
+
+        print(<span class="hljs-string">"生产者工作结束"</span>)
+        work_queue.join()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">consumer</span><span class="hljs-params">(self, work_queue: Queue, dealed_sample_lst)</span>:</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            task: Task = work_queue.get()
+            <span class="hljs-keyword">if</span> task <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+                <span class="hljs-keyword">break</span>
+            <span class="hljs-comment"># 处理数据</span>
+            task.data = [ii * <span class="hljs-number">2</span> <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> task.data]
+            dealed_sample_lst.append(task)
+            print(task)
+            work_queue.task_done()
+        print(f<span class="hljs-string">'进程{os.getpid()} 处理结束'</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">multiprocessing_joinablequeue_test</span><span class="hljs-params">()</span>:</span>
+    multiprocessing_joinablequeue = MultiProcessingJoinableQueue()
+    dealed_sample_lst = multiprocessing_joinablequeue.start_work()
+    <span class="hljs-comment"># for sample in dealed_sample_lst:</span>
+    <span class="hljs-comment">#     print(sample)</span>
+    print(<span class="hljs-string">"测试结束"</span>)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    multiprocessing_joinablequeue_test()
+</code></pre>
+<blockquote>
+<p>结果输出</p>
+</blockquote>
+<pre><code class="lang-cmd">start_work 开始
+生产者开始工作
+<span class="hljs-function">task_name:14608-0 <span class="hljs-title">data</span>:[0, 0]
+生产者休息<span class="hljs-title">ing</span>
+<span class="hljs-title">task_name</span>:14608-1 <span class="hljs-title">data</span>:[2, 2]
+...
+<span class="hljs-title">task_name</span>:14608-7 <span class="hljs-title">data</span>:[14, 14]
+生产者休息<span class="hljs-title">ing</span>
+<span class="hljs-title">task_name</span>:14608-31 <span class="hljs-title">data</span>:[62, 62]
+...
+<span class="hljs-title">task_name</span>:14608-60 <span class="hljs-title">data</span>:[120, 120]
+生产者休息<span class="hljs-title">ing</span>
+<span class="hljs-title">task_name</span>:14608-61 <span class="hljs-title">data</span>:[122, 122
+...
+<span class="hljs-title">task_name</span>:14608-90 <span class="hljs-title">data</span>:[180, 180]
+生产者休息<span class="hljs-title">ing</span>
+生产者工作结束
+<span class="hljs-title">task_name</span>:14608-91 <span class="hljs-title">data</span>:[182, 182]
+...
+<span class="hljs-title">task_name</span>:14608-93 <span class="hljs-title">data</span>:[186, 186]
+<span class="hljs-title">start_work</span> 结束
+测试结束
+</span></code></pre>
+<h2 id="管道pipe">3.3 管道Pipe</h2>
+<p>Pipe的本质是进程之间的用管道数据传递，而不是数据共享，这和socket有点像</p>
+<p>pipe()返回两个连接对象分别表示管道的两端，每端都有send()和recv()函数</p>
+<p>如果两个进程试图在同一时间的同一端进行读取和写入那么，这可能会损坏管道中的数据</p>
+<font color="#00dd00">管道是数据不安全的，多个进程同时收发数据可道引起数据异常，这时候就应该配合锁使用</font>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process, Pipe
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun1</span><span class="hljs-params">(conn)</span>:</span>
+    print(<span class="hljs-string">'子进程发送消息：'</span>)
+    conn.send(<span class="hljs-string">'你好主进程'</span>)
+    print(<span class="hljs-string">'子进程接受消息：'</span>)
+    print(conn.recv())
+    conn.close()
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    conn1, conn2 = Pipe() <span class="hljs-comment">#关键点，pipe实例化生成一个双向管</span>
+    p = Process(target=fun1, args=(conn2,)) <span class="hljs-comment">#conn2传给子进程</span>
+    p.start()
+    print(<span class="hljs-string">'主进程接受消息：'</span>)
+    print(conn1.recv())
+    print(<span class="hljs-string">'主进程发送消息：'</span>)
+    conn1.send(<span class="hljs-string">"你好子进程"</span>)
+    p.join()
+    print(<span class="hljs-string">'结束测试'</span>)
+</code></pre>
+<pre><code class="lang-powershell">主进程接受消息：
+子进程发送消息：
+子进程接受消息：
+你好主进程
+主进程发送消息：
+你好子进程
+结束测试
+
+<span class="hljs-keyword">Process</span> finished with <span class="hljs-keyword">exit</span> code <span class="hljs-number">0</span>
+</code></pre>
+<p>上面可以看到主进程和子进程可以相互发送消息</p>
+<h2 id="managers">3.4 Managers</h2>
+<p><strong>Queue和Pipe只是实现了数据交互，并没实现数据共享</strong>，即一个进程去更改另一个进程的数据，那么就要用到Managers</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process, Manager
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fun1</span><span class="hljs-params">(dic,lis,index)</span>:</span>
+    dic[index] = <span class="hljs-string">'a'</span>
+    dic[<span class="hljs-string">'2'</span>] = <span class="hljs-string">'b'</span>    
+    lis.append(index)    <span class="hljs-comment">#[0,1,2,3,4,0,1,2,3,4,5,6,7,8,9]</span>
+    <span class="hljs-comment">#print(l)</span>
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    <span class="hljs-keyword">with</span> Manager() <span class="hljs-keyword">as</span> manager:
+        dic = manager.dict()<span class="hljs-comment">#注意字典的声明方式，不能直接通过{}来定义</span>
+        l = manager.list(range(<span class="hljs-number">5</span>))<span class="hljs-comment">#[0,1,2,3,4]</span>
+
+        process_list = []
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+            p = Process(target=fun1, args=(dic,l,i))
+            p.start()
+            process_list.append(p)
+
+        <span class="hljs-keyword">for</span> res <span class="hljs-keyword">in</span> process_list:
+            res.join()
+        print(dic)
+        print(l)
+</code></pre>
+<pre><code class="lang-powershell">{<span class="hljs-number">0</span>: <span class="hljs-string">'a'</span>, <span class="hljs-string">'2'</span>: <span class="hljs-string">'b'</span>, <span class="hljs-number">3</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">1</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">2</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">4</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">5</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">7</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">6</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">8</span>: <span class="hljs-string">'a'</span>, <span class="hljs-number">9</span>: <span class="hljs-string">'a'</span>}
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">6</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+</code></pre>
+<p>可以看到主进程定义了一个字典和一个列表，在子进程中，可以添加和修改字典的内容
+在列表中插入新的数据，实现进程间的数据共享，即可以共同修改同一份数据</p>
+<h1 id="注意事项">4 注意事项</h1>
+<h2 id="无法调用多层生成器待验证">4.1 无法调用多层生成器(待验证)</h2>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v0.1
+@author: narutohyc
+@file: text.py
+@Description: 
+@time: 2020/5/29 19:51
+"""</span>
+
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> Process, Queue, JoinableQueue, Manager
+<span class="hljs-keyword">from</span> multiprocessing <span class="hljs-keyword">import</span> cpu_count
+<span class="hljs-keyword">import</span> os, time
+
+<span class="hljs-keyword">from</span> abc <span class="hljs-keyword">import</span> (ABC,
+                 abstractmethod,
+                 ABCMeta)
+
+<span class="hljs-keyword">from</span> comm.logger.logger_config <span class="hljs-keyword">import</span> logger
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SampleIterator</span><span class="hljs-params">(ABC, metaclass=ABCMeta)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-meta">    @abstractmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-string">'''
+        样本处理并返回
+        '''</span>
+        <span class="hljs-keyword">pass</span>
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataSource1</span><span class="hljs-params">(SampleIterator)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+        super(DataSource1, self).__init__()
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>):
+            <span class="hljs-keyword">yield</span> ii
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataSource2</span><span class="hljs-params">(SampleIterator)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, data_source)</span>:</span>
+        super(DataSource2, self).__init__()
+        self.data_source = data_source
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> self.data_source:
+            <span class="hljs-keyword">yield</span> ii
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataSource3</span><span class="hljs-params">(SampleIterator)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, data_source)</span>:</span>
+        super(DataSource3, self).__init__()
+        self.data_source = data_source
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> self.data_source:
+            <span class="hljs-keyword">yield</span> ii
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DataSource4</span><span class="hljs-params">(SampleIterator)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, data_source)</span>:</span>
+        super(DataSource4, self).__init__()
+        self.data_source = data_source
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> self.data_source:
+            <span class="hljs-keyword">yield</span> ii
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HUCY</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, data_source=None)</span>:</span>
+        self.num_of_worker = cpu_count()
+        self.size_of_queue = <span class="hljs-number">2</span>
+        self.data_source = data_source
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">start_work</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-comment"># 进程队列</span>
+        process_list = []
+        <span class="hljs-comment"># 新建一个大小为10的队列</span>
+        work_queue = Queue(self.size_of_queue)
+
+        <span class="hljs-comment"># 一个生产者</span>
+        produce_num = <span class="hljs-number">1</span>
+
+        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(produce_num):
+            sent = Process(target=self.productor, args=(work_queue,))
+            sent.start()
+            process_list.append(sent)
+
+        <span class="hljs-comment"># 多个消费者</span>
+        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(self.num_of_worker - produce_num):
+            process = Process(target=self.consumer, args=(work_queue,))
+            process.start()
+            process_list.append(process)
+
+        <span class="hljs-comment"># 这里需要加入结束标识，还有就是JoinableQueue的方式</span>
+        [process.join() <span class="hljs-keyword">for</span> process <span class="hljs-keyword">in</span> process_list[:produce_num]]
+        <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(self.num_of_worker - produce_num):
+            work_queue.put(<span class="hljs-keyword">None</span>)
+        [process.join() <span class="hljs-keyword">for</span> process <span class="hljs-keyword">in</span> process_list[produce_num:]]
+        print(<span class="hljs-string">"start_work 结束"</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">productor</span><span class="hljs-params">(self, work_queue)</span>:</span>
+        [work_queue.put(ii) <span class="hljs-keyword">for</span> ii <span class="hljs-keyword">in</span> self.data_source]
+        logger.info(<span class="hljs-string">"生产者结束"</span>)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">consumer</span><span class="hljs-params">(self, work_queue)</span>:</span>
+        <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+            data = work_queue.get()
+            <span class="hljs-keyword">if</span> data <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+                <span class="hljs-keyword">break</span>
+            logger.info(f<span class="hljs-string">"数据: {data}"</span>)
+        logger.info(<span class="hljs-string">"消费者结束"</span>)
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hyc_test</span><span class="hljs-params">()</span>:</span>
+    da1=DataSource2(DataSource3(DataSource4(DataSource1())))
+    da2 = DataSource2(DataSource3(DataSource4(da1)))
+    da3 = DataSource2(DataSource3(DataSource4(da2)))
+    da4 = DataSource2(DataSource3(DataSource4(da3)))
+    da5 = DataSource2(DataSource3(DataSource4(da4)))
+    da6 = DataSource2(DataSource3(DataSource4(DataSource2(da5))))
+    hucy = HUCY(da6)
+    hucy.start_work()
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    hyc_test()
+</code></pre>
+<p>几个问题:</p>
+<ul>
+<li><p>以上代码 若有多个生产者  就会各自拥有自己的数据生成器，导致数据重复</p>
+</li>
+<li><p>有些定义的方法  好像会使程序卡住</p>
+</li>
+</ul>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: Introduction" class="navigation navigation-prev" href="../">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: python多线程" class="navigation navigation-next" href="2.python多线程.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python多进程","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆0.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆0.webp","categories":["python"],"tags":["python","多进程","进程池","队列","queue"],"abbrlink":30993,"level":"1.2","depth":1,"next":{"title":"python多线程","level":"1.3","depth":1,"path":"chapters/2.python多线程.md","ref":"chapters/2.python多线程.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/1.python多进程.md","mtime":"2023-08-13T04:38:31.167Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

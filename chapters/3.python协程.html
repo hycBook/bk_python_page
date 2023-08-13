@@ -1,0 +1,2186 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>python协程 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="4.python异步编程.html" rel="next"/>
+<link href="2.python多线程.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">python协程</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#python迭代对象">1 python迭代对象</a></li><ul><li><span class="title-icon"></span><a href="#可迭代的对象">1.1 可迭代的对象</a></li><li><span class="title-icon"></span><a href="#迭代器">1.2 迭代器</a></li><li><span class="title-icon"></span><a href="#规约函数">1.3 规约函数</a></li><li><span class="title-icon"></span><a href="#生成器">1.4 生成器</a></li><li><span class="title-icon"></span><a href="#itertools模块">1.5 itertools模块</a></li><ul><li><span class="title-icon"></span><a href="#无限迭代器">1.5.1 无限迭代器</a></li><li><span class="title-icon"></span><a href="#有限迭代器">1.5.2 有限迭代器</a></li><li><span class="title-icon"></span><a href="#组合生成器">1.5.3 组合生成器</a></li><li><span class="title-icon"></span><a href="#其他方法">1.5.4 其他方法</a></li><li><span class="title-icon"></span><a href="#使用现有扩展功能">1.5.5 使用现有扩展功能</a></li><li><span class="title-icon"></span><a href="#自定义扩展">1.5.6 自定义扩展</a></li></ul></ul><li><span class="title-icon"></span><a href="#python协程">2 python协程</a></li><ul><li><span class="title-icon"></span><a href="#生成器和协程">2.1 生成器和协程</a></li><li><span class="title-icon"></span><a href="#协程状态">2.2 协程状态</a></li><li><span class="title-icon"></span><a href="#yield-from">2.3 yield from</a></li><li><span class="title-icon"></span><a href="#yield-from-获取返回值">2.4 yield from 获取返回值</a></li></ul><li><span class="title-icon"></span><a href="#greenlet-和-gevent">3 greenlet 和 gevent</a></li><ul><li><span class="title-icon"></span><a href="#greenlet">3.1 greenlet</a></li><li><span class="title-icon"></span><a href="#gevent">3.2 gevent</a></li></ul><li><span class="title-icon"></span><a href="#asynciocoroutine">4 asyncio.coroutine</a></li><li><span class="title-icon"></span><a href="#async-和-await">5 async 和 await</a></li><li><span class="title-icon"></span><a href="#协程与异步">6 协程与异步</a></li><li><span class="title-icon"></span><a href="#应用">7 应用</a></li><ul><li><span class="title-icon"></span><a href="#生产者和消费者">7.1 生产者和消费者</a></li><li><span class="title-icon"></span><a href="#多进程、多线程与协程">7.2 多进程、多线程与协程</a></li></ul></ul></div><a href="#python迭代对象" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="python迭代对象">1 python迭代对象</h1>
+<blockquote>
+<p><a href="https://superfastpython.com/coroutines-faster-threads/" target="_blank">Coroutines Are Faster To Start Than Threads in Python</a></p>
+</blockquote>
+<p>扫描内存中放不下的数据集时，我们要找到一种<strong>惰性</strong>获取数据项的方式，即按需一次获取一个数据项</p>
+<p>这就是迭代器模式(Iterator pattern)，迭代是数据处理的基石</p>
+<blockquote>
+<p>Python 2.2(2001 年)加入了 <code>yield</code> 关键字，这个关键字用于构建生成器(generator)，其作用与迭代器一样</p>
+</blockquote>
+<ul>
+<li>所有生成器都是迭代器，因为生成器完全实现了迭代器接口</li>
+<li>迭代器用于从集合中取出元素；而生成器用于"凭空"生成元素</li>
+<li>Python 社区中，大多数时候都把<strong>迭代器</strong>和<strong>生成器</strong>视作同一概念</li>
+</ul>
+<p>内置的 <code>range()</code> 函数也返回一个类似生成器的对象，而以前则返回完整的列表</p>
+<p>如果一定要让 <code>range()</code> 函数返回列表，那么必须明确指明(例如，<code>list(range(100))</code>)</p>
+<blockquote>
+<p><strong>序列可以迭代的原因</strong>：<code>iter</code>函数</p>
+</blockquote>
+<p>解释器需要迭代对象 <code>x</code> 时，会自动调用 <code>iter(x)</code></p>
+<blockquote>
+<p>内置的 <code>iter</code> 函数有以下作用</p>
+</blockquote>
+<ul>
+<li>检查对象是否实现了 <code>__iter__</code> 方法，如果实现了就调用它，获取一个迭代器</li>
+<li>如果没有实现 <code>__iter__</code> 方法，但是实现了 <code>__getitem__</code> 方法，Python 会创建一个迭代器，尝试按顺序(从索引 0 开始)获取元素</li>
+<li>如果尝试失败，Python 抛出 <code>TypeError</code> 异常，通常会提示"C object is not iterable"(C 对象不可迭代)，其中 C 是目标对象所属的类</li>
+</ul>
+<blockquote>
+<p>任何 Python 序列都可迭代的原因是，它们都实现了 <code>__getitem__</code> 方法</p>
+</blockquote>
+<ul>
+<li>鸭子类型（duck typing）的极端形式<ul>
+<li>不仅要实现特殊的 <code>__iter__</code> 方法，还要实现 <code>__getitem__</code> 方法</li>
+<li>而且 <code>__getitem__</code> 方法的参数是从 <code>0</code> 开始的整数（<code>int</code>），这样才认为对象是可迭代的</li>
+</ul>
+</li>
+<li>白鹅类型（goose-typing）理论中，可迭代对象的定义简单一些，不过没那么灵活<ul>
+<li>如果实现了 <code>__iter__</code> 方法，那么就认为对象是可迭代的</li>
+</ul>
+</li>
+</ul>
+<p>检查对象 <code>x</code> 能否迭代，最准确的方法是：调用 <code>iter(x)</code>函数，如果不可迭代，再处理 <code>TypeError</code> 异常</p>
+<p>这比使用 <code>isinstance(x, abc.Iterable)</code> 更准确</p>
+<p>因为 <code>iter(x)</code> 函数会考虑到遗留的 <code>__getitem__</code> 方法，而 <code>abc.Iterable</code> 类则不考虑</p>
+<h2 id="可迭代的对象">1.1 可迭代的对象</h2>
+<blockquote>
+<p>使用 <code>iter</code> 内置函数可以获取迭代器的对象</p>
+</blockquote>
+<p>如果对象实现了能返回<strong>迭代器</strong>的 <code>__iter__</code> 方法，那么对象就是可迭代的。序列都可以迭代是实现了 <code>__getitem__</code>方法，而且其参数是从零开始的索引，这种对象也可以迭代</p>
+<blockquote>
+<p>遍历方式</p>
+</blockquote>
+<p>下面是一个简单的 <code>for</code> 循环，迭代一个字符串。这里，字符串 <code>'ABC'</code> 是可迭代的对象。背后是有迭代器的，只不过我们看不到：</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>s = <span class="hljs-string">'ABC'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> char <span class="hljs-keyword">in</span> s:
+<span class="hljs-meta">... </span>    print(char)
+...
+A
+B
+C
+</code></pre>
+<p>如果没有 <code>for</code> 语句，不得不使用 <code>while</code> 循环模拟，要像下面这样写：</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>s = <span class="hljs-string">'ABC'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>it = iter(s)  <span class="hljs-comment"># ➊</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">try</span>:
+<span class="hljs-meta">... </span>        print(next(it))  <span class="hljs-comment"># ➋</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">except</span> StopIteration:  <span class="hljs-comment"># ➌</span>
+<span class="hljs-meta">... </span>        <span class="hljs-keyword">del</span> it  <span class="hljs-comment"># ➍</span>
+<span class="hljs-meta">... </span>        <span class="hljs-keyword">break</span>  <span class="hljs-comment"># ➎</span>
+...
+A
+B
+C
+
+❶ 使用可迭代的对象构建迭代器 it。
+❷ 不断在迭代器上调用 next 函数，获取下一个字符。
+❸ 如果没有字符了，迭代器会抛出 StopIteration 异常。
+❹ 释放对 it 的引用，即废弃迭代器对象。
+❺ 退出循环。
+</code></pre>
+<p><code>StopIteration</code> 异常表明迭代器到头了</p>
+<p>Python 语言内部会处理 <code>for</code> 循环和其他迭代上下文(如列表推导、元组拆包等等)中的 <code>StopIteration</code> 异常</p>
+<font color="07B8AD" size="4">明确可迭代的对象和迭代器之间的关系：Python 从可迭代的对象中获取迭代器</font>
+<h2 id="迭代器">1.2 迭代器</h2>
+<blockquote>
+<p>标准的迭代器接口有两个方法</p>
+</blockquote>
+<ul>
+<li><p><strong>__next__</strong>: 返回下一个可用的元素，如果没有元素了，抛出 <code>StopIteration</code> 异常</p>
+</li>
+<li><p><strong>__iter__</strong>: 返回 <code>self</code>，以便在应该使用可迭代对象的地方使用迭代器，例如在 <code>for</code> 循环中</p>
+</li>
+</ul>
+<p><a data-lightbox="5a84d871-40ba-4edc-ae4d-3f8a3cf1f431" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/3.python协程/image-20200607014519334.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/3.python协程/image-20200607014519334.webp"/></a></p>
+<p><code>Iterator</code> 抽象基类实现 <code>__iter__</code> 方法的方式是返回实例本身(<code>return self</code>)</p>
+<p>如果想再次迭代，要重新构建迭代器，在需要可迭代对象的地方可以使用迭代器</p>
+<blockquote>
+<p>检查迭代器遗留对象</p>
+</blockquote>
+<p>因为迭代器只需 <code>__next__</code> 和 <code>__iter__</code> 两个方法，所以除了调用 <code>next()</code> 方法，以及捕获 <code>StopIteration</code> 异常之外，没有办法检查是否还有遗留的元素</p>
+<p>Python 中的迭代器还实现了 <code>__iter__</code> 方法，因此迭代器也<strong>可以迭代</strong></p>
+<blockquote>
+<p>使用迭代器模式实现 <code>Sentence</code> 类</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> reprlib
+
+RE_WORD = re.compile(<span class="hljs-string">'\w+'</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sentence</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, text)</span>:</span>
+       self.text = text
+       self.words = RE_WORD.findall(text)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+       <span class="hljs-keyword">return</span> <span class="hljs-string">'Sentence(%s)'</span> % reprlib.repr(self.text)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>  ➊
+       <span class="hljs-keyword">return</span> SentenceIterator(self.words)  ➋
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SentenceIterator</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, words)</span>:</span>
+       self.words = words  ➌
+       self.index = <span class="hljs-number">0</span>  ➍
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__next__</span><span class="hljs-params">(self)</span>:</span>
+       <span class="hljs-keyword">try</span>:
+           word = self.words[self.index]  ➎
+       <span class="hljs-keyword">except</span> IndexError:
+           <span class="hljs-keyword">raise</span> StopIteration()  ➏
+       self.index += <span class="hljs-number">1</span>  ➐
+       <span class="hljs-keyword">return</span> word  ➑
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>  ➒
+       <span class="hljs-keyword">return</span> self
+</code></pre>
+<p>对这个示例来说，其实没必要在 <code>SentenceIterator</code> 类中实现 <code>__iter__</code>方法，不过这么做是对的，因为迭代器应该实现 <code>__next__</code> 和 <code>__iter__</code> 两个方法，而且这么做能让迭代器通过 <code>issubclass(SentenceIterator, abc.Iterator)</code> 测试</p>
+<ul>
+<li><p>可迭代的对象有个 <code>__iter__</code> 方法，每次都实例化一个新的迭代器</p>
+</li>
+<li><p>而迭代器要实现 <code>__next__</code> 方法，返回单个元素，此外还要实现 <code>__iter__</code> 方法，返回迭代器本身</p>
+</li>
+</ul>
+<p>为了"支持多种遍历"，必须能从同一个可迭代的实例中获取多个独立的迭代器，而且各个迭代器要能维护自身的内部状态，因此这一模式正确的实现方式是，每次调用 <code>iter(my_iterable)</code> 都新建一个独立的迭代器。这就是为什么这个示例需要定义 <code>SentenceIterator</code> 类</p>
+<h2 id="规约函数">1.3 规约函数</h2>
+<blockquote>
+<p>接受一个可迭代的对象，然后返回单个结果，这些函数叫<font color="#DA70D6">归约函数</font></p>
+</blockquote>
+<p>对 <code>all</code> 和 <code>any</code> 函数来说，有一项重要的优化措施是 <code>reduce</code> 函数做不到的，这两个函数会<strong>短路</strong>(即一旦确定了结果就立即停止使用迭代器)</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">模块</th>
+<th style="text-align:center">函数</th>
+<th style="text-align:left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">内置</td>
+<td style="text-align:center">all(it)</td>
+<td style="text-align:left"><code>it</code> 中的所有元素都为真值时返回 <code>True</code>，否则返回 False<br/><code>all([])</code> 返回 True</td>
+</tr>
+<tr>
+<td style="text-align:center">内置</td>
+<td style="text-align:center">any(it)</td>
+<td style="text-align:left">只要 <code>it</code> 中有元素为真值就返回 <code>True</code>，否则返回 <code>False</code><br/><code>any([])</code> 返回 False</td>
+</tr>
+<tr>
+<td style="text-align:center">内置</td>
+<td style="text-align:center">max(it, [key=,] [default=])</td>
+<td style="text-align:left">返回 <code>it</code> 中值最大的元素；*<code>key</code> 是排序函数，与 <code>sorted</code> 函数中的一样<br/>如果可迭代的对象为空，返回 <code>default</code></td>
+</tr>
+<tr>
+<td style="text-align:center">内置</td>
+<td style="text-align:center">min(it, [key=,] [default=])</td>
+<td style="text-align:left">返回 <code>it</code> 中值最小的元素；#<code>key</code> 是排序函数，与 <code>sorted</code> 函数中的一样<br/>如果可迭代的对象为空，返回 <code>default</code></td>
+</tr>
+<tr>
+<td style="text-align:center">functools</td>
+<td style="text-align:center">reduce(func, it, [initial])</td>
+<td style="text-align:left">把前两个元素传给 <code>func</code>，然后把计算结果和第三个元素传给 <code>func</code>，以此类推，返回最后的结果<br/>如果提供了 <code>initial</code>，把它当作第一个元素传入</td>
+</tr>
+<tr>
+<td style="text-align:center">内置</td>
+<td style="text-align:center">sum(it, start=0)</td>
+<td style="text-align:left"><code>it</code> 中所有元素的总和，如果提供可选的 <code>start</code>，会把它加上（计算浮点数的加法时，可以使用 <code>math.fsum</code> 函数提高精度）</td>
+</tr>
+</tbody>
+</table>
+<p>在 Python 中迭代对象 <code>x</code> 时会调用 <code>iter(x)</code></p>
+<blockquote>
+<p><code>iter</code> 函数还有一个鲜为人知的用法：传入两个参数，使用常规的函数或任何可调用的对象创建迭代器</p>
+</blockquote>
+<p>这样使用时，第一个参数必须是可调用的对象，用于不断调用(没有参数)，产出各个值；第二个值是哨符，这是个标记值，当可调用的对象返回这个值时，触发迭代器抛出 <code>StopIteration</code> 异常，而不产出哨符</p>
+<h2 id="生成器">1.4 生成器</h2>
+<blockquote>
+<p>只要 Python 函数的定义体中有 <code>yield</code> 关键字，该函数就是生成器函数</p>
+</blockquote>
+<p>生成器函数会创建一个生成器对象，包装生成器函数的定义体</p>
+<p>把生成器传给 <code>next(...)</code> 函数时，生成器函数会向前，执行函数定义体中的下一个 <code>yield</code> 语句</p>
+<p>返回产出的值，并在函数定义体的当前位置暂停</p>
+<p>最终，函数的定义体返回时，外层的生成器对象会抛出 <code>StopIteration</code> 异常——这一点与迭代器协议一致</p>
+<p>如果一个类只是为了构建生成器而去实现 <code>__iter__</code> 方法，那还不如使用生成器函数</p>
+<blockquote>
+<p>惰性是好的特质，至少在编程语言和 API 中是如此，惰性实现是指尽可能延后生成值</p>
+<p>这样做能节省内存，而且或许还可以避免做无用的处理</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> reprlib
+
+RE_WORD = re.compile(<span class="hljs-string">'\w+'</span>)
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sentence</span>:</span>
+ <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, text)</span>:</span>
+     self.text = text  ➊
+
+ <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+     <span class="hljs-keyword">return</span> <span class="hljs-string">'Sentence(%s)'</span> % reprlib.repr(self.text)
+
+ <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+     <span class="hljs-keyword">for</span> match <span class="hljs-keyword">in</span> RE_WORD.finditer(self.text):  ➋
+         <span class="hljs-keyword">yield</span> match.group()  ➌
+
+❶ 不再需要 words 列表。
+❷ finditer 函数构建一个迭代器，包含 self.text 中匹配 RE_WORD 的单词，产出 MatchObject 实例。
+❸ match.group() 方法从 MatchObject 实例中提取匹配正则表达式的具体文本
+</code></pre>
+<p><strong>生成器表达式可以理解为列表推导的惰性版本</strong>：不会迫切地构建列表，而是返回一个生成器，按需惰性生成元素</p>
+<p>也就是说，如果列表推导是制造列表的工厂，那么生成器表达式就是制造生成器的工厂</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> re
+<span class="hljs-keyword">import</span> reprlib
+
+RE_WORD = re.compile(<span class="hljs-string">'\w+'</span>)
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Sentence</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, text)</span>:</span>
+        self.text = text
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__repr__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> <span class="hljs-string">'Sentence(%s)'</span> % reprlib.repr(self.text)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> (match.group() <span class="hljs-keyword">for</span> match <span class="hljs-keyword">in</span> RE_WORD.finditer(self.text))
+</code></pre>
+<p>最终的效果一样：调用 <code>__iter__</code> 方法会得到一个生成器对象</p>
+<blockquote>
+<p>生成器表达式是语法糖：完全可以替换成生成器函数，不过有时使用生成器表达式更便利</p>
+</blockquote>
+<ul>
+<li><p>生成器表达式是创建生成器的简洁句法，这样无需先定义函数再调用</p>
+</li>
+<li><p>生成器函数灵活得多，可以使用多个语句实现复杂的逻辑，也可以作为<font color="#7CFC00">协程</font>使用</p>
+</li>
+<li><p>遇到简单的情况时，可以使用生成器表达式</p>
+</li>
+<li><p>如果生成器表达式要分成多行写，我倾向于定义生成器函数，以便提高可读性</p>
+</li>
+<li><p>如果函数或构造方法只有一个参数，传入生成器表达式时不用写一对调用函数的括号</p>
+<p>再写一对括号围住生成器表达式，只写一对括号就行了</p>
+</li>
+</ul>
+<blockquote>
+<p>迭代器有两个特点</p>
+</blockquote>
+<ol>
+<li><p>接口</p>
+<ul>
+<li><p>Python 的迭代器协议定义了两个方法：<code>__next__</code> 和 <code>__iter__</code></p>
+</li>
+<li><p>生成器对象实现了这两个方法，因此从这方面来看，所有生成器都是迭代器</p>
+</li>
+</ul>
+</li>
+<li><p>实现方式</p>
+<ul>
+<li><p>生成器这种 Python 语言结构可以使用两种方式编写：含有 <code>yield</code> 关键字的函数，或者生成器表达式</p>
+</li>
+<li><p>调用生成器函数或者执行生成器表达式得到的生成器对象属于语言内部的 <code>GeneratorType</code> 类型</p>
+</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>迭代器可以节约大量的空间</p>
+</blockquote>
+<p>当需要生成的数列数量非常大时，由于代码中将数字存储在 list 中，会导致巨大内存占用</p>
+<pre><code class="lang-python"><span class="hljs-comment"># 生成器</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fab</span><span class="hljs-params">(object)</span>:</span>
+   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, max)</span>:</span>
+       self.max = max
+       self.n, self.a, self.b = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>
+
+   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+       <span class="hljs-keyword">return</span> self
+
+   <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">next</span><span class="hljs-params">(self)</span>:</span>
+       <span class="hljs-keyword">if</span> self.n &lt; self.max:
+           r = self.b
+           self.a, self.b = self.b, self.a + self.b
+           self.n = self.n + <span class="hljs-number">1</span>
+           <span class="hljs-keyword">return</span> r
+       <span class="hljs-keyword">raise</span> StopIteration()
+Fab(<span class="hljs-number">6</span>)
+
+Out[<span class="hljs-number">56</span>]: [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>]
+</code></pre>
+<p>上述代码通过类的形式将函数封装为一个可迭代对象</p>
+<p>通过next方法在循环的时候每次去取一个数，只有在需要使用的时候才会生成，内存占用很小</p>
+<p>但是，上述代码较为繁琐，在Python中，有一种语法糖能简化，那就是 yield </p>
+<p>如果这个元素可以通过某种方式推算出来切可以进行循环操作，就避免了大的内存占用</p>
+<p>只需要函数在循环时计算得下一个数字并返回，这样就不必创建完整的 list ，从而节省大量空间</p>
+<p>在Python中，这种一边循环一边计算的机制，称为生成器：<code>generator</code></p>
+<pre><code class="lang-python"><span class="hljs-comment"># yield 语法糖</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fab</span><span class="hljs-params">(max)</span>:</span>
+    n, a, b = <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> n &lt; max:
+        <span class="hljs-keyword">yield</span> b
+        <span class="hljs-comment"># print b</span>
+        a, b = b, a + b
+        n = n + <span class="hljs-number">1</span>
+fab(<span class="hljs-number">6</span>)
+
+Out[<span class="hljs-number">56</span>]: [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8</span>]
+</code></pre>
+<p>调用和 Fab 版的完全一致，也可以使用 next 方法等。简单的说， yield 的作用就是把一个函数变为一个 generator ，带有 yield 的函数不再是一个普通函数， Python 解释器会将器视为 generator </p>
+<p>在 for 循环执行时，每次循环都会执行 fab 函数内部的代码，执行到 yield 时</p>
+<p>函数就返回一个迭代值，下次迭代时，就从 yield 的下一句继续执行，调用next也是同理</p>
+<p>当函数执行结束时，会抛出 StopIteration 异常，表示迭代完成</p>
+<h2 id="itertools模块">1.5 itertools模块</h2>
+<blockquote>
+<p><a href="https://docs.python.org/zh-cn/3.7/library/itertools.html" target="_blank">itertools --- 为高效循环而创建迭代器的函数</a></p>
+<p><a href="http://wklken.me/posts/2013/08/20/python-extra-itertools.html" target="_blank">Python-进阶-itertools模块小结</a></p>
+<p><a href="https://wiki.jikexueyuan.com/project/explore-python/Standard-Modules/itertools.html" target="_blank">itertools</a></p>
+</blockquote>
+<p>迭代器的特点是：<strong>惰性求值</strong>（Lazy evaluation），即只有当迭代至某个值时，它才会被计算，这个特点使得迭代器特别适合于遍历大文件或无限集合等，因为我们不用一次性将它们存储在内存中</p>
+<p>Python 内置的 itertools 模块包含了一系列用来产生不同类型迭代器的函数或类，这些函数的返回都是一个迭代器，我们可以通过 for 循环来遍历取值，也可以使用 <code>next()</code> 来取值</p>
+<blockquote>
+<p>itertools 模块提供的迭代器函数有以下几种类型：</p>
+</blockquote>
+<ul>
+<li><strong>无限迭代器</strong>：生成一个无限序列，比如自然数序列 <code>1, 2, 3, 4, ...</code></li>
+<li><strong>有限迭代器</strong>：接收一个或多个序列（sequence）作为参数，进行组合、分组和过滤等</li>
+<li><strong>组合生成器</strong>：序列的排列、组合，求序列的笛卡儿积等</li>
+</ul>
+<h3 id="无限迭代器">1.5.1 无限迭代器</h3>
+<blockquote>
+<p>itertools 模块提供了三个函数（事实上，它们是类）用于生成一个无限序列迭代器</p>
+</blockquote>
+<ul>
+<li><p>count(firstval=0, step=1)</p>
+<p>创建一个从 firstval (默认值为 0) 开始，以 step (默认值为 1) 为步长的的无限整数迭代器</p>
+</li>
+<li><p>cycle(iterable)</p>
+<p>对 iterable 中的元素反复执行循环，返回迭代器</p>
+</li>
+<li><p>repeat(object [,times]</p>
+<p>反复生成 object，如果给定 times，则重复次数为 times，否则为无限</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Iterator</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Results</th>
+<th style="text-align:center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.count" target="_blank"><code>count()</code></a></td>
+<td style="text-align:center">start, [step]</td>
+<td style="text-align:center">start, start+step, start+2*step, …</td>
+<td style="text-align:center"><code>count(10) --&gt; 10 11 12 13 14 ...</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.cycle" target="_blank"><code>cycle()</code></a></td>
+<td style="text-align:center">p</td>
+<td style="text-align:center">p0, p1, … plast, p0, p1, …</td>
+<td style="text-align:center"><code>cycle('ABCD') --&gt; A B C D A B C D ...</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.repeat" target="_blank"><code>repeat()</code></a></td>
+<td style="text-align:center">elem [,n]</td>
+<td style="text-align:center">elem, elem, elem, … endlessly or up to n times</td>
+<td style="text-align:center"><code>repeat(10, 3) --&gt; 10 10 10</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> itertools
+nums = itertools.count(start=<span class="hljs-number">2</span>,step=<span class="hljs-number">3</span>)
+
+<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> nums:
+    <span class="hljs-keyword">if</span> i&gt;<span class="hljs-number">15</span>:
+        <span class="hljs-keyword">break</span>
+    print(i, end=<span class="hljs-string">' '</span>)
+
+Out[<span class="hljs-number">17</span>]: 
+<span class="hljs-number">2</span> <span class="hljs-number">5</span> <span class="hljs-number">8</span> <span class="hljs-number">11</span> <span class="hljs-number">14</span> 
+
+[i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> itertools.repeat([<span class="hljs-string">'a'</span>,<span class="hljs-string">'b'</span>],<span class="hljs-number">3</span>)]
+Out[<span class="hljs-number">18</span>]: [[<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>], [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>], [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>]]
+</code></pre>
+<h3 id="有限迭代器">1.5.2 有限迭代器</h3>
+<blockquote>
+<p>itertools 模块提供了多个函数（类），接收一个或多个迭代对象作为参数，对它们进行组合、分组和过滤等</p>
+</blockquote>
+<ul>
+<li>chain()</li>
+<li>compress()</li>
+<li>dropwhile()</li>
+<li>groupby()</li>
+<li>ifilter()</li>
+<li>ifilterfalse()</li>
+<li>islice()</li>
+<li>imap()</li>
+<li>starmap()</li>
+<li>tee()</li>
+<li>takewhile()</li>
+<li>izip()</li>
+<li>izip_longest()</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Iterator</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Results</th>
+<th style="text-align:center">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.chain" target="_blank"><code>chain()</code></a></td>
+<td style="text-align:center">p, q, …</td>
+<td style="text-align:center">p0, p1, … plast, q0, q1, …</td>
+<td style="text-align:center"><code>chain('ABC', 'DEF') --&gt; A B C D E F</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.compress" target="_blank"><code>compress()</code></a></td>
+<td style="text-align:center">data, selectors</td>
+<td style="text-align:center">(d[0] if s[0]), (d[1] if s[1]), …</td>
+<td style="text-align:center"><code>compress('ABCDEF', [1,0,1,0,1,1]) --&gt; A C E F</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.dropwhile" target="_blank"><code>dropwhile()</code></a></td>
+<td style="text-align:center">pred, seq</td>
+<td style="text-align:center">seq[n], seq[n+1], starting when pred fails</td>
+<td style="text-align:center"><code>dropwhile(lambda x: x&lt;5, [1,4,6,4,1]) --&gt; 6 4 1</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.groupby" target="_blank"><code>groupby()</code></a></td>
+<td style="text-align:center">iterable[, keyfunc]</td>
+<td style="text-align:center">sub-iterators grouped by value of keyfunc(v)</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.ifilter" target="_blank"><code>ifilter()</code></a></td>
+<td style="text-align:center">pred, seq</td>
+<td style="text-align:center">elements of seq where pred(elem) is true</td>
+<td style="text-align:center"><code>ifilter(lambda x: x%2, range(10)) --&gt; 1 3 5 7 9</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.ifilterfalse" target="_blank"><code>ifilterfalse()</code></a></td>
+<td style="text-align:center">pred, seq</td>
+<td style="text-align:center">elements of seq where pred(elem) is false</td>
+<td style="text-align:center"><code>ifilterfalse(lambda x: x%2, range(10)) --&gt; 0 2 4 6 8</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.islice" target="_blank"><code>islice()</code></a></td>
+<td style="text-align:center">seq, [start,] stop [, step]</td>
+<td style="text-align:center">elements from seq[start:stop:step]</td>
+<td style="text-align:center"><code>islice('ABCDEFG', 2, None) --&gt; C D E F G</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.starmap" target="_blank"><code>starmap()</code></a></td>
+<td style="text-align:center">func, seq</td>
+<td style="text-align:center">func(<em>seq[0]), func(</em>seq[1]), …</td>
+<td style="text-align:center"><code>starmap(pow, [(2,5), (3,2), (10,3)]) --&gt; 32 9 1000</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.tee" target="_blank"><code>tee()</code></a></td>
+<td style="text-align:center">it, n</td>
+<td style="text-align:center">it1, it2, … itn splits one iterator into n</td>
+<td style="text-align:center"></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.takewhile" target="_blank"><code>takewhile()</code></a></td>
+<td style="text-align:center">pred, seq</td>
+<td style="text-align:center">seq[0], seq[1], until pred fails</td>
+<td style="text-align:center"><code>takewhile(lambda x: x&lt;5, [1,4,6,4,1]) --&gt; 1 4</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.izip_longest" target="_blank"><code>zip_longest()</code></a></td>
+<td style="text-align:center">p, q, …</td>
+<td style="text-align:center">(p[0], q[0]), (p[1], q[1]), …</td>
+<td style="text-align:center"><code>zip_longest('ABCD', 'xy', fillvalue='-') --&gt; Ax By C- D-</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-python">[item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> itertools.chain([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>], [<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>])]
+Out[<span class="hljs-number">19</span>]: [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>]
+<span class="hljs-comment"># 接收一个可迭代对象作为参数，返回一个迭代器</span>
+string = itertools.chain.from_iterable(<span class="hljs-string">'ABCD'</span>)
+
+<span class="hljs-comment"># compress 可用于对数据进行筛选，当selectors的某个元素为true时，则保留data对应位置的元素，否则去除：</span>
+<span class="hljs-comment"># compress(data, selectors)</span>
+list(compress(<span class="hljs-string">'ABCDEF'</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]))
+Out[<span class="hljs-number">23</span>]:[<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'D'</span>, <span class="hljs-string">'F'</span>]
+
+<span class="hljs-comment"># dropwhile(predicate, iterable)</span>
+<span class="hljs-comment"># 其中，predicate 是函数，iterable 是可迭代对象。对于 iterable 中的元素，如果 predicate(item) 为 true，则丢弃该元素，否则返回该项及所有后续项。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(dropwhile(<span class="hljs-keyword">lambda</span> x: x &lt; <span class="hljs-number">5</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]))
+[<span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(dropwhile(<span class="hljs-keyword">lambda</span> x: x &gt; <span class="hljs-number">3</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>]))
+[<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>]
+
+<span class="hljs-comment"># groupby(iterable[, keyfunc])</span>
+<span class="hljs-comment"># 相邻相同元素分组</span>
+<span class="hljs-comment"># 其中，iterable 是一个可迭代对象，keyfunc 是分组函数，用于对 iterable 的连续项进行分组，如果不指定，则默认对 iterable 中的连续相同项进行分组，返回一个 (key, sub-iterator) 的迭代器。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> key, value_iter <span class="hljs-keyword">in</span> groupby(<span class="hljs-string">'aaabbbaaccd'</span>):
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">print</span> key, <span class="hljs-string">':'</span>, list(value_iter)
+...
+a : [<span class="hljs-string">'a'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'a'</span>]
+b : [<span class="hljs-string">'b'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'b'</span>]
+a : [<span class="hljs-string">'a'</span>, <span class="hljs-string">'a'</span>]
+c : [<span class="hljs-string">'c'</span>, <span class="hljs-string">'c'</span>]
+d : [<span class="hljs-string">'d'</span>]
+
+<span class="hljs-comment"># ifilter(function or None, sequence)</span>
+<span class="hljs-comment"># 将 iterable 中 function(item) 为 True 的元素组成一个迭代器返回，如果 function 是 None，则返回 iterable 中所有计算为 True 的项。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(ifilter(<span class="hljs-keyword">lambda</span> x: x &lt; <span class="hljs-number">6</span>, range(<span class="hljs-number">10</span>)))
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(ifilter(<span class="hljs-keyword">None</span>, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]))
+[<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
+
+<span class="hljs-comment"># ifilterfalse 的使用形式和 ifilter 类似，它将 iterable 中 function(item) 为 False 的元素组成一个迭代器返回，如果 function 是 None，则返回 iterable 中所有计算为 False 的项。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(ifilterfalse(<span class="hljs-keyword">lambda</span> x: x &lt; <span class="hljs-number">6</span>, range(<span class="hljs-number">10</span>)))
+[<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(ifilter(<span class="hljs-keyword">None</span>, [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]))
+[<span class="hljs-number">0</span>, <span class="hljs-number">0</span>]
+
+<span class="hljs-comment"># islice(iterable, [start,] stop [, step]) </span>
+<span class="hljs-comment"># 其中，iterable 是可迭代对象，start 是开始索引，stop 是结束索引，step 是步长，start 和 step 可选。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(islice([<span class="hljs-number">10</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">9</span>], <span class="hljs-number">5</span>))
+[<span class="hljs-number">10</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">8</span>, <span class="hljs-number">1</span>]
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(islice(count(), <span class="hljs-number">6</span>))
+[<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+&gt;&gt;&gt;
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(islice(count(), <span class="hljs-number">3</span>, <span class="hljs-number">10</span>))
+[<span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(islice(count(), <span class="hljs-number">3</span>, <span class="hljs-number">10</span> ,<span class="hljs-number">2</span>))
+[<span class="hljs-number">3</span>, <span class="hljs-number">5</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>]
+
+<span class="hljs-comment"># tee 用于从 iterable 创建 n 个独立的迭代器，以元组的形式返回，n 的默认值是 2。</span>
+iter1, iter2 = tee(<span class="hljs-string">'abcde'</span>)
+<span class="hljs-comment"># n 默认为 2，创建两个独立的迭代器</span>
+
+<span class="hljs-comment"># takewhile(predicate, iterable)</span>
+<span class="hljs-comment"># 其中，predicate 是函数，iterable 是可迭代对象。对于 iterable 中的元素，如果 predicate(item) 为 true，则保留该元素，只要 predicate(item) 为 false，则立即停止迭代。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(takewhile(<span class="hljs-keyword">lambda</span> x: x &lt; <span class="hljs-number">5</span>, [<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>]))
+[<span class="hljs-number">1</span>, <span class="hljs-number">3</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(takewhile(<span class="hljs-keyword">lambda</span> x: x &gt; <span class="hljs-number">3</span>, [<span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>, <span class="hljs-number">5</span>, <span class="hljs-number">4</span>]))
+[]
+
+<span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> zip_longest
+[item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> zip_longest(<span class="hljs-string">'ABCD'</span>, <span class="hljs-string">'xy'</span>)]
+Out[<span class="hljs-number">41</span>]: [(<span class="hljs-string">'A'</span>, <span class="hljs-string">'x'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'y'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-keyword">None</span>), (<span class="hljs-string">'D'</span>, <span class="hljs-keyword">None</span>)]
+[item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> zip_longest(<span class="hljs-string">'ABCD'</span>, <span class="hljs-string">'xy'</span>,fillvalue=<span class="hljs-string">'-'</span>)]
+Out[<span class="hljs-number">42</span>]: [(<span class="hljs-string">'A'</span>, <span class="hljs-string">'x'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'y'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'-'</span>), (<span class="hljs-string">'D'</span>, <span class="hljs-string">'-'</span>)]
+</code></pre>
+<font color="DarkOrange" size="4">itertools.groupby用法</font>
+<pre><code class="lang-python"># 分组统计，并获取每组的具体元素
+import re
+from itertools import groupby
+sentence = '我是 哈哈  一直在  我 三连击 陈飒飒  阿豆腐干   阿苏打水丢阿萨德'
+
+res= itertools.groupby(sorted(re.sub(' +',' ',sentence).split(' '),key=len,reverse=True),len)
+for k,v in res:
+    print('%s-&gt;%s'%(k,list(v)))
+
+8-&gt;['阿苏打水丢阿萨德']
+4-&gt;['阿豆腐干']
+3-&gt;['一直在', '三连击', '陈飒飒']
+2-&gt;['我是', '哈哈']
+1-&gt;['我']
+</code></pre>
+<font color="DarkOrange" size="4">itertools.tee用法</font>
+<p><code>itertools.tee</code>分裂出来的多个生成器不是线程安全的，不能在多线程里面运行，否则会导致报错，这里给出一个报错的例子：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> itertools
+<span class="hljs-keyword">import</span> threading
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generator</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">1000000</span>):
+        <span class="hljs-keyword">yield</span> i
+
+
+g = generator()
+g_1, g_2 = itertools.tee(g, <span class="hljs-number">2</span>)
+
+<span class="hljs-keyword">for</span> x <span class="hljs-keyword">in</span> [g_1, g_2]:
+    threading.Thread(target=sum, args=(x,)).start()
+</code></pre>
+<p>多线程安全版本</p>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ThreadingTee</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, tee_obj, lock)</span>:</span>
+        self.tee_obj = tee_obj
+        self.lock = lock
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> self
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__next__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">with</span> self.lock:
+            <span class="hljs-keyword">return</span> next(self.tee_obj)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__copy__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">return</span> ThreadingTee(self.tee_obj.__copy__(), self.lock)
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">threading_tee</span><span class="hljs-params">(iterable, n=<span class="hljs-number">2</span>)</span>:</span>
+        <span class="hljs-string">"""tuple of n independent thread-safe iterators"""</span>
+        lock = Lock()
+        <span class="hljs-keyword">return</span> tuple(ThreadingTee(tee_obj, lock) <span class="hljs-keyword">for</span> tee_obj <span class="hljs-keyword">in</span> itertools.tee(iterable, n))
+</code></pre>
+<h3 id="组合生成器">1.5.3 组合生成器</h3>
+<blockquote>
+<p>itertools 模块还提供了多个组合生成器函数，用于求序列的排列、组合等</p>
+</blockquote>
+<ul>
+<li>product</li>
+<li>permutations</li>
+<li>combinations</li>
+<li>combinations_with_replacement</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Iterator</th>
+<th style="text-align:center">Arguments</th>
+<th style="text-align:center">Results</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.product" target="_blank"><code>product()</code></a></td>
+<td style="text-align:center">p, q, … [repeat=1]</td>
+<td style="text-align:center">cartesian product, equivalent to a nested for-loop</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.permutations" target="_blank"><code>permutations()</code></a></td>
+<td style="text-align:center">p[, r]</td>
+<td style="text-align:center">r-length tuples, all possible orderings, no repeated elements</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.combinations" target="_blank"><code>combinations()</code></a></td>
+<td style="text-align:center">p, r</td>
+<td style="text-align:center">r-length tuples, in sorted order, no repeated elements</td>
+</tr>
+<tr>
+<td style="text-align:center"><a href="https://docs.python.org/2.7/library/itertools.html#itertools.combinations_with_replacement" target="_blank"><code>combinations_with_replacement()</code></a></td>
+<td style="text-align:center">p, r</td>
+<td style="text-align:center">r-length tuples, in sorted order, with repeated elements</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>product('ABCD', repeat=2)</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><code>AA AB AC AD BA BB BC BD CA CB CC CD DA DB DC DD</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>permutations('ABCD', 2)</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><code>AB AC AD BA BC BD CA CB CD DA DB DC</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>combinations('ABCD', 2)</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><code>AB AC AD BC BD CD</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>combinations_with_replacement('ABCD', 2)</code></td>
+<td style="text-align:center"></td>
+<td style="text-align:center"><code>AA AB AC AD BB BC BD CC CD DD</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-python"><span class="hljs-comment"># product 用于求多个可迭代对象的笛卡尔积，它跟嵌套的 for 循环等价。它的一般使用形式如下：</span>
+<span class="hljs-comment"># product(iter1, iter2, ... iterN, [repeat=1])</span>
+<span class="hljs-comment"># 其中，repeat 是一个关键字参数，用于指定重复生成序列的次数，</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> product(<span class="hljs-string">'ABCD'</span>, <span class="hljs-string">'xy'</span>):
+<span class="hljs-meta">... </span>    print(item)
+(<span class="hljs-string">'A'</span>, <span class="hljs-string">'x'</span>)
+(<span class="hljs-string">'A'</span>, <span class="hljs-string">'y'</span>)
+(<span class="hljs-string">'B'</span>, <span class="hljs-string">'x'</span>)
+(<span class="hljs-string">'B'</span>, <span class="hljs-string">'y'</span>)
+(<span class="hljs-string">'C'</span>, <span class="hljs-string">'x'</span>)
+(<span class="hljs-string">'C'</span>, <span class="hljs-string">'y'</span>)
+(<span class="hljs-string">'D'</span>, <span class="hljs-string">'x'</span>)
+(<span class="hljs-string">'D'</span>, <span class="hljs-string">'y'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(product(<span class="hljs-string">'ABC'</span>, repeat=<span class="hljs-number">2</span>))
+[(<span class="hljs-string">'A'</span>, <span class="hljs-string">'A'</span>), (<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'A'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'A'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'A'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'C'</span>)]
+
+<span class="hljs-comment"># permutations 用于生成一个排列，它的一般使用形式如下：</span>
+<span class="hljs-comment"># permutations(iterable[, r])</span>
+<span class="hljs-comment"># 其中，r 指定生成排列的元素的长度，如果不指定，则默认为可迭代对象的元素长度。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(permutations(<span class="hljs-string">'ABC'</span>, <span class="hljs-number">2</span>))
+[(<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'A'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'A'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'A'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'B'</span>)]
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(permutations(<span class="hljs-string">'ABC'</span>))
+[(<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'A'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>, <span class="hljs-string">'A'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-string">'A'</span>)]
+
+<span class="hljs-comment"># combinations 用于求序列的组合，它的使用形式如下：</span>
+<span class="hljs-comment"># combinations(iterable, r)</span>
+<span class="hljs-comment"># 其中，r 指定生成组合的元素的长度。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> combinations
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(combinations(<span class="hljs-string">'ABC'</span>, <span class="hljs-number">2</span>))
+[(<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'A'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>)]
+
+<span class="hljs-comment"># combinations_with_replacement 和 combinations 类似，但它生成的组合包含自身元素。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> combinations_with_replacement
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(combinations_with_replacement(<span class="hljs-string">'ABC'</span>, <span class="hljs-number">2</span>))
+[(<span class="hljs-string">'A'</span>, <span class="hljs-string">'A'</span>), (<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'A'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'B'</span>), (<span class="hljs-string">'B'</span>, <span class="hljs-string">'C'</span>), (<span class="hljs-string">'C'</span>, <span class="hljs-string">'C'</span>)]
+</code></pre>
+<h3 id="其他方法">1.5.4 其他方法</h3>
+<p>accumulate对iterable对象逐个进行func操作(默认是累加)</p>
+<pre><code class="lang-python">itertools.accumulate(iterable[, func, *, initial=<span class="hljs-keyword">None</span>])
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> accumulate
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">import</span> operator  <span class="hljs-comment"># operator --- 标准运算符替代函数</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>b = accumulate(a)  <span class="hljs-comment"># 默认是累加 这里返回的是一个可迭代对象</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(b)   <span class="hljs-comment"># 强制转化</span>
+[<span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">10</span>, <span class="hljs-number">15</span>]
+</code></pre>
+<h3 id="使用现有扩展功能">1.5.5 使用现有扩展功能</h3>
+<blockquote>
+<p>使用内置的itertools可以组合扩展出更多更强大功能的方法</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">take</span><span class="hljs-params">(n, iterable)</span>:</span>
+    <span class="hljs-string">"Return first n items of the iterable as a list"</span>
+    <span class="hljs-keyword">return</span> list(islice(iterable, n))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tabulate</span><span class="hljs-params">(function, start=<span class="hljs-number">0</span>)</span>:</span>
+    <span class="hljs-string">"Return function(0), function(1), ..."</span>
+    <span class="hljs-keyword">return</span> imap(function, count(start))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">consume</span><span class="hljs-params">(iterator, n)</span>:</span>
+    <span class="hljs-string">"Advance the iterator n-steps ahead. If n is none, consume entirely."</span>
+    <span class="hljs-comment"># Use functions that consume iterators at C speed.</span>
+    <span class="hljs-keyword">if</span> n <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+        <span class="hljs-comment"># feed the entire iterator into a zero-length deque</span>
+        collections.deque(iterator, maxlen=<span class="hljs-number">0</span>)
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-comment"># advance to the empty slice starting at position n</span>
+        next(islice(iterator, n, n), <span class="hljs-keyword">None</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">nth</span><span class="hljs-params">(iterable, n, default=None)</span>:</span>
+    <span class="hljs-string">"Returns the nth item or a default value"</span>
+    <span class="hljs-keyword">return</span> next(islice(iterable, n, <span class="hljs-keyword">None</span>), default)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">quantify</span><span class="hljs-params">(iterable, pred=bool)</span>:</span>
+    <span class="hljs-string">"Count how many times the predicate is true"</span>
+    <span class="hljs-keyword">return</span> sum(imap(pred, iterable))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">padnone</span><span class="hljs-params">(iterable)</span>:</span>
+    <span class="hljs-string">"""Returns the sequence elements and then returns None indefinitely.
+    Useful for emulating the behavior of the built-in map() function.
+    """</span>
+    <span class="hljs-keyword">return</span> chain(iterable, repeat(<span class="hljs-keyword">None</span>))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">ncycles</span><span class="hljs-params">(iterable, n)</span>:</span>
+    <span class="hljs-string">"Returns the sequence elements n times"</span>
+    <span class="hljs-keyword">return</span> chain.from_iterable(repeat(tuple(iterable), n))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">dotproduct</span><span class="hljs-params">(vec1, vec2)</span>:</span>
+    <span class="hljs-keyword">return</span> sum(imap(operator.mul, vec1, vec2))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">flatten</span><span class="hljs-params">(listOfLists)</span>:</span>
+    <span class="hljs-string">"Flatten one level of nesting"</span>
+    <span class="hljs-keyword">return</span> chain.from_iterable(listOfLists)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">repeatfunc</span><span class="hljs-params">(func, times=None, *args)</span>:</span>
+    <span class="hljs-string">"""Repeat calls to func with specified arguments.
+    Example:  repeatfunc(random.random)
+    """</span>
+    <span class="hljs-keyword">if</span> times <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">return</span> starmap(func, repeat(args))
+    <span class="hljs-keyword">return</span> starmap(func, repeat(args, times))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">pairwise</span><span class="hljs-params">(iterable)</span>:</span>
+    <span class="hljs-string">"s -&gt; (s0,s1), (s1,s2), (s2, s3), ..."</span>
+    a, b = tee(iterable)
+    next(b, <span class="hljs-keyword">None</span>)
+    <span class="hljs-keyword">return</span> izip(a, b)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">grouper</span><span class="hljs-params">(iterable, n, fillvalue=None)</span>:</span>
+    <span class="hljs-string">"Collect data into fixed-length chunks or blocks"</span>
+    <span class="hljs-comment"># grouper('ABCDEFG', 3, 'x') --&gt; ABC DEF Gxx</span>
+    args = [iter(iterable)] * n
+    <span class="hljs-keyword">return</span> izip_longest(fillvalue=fillvalue, *args)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">roundrobin</span><span class="hljs-params">(*iterables)</span>:</span>
+    <span class="hljs-string">"roundrobin('ABC', 'D', 'EF') --&gt; A D E B F C"</span>
+    <span class="hljs-comment"># Recipe credited to George Sakkis</span>
+    pending = len(iterables)
+    nexts = cycle(iter(it).next <span class="hljs-keyword">for</span> it <span class="hljs-keyword">in</span> iterables)
+    <span class="hljs-keyword">while</span> pending:
+        <span class="hljs-keyword">try</span>:
+            <span class="hljs-keyword">for</span> next <span class="hljs-keyword">in</span> nexts:
+                <span class="hljs-keyword">yield</span> next()
+        <span class="hljs-keyword">except</span> StopIteration:
+            pending -= <span class="hljs-number">1</span>
+            nexts = cycle(islice(nexts, pending))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">powerset</span><span class="hljs-params">(iterable)</span>:</span>
+    <span class="hljs-string">"powerset([1,2,3]) --&gt; () (1,) (2,) (3,) (1,2) (1,3) (2,3) (1,2,3)"</span>
+    s = list(iterable)
+    <span class="hljs-keyword">return</span> chain.from_iterable(combinations(s, r) <span class="hljs-keyword">for</span> r <span class="hljs-keyword">in</span> range(len(s)+<span class="hljs-number">1</span>))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unique_everseen</span><span class="hljs-params">(iterable, key=None)</span>:</span>
+    <span class="hljs-string">"List unique elements, preserving order. Remember all elements ever seen."</span>
+    <span class="hljs-comment"># unique_everseen('AAAABBBCCDAABBB') --&gt; A B C D</span>
+    <span class="hljs-comment"># unique_everseen('ABBCcAD', str.lower) --&gt; A B C D</span>
+    seen = set()
+    seen_add = seen.add
+    <span class="hljs-keyword">if</span> key <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span>:
+        <span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> ifilterfalse(seen.__contains__, iterable):
+            seen_add(element)
+            <span class="hljs-keyword">yield</span> element
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-keyword">for</span> element <span class="hljs-keyword">in</span> iterable:
+            k = key(element)
+            <span class="hljs-keyword">if</span> k <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> seen:
+                seen_add(k)
+                <span class="hljs-keyword">yield</span> element
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">unique_justseen</span><span class="hljs-params">(iterable, key=None)</span>:</span>
+    <span class="hljs-string">"List unique elements, preserving order. Remember only the element just seen."</span>
+    <span class="hljs-comment"># unique_justseen('AAAABBBCCDAABBB') --&gt; A B C D A B</span>
+    <span class="hljs-comment"># unique_justseen('ABBCcAD', str.lower) --&gt; A B C A D</span>
+    <span class="hljs-keyword">return</span> imap(next, imap(itemgetter(<span class="hljs-number">1</span>), groupby(iterable, key)))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">iter_except</span><span class="hljs-params">(func, exception, first=None)</span>:</span>
+    <span class="hljs-string">""" Call a function repeatedly until an exception is raised.
+
+    Converts a call-until-exception interface to an iterator interface.
+    Like __builtin__.iter(func, sentinel) but uses an exception instead
+    of a sentinel to end the loop.
+
+    Examples:
+        bsddbiter = iter_except(db.next, bsddb.error, db.first)
+        heapiter = iter_except(functools.partial(heappop, h), IndexError)
+        dictiter = iter_except(d.popitem, KeyError)
+        dequeiter = iter_except(d.popleft, IndexError)
+        queueiter = iter_except(q.get_nowait, Queue.Empty)
+        setiter = iter_except(s.pop, KeyError)
+    """</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">if</span> first <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+            <span class="hljs-keyword">yield</span> first()
+        <span class="hljs-keyword">while</span> <span class="hljs-number">1</span>:
+            <span class="hljs-keyword">yield</span> func()
+    <span class="hljs-keyword">except</span> exception:
+        <span class="hljs-keyword">pass</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">random_product</span><span class="hljs-params">(*args, **kwds)</span>:</span>
+    <span class="hljs-string">"Random selection from itertools.product(*args, **kwds)"</span>
+    pools = map(tuple, args) * kwds.get(<span class="hljs-string">'repeat'</span>, <span class="hljs-number">1</span>)
+    <span class="hljs-keyword">return</span> tuple(random.choice(pool) <span class="hljs-keyword">for</span> pool <span class="hljs-keyword">in</span> pools)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">random_permutation</span><span class="hljs-params">(iterable, r=None)</span>:</span>
+    <span class="hljs-string">"Random selection from itertools.permutations(iterable, r)"</span>
+    pool = tuple(iterable)
+    r = len(pool) <span class="hljs-keyword">if</span> r <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">else</span> r
+    <span class="hljs-keyword">return</span> tuple(random.sample(pool, r))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">random_combination</span><span class="hljs-params">(iterable, r)</span>:</span>
+    <span class="hljs-string">"Random selection from itertools.combinations(iterable, r)"</span>
+    pool = tuple(iterable)
+    n = len(pool)
+    indices = sorted(random.sample(xrange(n), r))
+    <span class="hljs-keyword">return</span> tuple(pool[i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> indices)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">random_combination_with_replacement</span><span class="hljs-params">(iterable, r)</span>:</span>
+    <span class="hljs-string">"Random selection from itertools.combinations_with_replacement(iterable, r)"</span>
+    pool = tuple(iterable)
+    n = len(pool)
+    indices = sorted(random.randrange(n) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> xrange(r))
+    <span class="hljs-keyword">return</span> tuple(pool[i] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> indices)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tee_lookahead</span><span class="hljs-params">(t, i)</span>:</span>
+    <span class="hljs-string">"""Inspect the i-th upcomping value from a tee object
+    while leaving the tee object at its current position.
+    Raise an IndexError if the underlying iterator doesn't
+    have enough values.
+    """</span>
+    <span class="hljs-keyword">for</span> value <span class="hljs-keyword">in</span> islice(t.__copy__(), i, <span class="hljs-keyword">None</span>):
+        <span class="hljs-keyword">return</span> value
+    <span class="hljs-keyword">raise</span> IndexError(i)
+</code></pre>
+<h3 id="自定义扩展">1.5.6 自定义扩展</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># 将序列按大小切分,更好的性能</span>
+
+<span class="hljs-keyword">from</span> itertools <span class="hljs-keyword">import</span> chain, islice
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">chunks</span><span class="hljs-params">(iterable, size, format=iter)</span>:</span>
+    it = iter(iterable)
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        <span class="hljs-keyword">yield</span> format(chain((it.next(),), islice(it, size - <span class="hljs-number">1</span>)))
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>l = [<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>, <span class="hljs-string">"d"</span>, <span class="hljs-string">"e"</span>, <span class="hljs-string">"f"</span>, <span class="hljs-string">"g"</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> chunk <span class="hljs-keyword">in</span> chunks(l, <span class="hljs-number">3</span>, tuple):
+        print(chunk)
+(<span class="hljs-string">"a"</span>, <span class="hljs-string">"b"</span>, <span class="hljs-string">"c"</span>)
+(<span class="hljs-string">"d"</span>, <span class="hljs-string">"e"</span>, <span class="hljs-string">"f"</span>)
+(<span class="hljs-string">"g"</span>,)
+</code></pre>
+<h1 id="python协程">2 python协程</h1>
+<blockquote>
+<p><a href="https://www.freebuf.com/company-information/153421.html" target="_blank">谈谈Python协程技术的演进谈谈Python协程技术的演进</a></p>
+<p><a href="https://www.jishuwen.com/d/2qPt" target="_blank">Python协程从入门到放弃到死亡到重生</a></p>
+<p><a href="https://blog.writeathink.cn/2018/03/12/asyncio/" target="_blank">Python协程的演化-从yield/send到async/await</a></p>
+</blockquote>
+<p>协程的实现方式有很多，这里我们来列举三种基本方式</p>
+<ul>
+<li>利用 <code>yield</code> 来实现协程</li>
+<li>利用 <code>greenlet</code> 模块实现</li>
+<li>利用 <code>gevent</code> 模块实现</li>
+</ul>
+<p>并行与并发</p>
+<ul>
+<li><strong>并行</strong>是指两个或者多个事件在<font color="#00CED1">同一时刻发生</font>，通常是当系统有一个以上CPU或CPU核心时，才有可能并行<ul>
+<li>两个或者多个事件、线程并步<strong>抢占CPU资源</strong></li>
+</ul>
+</li>
+<li><strong>并发</strong>是指两个或者多个事件在<font color="#9400D3">同一时间间隔内发生</font><ul>
+<li>在一定时间间隔内，有多个程序在执行，但在<strong>同一时刻，只有一个程序在执行</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="生成器和协程">2.1 生成器和协程</h2>
+<blockquote>
+<p>协程的概念</p>
+</blockquote>
+<p>协程通过允许多个入口点在某些位置暂停和恢复执行来概括用于非抢占式多任务的子程序</p>
+<p>yield 关键字已经可以暂停执行，如果在暂停后有方法把一些值发送回到暂停窒息的函数中，那么便就可以理解为协程</p>
+<p>添加了<strong>把东西发回已经暂停的生成器中</strong>的方法，这个方法就是 send()</p>
+<blockquote>
+<p>生成器和协程</p>
+</blockquote>
+<p>从语法上讲，生成器是一个带yield语句的函数。协程，又称微线程，纤程，英文Coroutine</p>
+<p>从某些角度来理解，协程其实就是一个可以暂停执行的函数，并且可以恢复继续执行</p>
+<p>生成器和协程都是通过 python 中 yield 的关键字实现的</p>
+<blockquote>
+<p>next()和send()</p>
+</blockquote>
+<p>生成器只调用 next 来不断的生成数据，而协程会调用 next 和 send 来返回结果和接收参数</p>
+<p>与<code>.__next__()</code> 方法一样，<code>.send()</code> 方法致使生成器前进到下一个 <code>yield</code> 语句</p>
+<p>不过<code>.send()</code> 方法还允许使用生成器的客户把数据发给自己，即不管传给 <code>.send()</code> 方法什么参数，那个参数都会成为生成器函数定义体中对应的 <code>yield</code> 表达式的值</p>
+<p>也就是说，<code>.send()</code> 方法允许在客户代码和生成器之间双向交换数据</p>
+<p>而 <code>.__next__()</code> 方法只允许客户从生成器中获取数据</p>
+<p>Python 新引入的 <code>yield from</code> 句法允许生成器或协程把工作委托给第三方完成，这样就无需嵌套 <code>for</code> 循环作为变通了</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> random,time
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">stupid_fib</span><span class="hljs-params">(n)</span>:</span>
+    index = <span class="hljs-number">0</span>
+    a = <span class="hljs-number">0</span>
+    b = <span class="hljs-number">1</span>
+    <span class="hljs-keyword">while</span> index &lt; n:
+        sleep_cnt = <span class="hljs-keyword">yield</span> b
+        print(<span class="hljs-string">'let me think {0} secs'</span>.format(sleep_cnt))
+        time.sleep(sleep_cnt)
+        a, b = b, a + b
+        index += <span class="hljs-number">1</span>
+
+print(<span class="hljs-string">'-'</span>*<span class="hljs-number">10</span> + <span class="hljs-string">'test yield send'</span> + <span class="hljs-string">'-'</span>*<span class="hljs-number">10</span>)
+N = <span class="hljs-number">5</span>
+sfib = stupid_fib(N)
+fib_res = next(sfib)
+<span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+    print(fib_res)
+    <span class="hljs-keyword">try</span>:
+        fib_res = sfib.send(random.uniform(<span class="hljs-number">0</span>, <span class="hljs-number">0.5</span>))
+    <span class="hljs-keyword">except</span> StopIteration:
+        <span class="hljs-keyword">break</span>
+
+----------test <span class="hljs-keyword">yield</span> send----------
+<span class="hljs-number">1</span>
+let me think <span class="hljs-number">0.2438615286011866</span> secs
+<span class="hljs-number">1</span>
+let me think <span class="hljs-number">0.027476256830278822</span> secs
+<span class="hljs-number">2</span>
+let me think <span class="hljs-number">0.09717699872403579</span> secs
+<span class="hljs-number">3</span>
+let me think <span class="hljs-number">0.017161862262742633</span> secs
+<span class="hljs-number">5</span>
+let me think <span class="hljs-number">0.3313821890336833</span> secs
+</code></pre>
+<p>其中 next(sfib) 相当于 sfib.send(None)，可以使得 sfib 运行至第一个 yield 处返回</p>
+<p>后续将一个随机的秒数发送给 sfib ，作为当前中断的 yield 表达式的返回值</p>
+<blockquote>
+<p>yield 表达式的作用包含了三个步骤：</p>
+</blockquote>
+<ol>
+<li>向函数外抛出值</li>
+<li>暂停，等待 next() 或 send() 恢复</li>
+<li>赋值，接受 send 发送过来的数据</li>
+</ol>
+<p>需要注意的是，在使用 send(None) 或者 next() 预激生成器函数，并执行到第一个 yield 语句结束的位置时，实际程序只执行了1、2两步，程序返回了值，并暂停，并没有执行第三步去赋值。在后续的循环中，才会进行赋值。</p>
+<blockquote>
+<p>生成器对象有 send 、throw 和 close 方法，这三个方法的作用分别是：</p>
+</blockquote>
+<ul>
+<li>发送数据给生成器并赋值给 yield 语句</li>
+<li>向生成器中抛入异常由生成器内部处理</li>
+<li><p>终止生成器</p>
+<p>这三个方法使得生成器进化成协程</p>
+</li>
+</ul>
+<h2 id="协程状态">2.2 协程状态</h2>
+<blockquote>
+<p>协程有四种存在状态：</p>
+</blockquote>
+<ul>
+<li>GEN_CREATED 创建完成，等待执行</li>
+<li>GEN_RUNNING 解释器正在执行（这个状态在下面的示例程序中无法看到）</li>
+<li>GEN_SUSPENDED 在 yield 表达式处暂停</li>
+<li>GEN_CLOSE 执行结束，生成器停止</li>
+</ul>
+<p>可以使用 <code>inspect.getgeneratorstate</code> 方法查看协程的当前状态</p>
+<pre><code class="lang-python">In [<span class="hljs-number">202</span>]: <span class="hljs-keyword">import</span> inspect
+
+In [<span class="hljs-number">203</span>]: <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">generator</span><span class="hljs-params">()</span>:</span>
+     ...:     i = <span class="hljs-string">'激活生成器'</span>
+     ...:     <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+     ...:         <span class="hljs-keyword">try</span>:
+     ...:             value = <span class="hljs-keyword">yield</span> i
+     ...:         <span class="hljs-keyword">except</span> ValueError:
+     ...:             print(<span class="hljs-string">'OVER'</span>)
+     ...:         i = value
+     ...:
+
+In [<span class="hljs-number">204</span>]: g = generator()  <span class="hljs-comment"># 1</span>
+
+In [<span class="hljs-number">205</span>]: inspect.getgeneratorstate(g)  <span class="hljs-comment"># 2</span>
+Out[<span class="hljs-number">205</span>]: <span class="hljs-string">'GEN_CREATED'</span>
+
+In [<span class="hljs-number">206</span>]: next(g)  <span class="hljs-comment"># 3</span>
+Out[<span class="hljs-number">206</span>]: <span class="hljs-string">'激活生成器'</span>
+
+In [<span class="hljs-number">207</span>]: inspect.getgeneratorstate(g)
+Out[<span class="hljs-number">207</span>]: <span class="hljs-string">'GEN_SUSPENDED'</span>
+
+In [<span class="hljs-number">208</span>]: g.send(<span class="hljs-string">'Hello Shiyanlou'</span>)  <span class="hljs-comment"># 4</span>
+Out[<span class="hljs-number">208</span>]: <span class="hljs-string">'Hello Shiyanlou'</span>
+
+In [<span class="hljs-number">209</span>]: g.throw(ValueError)  <span class="hljs-comment"># 5</span>
+OVER
+Out[<span class="hljs-number">209</span>]: <span class="hljs-string">'Hello Shiyanlou'</span>
+
+In [<span class="hljs-number">210</span>]: g.close()  <span class="hljs-comment"># 6</span>
+
+In [<span class="hljs-number">211</span>]: inspect.getgeneratorstate(g)
+Out[<span class="hljs-number">211</span>]: <span class="hljs-string">'GEN_CLOSED'</span>
+</code></pre>
+<blockquote>
+<p>代码说明</p>
+</blockquote>
+<ol>
+<li><p>创建生成器</p>
+</li>
+<li><p>查看生成器状态</p>
+</li>
+<li><p>这步操作叫做预激生成器（或协程），这是必须做的。在生成器创建完成后，需要将其第一次运行到 yield 语句处暂停</p>
+</li>
+<li><p>暂停状态的生成器可以使用 send 方法发送数据，此方法的参数就是 yield 表达式的值</p>
+<p>也就是 yield 表达式等号前面的 value 变量的值变成 'Hello Shiyanlou'，继续向下执行完一次 while 循环，变量 i 被赋值，继续运行下一次循环，yield 表达式弹出变量 i</p>
+</li>
+<li><p>向生成器抛入异常，异常会被 try except 捕获，作进一步处理</p>
+</li>
+<li><p>close 方法终止生成器，异常不会被抛出</p>
+</li>
+</ol>
+<p>因为生成器的调用方也就是程序员自己可以控制生成器的启动、暂停、终止，而且可以向生成器内部传入数据</p>
+<p>所以这种生成器又叫做协程，generator 函数既可以叫做生成器函数，也可以叫协程函数，这是生成器向协程的过渡阶段</p>
+<h2 id="yield-from">2.3 yield from</h2>
+<blockquote>
+<p>在 Python3.3 出现了 yield from 语法, yield from item 表达式从 item 中获得迭代器</p>
+</blockquote>
+<p>yield from 可以代替 for 循环，使得代码更为精炼，yield from 后面需要加的是可迭代对象</p>
+<ul>
+<li><code>yield from i</code> 完全代替了内层的 <code>for</code> 循环。而且代码读起来更顺畅，不过感觉更像是语法糖</li>
+<li>除了代替循环之外，<code>yield from</code> 还会创建通道，把内层生成器直接与外层生成器的客户端联系起来</li>
+<li>把生成器当成协程使用时，这个通道特别重要，不仅能为客户端代码生成值，还能使用客户端代码提供的值</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-comment"># yield from</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">first_gen</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-string">"AB"</span>:
+        <span class="hljs-keyword">yield</span> c
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>):
+        <span class="hljs-keyword">yield</span> i
+print(list(first_gen()))
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">second_gen</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> <span class="hljs-string">"AB"</span>
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> range(<span class="hljs-number">0</span>, <span class="hljs-number">3</span>)
+print(list(second_gen()))
+
+[<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+[<span class="hljs-string">'A'</span>, <span class="hljs-string">'B'</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>]
+</code></pre>
+<p>当 yiled from 后面加上一个生成器之后，就实现了生成的嵌套。实现生成器的嵌套，不一定要使用 yield from</p>
+<p>但它可以让我们避免让自己处理各种料想不到的异常，如果自己去实现，会加大编码的难度。</p>
+<blockquote>
+<p>yield from 的主要功能是打开双向通道，把最外层的调用与最内层的子生成器连接起来</p>
+<p>这样二者就可以直接发送和产出值，还可以直接穿入异常</p>
+</blockquote>
+<p><a data-lightbox="eb61153e-199c-4d5d-903a-c651e14a8327" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/3.python协程/VjuAreZ.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/3.python协程/VjuAreZ.webp"/></a>
+委派生成器在 yied from 表达式处暂停时，调用方可以直接把数据发给子生成器</p>
+<p>子生成器再把产出值发给调用方，子生成器返回之后，解释器会抛出 StopIteration 异常</p>
+<p>委托生成器的作用就是：在调用方与子生成器之间建立一个双向通道</p>
+<p><strong>为什么一定要使用 yield from 语句呢</strong>：在使用 yiled from 语句时，语句为我们已经处理了很多的异常</p>
+<h2 id="yield-from-获取返回值">2.4 yield from 获取返回值</h2>
+<blockquote>
+<p><a href="https://blog.csdn.net/qq_27825451/article/details/85244237?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161362921316780274135975%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&amp;request_id=161362921316780274135975&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v1~rank_blog_v1-2-85244237.pc_v1_rank_blog_v1&amp;utm_term=python%E5%8D%8F%E7%A8%8B%E7%B3%BB%E5%88%97" target="_blank">python协程系列（三）——yield from原理详解</a></p>
+</blockquote>
+<p>在使用yield生成器的时候，如果使用for语句去迭代生成器，则不会显式的出发StopIteration异常，而是自动捕获StopIteration异常</p>
+<p>所以如果遇到return，只是会终止迭代，而不会触发异常，故而也就没办法获取return的值</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_generator</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
+        <span class="hljs-keyword">if</span> i==<span class="hljs-number">2</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'我被迫中断了'</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">yield</span> i
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(generator)</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> generator:  <span class="hljs-comment">#不会显式触发异常，故而无法获取到return的值</span>
+            print(i)
+    <span class="hljs-keyword">except</span> StopIteration <span class="hljs-keyword">as</span> exc:
+        print(exc.value)
+
+g=my_generator()  <span class="hljs-comment">#调用</span>
+main(g)
+<span class="hljs-string">'''
+运行结果为：
+0
+1
+'''</span>
+</code></pre>
+<p>从上面的例子可以看出，for迭代语句不会显式触发异常，故而无法获取到return的值</p>
+<p>迭代到2的时候遇到return语句，隐式的触发了StopIteration异常，就终止迭代了，但是在程序中不会显示出来</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_generator</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
+        <span class="hljs-keyword">if</span> i==<span class="hljs-number">2</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'我被迫中断了'</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">yield</span> i
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(generator)</span>:</span>
+    <span class="hljs-keyword">try</span>:
+        print(next(generator))   <span class="hljs-comment">#每次迭代一个值，则会显式出发StopIteration</span>
+        print(next(generator))
+        print(next(generator))
+        print(next(generator))
+        print(next(generator))
+    <span class="hljs-keyword">except</span> StopIteration <span class="hljs-keyword">as</span> exc:
+        print(exc.value)     <span class="hljs-comment">#获取返回的值</span>
+
+g=my_generator()
+main(g)
+<span class="hljs-string">'''
+运行结果为：
+0
+1
+我被迫中断了
+'''</span>
+</code></pre>
+<p>现在我们使用yield from来完成上面的同样的功能</p>
+<pre><code class="lang-python"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">my_generator</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>):
+        <span class="hljs-keyword">if</span> i==<span class="hljs-number">2</span>:
+            <span class="hljs-keyword">return</span> <span class="hljs-string">'我被迫中断了'</span>
+        <span class="hljs-keyword">else</span>:
+            <span class="hljs-keyword">yield</span> i
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrap_my_generator</span><span class="hljs-params">(generator)</span>:</span>  <span class="hljs-comment">#定义一个包装“生成器”的生成器，它的本质还是生成器</span>
+    result = <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> generator    <span class="hljs-comment">#自动触发StopIteration异常，并且将return的返回值赋值给yield from表达式的结果</span>
+    print(result)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">(generator)</span>:</span>
+    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> generator:
+        print(j)
+
+g = my_generator()
+wrap_g = wrap_my_generator(g)
+main(wrap_g)  <span class="hljs-comment">#调用</span>
+<span class="hljs-string">'''
+运行结果为：
+0
+1
+我被迫中断了
+'''</span>
+</code></pre>
+<blockquote>
+<p>从上面的比较可以看出，yield from具有以下几个特点：</p>
+</blockquote>
+<ul>
+<li>调用方—&gt;生成器函数(协程函数)</li>
+<li>调用方—&gt;生成器包装函数—&gt;生成器函数(协程函数)</li>
+<li>return返回的值或者是StopIteration的value 属性的值变成 yield from 表达式的值，即上面的result</li>
+</ul>
+<h1 id="greenlet-和-gevent">3 greenlet 和 gevent</h1>
+<p>greenlet可以实现协程，不过每一次都要人为去指向下一个该执行的协程</p>
+<p>greenlet 可以从一个协程切换到任意其他协程，但必须保证 greenlet 的正常结束，在协程之间的任意切换很容易出现问题</p>
+<p>greelet 是 Stackless 发展来的 Cpython 扩展包， greelet 是底层实现了原生协程的C扩展库</p>
+<ol>
+<li>迭代器(即可指子生成器)产生的值直接返还给调用者</li>
+<li>任何使用send()方法发给委派生产器(即外部生产器)的值被直接传递给迭代器。如果send值是None，则调用迭代器next()方法；如果不为None，则调用迭代器的send()方法。如果对迭代器的调用产生Stoplteration异常，委派生产器恢复继续执行yield from后面的语句；若迭代器产生其他任何异常，则都传递给委派生产器</li>
+<li>子生成器可能只是一个迭代器，并不是一个作为协程的生成器，所以它不支持.throw()和.close()方法，即可能会产生AttributeError异常</li>
+<li>除了GeneratorExit异常外的其他抛给委派生产器的异常，将会被传递到迭代器的throw()方法，如果迭代器throw()调用产生了Stoplteration异常，委派生产器恢复并继续执行，其他异常则传递给委派生产器</li>
+<li>如果GeneratorExit异常被抛给委派生产器，或者委派生产器的close()方法被调用，如果迭代器有close()的话也将被调用。如果close()调用产生异常，异常将传递给委派生产器。否则，委派生产器将抛出GeneratorExit 异常</li>
+<li>当迭代器结束并抛出异常时，yield from表达式的值是其Stoplteration异常中的第一个参数</li>
+<li>一个生成器中的return expr语句将会从生成器退出并抛出 Stoplteration(expr)异常</li>
+</ol>
+<h2 id="greenlet">3.1 greenlet</h2>
+<pre><code class="lang-python"><span class="hljs-comment"># 使用 greenlet 实现的 生产者-消费者 模型：</span>
+<span class="hljs-comment"># greenlet 的价值在于高性能的原生协程，且语义更加明确、显式切换，执行到 switch 时就切换程序</span>
+<span class="hljs-comment"># 直接将函数包装成协程，可以保留原代码的风格</span>
+
+
+<span class="hljs-comment"># 基于greenlet的生产者消费者协程</span>
+<span class="hljs-keyword">from</span> greenlet <span class="hljs-keyword">import</span> greenlet
+<span class="hljs-keyword">import</span> random
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Producer</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        item = random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">10</span>)
+        print(<span class="hljs-string">"生产&lt;{}&gt;中..."</span>.format(item))
+        time.sleep(<span class="hljs-number">1</span>)
+        c.switch(item)  <span class="hljs-comment"># 切换到消费者，并将item传入。</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">Consumer</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        item = p.switch()  <span class="hljs-comment"># 切换到生产者。等待生产者传递参数item</span>
+        print(<span class="hljs-string">"消费&lt;{}&gt;中.."</span>.format(item))
+
+c = greenlet(Consumer)  <span class="hljs-comment"># 将普通函数编程协程</span>
+p = greenlet(Producer)  <span class="hljs-comment"># 同理</span>
+c.switch()  <span class="hljs-comment"># 启动协程，Consumer先执行</span>
+<span class="hljs-string">"""
+从consumer开始执行，执行到item=p.switch()时，程序切换到producer，并等待传参
+producer得到执行权后，生成一个item,并往下执行代码
+当producer执行到c.switch(item)时，程序携带传递的item切换到consumer,
+consumer继续往下执行，直到下一次运行到p.switch时，交出执行权，切换到producer，重复以上过程
+"""</span>
+</code></pre>
+<h2 id="gevent">3.2 gevent</h2>
+<p>gevent 是实现协程的第三方库，通过封装 greenlet，epoll 回调编程模式，生成器协程实现</p>
+<p>当遇到 IO 操作时，就自动切换到其他协程，等到 IO 操作完成，再在适当的时候切换回来继续执行</p>
+<p>gevent 会自动切换协程，就保证总有协程在执行，而不是等待 IO</p>
+<p>由于切换实在 IO 操作时自动完成，所以 gevent 需要修改 Python 的自带的一些保准库，这一过程在启动时通过 monkey patch 完成</p>
+<p>gevent的价值在于它的使用基于epoll的libev来避开阻塞；使用基于gevent的高效协程，来切换执行</p>
+<p>只在遇到阻塞的时候切换，没有轮询和线程开销</p>
+<pre><code class="lang-python"><span class="hljs-string">""" gevent: 通过greenlet实现协程，核心就是遇到IO操作，会自动切换到其他协程 """</span>
+
+<span class="hljs-comment"># 将python标准库中的一些阻塞操作变为非阻塞</span>
+<span class="hljs-keyword">from</span> gevent <span class="hljs-keyword">import</span> monkey;monkey.patch_all()
+<span class="hljs-comment"># 使用猴子补丁要写在第一行</span>
+<span class="hljs-keyword">import</span> gevent
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test1</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"test1"</span>)
+    gevent.sleep(<span class="hljs-number">0</span>)  <span class="hljs-comment"># 模拟耗时操作</span>
+    print(<span class="hljs-string">"test11"</span>)
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test2</span><span class="hljs-params">()</span>:</span>
+    print(<span class="hljs-string">"test2"</span>)
+    gevent.sleep(<span class="hljs-number">0</span>)  <span class="hljs-comment"># 模拟耗时操作</span>
+    print(<span class="hljs-string">"test22"</span>)
+
+<span class="hljs-comment"># g1 = gevent.spawn(test1)  # 将函数封装成协程，并启动</span>
+<span class="hljs-comment"># g2 = gevent.spawn(test2)</span>
+<span class="hljs-comment"># gevent.joinall([g1, g2])</span>
+
+<span class="hljs-string">"""
+# joinall() 阻塞当前流程，执行给定的greenlet(列表中的对象),等待程序执行完
+# spawn是启动协程，参数为函数名及其参数
+test1
+test2
+test11
+test22
+
+代码执行test1,打印test1，遇到gevent.sleep(0)时切换程序，执行test2
+test()执行，打印test2，执行到gevent.sleep(0)时切换程序
+执行test1在gevent.sleep(0)后面的代码，直到再次遇到gevent时，切换程序
+然后在test2中，继续执行gevent后的代码，直到遇到gevent时，再次切换
+直到程序执行完毕
+"""</span>
+</code></pre>
+<h1 id="asynciocoroutine">4 asyncio.coroutine</h1>
+<p>在 Python3.4 中加入了 asyncio 库，使得 Python 获得了事件循环的特性，但这个还是以生成器对象为基础</p>
+<p>yield from 在 asyncio 模块中很常用，通过 asnyncio+生成器 ，我们可以实现这样一个异步的模型：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
+
+<span class="hljs-meta">@asyncio.coroutine</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">counttdown</span><span class="hljs-params">(number, n)</span>:</span>
+    <span class="hljs-keyword">while</span> n &gt; <span class="hljs-number">0</span>:
+        print(<span class="hljs-string">"T-minus"</span>, n, <span class="hljs-string">"({})"</span>.format(number))
+        <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> asyncio.sleep(<span class="hljs-number">1</span>)
+        n -= <span class="hljs-number">1</span>
+
+loop = asyncio.get_event_loop()
+tasks = [
+    asyncio.ensure_future(counttdown(<span class="hljs-string">"A"</span>, <span class="hljs-number">2</span>)),
+    asyncio.ensure_future(counttdown(<span class="hljs-string">"B"</span>, <span class="hljs-number">5</span>)),
+]
+loop.run_until_complete(asyncio.wait(tasks))
+loop.close()
+
+【out】
+Traceback (most recent call last):
+  File <span class="hljs-string">"&lt;ipython-input-2-cff1e6420e75&gt;"</span>, line <span class="hljs-number">15</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+    loop.run_until_complete(asyncio.wait(tasks))
+  File <span class="hljs-string">"S:\Anaconda3\lib\asyncio\base_events.py"</span>, line <span class="hljs-number">555</span>, <span class="hljs-keyword">in</span> run_until_complete
+    self.run_forever()
+  File <span class="hljs-string">"S:\Anaconda3\lib\asyncio\base_events.py"</span>, line <span class="hljs-number">510</span>, <span class="hljs-keyword">in</span> run_forever
+    <span class="hljs-keyword">raise</span> RuntimeError(<span class="hljs-string">'This event loop is already running'</span>)
+RuntimeError: This event loop <span class="hljs-keyword">is</span> already running
+
+T-minus <span class="hljs-number">2</span> (A)
+T-minus <span class="hljs-number">5</span> (B)
+T-minus <span class="hljs-number">1</span> (A)
+T-minus <span class="hljs-number">4</span> (B)
+T-minus <span class="hljs-number">3</span> (B)
+T-minus <span class="hljs-number">2</span> (B)
+T-minus <span class="hljs-number">1</span> (B)
+</code></pre>
+<p>这里 asyncio.coroutine 装饰器是用来标记这个函数是一个协程，因为 asyncio 要求所有用作协程的生成器必须由 asyncio.coroutine 装饰</p>
+<p>这段代码中，事件循环会启动两个 countdown() 协程，它们会一直执行，知道遇到 yield from asyncio.sleep() ，暂停执行，并将一个 async.Future 对象返回给事件循环</p>
+<p>事件循环会监控这个 asyncio.Future 对象，一旦执行完成后，会将这个 Future 的执行结果返回给刚刚因为这个 Futur e暂停的协程，并且继续执行原协程</p>
+<blockquote>
+<p>event_loop 事件循环：</p>
+</blockquote>
+<p>程序开启一个无限的循环，程序员会把一些函数注册到事件循环上。当满足事件发生的时候，调用相应的协程函数</p>
+<p>coroutine 协程：协程对象，指一个使用async关键字定义的函数，它的调用不会立即执行函数，而是会返回一个协程对象</p>
+<p>协程对象需要注册到事件循环，由事件循环调用</p>
+<p>task 任务：一个协程对象就是一个原生可以挂起的函数，任务则是对协程进一步封装，其中包含任务的各种状态</p>
+<p>协程对象不能直接运行，在注册事件循环的时候，其实是 run_until_complete 方法将协程包装成一个任务（ task ）对象</p>
+<p>task 对象是 Future 的子类，保存了协程运行后的状态，用于未来获取协程的结果</p>
+<pre><code class="lang-python">在上面的代码中， asyncio.sleep 中，创建了一个 Futrure 对象，作为更内层的协程对象，通过 <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> 交给了事件循环，而 Future 是一个实现了 __iter__ 对象的生成器。
+<span class="hljs-meta">@coroutine</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">sleep</span><span class="hljs-params">(delay, result=None, *, loop=None)</span>:</span>
+    <span class="hljs-string">"""Coroutine that completes after a given time (in seconds)."""</span>
+    future = futures.Future(loop=loop)
+    h = future._loop.call_later(delay,
+                                future._set_result_unless_cancelled, result)
+    <span class="hljs-keyword">try</span>:
+        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> future)
+    <span class="hljs-keyword">finally</span>:
+        h.cancel()
+
+ <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Future</span>:</span>
+<span class="hljs-comment">#blabla...</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__iter__</span><span class="hljs-params">(self)</span>:</span>
+        <span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> self.done():
+            self._blocking = <span class="hljs-keyword">True</span>
+            <span class="hljs-keyword">yield</span> self  <span class="hljs-comment"># This tells Task to wait for completion.</span>
+        <span class="hljs-keyword">assert</span> self.done(), <span class="hljs-string">"yield from wasn't used with future"</span>
+        <span class="hljs-keyword">return</span> self.result()  <span class="hljs-comment"># May raise too.</span>
+
+<span class="hljs-comment"># 当协程 yield from asyncio.sleep 时，事件循环其实是与 Future 对象建立了联系。程序运行结果如下：</span>
+T-minus <span class="hljs-number">2</span> (A)
+T-minus <span class="hljs-number">5</span> (B)
+T-minus <span class="hljs-number">1</span> (A)
+T-minus <span class="hljs-number">4</span> (B)
+T-minus <span class="hljs-number">3</span> (B)
+T-minus <span class="hljs-number">2</span> (B)
+T-minus <span class="hljs-number">1</span> (B)
+</code></pre>
+<h1 id="async-和-await">5 async 和 await</h1>
+<blockquote>
+<p>hello world</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    print(f<span class="hljs-string">"started at {time.strftime('%X')}"</span>)
+
+    <span class="hljs-keyword">await</span> say_after(<span class="hljs-number">1</span>, <span class="hljs-string">'hello'</span>)
+    <span class="hljs-keyword">await</span> say_after(<span class="hljs-number">2</span>, <span class="hljs-string">'world'</span>)
+
+    print(f<span class="hljs-string">"finished at {time.strftime('%X')}"</span>)
+
+asyncio.run(main())
+
+<span class="hljs-comment"># 预期输出</span>
+started at <span class="hljs-number">17</span>:<span class="hljs-number">13</span>:<span class="hljs-number">52</span>
+hello
+world
+finished at <span class="hljs-number">17</span>:<span class="hljs-number">13</span>:<span class="hljs-number">55</span>
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    task1 = asyncio.create_task(
+        say_after(<span class="hljs-number">1</span>, <span class="hljs-string">'hello'</span>))
+
+    task2 = asyncio.create_task(
+        say_after(<span class="hljs-number">2</span>, <span class="hljs-string">'world'</span>))
+
+    print(f<span class="hljs-string">"started at {time.strftime('%X')}"</span>)
+
+    <span class="hljs-comment"># Wait until both tasks are completed (should take around 2 seconds.)</span>
+    <span class="hljs-keyword">await</span> task1
+    <span class="hljs-keyword">await</span> task2
+
+    print(f<span class="hljs-string">"finished at {time.strftime('%X')}"</span>)
+
+<span class="hljs-comment"># 预期的输出显示代码段的运行时间比之前快了 1 秒</span>
+started at <span class="hljs-number">17</span>:<span class="hljs-number">14</span>:<span class="hljs-number">32</span>
+hello
+world
+finished at <span class="hljs-number">17</span>:<span class="hljs-number">14</span>:<span class="hljs-number">34</span>
+</code></pre>
+<blockquote>
+<p>asyncio模块历史演进</p>
+</blockquote>
+<ul>
+<li><p>asyncio是<code>python3.4</code>引入的库，翻译过来就是异步I/O</p>
+</li>
+<li><p><strong>用await代替yield from，功能一模一样，程序调度</strong></p>
+</li>
+<li><p>装饰器@asyncio.coroutine和关键字async</p>
+<pre><code class="lang-python"><span class="hljs-meta">@asyncio.coroutine</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func1</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> asyncio.sleep(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 遇到IO耗时操作，自动化切换到tasks中的其他任务</span>
+
+<span class="hljs-comment"># 等价于</span>
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">func1</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">yield</span> <span class="hljs-keyword">from</span> asyncio.sleep(<span class="hljs-number">2</span>)  <span class="hljs-comment"># 遇到IO耗时操作，自动化切换到tasks中的其他任务</span>
+</code></pre>
+</li>
+<li><p>Event loop</p>
+<pre><code class="lang-python"><span class="hljs-comment"># 版本3.7以前</span>
+loop = asyncio.get_event_loop() <span class="hljs-comment"># 创建一个事件循环</span>
+loop.run_until_complete(result) <span class="hljs-comment"># 将协程当做任务提交到事件循环的任务列表中，协程执行完成之后终止</span>
+
+<span class="hljs-comment"># 版本3.7引入</span>
+asyncio.run(result)
+</code></pre>
+</li>
+<li></li>
+</ul>
+<p>在 Python3.5 中引入了 async 和 await ，可以将它们理解为 asyncio.coroutine / yield from 的完美替身， async/await 让协程表面上独立于生成器而存在，将细节隐藏于 asyncio 模块之下。使用 await 可以针对耗时的操作进行挂起，类似于生成器里的 yield 一样，使函数让出控制权</p>
+<p>协程遇到 await ，事件循环挂起该协程，直到其他协程也挂起或者执行完毕，再进行下一个协程的执行。耗时的操作一般是一些 IO 操作，如网络请求，文件读取等</p>
+<blockquote>
+<p>如果一个对象可以在 <a href="https://docs.python.org/zh-cn/3/reference/expressions.html#await" target="_blank"><code>await</code></a> 语句中使用，那么它就是 <strong>可等待</strong> 对象</p>
+</blockquote>
+<p><strong>可等待对象</strong>有三种主要类型: <strong>协程</strong>, <strong>任务</strong> 和 <strong>Future</strong></p>
+<ul>
+<li><p><strong>协程</strong>: Python 协程属于 <em>可等待</em> 对象，因此可以在其他协程中被等待</p>
+<pre><code class="lang-python"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">nested</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-number">42</span>
+
+<span class="hljs-keyword">await</span> nested()
+</code></pre>
+</li>
+<li><p><strong>任务</strong>: 被用来“并行的”调度协程，当一个协程通过 <a href="https://docs.python.org/zh-cn/3/library/asyncio-task.html#asyncio.create_task" target="_blank"><code>asyncio.create_task()</code></a> 等函数被封装为一个 <em>任务</em>，该协程会被自动调度执行:</p>
+<pre><code class="lang-python"><span class="hljs-comment"># api</span>
+asyncio.create_task(coro, *, name=<span class="hljs-keyword">None</span>, context=<span class="hljs-keyword">None</span>)
+
+<span class="hljs-comment"># 调用</span>
+task = asyncio.create_task(nested())
+<span class="hljs-keyword">await</span> task
+</code></pre>
+</li>
+<li><p><strong>Futures</strong>: <a href="https://docs.python.org/zh-cn/3/library/asyncio-future.html#asyncio.Future" target="_blank"><code>Future</code></a> 是一种特殊的 <strong>低层级</strong> 可等待对象，表示一个异步操作的 <strong>最终结果</strong></p>
+<p>当一个 Future 对象 <em>被等待</em>，这意味着协程将保持等待直到该 Future 对象在其他地方操作完毕</p>
+<p>在 asyncio 中需要 Future 对象以便允许通过 async/await 使用基于回调的代码</p>
+<p>通常情况下 <strong>没有必要</strong> 在应用层级的代码中创建 Future 对象</p>
+<p>Future 对象有时会由库和某些 asyncio API 暴露给用户，用作可等待对象</p>
+<pre><code class="lang-python"><span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-keyword">await</span> function_that_returns_a_future_object()
+
+    <span class="hljs-comment"># this is also valid:</span>
+    <span class="hljs-keyword">await</span> asyncio.gather(
+        function_that_returns_a_future_object(),
+        some_python_coroutine()
+    )
+</code></pre>
+<p>一个很好的返回对象的低层级函数的示例是 <a href="https://docs.python.org/zh-cn/3/library/asyncio-eventloop.html#asyncio.loop.run_in_executor" target="_blank"><code>loop.run_in_executor()</code></a></p>
+</li>
+</ul>
+<p>这里可以使用 asyncio.sleep 来进行模拟举例：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
+<span class="hljs-keyword">import</span> time
+
+now = <span class="hljs-keyword">lambda</span>: time.time()
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">do_some_work</span><span class="hljs-params">(x)</span>:</span>
+    print(<span class="hljs-string">'Waiting: '</span>, x)
+
+    <span class="hljs-keyword">await</span> asyncio.sleep(x)
+    <span class="hljs-keyword">return</span> <span class="hljs-string">'Done after {}s'</span>.format(x)
+
+start = now()
+
+coroutine1 = do_some_work(<span class="hljs-number">1</span>)
+coroutine2 = do_some_work(<span class="hljs-number">2</span>)
+coroutine3 = do_some_work(<span class="hljs-number">4</span>)
+
+tasks = [
+    asyncio.ensure_future(coroutine1),
+    asyncio.ensure_future(coroutine2),
+    asyncio.ensure_future(coroutine3)
+]
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(asyncio.wait(tasks))
+
+<span class="hljs-keyword">for</span> task <span class="hljs-keyword">in</span> tasks:
+    print(<span class="hljs-string">'Task ret: '</span>, task.result())
+
+print(<span class="hljs-string">'TIME: '</span>, now() - start)
+
+Waiting:  <span class="hljs-number">1</span>
+Waiting:  <span class="hljs-number">2</span>
+Waiting:  <span class="hljs-number">4</span>
+Task ret:  Done after <span class="hljs-number">1</span>s
+Task ret:  Done after <span class="hljs-number">2</span>s
+Task ret:  Done after <span class="hljs-number">4</span>s
+TIME:  <span class="hljs-number">4.003541946411133</span>
+</code></pre>
+<p>在 sleep 的时候，使用 await 让出控制权。当遇到阻塞调用的函数的时候，使用 await 方法将协程的控制权让出，以便 loop 调用其他的协程</p>
+<p>注意的区别是： await 接受的对象必须是一个 awaitable 的对象，所谓 awaitable 的对象，就是一个实现了 <strong>await()</strong> 方法的对象，而且这个方法必须返回一个不是协程的迭代器</p>
+<p>在 Python3.6 中， yield 和 await 也可以在同一个函数中使用，初次之外，也可以在列表推导等地方使用 async for 或 await 语法</p>
+<pre><code class="lang-python">result = [i <span class="hljs-keyword">async</span> <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> aiter() <span class="hljs-keyword">if</span> i % <span class="hljs-number">2</span>]
+result = [<span class="hljs-keyword">await</span> func() <span class="hljs-keyword">for</span> fun <span class="hljs-keyword">in</span> funcs <span class="hljs-keyword">if</span> <span class="hljs-keyword">await</span> condition()]
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">test</span><span class="hljs-params">(x, y)</span>:</span>
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(y):
+        <span class="hljs-keyword">yield</span> i
+        <span class="hljs-keyword">await</span> asyncio.sleep(x)
+</code></pre>
+<h1 id="协程与异步">6 协程与异步</h1>
+<p>与多线程编程不同的是，多个协程总是运行在同一个线程中，一旦其中的一个协程发生阻塞行为，进而所有的协程都无法继续运行</p>
+<p>例如在我们进行爬虫编写时，习惯使用 requests 库，而这个库就是阻塞的</p>
+<p>尝试使用协程的方式进行编写：</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
+<span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">import</span> time
+
+start = time.time()
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get</span><span class="hljs-params">(url)</span>:</span>
+    <span class="hljs-keyword">return</span> requests.get(url)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">request</span><span class="hljs-params">()</span>:</span>
+    url = <span class="hljs-string">'http://127.0.0.1:5000'</span>
+    print(<span class="hljs-string">'Waiting for'</span>, url)
+    response = <span class="hljs-keyword">await</span> get(url)
+    print(<span class="hljs-string">'Get response from'</span>, url, <span class="hljs-string">'Result:'</span>, response.text)
+
+tasks = [asyncio.ensure_future(request()) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">5</span>)]
+loop = asyncio.get_event_loop()
+loop.run_until_complete(asyncio.wait(tasks))
+
+end = time.time()
+print(<span class="hljs-string">'Cost time:'</span>, end - start)
+
+Waiting <span class="hljs-keyword">for</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span>
+Get response <span class="hljs-keyword">from</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span> Result: Hello!
+Waiting <span class="hljs-keyword">for</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span>
+Get response <span class="hljs-keyword">from</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span> Result: Hello!
+Waiting <span class="hljs-keyword">for</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span>
+Get response <span class="hljs-keyword">from</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span> Result: Hello!
+Waiting <span class="hljs-keyword">for</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span>
+Get response <span class="hljs-keyword">from</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span> Result: Hello!
+Waiting <span class="hljs-keyword">for</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span>
+Get response <span class="hljs-keyword">from</span> http://<span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">5000</span> Result: Hello!
+Cost time: <span class="hljs-number">15.134317874908447</span>
+</code></pre>
+<p>而不使用协程，使用普通方式，也是这个时间。为什么会这样呢，究其原因是 requests 并不支持异步操作。在运行时阻塞并未挂起</p>
+<p>另外 await 后面所跟的对象必须是：一个原生 coroutine 对象，一个由 types.coroutine 装饰的生成器，这个生成器可以返回 coroutine 对象</p>
+<p>而 requests 返回的对象不符合上述条件。为了程序运行不报错，上面代码在 await 时对 requsts 进行了一次 async 函数的包装，但是它并不是“原生的coroutine对象”，因此也就不能真正异步了</p>
+<p>可以通过使用实现了异步的 aiohttp 或者 Trip 库改写上述爬虫</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> asyncio
+<span class="hljs-keyword">import</span> time
+
+<span class="hljs-keyword">import</span> aiohttp
+
+<span class="hljs-keyword">from</span> spider_normal <span class="hljs-keyword">import</span> targets, show_results
+
+final_results = {}
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_content</span><span class="hljs-params">(url)</span>:</span>
+    <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> aiohttp.ClientSession() <span class="hljs-keyword">as</span> session:
+        <span class="hljs-keyword">async</span> <span class="hljs-keyword">with</span> session.get(url) <span class="hljs-keyword">as</span> resp:
+            content = <span class="hljs-keyword">await</span> resp.read()
+            <span class="hljs-keyword">return</span> len(content)
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">spider</span><span class="hljs-params">(url)</span>:</span>
+    length = <span class="hljs-keyword">await</span> get_content(url)
+    final_results[url] = length
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">True</span>
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    loop = asyncio.get_event_loop()
+    cor = [spider(url) <span class="hljs-keyword">for</span> url <span class="hljs-keyword">in</span> targets]
+    start_time = time.time()
+    result = loop.run_until_complete(asyncio.gather(*cor))
+    print(<span class="hljs-string">"Use time: {:.2f}s"</span>.format(time.time() - start_time))
+    show_results(final_results)
+    print(<span class="hljs-string">"loop result: "</span>, result)
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    main()
+</code></pre>
+<pre><code class="lang-cmd"># lightless @ LL-DESKTOP <span class="hljs-keyword">in</span> C:\Users\lightless\Desktop [<span class="hljs-number">22</span>:<span class="hljs-number">49</span>:<span class="hljs-number">11</span>] 
+$ python .\spider_asyncio.py 
+Use <span class="hljs-built_in">time</span>: <span class="hljs-number">2</span>.<span class="hljs-number">23</span>s 
+<span class="hljs-function">Length:   227  <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.baidu.com</span>/ 
+<span class="hljs-title">Length</span>:  11759 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.zhihu.com</span>/ 
+<span class="hljs-title">Length</span>:  40740 <span class="hljs-title">URL:https</span>://<span class="hljs-title">lightless.me</span>/<span class="hljs-title">archives</span>/<span class="hljs-title">python</span>-<span class="hljs-title">coroutine</span>-<span class="hljs-title">from</span>-<span class="hljs-title">start</span>-<span class="hljs-title">to</span>-<span class="hljs-title">boom.html</span> 
+<span class="hljs-title">Length</span>: 150227 <span class="hljs-title">URL:https</span>://<span class="hljs-title">github.com</span>/<span class="hljs-title">aio</span>-<span class="hljs-title">libs</span> -<span class="hljs-title">engtn</span>: <span class="hljs-title">LO1</span> 
+<span class="hljs-title">Length</span>:  59391 <span class="hljs-title">URL:https</span>://<span class="hljs-title">vww.python.org</span>/<span class="hljs-title">dev</span>/<span class="hljs-title">peps</span>/<span class="hljs-title">pep</span>-0380/ 
+<span class="hljs-title">loop</span> <span class="hljs-title">result</span>: [<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>] 
+# <span class="hljs-title">lightless</span> @ <span class="hljs-title">LL</span>-<span class="hljs-title">DESKTOP</span> <span class="hljs-title">in</span> <span class="hljs-title">C</span>:\<span class="hljs-title">Users</span>\<span class="hljs-title">lightless</span>\<span class="hljs-title">Desktop</span> [22:49:15] 
+$ <span class="hljs-title">python</span> .\<span class="hljs-title">spider_asyncio.py</span> 
+<span class="hljs-title">Use</span> <span class="hljs-title">time</span>: 1.62<span class="hljs-title">s</span> 
+<span class="hljs-title">Length</span>:  11759 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.zhihu.com</span>/ 
+<span class="hljs-title">Length</span>:   227  <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.baidu.com</span>/ 
+<span class="hljs-title">Length</span>:  40830 <span class="hljs-title">URL:https</span>://<span class="hljs-title">lightless.me</span>/<span class="hljs-title">archives</span>/<span class="hljs-title">python</span>-<span class="hljs-title">coroutine</span>-<span class="hljs-title">from</span>-<span class="hljs-title">start</span>-<span class="hljs-title">to</span>-<span class="hljs-title">boom.html</span> 
+<span class="hljs-title">Length</span>:  59391 <span class="hljs-title">URL:https</span>://<span class="hljs-title">ww.python.org</span>/<span class="hljs-title">dev</span>/<span class="hljs-title">peps</span>/<span class="hljs-title">pep</span>-0380/ 
+<span class="hljs-title">Length</span>: 150227 <span class="hljs-title">URL:https</span>://<span class="hljs-title">github.com</span>/<span class="hljs-title">aio</span>-<span class="hljs-title">libs</span> 
+<span class="hljs-title">loop</span> <span class="hljs-title">result</span>: [<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>]
+# <span class="hljs-title">lightless</span> @ <span class="hljs-title">LL</span>-<span class="hljs-title">DESKTOP</span> <span class="hljs-title">in</span> <span class="hljs-title">C</span>:\<span class="hljs-title">Users</span>\<span class="hljs-title">lightless</span>\<span class="hljs-title">Desktop</span> [22:49:20] 
+$ <span class="hljs-title">python</span> .\<span class="hljs-title">spider_asyncio.py</span> 
+<span class="hljs-title">Use</span> <span class="hljs-title">time</span>: 1.59<span class="hljs-title">s</span> 
+<span class="hljs-title">Length</span>:  11759 <span class="hljs-title">URL:https</span>://<span class="hljs-title">ww.zhihu.com</span>/ 
+<span class="hljs-title">Length</span>:   227  <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.baidu.com</span>/ 
+<span class="hljs-title">Length</span>:  40629 <span class="hljs-title">URL:https</span>://<span class="hljs-title">lightless.me</span>/<span class="hljs-title">archives</span>/<span class="hljs-title">python</span>-<span class="hljs-title">coroutine</span>-<span class="hljs-title">from</span>-<span class="hljs-title">start</span>-<span class="hljs-title">to</span>-<span class="hljs-title">boom.html</span> 
+<span class="hljs-title">Length</span>:  59391 <span class="hljs-title">URL:https</span>://<span class="hljs-title">ww.python.org</span>/<span class="hljs-title">dev</span>/<span class="hljs-title">peps</span>/<span class="hljs-title">pep</span>-0380/ 
+<span class="hljs-title">Length</span>: 150219 <span class="hljs-title">URL:https</span>://<span class="hljs-title">github.com</span>/<span class="hljs-title">aio</span>-<span class="hljs-title">libs</span> <span class="hljs-title">loop</span> 
+<span class="hljs-title">result</span>: [<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True.True</span>] 
+# <span class="hljs-title">lightless</span> @ <span class="hljs-title">LL</span>-<span class="hljs-title">DESKToP</span> <span class="hljs-title">in</span> <span class="hljs-title">C</span>:\<span class="hljs-title">Users</span>\<span class="hljs-title">lightless</span>\<span class="hljs-title">Desktop</span> [22:49:23] 
+$ <span class="hljs-title">python</span> .\<span class="hljs-title">spider_asyncio.py</span> 
+<span class="hljs-title">Use</span> <span class="hljs-title">time</span>: 4 70<span class="hljs-title">s</span> 
+<span class="hljs-title">Length</span>:   227 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.baidu.com</span> 
+<span class="hljs-title">Length</span>: 11759 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.zhihu.com</span>/ 
+<span class="hljs-title">Lengtn</span>: 59391 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.python.org</span>/<span class="hljs-title">dev</span>/<span class="hljs-title">peps</span>/<span class="hljs-title">pep</span>-0380/ 
+<span class="hljs-title">Length</span>:150218 <span class="hljs-title">URL:https</span>://<span class="hljs-title">github.com</span>/<span class="hljs-title">aio</span>-<span class="hljs-title">libs</span> 
+<span class="hljs-title">Length</span>: 40740 <span class="hljs-title">URL:https</span>://<span class="hljs-title">lightless.me</span>/<span class="hljs-title">archives</span>/<span class="hljs-title">python</span>-<span class="hljs-title">coroutine</span>-<span class="hljs-title">from</span>-<span class="hljs-title">start</span>-<span class="hljs-title">to</span>-<span class="hljs-title">boom.html</span> 
+<span class="hljs-title">loop</span> <span class="hljs-title">result</span>: [<span class="hljs-title">True.True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True.True</span>] 
+# <span class="hljs-title">lightless</span> @ <span class="hljs-title">LL</span>-<span class="hljs-title">DESKTOP</span> <span class="hljs-title">in</span> <span class="hljs-title">C</span>:\<span class="hljs-title">Users</span>\<span class="hljs-title">lightless</span>\<span class="hljs-title">Desktop</span> [22:49:29] 
+$ <span class="hljs-title">python</span> .\<span class="hljs-title">spider_asyncio.py</span> 
+<span class="hljs-title">Use</span> <span class="hljs-title">time</span>: 1.85<span class="hljs-title">s</span> 
+<span class="hljs-title">Length</span>:   227 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.baidu.com</span>/ 
+<span class="hljs-title">Length</span>: 11759 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.zhihu.com</span>/ 
+<span class="hljs-title">Length</span>: 40777 <span class="hljs-title">URL:https</span>://<span class="hljs-title">lightless.me</span>/<span class="hljs-title">archives</span>/<span class="hljs-title">python</span>-<span class="hljs-title">coroutine</span>-<span class="hljs-title">from</span>-<span class="hljs-title">start</span>-<span class="hljs-title">to</span>-<span class="hljs-title">boom.html</span> 
+<span class="hljs-title">Length</span>: 59391 <span class="hljs-title">URL:https</span>://<span class="hljs-title">www.python.org</span>/<span class="hljs-title">dev</span>/<span class="hljs-title">peps</span>/<span class="hljs-title">pep</span>-0380/ 
+<span class="hljs-title">Length</span>:150227 <span class="hljs-title">URL:httos</span>://<span class="hljs-title">github.com</span>/<span class="hljs-title">aio</span>-<span class="hljs-title">libs</span>
+<span class="hljs-title">loop</span> <span class="hljs-title">result</span>:[<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>,<span class="hljs-title">True</span>] 
+# <span class="hljs-title">lightless</span> @ <span class="hljs-title">LL</span>-<span class="hljs-title">DESKTOP</span> <span class="hljs-title">in</span> <span class="hljs-title">C</span>:\<span class="hljs-title">Users</span>\<span class="hljs-title">lightless</span>\<span class="hljs-title">Desktop</span> [22:49:32]
+</span></code></pre>
+<h1 id="应用">7 应用</h1>
+<h2 id="生产者和消费者">7.1 生产者和消费者</h2>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v1.0
+@author: huangyc
+@file: async_test.py
+@Description: 
+@time: 2023/4/6 10:31
+"""</span>
+<span class="hljs-keyword">import</span> asyncio, random
+<span class="hljs-keyword">import</span> threading
+
+random.seed(<span class="hljs-number">5</span>)
+
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">rnd_sleep</span><span class="hljs-params">(t)</span>:</span>
+    <span class="hljs-comment"># sleep for T seconds on average</span>
+    <span class="hljs-keyword">await</span> asyncio.sleep(t * random.random() * <span class="hljs-number">2</span>)
+
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">producer</span><span class="hljs-params">(queue)</span>:</span>
+    lst = list(range(<span class="hljs-number">10</span>))
+    <span class="hljs-keyword">for</span> token <span class="hljs-keyword">in</span> lst:
+        <span class="hljs-comment"># produce a token and send it to a consumer</span>
+        print(f<span class="hljs-string">'produced {token}'</span>)
+        <span class="hljs-keyword">await</span> queue.put(token)
+        <span class="hljs-keyword">await</span> rnd_sleep(<span class="hljs-number">.1</span>)
+
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">consumer</span><span class="hljs-params">(queue)</span>:</span>
+    <span class="hljs-keyword">while</span> <span class="hljs-keyword">True</span>:
+        token = <span class="hljs-keyword">await</span> queue.get()
+        <span class="hljs-comment"># process the token received from a producer</span>
+        <span class="hljs-keyword">await</span> rnd_sleep(<span class="hljs-number">.1</span>)
+        queue.task_done()
+        print(f<span class="hljs-string">'consumed {token}'</span>)
+
+
+<span class="hljs-keyword">async</span> <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">main</span><span class="hljs-params">()</span>:</span>
+    queue = asyncio.Queue()
+
+    <span class="hljs-comment"># fire up the both producers and consumers</span>
+    producers = [asyncio.create_task(producer(queue)) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">3</span>)]
+    consumers = [asyncio.create_task(consumer(queue)) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> range(<span class="hljs-number">10</span>)]
+
+    <span class="hljs-comment"># with both producers and consumers running, wait for</span>
+    <span class="hljs-comment"># the producers to finish</span>
+    <span class="hljs-keyword">await</span> asyncio.gather(*producers)
+    print(<span class="hljs-string">'---- done producing'</span>)
+
+    <span class="hljs-comment"># wait for the remaining tasks to be processed</span>
+    <span class="hljs-keyword">await</span> queue.join()
+
+    <span class="hljs-comment"># cancel the consumers, which are now idle</span>
+    <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> consumers:
+        c.cancel()
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    print(<span class="hljs-string">"hello"</span>)
+    <span class="hljs-comment"># 多线程+协程方式</span>
+    t1 = threading.Thread(target=asyncio.run, args=(main(),))
+    t1.start()
+    t1.join()
+    <span class="hljs-comment"># 协程调用</span>
+    <span class="hljs-comment"># asyncio.run(main())</span>
+    print(<span class="hljs-string">"end"</span>)
+</code></pre>
+<h2 id="多进程、多线程与协程">7.2 多进程、多线程与协程</h2>
+<ul>
+<li><strong>计算密集型</strong>：多进程，可以最大限度发挥CPU运算能力</li>
+<li><strong>IO 密集型</strong>：推荐优先使用协程，内存开销少，执行效率高；其次是多线程，虽然不如协程高效，但同样能极大提升程序运行效率</li>
+<li><strong>CPU 密集和 IO 密集</strong>：多进程+协程，既充分利用多核，又充分发挥协程的高效率，可获得极高的性能</li>
+</ul>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python多线程" class="navigation navigation-prev" href="2.python多线程.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: python异步编程" class="navigation navigation-next" href="4.python异步编程.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python协程","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i//hexo/post_imgs/蕾姆2.webp","cover":"https://pic.hycbook.com/i//hexo/post_cover/蕾姆2.webp","categories":["python"],"tags":["python","协程","异步","迭代器","itertools","yield","asyncio"],"abbrlink":56863,"level":"1.4","depth":1,"next":{"title":"python异步编程","level":"1.5","depth":1,"path":"chapters/4.python异步编程.md","ref":"chapters/4.python异步编程.md","articles":[]},"previous":{"title":"python多线程","level":"1.3","depth":1,"path":"chapters/2.python多线程.md","ref":"chapters/2.python多线程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/3.python协程.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

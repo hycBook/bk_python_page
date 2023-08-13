@@ -1,0 +1,1040 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>collections模块 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="9.logging模块.html" rel="next"/>
+<link href="7.python元编程.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">collections模块</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#python的collections模块">1 Python的collections模块</a></li><li><span class="title-icon"></span><a href="#具名元组namedtuple">2 具名元组namedtuple</a></li><ul><li><span class="title-icon"></span><a href="#概念">2.1 概念</a></li><li><span class="title-icon"></span><a href="#使用">2.2 使用</a></li><ul><li><span class="title-icon"></span><a href="#定义">2.2.1 定义</a></li><li><span class="title-icon"></span><a href="#访问">2.2.2 访问</a></li></ul></ul><li><span class="title-icon"></span><a href="#字典">3 字典</a></li><ul><li><span class="title-icon"></span><a href="#介绍">3.1 介绍</a></li><li><span class="title-icon"></span><a href="#defaultdict默认值词典">3.2 defaultdict默认值词典</a></li><ul><li><span class="title-icon"></span><a href="#错误方式">3.2.1 错误方式</a></li><li><span class="title-icon"></span><a href="#正确方式">3.2.2 正确方式</a></li><li><span class="title-icon"></span><a href="#统计缺失多少键">3.2.3 统计缺失多少键</a></li><li><span class="title-icon"></span><a href="#其它默认值">3.2.4 其它默认值</a></li></ul><li><span class="title-icon"></span><a href="#有序词典ordereddict">3.3 有序词典OrderedDict</a></li><ul><li><span class="title-icon"></span><a href="#概念_1">3.3.1 概念</a></li><li><span class="title-icon"></span><a href="#使用_1">3.3.2 使用</a></li><li><span class="title-icon"></span><a href="#例子2">3.3.3 例子2</a></li></ul><li><span class="title-icon"></span><a href="#chainmap">3.4 ChainMap</a></li><li><span class="title-icon"></span><a href="#计数器counter">3.5 计数器Counter</a></li><ul><li><span class="title-icon"></span><a href="#定义_1">3.5.1 定义</a></li><li><span class="title-icon"></span><a href="#遍历元素">3.5.2 遍历元素</a></li><li><span class="title-icon"></span><a href="#更新元素">3.5.3 更新元素</a></li><li><span class="title-icon"></span><a href="#类集合操作">3.5.4 类集合操作</a></li></ul><li><span class="title-icon"></span><a href="#子类化userdict">3.6 子类化UserDict</a></li></ul><li><span class="title-icon"></span><a href="#双向队列deque">4 双向队列deque</a></li><ul><li><span class="title-icon"></span><a href="#定义_2">4.1 定义</a></li><li><span class="title-icon"></span><a href="#常用方法">4.2 常用方法</a></li></ul><li><span class="title-icon"></span><a href="#子类化userdict_1">5 子类化UserDict</a></li></ul></div><a href="#python的collections模块" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="python的collections模块">1 Python的collections模块</h1>
+<blockquote>
+<p><a href="https://docs.python.org/zh-cn/3/library/collections.html#collections.UserString" target="_blank">collections --- 容器数据类型</a></p>
+<p><a href="https://www.jianshu.com/p/47f66ff4ab7b" target="_blank">Python3 collections模块使用详解</a></p>
+<ol>
+<li><a href="https://docs.python.org/3.7/library/collections.html" target="_blank">collections — Container datatypes</a>
+  namedtuple(): 生成可以使用名字来访问元素内容的tuple子类
+ deque: 双端队列，可以快速的从另外一侧追加和推出对象
+ Counter: 计数器，主要用来计数
+ OrderedDict: 有序字典
+ defaultdict: 带有默认值的字典<pre><code>       ChainMap    类似字典(dict)的容器类，将多个映射集合到一个视图里面
+       UserDict    封装了字典对象，简化了字典子类化
+       UserList    封装了列表对象，简化了列表子类化
+       UserString    封装了列表对象，简化了字符串子类化
+</code></pre> collections.abc  抽象基类</li>
+</ol>
+<p>tuple的几个特性：</p>
+<ol>
+<li>不可变，iterable</li>
+<li>拆包</li>
+<li>tuple不可变不是绝对的</li>
+<li>tuple比list好的地方
+ 4.1 immutable的重要性：性能优化(元素全为immutable的会作为常量在编译时确定)、线程安全、可以作为dict的key，拆包特性
+ 4.2 tuple类似struct，list类似array</li>
+</ol>
+<p><strong>容器序列</strong></p>
+<p>　　<code>list</code>、<code>tuple</code> 和 <code>collections.deque</code> 这些序列能存放不同类型的数据。</p>
+<p><strong>扁平序列</strong></p>
+<p>　　<code>str</code>、<code>bytes</code>、<code>bytearray</code>、<code>memoryview</code> 和 <code>array.array</code>，这类序列只能容纳一种类型。</p>
+<p><strong>容器序列</strong>存放的是它们所包含的任意类型的对象的引用，而<strong>扁平序列</strong>里存放的是值而不是引用。换句话说，扁平序列其实是一段连续的内存空间。由此可见扁平序列其实更加紧凑，但是它里面只能存放诸如字符、字节和数值这种基础类型。</p>
+<p>序列类型还能按照能否被修改来分类。</p>
+<p><strong>可变序列</strong></p>
+<p>　　<code>list</code>、<code>bytearray</code>、<code>array.array</code>、<code>collections.deque</code> 和 <code>memoryview</code>。</p>
+<p><strong>不可变序列</strong></p>
+<p>　　<code>tuple</code>、<code>str</code> 和 <code>bytes</code>。</p>
+</blockquote>
+<h1 id="具名元组namedtuple">2 具名元组namedtuple</h1>
+<h2 id="概念">2.1 概念</h2>
+<blockquote>
+<p>命名的元组，意味给元组中的每个位置赋予含义，意味着代码可读性更强，namedtuple可以在任何常规元素使用的地方使用，而且它可以通过名称来获取字段信息而不仅仅是通过位置索引。用以构建只有少数属性但是没有方法的对象，比如数据库条目。</p>
+<p><code>collections.namedtuple</code> 是一个工厂函数，它可以用来构建一个带字段名的元组和一个有名字的</p>
+<p>用 <code>namedtuple</code> 构建的类的实例所消耗的内存跟元组是一样的，因为字段名都被存在对应的类里面</p>
+<p>创建一个具名元组需要两个参数，一个是类名，另一个是类的各个字段的名字。</p>
+<p>几个最有用的：<code>_fields</code> 类属性、类方法 <code>_make(iterable)</code> 和实例方法 <code>_asdict()</code>。</p>
+<p>❶ <code>_fields</code> 属性是一个包含这个类所有字段名称的元组。</p>
+<p>❷ 用 <code>_make()</code> 通过接受一个可迭代对象来生成这个类的一个实例，它的作用跟 <code>City(*delhi_data)</code> 是一样的。</p>
+<p>❸ <code>_asdict()</code> 把具名元组以 <code>collections.OrderedDict</code> 的形式返回，我们可以利用它来把元组里的信息友好地呈现出来。</p>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
+User = namedtuple(<span class="hljs-string">"USER"</span>, [<span class="hljs-string">"name"</span>, <span class="hljs-string">"age"</span>, <span class="hljs-string">"city"</span>, <span class="hljs-string">"height"</span>])
+user_1 = User(name=<span class="hljs-string">"雷鸣"</span>, age=<span class="hljs-number">21</span>, city=<span class="hljs-string">"北京"</span>, height=<span class="hljs-string">"175"</span>)
+print(<span class="hljs-string">"user_1"</span>, user_1.name, user_1.age, user_1.city, user_1.height)
+user_1 雷鸣 <span class="hljs-number">21</span> 北京 <span class="hljs-number">175</span>
+
+user_1._fields
+Out[<span class="hljs-number">4</span>]: (<span class="hljs-string">'name'</span>, <span class="hljs-string">'age'</span>, <span class="hljs-string">'city'</span>, <span class="hljs-string">'height'</span>)
+</code></pre>
+</blockquote>
+<h2 id="使用">2.2 使用</h2>
+<h3 id="定义">2.2.1 定义</h3>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># namedtuple： 生成可以使用名字来访问元素内容的tuple子类</span>
+<span class="hljs-comment"># -*- coding: utf-8 -*</span>
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
+
+User = namedtuple(<span class="hljs-string">"USER"</span>, [<span class="hljs-string">"name"</span>, <span class="hljs-string">"age"</span>, <span class="hljs-string">"city"</span>, <span class="hljs-string">"height"</span>])
+user_1 = User(name=<span class="hljs-string">"雷鸣"</span>, age=<span class="hljs-number">21</span>, city=<span class="hljs-string">"北京"</span>, height=<span class="hljs-string">"175"</span>)
+print(<span class="hljs-string">"user_1"</span>, user_1.name, user_1.age, user_1.city, user_1.height)
+
+user_tuple = (<span class="hljs-string">"雷姆"</span>, <span class="hljs-number">17</span>, <span class="hljs-string">'异世界'</span>)
+user_2 = User(*user_tuple, <span class="hljs-string">"172"</span>)
+print(<span class="hljs-string">"user_2"</span>, user_2.name, user_2.age, user_2.city, user_2.height)
+
+user_dict = {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"雷玖"</span>,
+    <span class="hljs-string">"age"</span>: <span class="hljs-string">"17"</span>,
+    <span class="hljs-string">"city"</span>: <span class="hljs-string">"异世界"</span>,
+}
+user_3 = User(**user_dict, height=<span class="hljs-string">"172"</span>)
+print(<span class="hljs-string">"user_3"</span>, user_3.name, user_3.age, user_3.city, user_3.height)
+
+user_tuple_2 = (<span class="hljs-string">"雷姆"</span>, <span class="hljs-number">17</span>, <span class="hljs-string">'异世界'</span>, <span class="hljs-string">"172"</span>)
+user_list_2 = [<span class="hljs-string">"雷姆"</span>, <span class="hljs-number">17</span>, <span class="hljs-string">'异世界'</span>, <span class="hljs-string">"172"</span>]
+user_dict_2 = {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"雷玖"</span>,
+    <span class="hljs-string">"age"</span>: <span class="hljs-string">"17"</span>,
+    <span class="hljs-string">"city"</span>: <span class="hljs-string">"异世界"</span>,
+    <span class="hljs-string">"height"</span>: <span class="hljs-string">"172"</span>
+}
+user_4 = User._make(user_dict_2.values())
+print(<span class="hljs-string">"user_4"</span>, user_4.name, user_4.age, user_4.city, user_4.height)
+user_5 = User._make(user_tuple_2)
+print(<span class="hljs-string">"user_5"</span>, user_5.name, user_5.age, user_5.city, user_5.height)
+user_6 = User._make(user_list_2)
+print(<span class="hljs-string">"user_6"</span>, user_6.name, user_6.age, user_6.city, user_6.height)
+</code></pre>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<pre><code class="lang-cmd">user_1 雷鸣 <span class="hljs-number">21</span> 北京 <span class="hljs-number">175</span>
+user_2 雷姆 <span class="hljs-number">17</span> 异世界 <span class="hljs-number">172</span>
+user_3 雷玖 <span class="hljs-number">17</span> 异世界 <span class="hljs-number">172</span>
+user_4 雷玖 <span class="hljs-number">17</span> 异世界 <span class="hljs-number">172</span>
+user_5 雷姆 <span class="hljs-number">17</span> 异世界 <span class="hljs-number">172</span>
+user_6 雷姆 <span class="hljs-number">17</span> 异世界 <span class="hljs-number">172</span>
+</code></pre>
+<h3 id="访问">2.2.2 访问</h3>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> namedtuple
+User = namedtuple(<span class="hljs-string">"USER"</span>, [<span class="hljs-string">"name"</span>, <span class="hljs-string">"age"</span>, <span class="hljs-string">"city"</span>, <span class="hljs-string">"height"</span>])
+user_tuple = (<span class="hljs-string">"雷姆"</span>, <span class="hljs-number">17</span>, <span class="hljs-string">'异世界'</span>)
+user_2 = User(*user_tuple, <span class="hljs-string">"172"</span>)
+print(user_2._asdict())
+
+item = (<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-number">5</span>)
+<span class="hljs-keyword">for</span> it <span class="hljs-keyword">in</span> set(item):
+    print(f<span class="hljs-string">'{it} 出现了{item.count(it)}次'</span>)
+</code></pre>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<pre><code class="lang-cmd">OrderedDict([('name', '雷姆'), ('age', <span class="hljs-number">17</span>), ('city', '异世界'), ('height', '<span class="hljs-number">172</span>')])
+a 出现了<span class="hljs-number">3</span>次
+<span class="hljs-number">5</span> 出现了<span class="hljs-number">1</span>次
+b 出现了<span class="hljs-number">1</span>次
+</code></pre>
+<h1 id="字典">3 字典</h1>
+<h2 id="介绍">3.1 介绍</h2>
+<blockquote>
+<p><code>dict</code> 类型不但在各种程序里广泛使用，它也是 Python 语言的基石。</p>
+<p>跟它有关的内置函数都在 <code>__builtins__.__dict__</code>模块中。</p>
+<p>正是因为字典至关重要，Python 对它的实现做了高度优化，而<strong>散列表</strong>则是字典类型性能出众的根本原因。</p>
+<p><code>collections.abc</code> 模块中有 <code>Mapping</code> 和 <code>MutableMapping</code> 这两个抽象基类</p>
+<p>然而，非抽象映射类型一般不会直接继承这些抽象基类，它们会直接对 <code>dict</code> 或是 <code>collections.UserDict</code> 进行扩展。</p>
+<p>标准库里的所有映射类型都是利用 <code>dict</code> 来实现的，因此它们有个共同的限制，即只有<strong>可散列的</strong>数据类型才能用作这些映射里的键</p>
+<p>关于可散列类型的定义有这样一段话：</p>
+<blockquote>
+<p>如果一个对象是可散列的，那么在这个对象的生命周期中，它的散列值是不变的，而且这个对象需要实现 <code>__hash__()</code> 方法。另外可散列对象还要有 <code>__qe__()</code> 方法，这样才能跟其他键做比较。如果两个可散列对象是相等的，那么它们的散列值一定是一样的</p>
+</blockquote>
+<p>一般来讲用户自定义的类型的对象都是可散列的，散列值就是它们的 <code>id()</code> 函数的返回值，所以所有这些对象在比较的时候都是不相等的</p>
+<p>创建字典的不同方式：</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>a = dict(one=<span class="hljs-number">1</span>, two=<span class="hljs-number">2</span>, three=<span class="hljs-number">3</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>b = {<span class="hljs-string">'one'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'two'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'three'</span>: <span class="hljs-number">3</span>}
+<span class="hljs-meta">&gt;&gt;&gt; </span>c = dict(zip([<span class="hljs-string">'one'</span>, <span class="hljs-string">'two'</span>, <span class="hljs-string">'three'</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]))
+<span class="hljs-meta">&gt;&gt;&gt; </span>d = dict([(<span class="hljs-string">'two'</span>, <span class="hljs-number">2</span>), (<span class="hljs-string">'one'</span>, <span class="hljs-number">1</span>), (<span class="hljs-string">'three'</span>, <span class="hljs-number">3</span>)])
+<span class="hljs-meta">&gt;&gt;&gt; </span>e = dict({<span class="hljs-string">'three'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'one'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'two'</span>: <span class="hljs-number">2</span>})
+<span class="hljs-meta">&gt;&gt;&gt; </span>a == b == c == d == e
+<span class="hljs-keyword">True</span>
+</code></pre>
+<p>除了这些字面句法和灵活的构造方法之外，<strong>字典推导</strong>（dict comprehension）也可以用来建造新 <code>dict</code></p>
+<p><strong>字典推导</strong>（dictcomp）可以从任何以键值对作为元素的可迭代对象中构建出字典。</p>
+<p>映射类型的方法其实很丰富。表 3-1 为我们展示了 <code>dict</code>、<code>defaultdict</code> 和 <code>OrderedDict</code> 的常见方法，后面两个数据类型是 <code>dict</code> 的变种，位于 <code>collections</code> 模块内。</p>
+<p><strong>字典的变种</strong>：</p>
+<ol>
+<li><strong>collections.OrderedDict</strong>： 这个类型在添加键的时候会保持顺序，因此键的迭代次序总是一致的。<code>OrderedDict</code>的 <code>popitem</code> 方法默认删除并返回的是字典里的最后一个元素，但是如果像 <code>my_odict.popitem(last=False)</code> 这样调用它，那么它删除并返回第一个被添加进去的元素。</li>
+<li><strong>collections.ChainMap</strong>： 该类型可以容纳数个不同的映射对象，然后在进行键查找操作的时候，这些对象会被当作一个整体被逐个查找，直到键被找到为止。</li>
+<li><strong>collections.Counter</strong>： 这个映射类型会给键准备一个整数计数器。每次更新一个键的时候都会增加这个计数器。所以这个类型可以用来给可散列表对象计数，或者是当成多重集来用——多重集合就是集合里的元素可以出现不止一次。</li>
+</ol>
+<p>跟 <code>OrderedDict</code>、<code>ChainMap</code> 和 <code>Counter</code> 这些开箱即用的类型不同，<code>UserDict</code> 是让用户继承写子类的。</p>
+<p><code>dict</code>的实现及其导致的结果</p>
+<p><strong>键必须是可散列的</strong></p>
+<p>一个可散列的对象必须满足以下要求。</p>
+<p>(1) 支持 <code>hash()</code> 函数，并且通过 <code>__hash__()</code> 方法所得到的散列值是不变的。</p>
+<p>(2) 支持通过 <code>__eq__()</code> 方法来检测相等性。</p>
+<p>(3) 若 <code>a == b</code> 为真，则 <code>hash(a) == hash(b)</code> 也为真。</p>
+<p>所有由用户自定义的对象默认都是可散列的，因为它们的散列值由 <code>id()</code> 来获取，而且它们都是不相等的。</p>
+<p><strong>字典在内存上的开销巨大</strong></p>
+<p>由于字典使用了散列表，而散列表又必须是稀疏的，这导致它在空间上的效率低下。</p>
+<p>在用户自定义的类型中，<code>__slots__</code> 属性可以改变实例属性的存储方式，由 <code>dict</code>变成 <code>tuple</code></p>
+<p><strong>键查询很快</strong></p>
+<p><code>dict</code> 的实现是典型的空间换时间：字典类型有着巨大的内存开销，但它们提供了无视数据量大小的快速访问——只要字典能被装在内存里</p>
+<p><strong>键的次序取决于添加顺序</strong></p>
+<p>当往 <code>dict</code> 里添加新键而又发生散列冲突的时候，新键可能会被安排存放到另一个位置。</p>
+<p><strong>往字典里添加新键可能会改变已有键的顺序</strong></p>
+<p>无论何时往字典里添加新的键，Python 解释器都可能做出为字典扩容的决定。扩容导致的结果就是要新建一个更大的散列表，并把字典里已有的元素添加到新表里。</p>
+</blockquote>
+<h2 id="defaultdict默认值词典">3.2 defaultdict默认值词典</h2>
+<h3 id="错误方式">3.2.1 错误方式</h3>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 错误方式一</span>
+student_grades = {}
+grades = [(<span class="hljs-string">'elliot'</span>, <span class="hljs-number">91</span>), (<span class="hljs-string">'neelam'</span>, <span class="hljs-number">98</span>),
+          (<span class="hljs-string">'bianca'</span>, <span class="hljs-number">81</span>), (<span class="hljs-string">'elliot'</span>, <span class="hljs-number">88</span>)]
+<span class="hljs-keyword">for</span> name, grade <span class="hljs-keyword">in</span> grades:
+    <span class="hljs-keyword">if</span> name <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> student_grades:
+        student_grades[name] = []
+    student_grades[name].append(grade)
+print(student_grades)
+
+<span class="hljs-comment"># 错误方式二</span>
+student_grades = {}
+<span class="hljs-keyword">for</span> name, grade <span class="hljs-keyword">in</span> grades:
+    student_grades.setdefault(name, [])
+    student_grades[name].append(grade)
+print(student_grades)
+</code></pre>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<pre><code>{'elliot': [91, 88], 'neelam': [98], 'bianca': [81]}
+{'elliot': [91, 88], 'neelam': [98], 'bianca': [81]}
+</code></pre><h3 id="正确方式">3.2.2 正确方式</h3>
+<blockquote>
+<p>在这种情况下，你将创建一个defaultdict，它使用不带参数的list构造函数作为默认方法。没有参数的list返回一个空列表，因此如果名称不存在则defaultdict调用list()，然后再把学生成绩添加上。如果你想更炫一点，你也可以使用lambda函数作为值来返回任意常量。</p>
+<p>在用户创建 <code>defaultdict</code> 对象的时候，就需要给它配置一个为找不到的键创造默认值的方法。</p>
+<p>实例化一个 <code>defaultdict</code> 的时候，需要给构造方法提供一个可调用对象</p>
+<p>把 <code>list</code> 构造方法作为 <code>default_factory</code> 来创建一个 <code>defaultdict</code>。</p>
+<p><code>defaultdict</code> 里的 <code>default_factory</code> 只会在 <code>__getitem__</code> 里被调用，在其他的方法里完全不会发挥作用。比如，<code>dd</code> 是个 <code>defaultdict</code>，<code>k</code> 是个找不到的键， <code>dd[k]</code> 这个表达式会调用 <code>default_factory</code> 创造某个默认值，而 <code>dd.get(k)</code> 则会返回 <code>None</code>。</p>
+<p>所有的映射类型在处理找不到的键的时候，都会牵扯到 <code>__missing__</code> 方法。这也是这个方法称作“missing”的原因</p>
+<p>如果有一个类继承了 <code>dict</code>，然后这个继承类提供了 <code>__missing__</code> 方法，那么在 <code>__getitem__</code> 碰到找不到的键的时候，Python 就会自动调用它</p>
+<p><code>__missing__</code> 方法只会被 <code>__getitem__</code> 调用</p>
+<p>像 <code>k in my_dict.keys()</code> 这种操作在 Python 3 中是很快的，而且即便映射类型对象很庞大也没关系。这是因为 <code>dict.keys()</code> 的返回值是一个“视图”。视图就像一个集合，而且跟字典类似的是，在视图里查找一个元素的速度很快。</p>
+<p>代码</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 正确方式</span>
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+student_grades = defaultdict(list)
+[student_grades[name].append(grade) <span class="hljs-keyword">for</span> name, grade <span class="hljs-keyword">in</span> grades]
+print(student_grades)
+</code></pre>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<pre><code class="lang-cmd">defaultdict(&lt;class 'list'&gt;, {'elliot': [<span class="hljs-number">91</span>, <span class="hljs-number">88</span>], 'neelam': [<span class="hljs-number">98</span>], 'bianca': [<span class="hljs-number">81</span>]})
+</code></pre>
+<h3 id="统计缺失多少键">3.2.3 统计缺失多少键</h3>
+<pre><code class="lang-python"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CountMissing</span>:</span>
+   ...:     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self)</span>:</span>
+   ...:         self.added = <span class="hljs-number">0</span>
+   ...:     <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">missing</span><span class="hljs-params">(self)</span>:</span>
+   ...:         self.added += <span class="hljs-number">1</span> 
+   ...:         <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>
+   ...:     
+current = {<span class="hljs-string">'green'</span>:<span class="hljs-number">12</span>, <span class="hljs-string">'blue'</span>:<span class="hljs-number">3</span>}
+increments = [(<span class="hljs-string">'red'</span>,<span class="hljs-number">5</span>),(<span class="hljs-string">'blue'</span>,<span class="hljs-number">17</span>),(<span class="hljs-string">'orange'</span>,<span class="hljs-number">9</span>)]
+counter = CountMissing()
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+result = defaultdict(counter.missing, current)
+<span class="hljs-keyword">for</span> key,amount <span class="hljs-keyword">in</span> increments:
+   ...:     result[key] += amount
+   ...:     
+print(counter.added)
+<span class="hljs-number">2</span>
+</code></pre>
+<h3 id="其它默认值">3.2.4 其它默认值</h3>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 错误方式</span>
+cowboy = {<span class="hljs-string">'age'</span>: <span class="hljs-number">32</span>, <span class="hljs-string">'horse'</span>: <span class="hljs-string">'mustang'</span>, <span class="hljs-string">'hat_size'</span>: <span class="hljs-string">'large'</span>}
+<span class="hljs-keyword">if</span> <span class="hljs-string">'name'</span> <span class="hljs-keyword">in</span> cowboy:
+    name = cowboy[<span class="hljs-string">'name'</span>]
+<span class="hljs-keyword">else</span>:
+    name = <span class="hljs-string">'The Man with No Name'</span>
+print(name)
+<span class="hljs-comment"># 如果你想在仍然访问name的key时使用默认值更新字典</span>
+<span class="hljs-comment"># 错误方式</span>
+<span class="hljs-keyword">if</span> <span class="hljs-string">'name'</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> cowboy:
+    cowboy[<span class="hljs-string">'name'</span>] = <span class="hljs-string">'The Man with No Name'</span>
+name = cowboy[<span class="hljs-string">'name'</span>]
+print(name)
+
+<span class="hljs-comment"># 正确方式</span>
+<span class="hljs-comment"># get()执行与第一种方法相同的操作，但现在它们会自动处理。如果key存在，则返回适当的值。否则，将返回默认值</span>
+name = cowboy.get(<span class="hljs-string">'name'</span>, <span class="hljs-string">'The Man with No Name'</span>)
+print(name)
+<span class="hljs-comment"># 正确方式</span>
+name = cowboy.setdefault(<span class="hljs-string">'name'</span>, <span class="hljs-string">'The Man with No Name'</span>)
+print(name)
+
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> defaultdict
+dic = defaultdict(<span class="hljs-keyword">lambda</span> :<span class="hljs-string">'0a'</span>)
+dic[<span class="hljs-string">'a'</span>]
+Out[<span class="hljs-number">41</span>]: <span class="hljs-string">'0a'</span>
+</code></pre>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<pre><code class="lang-cmd">The Man with No Name
+The Man with No Name
+The Man with No Name
+The Man with No Name
+</code></pre>
+<h2 id="有序词典ordereddict">3.3 有序词典OrderedDict</h2>
+<h3 id="概念_1">3.3.1 概念</h3>
+<p>OrderedDict类似于正常的词典，只是它记住了元素插入的顺序，当在有序的词典上迭代时，返回的元素就是它们第一次添加的顺序。</p>
+<p><strong>class collections.OrderedDict</strong>，返回已给dict的子类，支持常规的dict的方法，OrderedDict是一个记住元素首次插入顺序的词典，如果一个元素重写已经存在的元素，那么原始的插入位置保持不变，如果删除一个元素再重新插入，那么它就在末尾。</p>
+<h3 id="使用_1">3.3.2 使用</h3>
+<blockquote>
+<p>使用dict时，Key是无序的。在对dict做迭代时，我们无法确定Key的顺序。如果要保持Key的顺序，可以用OrderedDict，OrderedDict的Key会按照插入的顺序排列，不是Key本身排序</p>
+</blockquote>
+<h4 id="例子1"><a class="anchor-navigation-ex-anchor" href="#例子1" name="例子1"><i aria-hidden="true" class="fa fa-link"></i></a><a class="plugin-anchor" href="#例子1" name="例子1"><i aria-hidden="true" class="fa fa-link"></i></a>例子1</h4>
+<blockquote>
+<p>代码</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 例子1</span>
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+
+odd0 = {<span class="hljs-string">'banana'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'apple'</span>: <span class="hljs-number">4</span>}
+od1 = OrderedDict({<span class="hljs-string">'banana'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'apple'</span>: <span class="hljs-number">4</span>})
+od2 = OrderedDict({<span class="hljs-string">'apple'</span>: <span class="hljs-number">4</span>, <span class="hljs-string">'banana'</span>: <span class="hljs-number">3</span>})
+print(od1 == od2)
+print(od1 == odd0)
+
+<span class="hljs-comment"># 例子2</span>
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+
+od1 = OrderedDict({<span class="hljs-string">'banana'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'apple'</span>: <span class="hljs-number">4</span>})
+<span class="hljs-comment"># OrderedDict.popitem(last=True)，popitem方法返回和删除一个(key,value)对，如果last=True，就以LIFO方式执行，否则以FIFO方式执行。</span>
+od1.popitem(<span class="hljs-keyword">False</span>)
+print(od1)
+od1.pop(<span class="hljs-string">'apple'</span>)  <span class="hljs-comment"># 这里必须提供key</span>
+print(od1)
+</code></pre>
+<blockquote>
+<p>输出</p>
+</blockquote>
+<pre><code class="lang-cmd">False
+True
+OrderedDict([('apple', <span class="hljs-number">4</span>)])
+OrderedDict()
+</code></pre>
+<h3 id="例子2">3.3.3 例子2</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># 例子3</span>
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+od1 = OrderedDict({<span class="hljs-string">'banana'</span>: <span class="hljs-number">3</span>, <span class="hljs-string">'apple'</span>: <span class="hljs-number">4</span>})
+od1.move_to_end(<span class="hljs-string">'banana'</span>)
+print(od1)
+
+<span class="hljs-comment"># 例子4</span>
+<span class="hljs-comment"># OrderedDict可以实现一个FIFO（先进先出）的dict，当容量超出限制时，先删除最早添加的Key</span>
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> OrderedDict
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LastUpdatedOrderedDict</span><span class="hljs-params">(OrderedDict)</span>:</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, capacity)</span>:</span>
+        super(LastUpdatedOrderedDict, self).__init__()
+        self._capacity = capacity
+
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__setitem__</span><span class="hljs-params">(self, key, value)</span>:</span>
+        containsKey = <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> key <span class="hljs-keyword">in</span> self <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>
+        <span class="hljs-keyword">if</span> len(self) - containsKey &gt;= self._capacity:
+            last = self.popitem(last=<span class="hljs-keyword">False</span>)
+            print(<span class="hljs-string">'remove:'</span>, last)
+        <span class="hljs-keyword">if</span> containsKey:
+            <span class="hljs-keyword">del</span> self[key]
+            print(<span class="hljs-string">'set:'</span>, (key, value))
+        <span class="hljs-keyword">else</span>:
+            print(<span class="hljs-string">'add:'</span>, (key, value))
+        OrderedDict.__setitem__(self, key, value)
+</code></pre>
+<pre><code class="lang-cmd">OrderedDict([('apple', <span class="hljs-number">4</span>), ('banana', <span class="hljs-number">3</span>)])
+</code></pre>
+<h2 id="chainmap">3.4 ChainMap</h2>
+<blockquote>
+<p>原始的映射对象被存放在一个列表中构成一个字典序列<code>self.maps</code></p>
+<p>在 <code>ChainMap</code> 中查询某个键时，会对原始的映射对象依次查询，直至找到这个键，若未找到，则默认引发 <code>KeyError</code> 异常。</p>
+<p>在 <code>ChainMap</code> 中进行插入、更新、删除时，只会对原始映射中的第一个映射进行操作</p>
+<p><strong>ChainMap 对象除了 maps 属性外，还具有一个 parents 属性和 new_child(m=None) 方法。</strong></p>
+<p>parents 属性返回了一个不包含原始映射中的第一个映射的 ChainMap 对象，对应源码中 self.<strong>class</strong>(<em>self.maps[1:]) ，其效果和 ChainMap(</em>d.maps[1:]) 相同</p>
+<p>new_child(m=None) 方法返回一个包含指定映射 m（未指定时，为空字典）及其他原有映射的 ChainMap 对象，其中指定映射位于底层 maps 列表首位，在其他原有映射之前。</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># ChainMap 类是为了将多个映射快速的链接到一起，这样它们就可以作为一个单元处理。它通常比创建一个新字典和多次调用 update() 要快很多</span>
+
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> ChainMap
+a = {<span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'b'</span>: <span class="hljs-number">2</span>}
+b = {<span class="hljs-string">'c'</span>: <span class="hljs-number">3</span>}
+c = ChainMap(a, b) <span class="hljs-comment"># 如果有重复的key，以第一次为准</span>
+print(c)
+<span class="hljs-comment"># 将数据以列表形式展现，实际上是将链接指向原来的实现</span>
+print(c.maps)
+print(c.maps[<span class="hljs-number">0</span>][<span class="hljs-string">'b'</span>])
+
+ChainMap({<span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'b'</span>: <span class="hljs-number">2</span>}, {<span class="hljs-string">'c'</span>: <span class="hljs-number">3</span>})
+[{<span class="hljs-string">'a'</span>: <span class="hljs-number">1</span>, <span class="hljs-string">'b'</span>: <span class="hljs-number">2</span>}, {<span class="hljs-string">'c'</span>: <span class="hljs-number">3</span>}]
+<span class="hljs-number">2</span>
+
+<span class="hljs-comment"># 简单应用</span>
+一个Python命令中，如果在命令行中输入参数则使用该参数，没有则从OS环境变量中获取，如果还没有再取自定义默认值
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">import</span> argparse
+<span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> ChainMap
+defaults = {<span class="hljs-string">'color'</span>: <span class="hljs-string">'red'</span>, <span class="hljs-string">'user'</span>: <span class="hljs-string">'guest'</span>}
+parser = argparse.ArgumentParser()
+parser.add_argument(<span class="hljs-string">'-u'</span>, <span class="hljs-string">'--user'</span>)
+parser.add_argument(<span class="hljs-string">'-c'</span>, <span class="hljs-string">'--color'</span>)
+namespace = parser.parse_args()
+command_line_args = {k: v <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> vars(namespace).items() <span class="hljs-keyword">if</span> v}
+combined = ChainMap(command_line_args, os.environ, defaults)
+print(combined[<span class="hljs-string">'color'</span>])
+print(combined[<span class="hljs-string">'user'</span>])
+
+red
+guest
+</code></pre>
+<blockquote>
+<p>使用 <code>ChainMap</code> 对象作为嵌套上下文</p>
+<p>我们在上面提到了 <code>new_child(m=None)</code> 可用于创建子上下文，这个是一个非常便捷的方法，可以使用一个空字典或其他指定的映射来创建一个新的 <code>ChainMap</code> 对象。针对这个新对象的修改不会对原有的 <code>ChainMap</code> 对象（可以将其理解为底层的数据结构或者基础上下文）产生影响。</p>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span>d_1 = {<span class="hljs-string">'name'</span>: <span class="hljs-string">'bob'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">25</span>}
+<span class="hljs-meta">&gt;&gt;&gt; </span>d_2 = {<span class="hljs-string">'height'</span>: <span class="hljs-string">'175'</span>, <span class="hljs-string">'weight'</span>: <span class="hljs-number">120</span>}
+<span class="hljs-meta">&gt;&gt;&gt; </span>c = ChainMap(d_1, d_2)  <span class="hljs-comment"># 创建一个基础上下文</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>c_nc = c.new_child()  <span class="hljs-comment"># 创建一个嵌套的子上下文</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>c_nc[<span class="hljs-string">'skill'</span>] = <span class="hljs-string">'Python'</span>  <span class="hljs-comment"># 在子上下文环境中进行赋值</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>c
+ChainMap({<span class="hljs-string">'name'</span>: <span class="hljs-string">'bob'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">25</span>}, {<span class="hljs-string">'height'</span>: <span class="hljs-string">'175'</span>, <span class="hljs-string">'weight'</span>: <span class="hljs-number">120</span>})
+<span class="hljs-meta">&gt;&gt;&gt; </span>c_nc
+ChainMap({<span class="hljs-string">'skill'</span>: <span class="hljs-string">'Python'</span>}, {<span class="hljs-string">'name'</span>: <span class="hljs-string">'bob'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">25</span>}, {<span class="hljs-string">'height'</span>: <span class="hljs-string">'175'</span>, <span class="hljs-string">'weight'</span>: <span class="hljs-number">120</span>})
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(c_nc)
+[<span class="hljs-string">'height'</span>, <span class="hljs-string">'weight'</span>, <span class="hljs-string">'name'</span>, <span class="hljs-string">'age'</span>, <span class="hljs-string">'skill'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>dict(c_nc)
+{<span class="hljs-string">'height'</span>: <span class="hljs-string">'175'</span>, <span class="hljs-string">'weight'</span>: <span class="hljs-number">120</span>, <span class="hljs-string">'name'</span>: <span class="hljs-string">'bob'</span>, <span class="hljs-string">'age'</span>: <span class="hljs-number">25</span>, <span class="hljs-string">'skill'</span>: <span class="hljs-string">'Python'</span>}
+</code></pre>
+</blockquote>
+<h2 id="计数器counter">3.5 计数器Counter</h2>
+<blockquote>
+<p>Ps: Counter仅支持Hashable对象进行统计</p>
+</blockquote>
+<h3 id="定义_1">3.5.1 定义</h3>
+<blockquote>
+<p>假如你有一长串没有标点符号或大写字母的单词，你想要计算每个单词出现的次数。</p>
+<p>你可以使用字典或defaultdict增加计数，但collections.Counter提供了一种更清晰，更方便的方法。 </p>
+<p>Counter是dict的子类，它使用0作为任何缺失元素的默认值，并且更容易计算对象的出现次数：</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> Counter
+words = <span class="hljs-string">"if there was there was but if there was not there was not"</span>.split()
+<span class="hljs-comment"># 或者  counts = Counter(if=2,there=4,was=4,not=2,but=1) # 传进元组</span>
+counts = Counter(words)
+print(counts)
+
+<span class="hljs-meta">&gt;&gt;&gt; </span>Counter({<span class="hljs-string">'there'</span>: <span class="hljs-number">4</span>, <span class="hljs-string">'was'</span>: <span class="hljs-number">4</span>, <span class="hljs-string">'if'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'not'</span>: <span class="hljs-number">2</span>, <span class="hljs-string">'but'</span>: <span class="hljs-number">1</span>})
+</code></pre>
+<h3 id="遍历元素">3.5.2 遍历元素</h3>
+<blockquote>
+<p>遍历所有元素</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment"># 当你将单词列表传递给Counter时，它会存储每个单词以及该单词在列表中出现的次数。</span>
+<span class="hljs-comment"># 如果你好奇两个最常见的词是什么？只需使用.most_common（）：</span>
+print(counts.most_common(<span class="hljs-number">2</span>))
+
+<span class="hljs-comment"># 遍历所有元素</span>
+<span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> counts.items():
+    print(k, v)
+
+<span class="hljs-comment"># 遍历打印所有元素</span>
+print(sorted(counts.elements()))
+</code></pre>
+<pre><code class="lang-cmd">[('there', <span class="hljs-number">4</span>), ('was', <span class="hljs-number">4</span>)]
+
+<span class="hljs-keyword">if</span> <span class="hljs-number">2</span>
+there <span class="hljs-number">4</span>
+was <span class="hljs-number">4</span>
+but <span class="hljs-number">1</span>
+<span class="hljs-keyword">not</span> <span class="hljs-number">2</span>
+
+['but', '<span class="hljs-keyword">if</span>', '<span class="hljs-keyword">if</span>', '<span class="hljs-keyword">not</span>', '<span class="hljs-keyword">not</span>', 'there', 'there', 'there', 'there', 'was', 'was', 'was', 'was']
+</code></pre>
+<h3 id="更新元素">3.5.3 更新元素</h3>
+<pre><code class="lang-python"><span class="hljs-comment"># update(增加元素)</span>
+counts.update(<span class="hljs-string">"if you are here"</span>.split())
+print(counts)
+
+<span class="hljs-comment"># subtract(原来的元素减去新传入的元素)</span>
+counts.subtract([<span class="hljs-string">'if'</span>])  <span class="hljs-comment"># if的次数减一</span>
+print(counts)
+
+<span class="hljs-comment"># 删除元素</span>
+counts[<span class="hljs-string">'but'</span>] = <span class="hljs-number">0</span>
+<span class="hljs-keyword">del</span> counts[<span class="hljs-string">'but'</span>]
+print(counts)
+</code></pre>
+<pre><code class="lang-cmd">Counter({'there': <span class="hljs-number">4</span>, 'was': <span class="hljs-number">4</span>, '<span class="hljs-keyword">if</span>': <span class="hljs-number">3</span>, '<span class="hljs-keyword">not</span>': <span class="hljs-number">2</span>, 'but': <span class="hljs-number">1</span>, 'you': <span class="hljs-number">1</span>, 'are': <span class="hljs-number">1</span>, 'here': <span class="hljs-number">1</span>})
+Counter({'there': <span class="hljs-number">4</span>, 'was': <span class="hljs-number">4</span>, '<span class="hljs-keyword">if</span>': <span class="hljs-number">2</span>, '<span class="hljs-keyword">not</span>': <span class="hljs-number">2</span>, 'but': <span class="hljs-number">1</span>, 'you': <span class="hljs-number">1</span>, 'are': <span class="hljs-number">1</span>, 'here': <span class="hljs-number">1</span>})
+Counter({'there': <span class="hljs-number">4</span>, 'was': <span class="hljs-number">4</span>, '<span class="hljs-keyword">if</span>': <span class="hljs-number">2</span>, '<span class="hljs-keyword">not</span>': <span class="hljs-number">2</span>, 'you': <span class="hljs-number">1</span>, 'are': <span class="hljs-number">1</span>, 'here': <span class="hljs-number">1</span>})
+</code></pre>
+<h3 id="类集合操作">3.5.4 类集合操作</h3>
+<pre><code class="lang-python">c = Counter(a=<span class="hljs-number">3</span>, b=<span class="hljs-number">1</span>)
+d = Counter(a=<span class="hljs-number">1</span>, b=<span class="hljs-number">2</span>)
+print(c + d)  <span class="hljs-comment"># 相加</span>
+print(c - d)  <span class="hljs-comment"># 相减，如果小于等于0，删去</span>
+print(c &amp; d)  <span class="hljs-comment"># 求最小</span>
+print(c | d)  <span class="hljs-comment"># 求最大</span>
+</code></pre>
+<pre><code class="lang-cmd">Counter({'a': <span class="hljs-number">4</span>, 'b': <span class="hljs-number">3</span>})
+Counter({'a': <span class="hljs-number">2</span>})
+Counter({'a': <span class="hljs-number">1</span>, 'b': <span class="hljs-number">1</span>})
+Counter({'a': <span class="hljs-number">3</span>, 'b': <span class="hljs-number">2</span>})
+</code></pre>
+<h2 id="子类化userdict">3.6 子类化UserDict</h2>
+<blockquote>
+<p>就创造自定义映射类型来说，以 <code>UserDict</code> 为基类，总比以普通的 <code>dict</code> 为基类要来得方便。</p>
+<p>而更倾向于从 <code>UserDict</code> 而不是从 <code>dict</code> 继承的主要原因是，后者有时会在某些方法的实现上走一些捷径，导致我们不得不在它的子类中重写这些方法，但是 <code>UserDict</code> 就不会带来这些问题。</p>
+<p>值得注意的地方是，<code>UserDict</code> 并不是 <code>dict</code> 的子类，但是 <code>UserDict</code> 有一个叫作 <code>data</code> 的属性，是 <code>dict</code> 的实例，这个属性实际上是 <code>UserDict</code> 最终存储数据的地方。</p>
+</blockquote>
+<h1 id="双向队列deque">4 双向队列deque</h1>
+<h2 id="定义_2">4.1 定义</h2>
+<blockquote>
+<p>deque是栈和队列的一种广义实现，deque是"double-end queue"的简称；deque支持线程安全、有效内存地以近似O(1)的性能在deque的两端插入和删除元素，尽管list也支持相似的操作，但是它主要在固定长度操作上的优化，从而在pop(0)和insert(0,v)（会改变数据的位置和大小）上有O(n)的时间复杂度。</p>
+</blockquote>
+<h2 id="常用方法">4.2 常用方法</h2>
+<blockquote>
+<p>deque支持如下方法，</p>
+<p><strong>append(x)，</strong> 将x添加到deque的右侧；</p>
+<p><strong>appendleft(x)，</strong> 将x添加到deque的左侧；</p>
+<p><strong>clear()，</strong> 将deque中的元素全部删除，最后长度为0；</p>
+<p><strong>count(x)，</strong> 返回deque中元素等于x的个数；</p>
+<p><strong>extend(iterable)，</strong> 将可迭代变量iterable中的元素添加至deque的右侧；</p>
+<p><strong>extendleft(iterable)，</strong> 将变量iterable中的元素添加至deque的左侧，往左侧添加序列的顺序与可迭代变量iterable中的元素相反；</p>
+<p><strong>pop()，</strong> 移除和返回deque中最右侧的元素，如果没有元素，将会报出IndexError；</p>
+<p><strong>popleft()，</strong> 移除和返回deque中最左侧的元素，如果没有元素，将会报出IndexError；</p>
+<p><strong>remove(value)，</strong> 移除第一次出现的value，如果没有找到，报出ValueError；</p>
+<p><strong>reverse()，</strong> 反转deque中的元素，并返回None；</p>
+<p><strong>rotate(n)，</strong> 从右侧反转n步，如果n为负数，则从左侧反转，d.rotate(1)等于d.appendleft(d.pop())；</p>
+<p><strong>maxlen，</strong> 只读的属性，deque的最大长度，如果无解，就返回None；</p>
+<p>除了以上的方法之外，deque还支持迭代、序列化、len(d)、reversed(d)、copy.copy(d)、copy.deepcopy(d)，通过in操作符进行成员测试和下标索引，索引的时间复杂度是在两端是O(1)，在中间是O(n)，为了快速获取，可以使用list代替。</p>
+<p>​    index（查找某个元素的索引位置）</p>
+<p>insert（在指定位置插入元素）</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+<span class="hljs-meta">&gt;&gt;&gt; </span>d = deque(<span class="hljs-string">'ghi'</span>)<span class="hljs-comment"># 新建一个deque，有三个元素</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">for</span> ele <span class="hljs-keyword">in</span> d:<span class="hljs-comment"># 遍历deque</span>
+<span class="hljs-meta">... </span>    <span class="hljs-keyword">print</span> ele.upper()
+<span class="hljs-meta">... </span>    
+<span class="hljs-meta">... </span>
+G
+H
+I
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.append(<span class="hljs-string">'j'</span>)<span class="hljs-comment"># deque右侧添加一个元素</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.appendleft(<span class="hljs-string">'f'</span>)<span class="hljs-comment"># deque左侧添加一个元素</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d<span class="hljs-comment"># 打印deque</span>
+deque([<span class="hljs-string">'f'</span>, <span class="hljs-string">'g'</span>, <span class="hljs-string">'h'</span>, <span class="hljs-string">'i'</span>, <span class="hljs-string">'j'</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.pop()<span class="hljs-comment"># 返回和移除最右侧元素</span>
+<span class="hljs-string">'j'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.popleft()<span class="hljs-comment"># 返回和移除最左侧元素</span>
+<span class="hljs-string">'f'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(d)<span class="hljs-comment"># 以列表形式展示出deque的内容</span>
+[<span class="hljs-string">'g'</span>, <span class="hljs-string">'h'</span>, <span class="hljs-string">'i'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span>d[<span class="hljs-number">0</span>]<span class="hljs-comment"># 获取最左侧的元素</span>
+<span class="hljs-string">'g'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d[<span class="hljs-number">-1</span>]<span class="hljs-comment"># 获取最右侧的元素</span>
+<span class="hljs-string">'i'</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>list(reversed(d))<span class="hljs-comment"># 以列表形式展示出倒序的deque的内容</span>
+[<span class="hljs-string">'i'</span>, <span class="hljs-string">'h'</span>, <span class="hljs-string">'g'</span>]
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-string">'h'</span> <span class="hljs-keyword">in</span> d<span class="hljs-comment"># 在deque中搜索</span>
+<span class="hljs-keyword">True</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.extend(<span class="hljs-string">'jkl'</span>)<span class="hljs-comment"># 一次添加多个元素</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d
+deque([<span class="hljs-string">'g'</span>, <span class="hljs-string">'h'</span>, <span class="hljs-string">'i'</span>, <span class="hljs-string">'j'</span>, <span class="hljs-string">'k'</span>, <span class="hljs-string">'l'</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.rotate(<span class="hljs-number">1</span>)<span class="hljs-comment"># 往右侧翻转</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d
+deque([<span class="hljs-string">'l'</span>, <span class="hljs-string">'g'</span>, <span class="hljs-string">'h'</span>, <span class="hljs-string">'i'</span>, <span class="hljs-string">'j'</span>, <span class="hljs-string">'k'</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.rotate(<span class="hljs-number">-1</span>)<span class="hljs-comment"># 往左侧翻转</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d
+deque([<span class="hljs-string">'g'</span>, <span class="hljs-string">'h'</span>, <span class="hljs-string">'i'</span>, <span class="hljs-string">'j'</span>, <span class="hljs-string">'k'</span>, <span class="hljs-string">'l'</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>deque(reversed(d))<span class="hljs-comment"># 以逆序新建一个deque</span>
+deque([<span class="hljs-string">'l'</span>, <span class="hljs-string">'k'</span>, <span class="hljs-string">'j'</span>, <span class="hljs-string">'i'</span>, <span class="hljs-string">'h'</span>, <span class="hljs-string">'g'</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.clear()<span class="hljs-comment"># 清空deque</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.pop()<span class="hljs-comment"># 不能在空的deque上pop</span>
+Traceback (most recent call last):
+  File <span class="hljs-string">"&lt;input&gt;"</span>, line <span class="hljs-number">1</span>, <span class="hljs-keyword">in</span> &lt;module&gt;
+IndexError: pop <span class="hljs-keyword">from</span> an empty deque
+<span class="hljs-meta">&gt;&gt;&gt; </span>d.extendleft(<span class="hljs-string">'abc'</span>)<span class="hljs-comment"># 以输入的逆序向左扩展</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span>d
+deque([<span class="hljs-string">'c'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'a'</span>])
+</code></pre>
+<pre><code class="lang-python"><span class="hljs-comment"># deque是为了高效实现插入和删除操作的双向列表，适合用于队列和栈：</span>
+<span class="hljs-comment"># 使用list存储数据时，按索引访问元素很快，但是插入和删除元素就很慢了，因为list是线性存储，数据量大的时候，插入和删除效率很低。</span>
+<span class="hljs-meta">&gt;&gt;&gt; </span><span class="hljs-keyword">from</span> collections <span class="hljs-keyword">import</span> deque
+<span class="hljs-meta">&gt;&gt;&gt; </span>q = deque([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>])
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.append(<span class="hljs-string">'x'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q.appendleft(<span class="hljs-string">'y'</span>)
+<span class="hljs-meta">&gt;&gt;&gt; </span>q
+deque([<span class="hljs-string">'y'</span>, <span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'x'</span>])
+
+<span class="hljs-comment"># deque除了实现list的append()和pop()外，还支持appendleft()和popleft()，这样就可以非常高效地往头部添加或删除元素</span>
+<span class="hljs-comment"># deque是线程安全的，有GIL保护</span>
+<span class="hljs-comment"># append和popleft都是原子操作</span>
+</code></pre>
+<blockquote>
+<p><strong>multiprocessing</strong>：这个包实现了自己的Queue，它和queue.Queue类似，是设计给进程间通信使用的。同时还有个multiprocessing.JoinableQueue类型，可以让任务管理变得更方便。</p>
+<p><strong>asyncio</strong>：python3.4新提供的包，里面有Queue、LifoQueue、PriorityQueue和JoinableQueue，这些类受到queue和mulitiprocessing模块的影响，但是为异步编程里的任务管理提供了便利。</p>
+</blockquote>
+<h1 id="子类化userdict_1">5 子类化UserDict</h1>
+<table>
+<thead>
+<tr>
+<th><a href="https://docs.python.org/zh-cn/3/library/collections.html#collections.UserDict" target="_blank"><code>UserDict</code></a></th>
+<th>封装了字典对象，简化了字典子类化</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://docs.python.org/zh-cn/3/library/collections.html#collections.UserList" target="_blank"><code>UserList</code></a></td>
+<td>封装了列表对象，简化了列表子类化</td>
+</tr>
+<tr>
+<td><a href="https://docs.python.org/zh-cn/3/library/collections.html#collections.UserString" target="_blank"><code>UserString</code></a></td>
+<td>封装了列表对象，简化了字符串子类化</td>
+</tr>
+</tbody>
+</table>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python元编程" class="navigation navigation-prev" href="7.python元编程.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: logging模块" class="navigation navigation-next" href="9.logging模块.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"collections模块","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i//hexo/post_imgs/蕾姆7.webp","cover":"https://pic.hycbook.com/i//hexo/post_cover/蕾姆7.webp","categories":["python"],"tags":["python","collections","具名元组namedtuple","字典","defaultdict","ChainMap","计数器Counter","双向队列deque"],"abbrlink":54754,"level":"1.9","depth":1,"next":{"title":"logging模块","level":"1.10","depth":1,"path":"chapters/9.logging模块.md","ref":"chapters/9.logging模块.md","articles":[]},"previous":{"title":"python元编程","level":"1.8","depth":1,"path":"chapters/7.python元编程.md","ref":"chapters/7.python元编程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/8.collections模块.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

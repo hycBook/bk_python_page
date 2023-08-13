@@ -1,0 +1,588 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Python增强提案PEP · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="20.python进阶问题.html" rel="next"/>
+<link href="18.python_pipe包管道包学习.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">Python增强提案PEP</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#python-增强提案pep">1 Python 增强提案PEP</a></li><li><span class="title-icon"></span><a href="#pep-557--数据类（data-class）">2 PEP 557  数据类（data class）</a></li></ul></div><a href="#python-增强提案pep" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="python-增强提案pep">1 Python 增强提案PEP</h1>
+<blockquote>
+<ol>
+<li><a href="https://blog.csdn.net/zV3e189oS5c0tSknrBCL/article/details/81463984" target="_blank">Python中10个必读的PEP提案</a></li>
+<li><a href="http://www.raincent.com/content-10-12200-1.html" target="_blank">理解Python数据类：Dataclass 的特征概述 （上）</a></li>
+<li><a href="http://www.west.cn/cms/news/idcnews/2018-08-16/44045.html" target="_blank">理解Python数据类：Dataclass fields 的概述（下）</a></li>
+<li><a href="https://www.jb51.net/article/156793.htm" target="_blank">Python3.7 dataclass使用指南小结</a></li>
+</ol>
+<p>​        PEP 是 Python 增强提案(Python Enhancement Proposal)的缩写。社区通过PEP来给 Python 语言建言献策，每个版本你所看到的新特性和一些变化都是通过PEP提案经过社区决策层讨论、投票决议的。</p>
+</blockquote>
+<h1 id="pep-557--数据类（data-class）">2 PEP 557  数据类（data class）</h1>
+<blockquote>
+<p>dataclass的定义位于PEP-557，根据定义一个dataclass是指“一个带有默认值的可变的namedtuple”，广义的定义就是有一个类，它的属性均可公开访问，可以带有默认值并能被修改，而且类中含有与这些属性相关的类方法，那么这个类就可以称为dataclass，再通俗点讲，dataclass就是一个含有数据及操作数据方法的容器。</p>
+<p>Dataclasses 是一些适合于存储数据对象(data object)的 Python 类。
+下面是一个并不详尽的用于定义数据对象的特征列表：
+• 他们存储并表示特定的数据类型。例如：一个数字。对于那些熟悉对象关系映射(Object Relational Mapping，简称 ORM)的人来说，一个模型实例就是一个数据对象。它表示了一种特定类型的实体。它存储了用于定义或表示那种实体的属性。
+• 他们能够被用于和同类型的其他对象进行比较。例如，一个数字可能大于，小于或等于另一个数字。
+• 当然数据对象还有更多的特征，但上述内容足以帮助你理解关键部分。
+• 为了理解 Dataclases，我们将实现一个简单的类。它能够存储一个数字，并允许我们执行上面提到的各种运算。</p>
+</blockquote>
+<pre><code class="lang-python">1.相比普通class，dataclass通常不包含私有属性，数据可以直接访问
+2.dataclass的repr方法通常有固定格式，会打印出类型名以及属性名和它的值
+3.dataclass拥有__eq__和__hash__魔法方法
+4.dataclass有着模式单一固定的构造方式，或是需要重载运算符，而普通class通常无需这些工作
+
+# -*- coding: utf-8 -*
+import random
+from typing import List
+from dataclasses import dataclass
+from dataclasses import field
+
+# dataclasses.field 接受了一个名为 default_factory 的参数，它的作用是：如果在创建对象时没有赋值，则使用该方法初始化该字段。
+# default_factory 必须是一个可以调用的无参数方法(通常为一个函数)
+def get_random_marks():
+    return [random.randint(1, 10) for _ in range(5)]
+
+@dataclass(order=True)
+class Student:
+    marks: List[int] = field(default_factory=get_random_marks)
+    name: str = field(default='noname', compare=False)
+    age: int = field(default=18, repr=False)
+    # 在追踪一个对象的状态，并且希望它在初始化时一直被设为False
+    # 更一般地，这个值在初始化时不能够被传递,init决定是否生成init
+    verified: bool = field(repr=False, init=False, default=False)
+
+    # 不好的方式：自定义比较方法
+    # 正确方式：
+    # dataclass能够自动生成 &lt;, =, &gt;, &lt;= 和 &gt;= 这些比较方法。但是这些比较方法的一个缺陷是，
+    # 它们使用类中的所有字段进行比较, 并且是按定义顺序
+    # 这里使用(order=True)，把不需要的字段定义为 filed(compare=False)
+    # def __eq__(self, other):
+    #     return (self.marks, self.name) == (other.marks, other.name)
+
+    # 不好的方法：初始化一个变量为列表, 使用__post_init__方法, 或参数传递
+    # 正确方式是使用field
+    # def __post_init__(self):
+    #     self.marks = get_random_marks()
+
+    # 不要自己定义，会自动生成的__repr__方法使用所有的字段用于表示
+    # 不需要的元素使用field(repr=False)过滤
+    # def __repr__(self):
+    #     return self.name+' '+' '.join(self.marks)
+
+student_1 = Student([random.randint(1, 10) for _ in range(5)], 'tom', 17)
+student_2 = Student(age=16, name='Rick')
+# 这里会报异常
+# student_3 = Student(verified=True)
+print(student_1)
+print(f'student_1 == student_2: {student_1 == student_2}')
+
+# 使用dataclasses.asdict和dataclasses.astuple我们可以把数据类实例中的数据转换成字典或者元组：
+from dataclasses import asdict, astuple
+print(asdict(student_2))
+# 使用dataclasses.is_dataclass可以判断一个类或实例对象是否是数据类：
+print(f'isinstance(student_1, Student): {isinstance(student_1, Student)}')
+
+&gt;&gt;&gt;
+    Student(marks=[7, 6, 7, 2, 3], name='tom')
+    student_1 == student_2: False
+    {'marks': [6, 4, 3, 5, 1], 'name': 'Rick', 'age': 16, 'verified': False}
+    isinstance(student_1, Student): True
+</code></pre>
+<pre><code class="lang-python">装饰器的原型如下：
+dataclasses.dataclass(*, init=<span class="hljs-keyword">True</span>, repr=<span class="hljs-keyword">True</span>, eq=<span class="hljs-keyword">True</span>, order=<span class="hljs-keyword">False</span>, unsafe_hash=<span class="hljs-keyword">False</span>, frozen=<span class="hljs-keyword">False</span>)
+dataclass装饰器将根据类属性生成数据类和数据类需要的方法
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>key</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>init</td>
+<td>是否自动生成<strong>init</strong>，如果已经有定义同名方法则忽略这个值，也就是指定为True也不会自动生成</td>
+</tr>
+<tr>
+<td>repr</td>
+<td>是否自动生成<strong>repr</strong>；自动生成的打印格式为class_name(arrt1:value1, attr2:value2, ...)</td>
+</tr>
+<tr>
+<td>eq</td>
+<td>是否生成<strong>eq</strong>；按属性在类内定义时的顺序逐个比较，全部的值相同才会返回True</td>
+</tr>
+<tr>
+<td>order</td>
+<td>自动生成<strong>lt</strong>，<strong>le</strong>，<strong>gt</strong>，<strong>ge</strong>，比较方式与eq相同；如果order指定为True而eq指定为False，将引发ValueError；如果已经定义同名函数，将引发TypeError</td>
+</tr>
+<tr>
+<td>unsafehash</td>
+<td>如果是False，将根据eq和frozen参数来生成<strong>hash</strong>:<br/>1. eq和frozen都为True，<strong>hash</strong>将会生成<br/>2. eq为True而frozen为False，<strong>hash</strong>被设为None<br/>3. eq为False，frozen为True，<strong>hash</strong>将使用超类（object）的同名属性（通常就是基于对象id的hash）<br/>当设置为True时将会根据类属性自动生成<strong>hash</strong>，然而这是不安全的，因为这些属性是默认可变的，这会导致hash的不一致，所以除非能保证对象属性不可随意改变，否则应该谨慎地设置该参数为True</td>
+</tr>
+<tr>
+<td>frozen</td>
+<td>设为True时对field赋值将会引发错误，对象将是不可变的，如果已经定义了<strong>setattr</strong>和<strong>delattr</strong>将会引发TypeError</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-python">field的原型：
+dataclasses.field(*, default=MISSING, default_factory=MISSING, repr=<span class="hljs-keyword">True</span>, hash=<span class="hljs-keyword">None</span>, init=<span class="hljs-keyword">True</span>, compare=<span class="hljs-keyword">True</span>, metadata=<span class="hljs-keyword">None</span>)
+通常我们无需直接使用，装饰器会根据我们给出的类型注解自动生成field，但有时候我们也需要定制这一过程，这时dataclasses.field就显得格外有用了。
+
+default和default_factory参数将会影响默认值的产生，它们的默认值都是<span class="hljs-keyword">None</span>，意思是调用时如果为指定则产生一个为<span class="hljs-keyword">None</span>的值。其中default是field的默认值，而default_factory控制如何产生值，它接收一个无参数或者全是默认参数的callable对象，然后用调用这个对象获得field的初始值，之后再将default（如果值不是MISSING）复制给callable返回的这个对象。
+init参数如果设置为<span class="hljs-keyword">False</span>，表示不为这个field生成初始化操作，dataclass提供了hook—— __post_init__供我们利用这一特性：
+repr参数表示该field是否被包含进repr的输出，compare和hash参数表示field是否参与比较和计算hash值。metadata不被dataclass自身使用，通常让第三方组件从中获取某些元信息时才使用，所以我们不需要使用这一参数。
+
+如果指定一个field的类型注解为dataclasses.InitVar，那么这个field将只会在初始化过程中（__init__和__post_init__）可以被使用，当初始化完成后访问该field会返回一个dataclasses.Field对象而不是field原本的值，也就是该field不再是一个可访问的数据对象。举个例子，比如一个由数据库对象，它只需要在初始化的过程中被访问：
+<span class="hljs-meta">@dataclass</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">C</span>:</span>
+  i: int
+  j: int = <span class="hljs-keyword">None</span>
+  database: InitVar[DatabaseType] = <span class="hljs-keyword">None</span>
+
+  <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__post_init__</span><span class="hljs-params">(self, database)</span>:</span>
+    <span class="hljs-keyword">if</span> self.j <span class="hljs-keyword">is</span> <span class="hljs-keyword">None</span> <span class="hljs-keyword">and</span> database <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">None</span>:
+      self.j = database.lookup(<span class="hljs-string">'j'</span>)
+
+c = C(<span class="hljs-number">10</span>, database=my_database)
+</code></pre>
+<blockquote>
+<p>dataclass继承
+python3.7引入dataclass的一大原因就在于相比namedtuple，dataclass可以享受继承带来的便利。
+dataclass装饰器会检查当前class的所有基类，如果发现一个dataclass，就会把它的字段按顺序添加进当前的class，随后再处理当前class的field。所有生成的方法也将按照这一过程处理，因此如果子类中的field与基类同名，那么子类将会无条件覆盖基类。子类将会根据所有的field重新生成一个构造函数，并在其中初始化基类。</p>
+<p>几点注意事项：
+dataclass通常情况下是unhashable的，因为默认生成的<strong>hash</strong>是None，所以不能用来做字典的key，如果有这种需求，那么应该指定你的数据类为frozen dataclass
+小心当你定义了和dataclass生成的同名方法时会引发的问题
+当使用可变类型（如list）时，应该考虑使用field的default_factory
+数据类的属性都是公开的，如果你有属性只需要初始化时使用而不需要在其他时候被访问，请使用dataclasses.InitVar</p>
+</blockquote>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python_pipe包管道包学习" class="navigation navigation-prev" href="18.python_pipe包管道包学习.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: python进阶问题" class="navigation navigation-next" href="20.python进阶问题.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Python增强提案PEP","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆5.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆5.webp","categories":["python"],"tags":["python","PEP增强提案"],"abbrlink":65108,"level":"1.20","depth":1,"next":{"title":"python进阶问题","level":"1.21","depth":1,"path":"chapters/20.python进阶问题.md","ref":"chapters/20.python进阶问题.md","articles":[]},"previous":{"title":"python_pipe包管道包学习","level":"1.19","depth":1,"path":"chapters/18.python_pipe包管道包学习.md","ref":"chapters/18.python_pipe包管道包学习.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/19.Python增强提案PEP.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,668 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>Anaconda开发环境 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="31.elementary_os记录.md" rel="next"/>
+<link href="22.python网络编程.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">Anaconda开发环境</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#anaconda介绍">1 Anaconda介绍</a></li><ul><li><span class="title-icon"></span><a href="#套件管理">1.1 套件管理</a></li><li><span class="title-icon"></span><a href="#pip管理">1.2 pip管理</a></li></ul><li><span class="title-icon"></span><a href="#安装">2 安装</a></li><li><span class="title-icon"></span><a href="#虚拟环境管理">3 虚拟环境管理</a></li><li><span class="title-icon"></span><a href="#conda源管理">4 conda源管理</a></li><li><span class="title-icon"></span><a href="#其他管理">5 其他管理</a></li></ul></div><a href="#anaconda介绍" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="anaconda介绍">1 Anaconda介绍</h1>
+<p>Anaconda（<a href="https://link.zhihu.com/?target=https://www.anaconda.com/download/#macos" target="_blank">官方网站</a>）就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。</p>
+<h2 id="套件管理">1.1 套件管理</h2>
+<blockquote>
+<p>显示已安装的套件</p>
+</blockquote>
+<pre><code class="lang-cmd">conda list
+pip list
+</code></pre>
+<blockquote>
+<p>套件安装</p>
+</blockquote>
+<pre><code class="lang-cmd">conda install packages # pip可以安装一些conda安装不了的包
+pip install packages [-i https://pypi.douban.com/simple] # -i部分临时指定pip源
+easy_install 参数 packages
+python setup.py install # 下载源码，进入到源码路径下
+</code></pre>
+<blockquote>
+<p>国内的pip源</p>
+</blockquote>
+<p>阿里云 <a href="https://mirrors.aliyun.com/pypi/simple/" target="_blank">https://mirrors.aliyun.com/pypi/simple/</a></p>
+<p>中国科技大学 <a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank">https://pypi.mirrors.ustc.edu.cn/simple/</a></p>
+<p>豆瓣(douban) <a href="https://pypi.douban.com/simple/" target="_blank">https://pypi.douban.com/simple/</a></p>
+<p>清华大学 <a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank">https://pypi.tuna.tsinghua.edu.cn/simple/</a></p>
+<pre><code class="lang-cmd">pip install xx -i http://pypi.douban.com/simple/ --trusted-host=pypi.douban.com/simple
+</code></pre>
+<blockquote>
+<p>从Anaconda.org安装套件</p>
+</blockquote>
+<pre><code class="lang-cmd"># 如果一个包不能使用conda安装，可在Anaconda.org查找
+# 在左上角的叫“Search Anaconda Cloud”搜索框中输入“包名”并点击search按钮
+conda install --channel https://conda.anaconda.ort/pandas bottleneck # 安装bottleneck包
+</code></pre>
+<blockquote>
+<p>删除套件</p>
+</blockquote>
+<pre><code class="lang-cmd">conda/pip uninstall packages
+easy_install -m packages
+</code></pre>
+<blockquote>
+<p>查找套件</p>
+</blockquote>
+<pre><code class="lang-cmd">conda search packages
+</code></pre>
+<h2 id="pip管理">1.2 pip管理</h2>
+<blockquote>
+<p>升级</p>
+</blockquote>
+<pre><code class="lang-cmd"># 试用linux, win下可能会因为权限升级失败
+pip install --upgrade pip
+
+# win或linux
+python -m pip install --upgrade pip
+</code></pre>
+<p>如果不小心删掉了pip，可以用以下命令安装</p>
+<pre><code class="lang-cmd">python -m ensurepip --default-pip
+</code></pre>
+<h1 id="安装">2 安装</h1>
+<blockquote>
+<p>基础准备(centos7环境)</p>
+</blockquote>
+<ul>
+<li><p>安装wget命令：<code>yum -y install wget</code></p>
+</li>
+<li><p>安装git相关</p>
+<pre><code># 安装git
+yum install git -y
+
+# 安装git lfs（大文件下载）
+curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.rpm.sh | sudo bash
+yum install git-lfs
+git lfs install
+</code></pre></li>
+<li><p>安装OpenSSL和libssl-dev</p>
+<pre><code class="lang-cmd">yum install openssl
+yum install openssl-devel
+</code></pre>
+</li>
+<li><p>安装gcc：<code>yum install gcc</code></p>
+</li>
+<li></li>
+</ul>
+<blockquote>
+<p>安装步骤</p>
+</blockquote>
+<pre><code class="lang-cmd"># 安装anaconda环境
+wget https://repo.anaconda.com/archive/Anaconda3-<span class="hljs-number">2023</span>.<span class="hljs-number">07</span>-<span class="hljs-number">2</span>-Linux-x86_64.sh
+chmod +x Anaconda3-<span class="hljs-number">2023</span>.<span class="hljs-number">07</span>-<span class="hljs-number">2</span>-Linux-x86_64.sh
+./Anaconda3-<span class="hljs-number">2023</span>.<span class="hljs-number">07</span>-<span class="hljs-number">2</span>-Linux-x86_64.sh
+
+# 创建自己的python环境
+conda create -n gpt310 python=<span class="hljs-number">3</span>.<span class="hljs-number">10</span> anaconda
+</code></pre>
+<h1 id="虚拟环境管理">3 虚拟环境管理</h1>
+<p><strong>使用Anaconda Prompt 管理虚拟环境</strong></p>
+<blockquote>
+<p>新建虚拟环境</p>
+<p>添加后缀 “anaconda”或“biopython”可以创建一个基本科学计算功能完备的环境</p>
+</blockquote>
+<pre><code class="lang-cmd">conda create -n 环境名 python=<span class="hljs-number">3</span>.<span class="hljs-number">7</span> anaconda
+</code></pre>
+<blockquote>
+<p>切换虚拟环境</p>
+</blockquote>
+<pre><code class="lang-cmd">source activate snowflakes # Linux，OS X
+activate snowflakes # Windows
+</code></pre>
+<blockquote>
+<p>关闭虚拟环境</p>
+</blockquote>
+<pre><code class="lang-cmd">source deactivate # Linux，OS X
+deactivate # Windows
+</code></pre>
+<blockquote>
+<p>查看所有的虚拟环境名称</p>
+</blockquote>
+<pre><code>conda info -e
+conda env list
+</code></pre><blockquote>
+<p>移除虚拟环境</p>
+</blockquote>
+<pre><code class="lang-cmd">conda remove -n 虚拟环境名称 --all
+</code></pre>
+<blockquote>
+<p>复制虚拟环境</p>
+</blockquote>
+<pre><code class="lang-cmd">conda create -n 虚拟环境名称 --clone root
+</code></pre>
+<blockquote>
+<p>IPython 交谈式命令窗口</p>
+</blockquote>
+<ul>
+<li><p>cmd中python模式的加强版</p>
+</li>
+<li><p>观看先前输入的程序代码 history</p>
+</li>
+<li><p>查询使用说明 ?加在命令后面</p>
+</li>
+<li><p>简易智能输入</p>
+</li>
+<li><p>执行python档案 %run 档案路径</p>
+</li>
+</ul>
+<blockquote>
+<p>更新conda本身</p>
+</blockquote>
+<pre><code class="lang-powershell">conda update conda
+</code></pre>
+<blockquote>
+<p>更新anaconda 应用</p>
+</blockquote>
+<pre><code class="lang-cmd">conda update anaconda
+</code></pre>
+<blockquote>
+<p>更新python</p>
+</blockquote>
+<p>假设当前python环境是3.6.1，而最新版本是3.6.2，那么就会升级到3.6.2</p>
+<pre><code class="lang-cmd">conda update python
+</code></pre>
+<h1 id="conda源管理">4 conda源管理</h1>
+<blockquote>
+<p>查看当前源信息</p>
+</blockquote>
+<pre><code class="lang-powershell">conda info
+</code></pre>
+<p>关注 channel URLs 字段内容</p>
+<blockquote>
+<p>添加一个镜像</p>
+</blockquote>
+<pre><code class="lang-cmd"># 添加镜像
+(base) C:\Users\hyc&gt;conda config --add channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
+
+# 设置搜索时显示channel地址
+(base) C:\Users\hyc&gt;conda config --<span class="hljs-built_in">set</span> show_channel_urls yes
+</code></pre>
+<blockquote>
+<p>删除一个镜像</p>
+</blockquote>
+<pre><code class="lang-cmd"># 注意链接要有引号，英文输入法
+(base) C:\Users\hyc&gt;conda config --remove channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/'
+</code></pre>
+<blockquote>
+<p>查看conda的镜像</p>
+</blockquote>
+<pre><code class="lang-yaml">conda config --show-sources
+conda config --show channels
+</code></pre>
+<blockquote>
+<p>删除所有镜像</p>
+</blockquote>
+<pre><code class="lang-cmd">conda config --remove-key channels
+</code></pre>
+<blockquote>
+<p>以上操作可以直接编辑<code>.condarc</code>文件完成</p>
+</blockquote>
+<pre><code class="lang-yaml"><span class="hljs-attr">ssl_verify:</span> <span class="hljs-literal">False</span>
+<span class="hljs-attr">proxy_servers:</span>
+<span class="hljs-attr">  http:</span> http://<span class="hljs-number">192.168</span><span class="hljs-number">.4</span><span class="hljs-number">.80</span>:<span class="hljs-number">3128</span>
+<span class="hljs-attr">  https:</span> http://<span class="hljs-number">192.168</span><span class="hljs-number">.4</span><span class="hljs-number">.80</span>:<span class="hljs-number">3128</span>
+<span class="hljs-attr">channels:</span>
+<span class="hljs-attr">  - https:</span>//mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+<span class="hljs-bullet">  -</span> defaults
+<span class="hljs-attr">show_channel_urls:</span> <span class="hljs-literal">True</span>
+</code></pre>
+<h1 id="其他管理">5 其他管理</h1>
+<blockquote>
+<p>运行环境分享</p>
+</blockquote>
+<p>执行如下命令可以将当前环境下的 package 信息存入名为 environment 的 YAML 文件中</p>
+<pre><code class="lang-cmd">conda env export &gt; environment.yaml
+</code></pre>
+<blockquote>
+<p>使用yaml文件创建环境</p>
+</blockquote>
+<pre><code class="lang-cmd">conda env create -f environment.yaml
+</code></pre>
+<blockquote>
+<p>国内常见源</p>
+<ul>
+<li><a href="https://blog.csdn.net/qq_29007291/article/details/81103603" target="_blank">anaconda conda 切换为国内源</a></li>
+<li><a href="https://mirror.tuna.tsinghua.edu.cn/help/anaconda/" target="_blank">Anaconda 镜像使用帮助</a></li>
+<li><a href="https://www.cnblogs.com/dereen/p/anaconda_tencent_mirrors.html" target="_blank">国内可用Anaconda 源的镜像站及换国内源方法</a></li>
+</ul>
+<p>linux可行</p>
+</blockquote>
+<pre><code class="lang-cmd">conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+
+conda config --<span class="hljs-built_in">set</span> show_channel_urls yes
+</code></pre>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python网络编程" class="navigation navigation-prev" href="22.python网络编程.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: elementary_os记录" class="navigation navigation-next" href="31.elementary_os记录.md">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"Anaconda开发环境","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆3.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆3.webp","categories":["python"],"tags":["python","anaconda"],"abbrlink":39324,"level":"1.24","depth":1,"next":{"title":"elementary_os记录","level":"1.25","depth":1,"path":"chapters/31.elementary_os记录.md","ref":"chapters/31.elementary_os记录.md","articles":[]},"previous":{"title":"python网络编程","level":"1.23","depth":1,"path":"chapters/22.python网络编程.md","ref":"chapters/22.python网络编程.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/30.Anaconda开发环境.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

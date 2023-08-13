@@ -1,0 +1,928 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>logging模块 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="python日志文件配置使用方法" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="10.数据库相关操作.html" rel="next"/>
+<link href="8.collections模块.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">logging模块</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#logging-模块">1 logging 模块</a></li><li><span class="title-icon"></span><a href="#logging-流程">2 logging 流程</a></li><li><span class="title-icon"></span><a href="#logger-使用">3 Logger 使用</a></li><ul><li><span class="title-icon"></span><a href="#logging-配置">3.1 logging 配置</a></li><ul><li><span class="title-icon"></span><a href="#python代码">3.1.1 python代码</a></li><li><span class="title-icon"></span><a href="#配置文件">3.1.2 配置文件</a></li><li><span class="title-icon"></span><a href="#字典配置推荐">3.1.3 字典配置(推荐)</a></li></ul><li><span class="title-icon"></span><a href="#handler-子类">3.2 Handler 子类</a></li><li><span class="title-icon"></span><a href="#自定义-logger">3.3 自定义 Logger</a></li></ul><li><span class="title-icon"></span><a href="#可能的问题">4 可能的问题</a></li></ul></div><a href="#logging-模块" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<hr/>
+<blockquote>
+<p><a href="https://www.jianshu.com/p/03d1fb61fbb4" target="_blank">python的日志模块logging</a></p>
+<p><a href="https://www.jianshu.com/p/e3d16d85d68b" target="_blank">Python Logging 指南</a></p>
+<p><a href="https://www.jianshu.com/p/7b5e4752932e" target="_blank">Python日志库logging总结-可能是目前为止将logging库总结的最好的一篇文章</a></p>
+<p><a href="https://www.jianshu.com/p/d615bf01e37b" target="_blank">python logging日志模块以及多进程日志</a></p>
+<p><a href="https://www.cnblogs.com/love9527/p/8996778.html" target="_blank">Python配置日志的几种方式</a></p>
+</blockquote>
+<h1 id="logging-模块">1 logging 模块</h1>
+<blockquote>
+<p>在部署项目时，不可能直接将所有的信息都输出到控制台中，我们可以将这些信息记录到日志文件中</p>
+</blockquote>
+<p>这样不仅方便我们查看程序运行时的情况，也可以在项目出现故障时根据运行时产生的日志快速定位问题出现的位置</p>
+<p><a data-lightbox="a45ed37a-5483-4b7a-aa80-9e0736942623" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/9.logging模块/7749898-35d553d115ffa17f.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/9.logging模块/7749898-35d553d115ffa17f.webp"/></a></p>
+<blockquote>
+<font color="AER4E6" size="4">logging框架组成：</font>
+</blockquote>
+<ul>
+<li><strong>Loggers</strong>: 日志，暴露函数给应用程序，基于日志记录器和过滤器级别决定哪些日志有效。</li>
+<li><strong>LogRecord</strong> ：日志记录器，将日志传到相应的处理器处理。</li>
+<li><strong>Handlers</strong>: 处理器, 将(日志记录器产生的)日志记录发送至合适的目的地。<ul>
+<li>常用类型有StreamHandler、FileHandler、NullHandler</li>
+</ul>
+</li>
+<li><strong>Filters</strong>: 过滤器, 提供了更好的粒度控制,它可以决定输出哪些日志记录。</li>
+<li><strong>Formatters</strong>: 格式化器, 指明了最终输出中日志记录的布局。</li>
+</ul>
+<blockquote>
+<font color="AER4E6" size="4">logging日志级别：</font>
+</blockquote>
+<p>每个logger都有一个日志的级别。logging中定义了如下级别</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th style="text-align:center">Numeric value</th>
+<th>解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NOTSET</td>
+<td style="text-align:center">0</td>
+<td>意指不设置 所以按照父logger级别来过滤日志</td>
+</tr>
+<tr>
+<td>DEBUG</td>
+<td style="text-align:center">10</td>
+<td>详细信息，通常仅在诊断问题时才有意义</td>
+</tr>
+<tr>
+<td>INFO</td>
+<td style="text-align:center">20</td>
+<td>确认事情按预期工作</td>
+</tr>
+<tr>
+<td>WARNING</td>
+<td style="text-align:center">30</td>
+<td>表明发生了意外情况，或表明在不久的将来出现了一些问题<br/>（例如 “磁盘空间不足”）。但是该软件仍在按预期工作</td>
+</tr>
+<tr>
+<td>ERROR</td>
+<td style="text-align:center">40</td>
+<td>由于更严重的问题，该软件无法执行某些功能</td>
+</tr>
+<tr>
+<td>CRITICAL</td>
+<td style="text-align:center">50</td>
+<td>严重错误，表明程序本身可能无法继续运行</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<font color="33cccc" size="4">注意事项：</font>
+</blockquote>
+<p>但是当发生异常时，直接使用无参数的 debug()、info()、warning()、error()、critical() 方法并不能记录异常信息</p>
+<p>需要设置 exc_info 参数为 True 才可以，或者使用 exception() 方法，还可以使用 log() 方法，但还要设置日志级别和 exc_info 参数</p>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> logging
+
+logging.basicConfig(filename=<span class="hljs-string">"test.log"</span>, filemode=<span class="hljs-string">"w"</span>, format=<span class="hljs-string">"%(asctime)s %(name)s:%(levelname)s:%(message)s"</span>,
+                    datefmt=<span class="hljs-string">"%d-%M-%Y %H:%M:%S"</span>, level=logging.DEBUG)
+a = <span class="hljs-number">5</span>
+b = <span class="hljs-number">0</span>
+<span class="hljs-keyword">try</span>:
+    c = a / b
+<span class="hljs-keyword">except</span> Exception <span class="hljs-keyword">as</span> e:
+    <span class="hljs-comment"># 下面三种方式三选一，推荐使用第一种</span>
+    logging.exception(<span class="hljs-string">"Exception occurred"</span>)
+    logging.error(<span class="hljs-string">"Exception occurred"</span>, exc_info=<span class="hljs-keyword">True</span>)
+    logging.log(level=logging.DEBUG, msg=<span class="hljs-string">"Exception occurred"</span>, exc_info=<span class="hljs-keyword">True</span>)
+</code></pre>
+<h1 id="logging-流程">2 logging 流程</h1>
+<ol>
+<li><p>判断 Logger 对象对于设置的级别是否可用，如果可用，则往下执行，否则，流程结束。</p>
+</li>
+<li><p>创建 LogRecord 对象，如果注册到 Logger 对象中的 Filter 对象过滤后返回 False，则不记录日志，流程结束，否则，则向下执行。</p>
+</li>
+<li><p>LogRecord 对象将 Handler 对象传入当前的 Logger 对象，（图中的子流程）如果 Handler 对象的日志级别大于设置的日志级别，再判断注册到 Handler 对象中的 Filter 对象过滤后是否返回 True 而放行输出日志信息，否则不放行，流程结束。</p>
+</li>
+<li><p>如果传入的 Handler 大于 Logger 中设置的级别，也即 Handler 有效，则往下执行，否则，流程结束。</p>
+</li>
+<li><p>判断这个 Logger 对象是否还有父 Logger 对象，如果没有（代表当前 Logger 对象是最顶层的 Logger 对象 root Logger），流程结束。否则将 Logger 对象设置为它的父 Logger 对象，重复上面的 3、4 两步，输出父类 Logger 对象中的日志输出，直到是 root Logger 为止。</p>
+</li>
+</ol>
+<p><a data-lightbox="88df1762-5302-4c03-973b-b79d4c9447d8" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/9.logging模块/5763525-f434277ce83dbc75.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/9.logging模块/5763525-f434277ce83dbc75.webp"/></a></p>
+<h1 id="logger-使用">3 Logger 使用</h1>
+<h2 id="logging-配置">3.1 logging 配置</h2>
+<h3 id="python代码">3.1.1 python代码</h3>
+<blockquote>
+<p>使用Python代码显式的创建loggers，handlers和formatters并分别调用它们的配置函数</p>
+<p>通过简单方式进行配置，使用 basicConfig() 函数直接进行配置；</p>
+<font color="6495ED" size="4">代码</font>
+</blockquote>
+<p>Logger 对象和 Handler 对象都可以设置级别，而默认 Logger 对象级别为 30 ，也即 WARNING，默认 Handler 对象级别为 0，也即 NOTSET。</p>
+<p>logging 模块这样设计是为了更好的灵活性，比如有时候我们既想在控制台中输出DEBUG 级别的日志，又想在文件中输出WARNING级别的日志。</p>
+<blockquote>
+<p>可以只设置一个最低级别的 Logger 对象，两个不同级别的 Handler 对象，示例代码如下：</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> logging.handlers
+
+logger = logging.getLogger(<span class="hljs-string">"logger"</span>)
+
+handler1 = logging.StreamHandler()
+handler2 = logging.FileHandler(filename=<span class="hljs-string">"test.log"</span>, encoding=<span class="hljs-string">"utf-8"</span>)
+
+logger.setLevel(logging.DEBUG)
+handler1.setLevel(logging.WARNING)
+handler2.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter(<span class="hljs-string">"%(asctime)s %(name)s %(levelname)s %(message)s"</span>)
+handler1.setFormatter(formatter)
+handler2.setFormatter(formatter)
+
+logger.addHandler(handler1)
+logger.addHandler(handler2)
+
+<span class="hljs-comment"># 分别为 10、30、30</span>
+<span class="hljs-comment"># print(handler1.level)</span>
+<span class="hljs-comment"># print(handler2.level)</span>
+<span class="hljs-comment"># print(logger.level)</span>
+
+logger.debug(<span class="hljs-string">'This is a customer debug message'</span>)
+logger.info(<span class="hljs-string">'This is an customer info message'</span>)
+logger.warning(<span class="hljs-string">'This is a customer warning message'</span>)
+logger.error(<span class="hljs-string">'This is an customer error message'</span>)
+logger.critical(<span class="hljs-string">'This is a customer critical message'</span>)
+</code></pre>
+<font color="6495ED" size="4">或者</font>
+<pre><code class="lang-python">logging.basicConfig(filename=<span class="hljs-string">"config.log"</span>,
+                    filemode=<span class="hljs-string">"w"</span>,
+                    format=<span class="hljs-string">"%(asctime)s-%(name)s-%(levelname)s-%(message)s"</span>,
+                    level=logging.INFO)
+logging.basicConfig(level=log_level,
+                    format=<span class="hljs-string">'%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s'</span>,
+                    datefmt=<span class="hljs-string">'%a, %d %b %Y %H:%M:%S'</span>,
+                    filename=<span class="hljs-string">'parser_result.log'</span>,
+                    filemode=<span class="hljs-string">'w'</span>)
+</code></pre>
+<blockquote>
+<p>参数说明</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>参数名称</th>
+<th>参数描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filename</td>
+<td>日志输出到文件的文件名</td>
+</tr>
+<tr>
+<td>filemode</td>
+<td>文件模式，r[+]、w[+]、a[+]</td>
+</tr>
+<tr>
+<td>format</td>
+<td>日志输出的格式</td>
+</tr>
+<tr>
+<td>datefat</td>
+<td>日志附带日期时间的格式</td>
+</tr>
+<tr>
+<td>style</td>
+<td>格式占位符，默认为 "%" 和 “{}”</td>
+</tr>
+<tr>
+<td>level</td>
+<td>设置日志输出级别</td>
+</tr>
+<tr>
+<td>stream</td>
+<td>定义输出流，用来初始化 StreamHandler 对象<br/>不能 filename 参数一起使用，否则会ValueError 异常</td>
+</tr>
+<tr>
+<td>handles</td>
+<td>定义处理器，用来创建 Handler 对象，不能和 filename 、stream 参数<br/>一起使用，否则也会抛出 ValueError 异常</td>
+</tr>
+</tbody>
+</table>
+<font color="B452CD" size="4">输出</font>
+<pre><code class="lang-cmd"><span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">05</span>:<span class="hljs-number">34</span>,<span class="hljs-number">486</span> - simple_logger - DEBUG - debug message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">05</span>:<span class="hljs-number">34</span>,<span class="hljs-number">487</span> - simple_logger - INFO - info message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">05</span>:<span class="hljs-number">34</span>,<span class="hljs-number">487</span> - simple_logger - WARNING - warning message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">05</span>:<span class="hljs-number">34</span>,<span class="hljs-number">487</span> - simple_logger - ERROR - error message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">11</span>:<span class="hljs-number">05</span>:<span class="hljs-number">34</span>,<span class="hljs-number">487</span> - simple_logger - CRITICAL - critical message.
+</code></pre>
+<h3 id="配置文件">3.1.2 配置文件</h3>
+<blockquote>
+<p>创建一个日志配置文件，然后使用fileConfig()函数来读取该文件的内容</p>
+<p>相对于第一种配置方式的优点在于，它将配置信息和代码分离了，这一方面降低了日志的维护成本，同时还使得非开放人员也能够很容易的修改日志配置</p>
+<p>通过配置文件进行配置，使用fileConfig()函数读取配置文件</p>
+<p>常见的配置文件有 ini 格式、yaml 格式、JSON 格式，或者从网络中获取都是可以的</p>
+</blockquote>
+<font color="6495ED" size="4">配置文件logging.conf</font>
+<ul>
+<li>配置文件中一定要包含loggers、handlers、formatters这些section，它们通过keys这个option来指定该配置文件中已经定义好的loggers、handlers和formatters，多个值之间用逗号分隔；另外loggers这个section中的keys一定要包含root这个值；</li>
+<li>loggers、handlers、formatters中所所指定的日志器、处理器和格式器都需要在下面单独的section中进行定义。section的命名规则为[logger_loggerName]、[handler_handlerName]、[formatter_formatterName]；</li>
+<li>定义logger的section必须指定level和handlers这两个option，level的可取值为DEBUG、INFO、WARNING、ERROR、CRITICAL、NOTSET，其中NOTSET表示所有级别的日志消息都要记录，包括用户定义级别；handlers的值是以逗号分隔的handler名字列表，这里出现的handler必须出现在[handlers]这个section中，并且相应的handler必须在配置文件中有对应的section定义；</li>
+<li>对于非root logger来说，除了level和handlers这两个option之外，还需要一些额外的option，其中qualname是必须提供的option，它表示在logger层级中的名字，在应用代码中通过这个名字得到logger；propagate是可选的，其默认值为1，表示消息将会传递给高层次logger的handler，通常我们需要指定其值为0，这个可以看下面的例子；另外，对于非root logger的level如果设置为NOTSET，系统将会查找高层次的logger来决定此logger的有效level；</li>
+<li>定义handler的section中必须指定class和args这两个option，level和formatter为可选option；class表示用于创建handler的类名，args表示传递给class所指定的handler类初始化方法参数，它必须是一个元组(tuple)的形式，即便只有一个参数值也需要是一个元组的形式；level与logger中的level一样，而formatter指定的是该处理器所使用的格式器，这里指定的格式器名称必须出现在formatters这个section总，且在配置文件中必须要有这个formatter的section定义；如果不指定formatter则该handler将会以消息本身作为日志消息进行记录，而不添加额外的时间、日志器名称等信息；</li>
+<li>定义formatter的section中的option都是可选的，其中包括format用于指定格式字符串，默认为消息字符串本身；datefmt用于指定asctime的时间格式，默认为"%Y-%m-%d %H:%M:%S"；class用于指定格式器类名，默认为logging.Formatter；</li>
+</ul>
+<p>每一个logger或者handler或者formatter都有一个key名字，以logger为例，首先需要在[loggers]配置中加上key名字代表了这个logger</p>
+<p>然后用[loggers_xxxx]其中xxxx为key名来具体配置这个logger，在log02中我配置了level和一个handler名，当然你可以配置多个hander</p>
+<p>根据这个handler名再去 [handlers]里面去找具体handler的配置，以此类推</p>
+<pre><code class="lang-yaml"><span class="hljs-comment">##############################################</span>
+[loggers]
+keys=root, log02
+
+[logger_root]
+level=INFO
+handlers=handler01
+
+[logger_log02]
+level=DEBUG
+handler=handler02
+qualname=log02
+<span class="hljs-comment">##############################################</span>
+[handlers]
+keys=handler01,handler02
+
+[handler_handler01]
+class=FileHandler
+level=INFO
+formatter=form01
+args=(<span class="hljs-string">'../log/cv_parser_gm_server.log'</span>,<span class="hljs-string">"a"</span>)
+
+[handler_handler02]
+class=StreamHandler
+level=NOTSET
+formatter=form01
+args=(sys.stdout,)
+<span class="hljs-comment">##############################################</span>
+[formatters]
+keys=form01,form02
+
+[formatter_form01]
+format=%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(process)d %(message)s
+datefmt=[%Y-%m-%d %H:%M:%S]
+
+[formatter_form02]
+format=(message)s
+<span class="hljs-comment">##############################################</span>
+</code></pre>
+<font color="6495ED" size="4">代码</font>
+<blockquote>
+<p>该函数实际上是对configparser模块的封装，函数定义：该函数定义在logging.config模块下</p>
+</blockquote>
+<pre><code class="lang-python">logging.config.fileConfig(fname, defaults=<span class="hljs-keyword">None</span>, disable_existing_loggers=<span class="hljs-keyword">True</span>)
+</code></pre>
+<blockquote>
+<p>参数说明：</p>
+</blockquote>
+<ul>
+<li>fname：表示配置文件的文件名或文件对象；</li>
+<li>defaults：指定传给ConfigParser的默认值；</li>
+<li>disable_existing_loggers：这是一个布尔值，默认值为True(为了向后兼容)表示禁用已经存在的logger，除非它们或它们的祖先明确的出现在日志配置中；如果该值为False，则对已存在的loggers保持启动状态</li>
+</ul>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> logging.config
+
+<span class="hljs-comment"># 读取日志配置文件内容</span>
+logging.config.fileConfig(<span class="hljs-string">"logging.conf"</span>)
+
+<span class="hljs-comment"># 创建一个日志器logger</span>
+logger = logging.getLogger(<span class="hljs-string">"simpleExample"</span>)
+
+<span class="hljs-comment"># 日志输出</span>
+logger.debug(<span class="hljs-string">"debug message."</span>)
+logger.info(<span class="hljs-string">"info message."</span>)
+logger.warning(<span class="hljs-string">"warning message."</span>)
+logger.error(<span class="hljs-string">"error message."</span>)
+logger.critical(<span class="hljs-string">"critical message."</span>)
+</code></pre>
+<font color="B452CD" size="4">输出</font>
+<pre><code class="lang-cmd"><span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">12</span>:<span class="hljs-number">29</span>:<span class="hljs-number">24</span>,<span class="hljs-number">849</span> - simpleExample - DEBUG - debug message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">12</span>:<span class="hljs-number">29</span>:<span class="hljs-number">24</span>,<span class="hljs-number">849</span> - simpleExample - INFO - info message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">12</span>:<span class="hljs-number">29</span>:<span class="hljs-number">24</span>,<span class="hljs-number">849</span> - simpleExample - WARNING - warning message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">12</span>:<span class="hljs-number">29</span>:<span class="hljs-number">24</span>,<span class="hljs-number">849</span> - simpleExample - ERROR - error message.
+<span class="hljs-number">2018</span>-<span class="hljs-number">05</span>-<span class="hljs-number">06</span> <span class="hljs-number">12</span>:<span class="hljs-number">29</span>:<span class="hljs-number">24</span>,<span class="hljs-number">849</span> - simpleExample - CRITICAL - critical message.
+</code></pre>
+<hr/>
+<font color="6495ED" size="4">配置文件test.yaml</font>
+<pre><code class="lang-yaml"><span class="hljs-attr">version:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">formatters:</span>
+<span class="hljs-attr">  simple:</span>
+<span class="hljs-attr">    format:</span> <span class="hljs-string">'%(asctime)s - %(name)s - %(levelname)s - %(message)s'</span>
+<span class="hljs-attr">handlers:</span>
+<span class="hljs-attr">  console:</span>
+<span class="hljs-attr">    class:</span> logging.StreamHandler
+<span class="hljs-attr">    level:</span> DEBUG
+<span class="hljs-attr">    formatter:</span> simple
+
+<span class="hljs-attr">loggers:</span>
+<span class="hljs-attr">  simpleExample:</span>
+<span class="hljs-attr">    level:</span> DEBUG
+<span class="hljs-attr">    handlers:</span> [console]
+<span class="hljs-attr">    propagate:</span> <span class="hljs-literal">no</span>
+<span class="hljs-attr">root:</span>
+<span class="hljs-attr">  level:</span> DEBUG
+<span class="hljs-attr">  handlers:</span> [console]
+</code></pre>
+<font color="6495ED" size="4">代码</font>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> logging.config
+<span class="hljs-comment"># 需要安装 pyymal 库</span>
+<span class="hljs-keyword">import</span> yaml
+
+<span class="hljs-keyword">with</span> open(<span class="hljs-string">'test.yaml'</span>, <span class="hljs-string">'r'</span>) <span class="hljs-keyword">as</span> f:
+    config = yaml.safe_load(f.read())
+    logging.config.dictConfig(config)
+
+logger = logging.getLogger(<span class="hljs-string">"sampleLogger"</span>)
+</code></pre>
+<h3 id="字典配置推荐">3.1.3 字典配置(推荐)</h3>
+<blockquote>
+<p>创建一个包含配置信息的dict，然后把它传递给dictConfig()函数</p>
+<p>通过配置字典进行配置，使用 dictConfig() 函数读取配置信息</p>
+</blockquote>
+<ul>
+<li><p>logging.FileHandler: 文件handle, 多线程下安全</p>
+</li>
+<li><p>logging.handlers.RotatingFileHandler: 轮循文件handle, 多线程下安全, 可以限制文件大小, 设置历史日志数量</p>
+</li>
+<li><p>concurrent_log_handler.ConcurrentRotatingFileHandler: 多进程多线程下安全, 可以限制文件大小, 设置历史日志数量</p>
+<pre><code class="lang-sh">pip install redis==4.2.2
+pip install concurrent-log-handler==0.9.20
+</code></pre>
+</li>
+</ul>
+<font color="6495ED" size="4">logging_config.py</font>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v0.1
+@author: narutohyc
+@file: logger_config.py
+@Description: 日志配置字典 + 定义logger句柄供项目使用
+              Python日志库logging总结-可能是目前为止将logging库总结的最好的一篇文章:
+                  https://www.jianshu.com/p/7b5e4752932e
+@time: 2020/5/23 21:34
+"""</span>
+<span class="hljs-keyword">import</span> logging
+<span class="hljs-keyword">import</span> os
+<span class="hljs-keyword">from</span> enum <span class="hljs-keyword">import</span> Enum, unique
+<span class="hljs-keyword">from</span> logging <span class="hljs-keyword">import</span> config <span class="hljs-keyword">as</span> logging_config
+<span class="hljs-keyword">from</span> os.path <span class="hljs-keyword">import</span> join
+
+<span class="hljs-comment"># 获取日志目录</span>
+<span class="hljs-keyword">from</span> basic_support.data_access.config.project_config <span class="hljs-keyword">import</span> project_config
+
+base_path = project_config.PROJECT_PATH
+base_log_path = join(base_path, <span class="hljs-string">'logs'</span>)
+
+<span class="hljs-comment"># 文件目录不存在时, 创建该目录</span>
+<span class="hljs-keyword">if</span> <span class="hljs-keyword">not</span> os.path.exists(base_log_path):
+    os.makedirs(base_log_path)
+
+
+<span class="hljs-meta">@unique</span>
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LogLevel</span><span class="hljs-params">(Enum)</span>:</span>
+    <span class="hljs-string">""" 日志等级枚举类 """</span>
+    CRITICAL = <span class="hljs-string">'致命'</span>  <span class="hljs-comment"># 严重错误,表明程序本身可能无法继续运行</span>
+    ERROR = <span class="hljs-string">'错误'</span>  <span class="hljs-comment"># 由于更严重的问题,该软件无法执行某些功能</span>
+    WARNING = <span class="hljs-string">'警告'</span>  <span class="hljs-comment"># 表明发生了意外情况,或表明在不久的将来出现了一些问题 (例如 '磁盘空间不足')。但是该软件仍在按预期工作</span>
+    INFO = <span class="hljs-string">'普通'</span>  <span class="hljs-comment"># 确认事情按预期工作</span>
+    DEBUG = <span class="hljs-string">'详细'</span>  <span class="hljs-comment"># 详细信息,通常仅在诊断问题时才有意义</span>
+    NOTSET = <span class="hljs-string">'不设置'</span>  <span class="hljs-comment"># 意指不设置,所以按照父logger级别来过滤日志</span>
+
+
+<span class="hljs-comment"># 日志相关配置</span>
+LOGGING_CONFIG = {
+    <span class="hljs-string">'version'</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">'loggers'</span>: {  <span class="hljs-comment"># 日志，暴露函数给应用程序，基于日志记录器和过滤器级别决定哪些日志有效</span>
+        <span class="hljs-string">''</span>: {  <span class="hljs-comment"># root logger</span>
+            <span class="hljs-string">'level'</span>: LogLevel.INFO.name,  <span class="hljs-comment"># 日志等级</span>
+            <span class="hljs-string">'handlers'</span>: [<span class="hljs-string">'console_handler'</span>, <span class="hljs-string">'info_file_handler'</span>, <span class="hljs-string">'error_file_handler'</span>],
+        }
+    },
+    <span class="hljs-string">'handlers'</span>: {  <span class="hljs-comment"># 处理器, 将(日志记录器产生的)日志记录发送至合适的目的地</span>
+        <span class="hljs-string">'console_handler'</span>: {
+            <span class="hljs-string">'level'</span>: LogLevel.INFO.name,  <span class="hljs-comment"># 控制台日志等级 和 最终等级=max(当前等级,loggers)</span>
+            <span class="hljs-string">'formatter'</span>: <span class="hljs-string">'info'</span>,
+            <span class="hljs-string">'class'</span>: <span class="hljs-string">'logging.StreamHandler'</span>,  <span class="hljs-comment"># 日志类</span>
+            <span class="hljs-string">'stream'</span>: <span class="hljs-string">'ext://sys.stdout'</span>,  <span class="hljs-comment"># 日志流</span>
+        },
+        <span class="hljs-string">'info_file_handler'</span>: {
+            <span class="hljs-string">'level'</span>: LogLevel.INFO.name,  <span class="hljs-comment"># 信息日志等级</span>
+            <span class="hljs-string">'formatter'</span>: <span class="hljs-string">'info'</span>,
+            <span class="hljs-string">'class'</span>: <span class="hljs-string">"concurrent_log_handler.ConcurrentRotatingFileHandler"</span>,  <span class="hljs-comment"># 多进程下多线程安全</span>
+            <span class="hljs-string">'filename'</span>: os.path.join(base_log_path, <span class="hljs-string">'info.log'</span>),  <span class="hljs-comment"># 信息日志文件输出目录</span>
+            <span class="hljs-string">'mode'</span>: <span class="hljs-string">'a+'</span>,  <span class="hljs-comment"># 日志文件模型 a表示追加  w是覆盖写</span>
+            <span class="hljs-string">'encoding'</span>: <span class="hljs-string">'utf-8'</span>,
+            <span class="hljs-string">'backupCount'</span>: <span class="hljs-number">4</span>,  <span class="hljs-comment"># 4 = 自己+历史的3个</span>
+            <span class="hljs-string">'maxBytes'</span>: <span class="hljs-number">1024</span> * <span class="hljs-number">1024</span> * <span class="hljs-number">50</span>,  <span class="hljs-comment"># 单个日志文件大小限制在 50MB内</span>
+            <span class="hljs-string">'use_gzip'</span>: <span class="hljs-keyword">False</span>,
+        },
+        <span class="hljs-string">'error_file_handler'</span>: {
+            <span class="hljs-string">'level'</span>: LogLevel.WARNING.name,  <span class="hljs-comment"># 错误日志等级</span>
+            <span class="hljs-string">'formatter'</span>: <span class="hljs-string">'error'</span>,
+            <span class="hljs-string">'class'</span>: <span class="hljs-string">'logging.FileHandler'</span>,
+            <span class="hljs-comment"># 'class': 'logging.handlers.RotatingFileHandler',</span>
+            <span class="hljs-string">'filename'</span>: os.path.join(base_log_path, <span class="hljs-string">'error.log'</span>),  <span class="hljs-comment"># 错误日志文件输出目录</span>
+            <span class="hljs-string">'mode'</span>: <span class="hljs-string">'a+'</span>,
+            <span class="hljs-string">'encoding'</span>: <span class="hljs-string">'utf-8'</span>
+        }
+    },
+    <span class="hljs-string">'formatters'</span>: {  <span class="hljs-comment"># 格式化器, 指明了最终输出中日志记录的布局</span>
+        <span class="hljs-string">'info'</span>: {
+            <span class="hljs-string">'format'</span>: <span class="hljs-string">'%(asctime)s %(module)s:%(lineno)d %(levelname)s: %(message)s'</span>,  <span class="hljs-comment"># 日志输出格式化</span>
+            <span class="hljs-string">'datefmt'</span>: <span class="hljs-string">'%Y-%m-%d %H:%M:%S'</span>  <span class="hljs-comment"># 日期格式化</span>
+        },
+        <span class="hljs-string">'error'</span>: {
+            <span class="hljs-comment"># 'format': '%(asctime)s-%(levelname)s-%(name)s-%(process)d::%(module)s|%(lineno)s:: %(message)s',</span>
+            <span class="hljs-string">'format'</span>: <span class="hljs-string">'%(asctime)s %(module)s|%(lineno)s %(levelname)s|%(process)d:  %(message)s'</span>,
+            <span class="hljs-string">'datefmt'</span>: <span class="hljs-string">'%Y-%m-%d %H:%M:%S'</span>
+        },
+    },
+}
+
+<span class="hljs-comment"># 获取日志实例</span>
+logging_config.dictConfig(LOGGING_CONFIG)
+logger = logging.getLogger(__name__)
+</code></pre>
+<font color="6495ED" size="4">使用</font>
+<pre><code class="lang-python"><span class="hljs-keyword">from</span> comm.config.logger_config <span class="hljs-keyword">import</span> logger
+
+<span class="hljs-comment"># 日志输出</span>
+logger.debug(<span class="hljs-string">"debug message."</span>)
+logger.info(<span class="hljs-string">"info message."</span>)
+logger.warning(<span class="hljs-string">"warning message."</span>)
+logger.error(<span class="hljs-string">"error message."</span>)
+logger.critical(<span class="hljs-string">"critical message."</span>)
+</code></pre>
+<font color="B452CD" size="4">输出</font>
+<pre><code class="lang-cmd"><span class="hljs-number">2020</span>-<span class="hljs-number">05</span>-<span class="hljs-number">24</span> <span class="hljs-number">10</span>:<span class="hljs-number">29</span>:<span class="hljs-number">30</span> text_augmentation_script DEBUG:  debug message.
+<span class="hljs-number">2020</span>-<span class="hljs-number">05</span>-<span class="hljs-number">24</span> <span class="hljs-number">10</span>:<span class="hljs-number">29</span>:<span class="hljs-number">30</span> text_augmentation_script INFO:  info message.
+<span class="hljs-number">2020</span>-<span class="hljs-number">05</span>-<span class="hljs-number">24</span> <span class="hljs-number">10</span>:<span class="hljs-number">29</span>:<span class="hljs-number">30</span> text_augmentation_script WARNING:  warning message.
+<span class="hljs-number">2020</span>-<span class="hljs-number">05</span>-<span class="hljs-number">24</span> <span class="hljs-number">10</span>:<span class="hljs-number">29</span>:<span class="hljs-number">30</span> text_augmentation_script ERROR:  error message.
+<span class="hljs-number">2020</span>-<span class="hljs-number">05</span>-<span class="hljs-number">24</span> <span class="hljs-number">10</span>:<span class="hljs-number">29</span>:<span class="hljs-number">30</span> text_augmentation_script CRITICAL:  critical message.
+</code></pre>
+<h2 id="handler-子类">3.2 Handler 子类</h2>
+<p><strong>StreamHandler</strong> 实例将消息发送到流（类文件对象）。</p>
+<p>FileHandler 实例将消息发送到磁盘文件。</p>
+<p><strong>BaseRotatingHandler</strong> 是在某个点切割日志文件的处理器的基类。它并不意味着直接实例化。而是使用 <strong>RotatingFileHandler</strong> 或 TimedRotatingFileHandler。</p>
+<p><strong>RotatingFileHandler</strong> 实例将消息发送到磁盘文件，支持最大日志文件大小和日志文件切割。</p>
+<p><strong>TimedRotatingFileHandler</strong> 实例将消息发送到磁盘文件，以特定的时间间隔切割日志文件。</p>
+<p><strong>SocketHandler</strong> 实例将消息发送到 TCP/IP 套接字。从 3.4 开始，也支持 Unix 域套接字。</p>
+<p><strong>DatagramHandler</strong> 实例将消息发送到 UDP 套接字。从 3.4 开始，也支持 Unix 域套接字。</p>
+<p><strong>SMTPHandler</strong> 实例将消息发送到指定的电子邮件地址。</p>
+<p><strong>SysLogHandler</strong> 实例将消息发送到 Unix syslog 守护程序，可以是在远程计算机上。</p>
+<p><strong>NTEventLogHandler</strong> 实例将消息发送到 Windows NT/2000/XP 事件日志。</p>
+<p><strong>MemoryHandler</strong> 实例将消息发送到内存中的缓冲区，只要满足特定条件，就会刷新内存中的缓冲区。</p>
+<p><strong>HTTPHandler</strong> 实例使用 GET 或 POST 语义将消息发送到 HTTP 服务器。</p>
+<p><strong>WatchedFileHandler</strong> 实例监视他们要记录的文件。如果文件发生更改，则会关闭该文件并使用文件名重新打开。此处理程序仅在类 Unix 系统上有用; Windows 不支持使用的基础机制。</p>
+<p><strong>QueueHandler</strong> 实例将消息发送到队列，例如队列或多处理模块中实现的队列。</p>
+<p><strong>NullHandler</strong> 实例不会对错误消息执行任何操作。</p>
+<p><strong>NullHandler</strong> ，<strong>StreamHandler</strong> 和 <strong>FileHandler</strong> 类在核心日志包中定义。其他处理程序在子模块 logging.handlers 中定义。（还有另一个子模块 logging.config，用于配置功能。）</p>
+<blockquote>
+<p>日志文件按照时间划分或者按照大小划分</p>
+</blockquote>
+<p>如果将日志保存在一个文件中，那么时间一长，或者日志一多，单个日志文件就会很大，既不利于备份，也不利于查看。我们会想到能不能按照时间或者大小对日志文件进行划分呢？答案肯定是可以的，并且还很简单，logging 考虑到了我们这个需求。</p>
+<p>logging.handlers 文件中提供了 <strong>TimedRotatingFileHandler</strong> 和 <strong>RotatingFileHandler</strong> 类分别可以实现按时间和大小划分。打开这个 handles 文件，可以看到还有其他功能的 Handler 类，它们都继承自基类 <strong>BaseRotatingHandler</strong>。</p>
+<h2 id="自定义-logger">3.3 自定义 Logger</h2>
+<h1 id="可能的问题">4 可能的问题</h1>
+<p> <strong>logging</strong> 库是线程安全的，但在多进程、多线程、多进程多线程环境中仍然还有值得考虑的问题，比如，如何将日志按照进程（或线程）划分为不同的日志文件，也即一个进程（或线程）对应一个文件。</p>
+<p>可以使用多进程安全的日志类<a href="https://github.com/Preston-Landers/concurrent-log-handler" target="_blank">concurrent-log-handler</a></p>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: collections模块" class="navigation navigation-prev" href="8.collections模块.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: 数据库相关操作" class="navigation navigation-next" href="10.数据库相关操作.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"logging模块","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i//hexo/post_imgs/蕾姆8.webp","cover":"https://pic.hycbook.com/i//hexo/post_cover/蕾姆8.webp","categories":["python"],"tags":["python","日志","logging"],"description":"python日志文件配置使用方法","abbrlink":12909,"level":"1.10","depth":1,"next":{"title":"数据库相关操作","level":"1.11","depth":1,"path":"chapters/10.数据库相关操作.md","ref":"chapters/10.数据库相关操作.md","articles":[]},"previous":{"title":"collections模块","level":"1.9","depth":1,"path":"chapters/8.collections模块.md","ref":"chapters/8.collections模块.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/9.logging模块.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>

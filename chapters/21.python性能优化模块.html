@@ -1,0 +1,735 @@
+<!DOCTYPE HTML>
+<html lang="zh-hans">
+<head>
+<meta charset="utf-8"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<title>python性能优化模块 · Python相关学习记录</title>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="" name="description"/>
+<meta content="GitBook 3.2.3" name="generator"/>
+<meta content="narutohyc" name="author"/>
+<link href="../gitbook/style.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-splitter/splitter.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchors/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-donate/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-anchor-navigation-ex/style/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-code/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-search-plus/search.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-lightbox/css/lightbox.min.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-pageview-count/plugin.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-highlight/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-fontsettings/website.css" rel="stylesheet"/>
+<link href="../gitbook/gitbook-plugin-theme-comscore/test.css" rel="stylesheet"/>
+<meta content="true" name="HandheldFriendly"/>
+<meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+<link href="../gitbook/images/apple-touch-icon-precomposed-152.png" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<link href="../gitbook/images/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="22.python网络编程.html" rel="next"/>
+<link href="20.python进阶问题.html" rel="prev"/>
+<link href="./chapters/res/other/favicon.ico" rel="shortcut icon" type="image/x-icon"/>
+<link href="./chapters/res/other/favicon.ico" rel="apple-touch-icon-precomposed" sizes="152x152"/>
+<style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+<script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]};
+    </script>
+</head>
+<body>
+          <div class="mountain_a"></div>
+          <div class="mountain_b"></div>
+          <div class="house right">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="house left">
+            <div class="fence"></div>
+            <div class="wall"></div>
+            <div class="roof left"></div>
+            <div class="roof right"></div>
+            <div class="door"></div>
+          </div>
+          <div class="tree_back"></div>
+          <div class="tree"></div>
+          <div class="postbox_a">
+            <div class="hole"></div>
+          </div>
+          <div class="postbox_b">
+            <div class="hole"></div>
+          </div>
+          <div class="windmill">
+            <div class="tower"></div>
+            <div class="t1"></div>
+            <div class="t2"></div>
+            <div class="blade">
+              <div class="windblade"></div>
+              <div class="windblade windblade2"></div>
+              <div class="windblade windblade3"></div>
+              <div class="windblade windblade4"></div>
+            </div>
+          </div>
+          <div class="allsnows">
+            <div class="snow1"></div>
+            <div class="snow2"></div>
+            <div class="snow3"></div>
+            <div class="snow4"></div>
+            <div class="snow5"></div>
+            <div class="snow6"></div>
+            <div class="snow7"></div>
+            <div class="snow8"></div>
+            <div class="snow9"></div>
+            <div class="snow10"></div>
+            <div class="snow11"></div>
+            <div class="snow12"></div>
+            <div class="snow13"></div>
+            <div class="snow14"></div>
+            <div class="snow15"></div>
+            <div class="snow16"></div>
+            <div class="snow17"></div>
+            <div class="snow18"></div>
+            <div class="snow19"></div>
+            <div class="snow20"></div>
+          </div>
+          <div class="ground">
+            <div class="g1"></div>
+            <div class="g2"></div>
+            <div class="g3"></div>
+            <div class="ice">
+              <div class="glare"></div>
+              <div class="ice_shadow"></div>
+            </div>
+
+          </div>
+    
+<div class="book">
+<div class="book-summary">
+<div id="book-search-input" role="search">
+<input placeholder="输入并搜索" type="text"/>
+</div>
+<nav role="navigation">
+<ul class="summary">
+<li>
+<a class="custom-link" href="https://hycbook.github.io/bk_index/" target="_blank">书籍主页</a>
+</li>
+<li class="divider"></li>
+<li class="chapter" data-level="1.1" data-path="../" id="chapter_id_0">
+<a href="../">
+<b>1.1.</b>
+                    
+                    Introduction
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.2" data-path="1.python多进程.html" id="chapter_id_1">
+<a href="1.python多进程.html">
+<b>1.2.</b>
+                    
+                    python多进程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.3" data-path="2.python多线程.html" id="chapter_id_2">
+<a href="2.python多线程.html">
+<b>1.3.</b>
+                    
+                    python多线程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.4" data-path="3.python协程.html" id="chapter_id_3">
+<a href="3.python协程.html">
+<b>1.4.</b>
+                    
+                    python协程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.5" data-path="4.python异步编程.html" id="chapter_id_4">
+<a href="4.python异步编程.html">
+<b>1.5.</b>
+                    
+                    python异步编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.6" data-path="5.python装饰器.html" id="chapter_id_5">
+<a href="5.python装饰器.html">
+<b>1.6.</b>
+                    
+                    python装饰器
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.7" data-path="6.python魔法函数.html" id="chapter_id_6">
+<a href="6.python魔法函数.html">
+<b>1.7.</b>
+                    
+                    python魔法函数
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.8" data-path="7.python元编程.html" id="chapter_id_7">
+<a href="7.python元编程.html">
+<b>1.8.</b>
+                    
+                    python元编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.9" data-path="8.collections模块.html" id="chapter_id_8">
+<a href="8.collections模块.html">
+<b>1.9.</b>
+                    
+                    collections模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.10" data-path="9.logging模块.html" id="chapter_id_9">
+<a href="9.logging模块.html">
+<b>1.10.</b>
+                    
+                    logging模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.11" data-path="10.数据库相关操作.html" id="chapter_id_10">
+<a href="10.数据库相关操作.html">
+<b>1.11.</b>
+                    
+                    数据库相关操作
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.12" data-path="11.Regular_Expression_OP.html" id="chapter_id_11">
+<a href="11.Regular_Expression_OP.html">
+<b>1.12.</b>
+                    
+                    RegularExpressionOP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.13" data-path="12.文件和目录访问.html" id="chapter_id_12">
+<a href="12.文件和目录访问.html">
+<b>1.13.</b>
+                    
+                    文件和目录访问
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.14" data-path="13.枚举类Enum.html" id="chapter_id_13">
+<a href="13.枚举类Enum.html">
+<b>1.14.</b>
+                    
+                    枚举类Enum
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.15" data-path="14.python基础知识.html" id="chapter_id_14">
+<a href="14.python基础知识.html">
+<b>1.15.</b>
+                    
+                    python基础知识
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.16" data-path="15.Pythonic的几个办法.html" id="chapter_id_15">
+<a href="15.Pythonic的几个办法.html">
+<b>1.16.</b>
+                    
+                    pythonic的几个办法
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.17" data-path="16.pandas小记.html" id="chapter_id_16">
+<a href="16.pandas小记.html">
+<b>1.17.</b>
+                    
+                    pandas小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.18" data-path="17.numpy小记.html" id="chapter_id_17">
+<a href="17.numpy小记.html">
+<b>1.18.</b>
+                    
+                    numpy小记
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.19" data-path="18.python_pipe包管道包学习.html" id="chapter_id_18">
+<a href="18.python_pipe包管道包学习.html">
+<b>1.19.</b>
+                    
+                    python_pipe包管道包学习
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.20" data-path="19.Python增强提案PEP.html" id="chapter_id_19">
+<a href="19.Python增强提案PEP.html">
+<b>1.20.</b>
+                    
+                    Python增强提案PEP
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.21" data-path="20.python进阶问题.html" id="chapter_id_20">
+<a href="20.python进阶问题.html">
+<b>1.21.</b>
+                    
+                    python进阶问题
+            
+                </a>
+</li>
+<li class="chapter active" data-level="1.22" data-path="21.python性能优化模块.html" id="chapter_id_21">
+<a href="21.python性能优化模块.html">
+<b>1.22.</b>
+                    
+                    python性能优化模块
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.23" data-path="22.python网络编程.html" id="chapter_id_22">
+<a href="22.python网络编程.html">
+<b>1.23.</b>
+                    
+                    python网络编程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.24" data-path="30.Anaconda开发环境.html" id="chapter_id_23">
+<a href="30.Anaconda开发环境.html">
+<b>1.24.</b>
+                    
+                    Anaconda开发环境
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.25" data-path="31.elementary_os记录.md" id="chapter_id_24">
+<span>
+<b>1.25.</b>
+                    
+                    elementary_os记录
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.26" data-path="32.Jupyter_Notebook介绍、安装及使用教程.html" id="chapter_id_25">
+<a href="32.Jupyter_Notebook介绍、安装及使用教程.html">
+<b>1.26.</b>
+                    
+                    Jupyter使用教程
+            
+                </a>
+</li>
+<li class="chapter" data-level="1.27" data-path="33.Kafka基本安装和使用.md" id="chapter_id_26">
+<span>
+<b>1.27.</b>
+                    
+                    Kafka基本安装和使用
+            
+                
+            
+
+            
+        </span></li>
+<li class="chapter" data-level="1.28" data-path="40.机器学习_一元函数微积分.md" id="chapter_id_27">
+<span>
+<b>1.28.</b>
+                    
+                    ML一元函数微积分
+            
+                
+            
+
+            
+        </span></li>
+<li class="divider"></li>
+<li>
+<a class="gitbook-link" href="https://www.gitbook.com" target="blank">
+            本书使用 GitBook 发布
+        </a>
+</li>
+</ul>
+</nav>
+</div>
+<div class="book-body">
+<div class="body-inner">
+<div class="book-header" role="navigation">
+<!-- Title -->
+<h1>
+<i class="fa fa-circle-o-notch fa-spin"></i>
+<a href="..">python性能优化模块</a>
+</h1>
+</div>
+<div class="page-wrapper" role="main" tabindex="-1">
+<div class="page-inner">
+<div class="search-plus" id="book-search-results">
+<div class="search-noresults">
+<section class="normal markdown-section">
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#系统监控模块">1 系统监控模块</a></li><ul><li><span class="title-icon"></span><a href="#psutil模块">1.1 psutil模块</a></li><li><span class="title-icon"></span><a href="#例子">1.2 例子</a></li></ul><li><span class="title-icon"></span><a href="#时间监控">2 时间监控</a></li><ul><li><span class="title-icon"></span><a href="#cprofile介绍">2.1 cProfile介绍</a></li><li><span class="title-icon"></span><a href="#cprofile模块">2.2 cProfile模块</a></li></ul><li><span class="title-icon"></span><a href="#内存监控">3 内存监控</a></li><ul><li><span class="title-icon"></span><a href="#tracemalloc介绍">3.1 tracemalloc介绍</a></li><li><span class="title-icon"></span><a href="#tracemalloc模块">3.2 tracemalloc模块</a></li></ul></ul></div><a href="#系统监控模块" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<h1 id="系统监控模块">1 系统监控模块</h1>
+<h2 id="psutil模块">1.1 psutil模块</h2>
+<blockquote>
+<p><a href="https://psutil.readthedocs.io/en/latest/" target="_blank">psutil模块文档</a></p>
+<p>psutil是一个跨平台库(<a href="https://link.zhihu.com/?target=http://pythonhosted.org/psutil/" target="_blank">http://pythonhosted.org/psutil/</a>)能够轻松实现获取系统运行的进程和系统利用率（包括CPU、内存、磁盘、网络等）信息。它主要用来做系统监控，性能分析，进程管理。它实现了同等命令行工具提供的功能，如ps、top、lsof、netstat、ifconfig、who、df、kill、free、nice、ionice、iostat、iotop、uptime、pidof、tty、taskset、pmap等。</p>
+</blockquote>
+<p>一、 安装psutil</p>
+<p>　　pip install psutil</p>
+<p> 二、 监控cpu信息</p>
+<ul>
+<li>import psutil</li>
+<li>psutil.cpu_times()   #获取cpu（逻辑cpu的平均）占用时间的详细信息 </li>
+<li>psutil.cpu_times(percpu=True)   #获取每个cpu占用时间的详细信息</li>
+<li>psutil.cpt_times().user   #获取用户进程占用cpu的时间（user+sys+idle+wait=total）</li>
+</ul>
+<p>三、 监控内存信息</p>
+<ul>
+<li>import psutil</li>
+<li>psutil.virtual_memory()   #获取内存信息</li>
+<li>psutil.virtual_memory().total   #获取内存总量</li>
+<li>psutil.swap_memory()   #获取swap信息</li>
+<li>psutil.swqp_memory()   #获取swap总量 </li>
+</ul>
+<p>四、 监控磁盘信息</p>
+<ul>
+<li>import psutil</li>
+<li>psutil.disk_partitions()   #获取各分区的信息</li>
+<li>psutil.disk_usage()   #获取各分区的使用情况</li>
+<li>psutil.disk_io_counters(perdisk=True)   #获取各个分区的io情况</li>
+<li>psutil.disk_io_counters(perdisk=True)['sda1'].read_count   #获取sda1的io读取情况</li>
+</ul>
+<p>五、 监控网络信息</p>
+<ul>
+<li>import psutil</li>
+<li>psutil.net_io_counters()   #获取所有网络接口io信息</li>
+<li><p>psutil.net_io_counters(pernic=True)   #获取每个网络接口的io信息</p>
+<p>六、进程信息</p>
+</li>
+<li><p>import psutil</p>
+</li>
+<li>psutil.Process(pid)   #查看对应pid的进程信息</li>
+<li>psutil.Process(pid).username()   #查看是哪个用户创建的该进程</li>
+<li>psutil.Process(pid).cmdline()   #查看进程所在的路径</li>
+</ul>
+<p>七、 登录用户信息</p>
+<ul>
+<li>import psutil</li>
+<li>psutil.users()   #查看目前登录用户信息</li>
+</ul>
+<h2 id="例子">1.2 例子</h2>
+<pre><code class="lang-python"><span class="hljs-keyword">import</span> psutil
+<span class="hljs-keyword">import</span> time
+
+
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">get_sys_rc</span><span class="hljs-params">()</span>:</span>
+    <span class="hljs-comment"># 获得cpu信息：核心数量、使用率</span>
+    cpu_count = psutil.cpu_count()
+    print(cpu_count)
+    cpu_usage = psutil.cpu_percent(<span class="hljs-number">1</span>)  <span class="hljs-comment"># 间隔1秒钟统计一次使用率</span>
+    print(cpu_usage)
+    <span class="hljs-comment"># 获得内存大小和使用率</span>
+    print(<span class="hljs-string">"#"</span> * <span class="hljs-number">50</span>)
+    mem = psutil.virtual_memory()
+    mem_total = mem.total / <span class="hljs-number">1024</span> / <span class="hljs-number">1024</span>
+    mem_usage = mem.percent
+    print(mem_total, mem_usage)
+
+    <span class="hljs-comment"># 获得磁盘信息和分区信息</span>
+    disk_info = psutil.disk_partitions()  <span class="hljs-comment"># 得到所有的分区信息</span>
+    print(disk_info)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> disk_info:  <span class="hljs-comment"># 遍历所有的分区，得到分区的名字</span>
+        print(i.device)  <span class="hljs-comment"># 输出设备名字</span>
+        part_info = psutil.disk_usage(i.device)  <span class="hljs-comment"># 得到每个分区的使用率</span>
+        print(part_info)  <span class="hljs-comment"># 输出使用率</span>
+        <span class="hljs-comment"># round() 四舍五入的方法</span>
+        print(f<span class="hljs-string">"{i.device}总大小为{round(part_info.total / 1024 / 1024 / 1024)}G,使用率{part_info.percent}"</span>)
+
+    <span class="hljs-comment"># 获得网卡信息</span>
+    net_info = psutil.net_io_counters()
+    step1 = net_info.bytes_sent
+    time.sleep(<span class="hljs-number">3</span>)
+    step2 = psutil.net_io_counters().bytes_sent
+    avg = (step2 - step1) / <span class="hljs-number">3</span> / <span class="hljs-number">1000</span>
+    print(f<span class="hljs-string">"当前平均的网络流量是{round(avg)}KB"</span>)
+
+    <span class="hljs-comment"># 获得所有网卡的ip地址</span>
+    <span class="hljs-comment"># psutil.net_if_stats()</span>
+    <span class="hljs-keyword">return</span> {<span class="hljs-string">"cpu_count"</span>: cpu_count, <span class="hljs-string">"cpu_usage"</span>: cpu_usage}
+    <span class="hljs-comment"># return  {"cpu_count":cpu_count,"cpu_usage":cpu_usage,mem_total,mem_usage,avg}</span>
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:
+    print(get_sys_rc())
+</code></pre>
+<blockquote>
+<p>output</p>
+</blockquote>
+<pre><code class="lang-cmd"><span class="hljs-number">8</span>
+<span class="hljs-number">42</span>.<span class="hljs-number">8</span>
+##################################################
+<span class="hljs-number">32685</span>.<span class="hljs-number">93359375</span> <span class="hljs-number">23</span>.<span class="hljs-number">9</span>
+[sdiskpart(device='C:\\', mountpoint='C:\\', fstype='NTFS', opts='rw,fixed'), sdiskpart(device='D:\\', mountpoint='D:\\', fstype='NTFS', opts='rw,fixed'), sdiskpart(device='E:\\', mountpoint='E:\\', fstype='NTFS', opts='rw,fixed'), sdiskpart(device='H:\\', mountpoint='H:\\', fstype='NTFS', opts='rw,fixed'), sdiskpart(device='Q:\\', mountpoint='Q:\\', fstype='NTFS', opts='rw,fixed'), sdiskpart(device='S:\\', mountpoint='S:\\', fstype='NTFS', opts='rw,fixed'), sdiskpart(device='U:\\', mountpoint='U:\\', fstype='NTFS', opts='rw,fixed')]
+<span class="hljs-function">C:\
+<span class="hljs-title">sdiskusage</span>(<span class="hljs-title">total</span>=116955537408, <span class="hljs-title">used</span>=76401147904, <span class="hljs-title">free</span>=40554389504, <span class="hljs-title">percent</span>=65.3)
+<span class="hljs-title">C</span>:\总大小为109<span class="hljs-title">G</span>,使用率65.3
+<span class="hljs-title">D</span>:\
+<span class="hljs-title">sdiskusage</span>(<span class="hljs-title">total</span>=174902472704, <span class="hljs-title">used</span>=128004796416, <span class="hljs-title">free</span>=46897676288, <span class="hljs-title">percent</span>=73.2)
+<span class="hljs-title">D</span>:\总大小为163<span class="hljs-title">G</span>,使用率73.2
+<span class="hljs-title">E</span>:\
+<span class="hljs-title">sdiskusage</span>(<span class="hljs-title">total</span>=107373129728, <span class="hljs-title">used</span>=24370171904, <span class="hljs-title">free</span>=83002957824, <span class="hljs-title">percent</span>=22.7)
+<span class="hljs-title">E</span>:\总大小为100<span class="hljs-title">G</span>,使用率22.7
+<span class="hljs-title">H</span>:\
+<span class="hljs-title">sdiskusage</span>(<span class="hljs-title">total</span>=214747312128, <span class="hljs-title">used</span>=140843151360, <span class="hljs-title">free</span>=73904160768, <span class="hljs-title">percent</span>=65.6)
+<span class="hljs-title">H</span>:\总大小为200<span class="hljs-title">G</span>,使用率65.6
+<span class="hljs-title">Q</span>:\
+<span class="hljs-title">sdiskusage</span>(<span class="hljs-title">total</span>=214748360704, <span class="hljs-title">used</span>=67760369664, <span class="hljs-title">free</span>=146987991040, <span class="hljs-title">percent</span>=31.6)
+<span class="hljs-title">Q</span>:\总大小为200<span class="hljs-title">G</span>,使用率31.6
+<span class="hljs-title">S</span>:\
+<span class="hljs-title">sdiskusage</span>(<span class="hljs-title">total</span>=214748360704, <span class="hljs-title">used</span>=79423479808, <span class="hljs-title">free</span>=135324880896, <span class="hljs-title">percent</span>=37.0)
+<span class="hljs-title">S</span>:\总大小为200<span class="hljs-title">G</span>,使用率37.0
+<span class="hljs-title">U</span>:\
+<span class="hljs-title">sdiskusage</span>(<span class="hljs-title">total</span>=1073741819904, <span class="hljs-title">used</span>=507053940736, <span class="hljs-title">free</span>=566687879168, <span class="hljs-title">percent</span>=47.2)
+<span class="hljs-title">U</span>:\总大小为1000<span class="hljs-title">G</span>,使用率47.2
+当前平均的网络流量是1<span class="hljs-title">KB</span>
+{'<span class="hljs-title">cpu_count</span>': 8, '<span class="hljs-title">cpu_usage</span>': 42.8}
+</span></code></pre>
+<h1 id="时间监控">2 时间监控</h1>
+<h2 id="cprofile介绍">2.1 cProfile介绍</h2>
+<blockquote>
+<p><a href="https://docs.python.org/zh-cn/3.7/library/profile.html" target="_blank">cProfile官方文档</a></p>
+</blockquote>
+<ul>
+<li>cProfile自python2.5以来就是标准版Python解释器默认的性能分析器。</li>
+<li>其他版本的python，比如PyPy里没有cProfile的。</li>
+<li>cProfile是一种确定性分析器，只测量CPU时间，并不关心内存消耗和其他与内存相关联的信息。</li>
+</ul>
+<h2 id="cprofile模块">2.2 cProfile模块</h2>
+<blockquote>
+<p>时间监控装饰器</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v1.0
+@author: huangyc
+@file: profiler_helper.py
+@Description: 时间性能监控类，主要监控执行状态、频率和时长
+@time: 2021/7/17 15:51
+"""</span>
+
+<span class="hljs-keyword">from</span> cProfile <span class="hljs-keyword">import</span> Profile
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+<span class="hljs-keyword">from</span> pstats <span class="hljs-keyword">import</span> Stats
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ProfilerHelper</span>:</span>
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">profiler_wrap</span><span class="hljs-params">(sort_by: str = <span class="hljs-string">'cumulative'</span>, print_stats: bool = True, print_callers: bool = True)</span>:</span>
+        <span class="hljs-string">"""
+        行状态、频率和时长装饰器
+        :param sort_by: 排序规则
+                        可选参数：
+                              准则                       含义                       升序/降序排列
+                              calls                    调用次数                        降序
+                              cumulative               累计时间                        降序
+                              cumtime                  累计时间                        降序
+                              file                     文件                           升序
+                              filename                 文件名                          升序
+                              module                   模块名                          升序
+                              ncalls                   调用总次数                       降序
+                              pcalls                   原始调用书                       降序
+                              line                     行号                            升序
+                              name                     函数名                          升序
+                              nfl                      函数名/文件名/行号组合             降序
+                              stdname                  标准名称                         升序
+                              time                     函数内部运行时间                   降序
+                              tottime                  函数内部运行总时间                 降序
+        :param print_stats: Create a Stats object based on the current profile and print the results to stdout.
+        :param print_callers: 打印受测函数和调用函数的关系
+        :return:
+        """</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">            @wraps(func)</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner_func</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+                profiler = Profile()
+                res = profiler.runcall(func, *args, **kwargs)
+                stats = Stats(profiler)
+                <span class="hljs-comment"># strip_dirs()：删除报告中所有函数文件名的路径信息，这个方法改变stats实例内部的顺序，任何运行该方法的实例都将随机排列项目的顺序。</span>
+                <span class="hljs-comment"># 如果两个项目是相同的，那么这两个项目就可以合并。</span>
+                stats.strip_dirs()
+                <span class="hljs-comment"># sort_stats(*keys)：通过一系列条件依次对所有项目进行排序，从而调整stats对象</span>
+                stats.sort_stats(sort_by)
+                <span class="hljs-keyword">if</span> print_stats:
+                    stats.print_stats()
+                <span class="hljs-keyword">if</span> print_callers:
+                    stats.print_callers()
+                <span class="hljs-keyword">return</span> res
+
+            <span class="hljs-keyword">return</span> inner_func
+
+        <span class="hljs-keyword">return</span> wrapper
+
+
+<span class="hljs-meta">@ProfilerHelper.profiler_wrap()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fn</span><span class="hljs-params">(h, a=<span class="hljs-number">5</span>, b=<span class="hljs-number">8</span>)</span>:</span>
+    <span class="hljs-keyword">import</span> re
+    print(h, a, b)
+    <span class="hljs-keyword">return</span> re.compile(<span class="hljs-string">"aaa|bbb"</span>)
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    print(fn(<span class="hljs-number">464646</span>, <span class="hljs-number">8</span>, b=<span class="hljs-number">8</span>))
+</code></pre>
+<h1 id="内存监控">3 内存监控</h1>
+<h2 id="tracemalloc介绍">3.1 tracemalloc介绍</h2>
+<blockquote>
+<p><a href="https://www.osgeo.cn/cpython/library/tracemalloc.html" target="_blank">tracemalloc模块官方文档</a></p>
+</blockquote>
+<p>tracemalloc模块是跟踪python分配的内存块的调试工具。它提供以下信息：</p>
+<ul>
+<li>回溯对象的分配位置</li>
+<li>每个文件名和每个行号的已分配内存块的统计信息：已分配内存块的总大小、数量和平均大小</li>
+<li>计算两个快照之间的差异以检测内存泄漏</li>
+</ul>
+<h2 id="tracemalloc模块">3.2 tracemalloc模块</h2>
+<blockquote>
+<p>内存监控装饰器</p>
+</blockquote>
+<pre><code class="lang-python"><span class="hljs-comment">#!/usr/bin/env Python</span>
+<span class="hljs-comment"># -- coding: utf-8 --</span>
+
+<span class="hljs-string">"""
+@version: v1.0
+@author: huangyc
+@file: tracemalloc_helper.py
+@Description: 内存监控类
+@time: 2021/7/17 15:53
+"""</span>
+<span class="hljs-keyword">import</span> tracemalloc
+
+<span class="hljs-keyword">from</span> functools <span class="hljs-keyword">import</span> wraps
+
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TracemallocHelper</span>:</span>
+<span class="hljs-meta">    @staticmethod</span>
+    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">tracemalloc_wrap</span><span class="hljs-params">(key_type: str = <span class="hljs-string">'lineno'</span>, monitor_type: str = <span class="hljs-string">'statistics'</span>, top_k: int = <span class="hljs-number">10</span>,
+                         filter_self: bool = True)</span>:</span>
+        <span class="hljs-string">"""
+        内存监控装饰器
+        :param key_type: 比较的字段，'traceback', 'filename', 'lineno'
+        :param monitor_type: 监控类型，'statistics', 'change'
+        :param top_k: 关注top_k的内存占用,默认关注前10个
+        :param filter_self: 是否过滤掉监控程序本身的消耗
+        :return:
+        """</span>
+
+        <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">wrapper</span><span class="hljs-params">(func)</span>:</span>
+<span class="hljs-meta">            @wraps(func)</span>
+            <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">inner_func</span><span class="hljs-params">(*args, **kwargs)</span>:</span>
+                tracemalloc.start()
+                <span class="hljs-comment"># ... start your application ...</span>
+                res = func(*args, **kwargs)
+                snapshot1 = tracemalloc.take_snapshot()
+                <span class="hljs-comment"># ... call the function leaking memory ...</span>
+                snapshot2 = tracemalloc.take_snapshot()
+
+                <span class="hljs-keyword">if</span> monitor_type == <span class="hljs-string">'change'</span>:
+                    top_stats = snapshot2.compare_to(snapshot1, key_type)
+                <span class="hljs-keyword">elif</span> monitor_type == <span class="hljs-string">'statistics'</span>:
+                    top_stats = snapshot2.statistics(key_type)
+                <span class="hljs-keyword">else</span>:
+                    top_stats = snapshot2.statistics(key_type)
+                print(f<span class="hljs-string">"[ Top {top_k} differences ]"</span>)
+                <span class="hljs-keyword">for</span> idx, stat <span class="hljs-keyword">in</span> enumerate(top_stats[:top_k]):
+                    <span class="hljs-keyword">if</span> filter_self <span class="hljs-keyword">and</span> <span class="hljs-string">'tracemalloc.py'</span> <span class="hljs-keyword">in</span> str(stat):
+                        <span class="hljs-keyword">continue</span>
+                    print(<span class="hljs-string">'d'</span> % idx, stat)
+                <span class="hljs-keyword">return</span> res
+
+            <span class="hljs-keyword">return</span> inner_func
+
+        <span class="hljs-keyword">return</span> wrapper
+
+
+<span class="hljs-meta">@TracemallocHelper.tracemalloc_wrap()</span>
+<span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">fn</span><span class="hljs-params">(h, a=<span class="hljs-number">5</span>, b=<span class="hljs-number">8</span>)</span>:</span>
+    print(h, a, b)
+
+    d = [dict(zip(<span class="hljs-string">'xy'</span>, (<span class="hljs-number">5</span>, <span class="hljs-number">6</span>))) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100000</span>)]
+    t = [tuple(zip(<span class="hljs-string">'xy'</span>, (<span class="hljs-number">5</span>, <span class="hljs-number">6</span>))) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(<span class="hljs-number">100000</span>)]
+    <span class="hljs-keyword">return</span> d, t
+
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">'__main__'</span>:
+    fn(<span class="hljs-number">68</span>, <span class="hljs-number">7</span>, b=<span class="hljs-number">78</span>)
+</code></pre>
+<p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
+2023-08-13 04:38:31
+</span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
+</section>
+</div>
+<div class="search-results">
+<div class="has-results">
+<h1 class="search-results-title"><span class="search-results-count"></span> results matching "<span class="search-query"></span>"</h1>
+<ul class="search-results-list"></ul>
+</div>
+<div class="no-results">
+<h1 class="search-results-title">No results matching "<span class="search-query"></span>"</h1>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<a aria-label="Previous page: python进阶问题" class="navigation navigation-prev" href="20.python进阶问题.html">
+<i class="fa fa-angle-left"></i>
+</a>
+<a aria-label="Next page: python网络编程" class="navigation navigation-next" href="22.python网络编程.html">
+<i class="fa fa-angle-right"></i>
+</a>
+<script src="https://cdn.jsdelivr.net/gh/zztongtong/CDN/js/live2d.min.js"></script><div style="position:absolute; bottom:0; left:0; width:200;"><canvas height="350" id="model_1" width="200"></canvas></div></div>
+<script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"python性能优化模块","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆7.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆7.webp","categories":["python"],"tags":["python","性能优化","系统监控psutil","时间监控cProfile","内存监控tracemalloc"],"abbrlink":26598,"level":"1.22","depth":1,"next":{"title":"python网络编程","level":"1.23","depth":1,"path":"chapters/22.python网络编程.md","ref":"chapters/22.python网络编程.md","articles":[]},"previous":{"title":"python进阶问题","level":"1.21","depth":1,"path":"chapters/20.python进阶问题.md","ref":"chapters/20.python进阶问题.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/narutohyc"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":true,"enableFooter":false,"site":"https://hycbook.github.io/bk_python/","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"narutohyc","repo":"bk_python","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","links":{"sidebar":{"书籍主页":"https://hycbook.github.io/bk_index/"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/21.python性能优化模块.md","mtime":"2023-08-13T04:38:31.171Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-08-13T04:39:31.647Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+<canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
+<script src="../gitbook/gitbook.js"></script>
+<script src="../gitbook/theme.js"></script>
+<script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+<script src="../gitbook/gitbook-plugin-expandable-chapters-small/expandable-chapters-small.js"></script>
+<script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-donate/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-sharing-plus/buttons.js"></script>
+<script src="https://cdn.mathjax.org/mathjax/2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script src="../gitbook/gitbook-plugin-mathjax/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/book/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-code/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+<script src="../gitbook/gitbook-plugin-search-plus/search.js"></script>
+<script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+<script src="../gitbook/gitbook-plugin-pageview-count/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-copyright-v/plugin.js"></script>
+<script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+<script src="../gitbook/gitbook-plugin-theme-comscore/test.js"></script>
+<script src="../gitbook/gitbook-plugin-mermaid-gb3/mermaid/mermaid.min.js"></script>
+</body>
+</html>
