@@ -61,11 +61,9 @@ jobs:
           # cp bk_python.epub _ebook/
           # echo epub电子书复制完成
           cp ./node_modules_mathjax/py_scripts/gen_sup_idx.py .
-          cp ./node_modules_mathjax/py_scripts/get_counter.py .
           pip install BeautifulSoup4
           pip install lxml
           python -u gen_sup_idx.py
-          python get_counter.py https://python.hycbook.com
           echo 生成辅助索引完成
           rm -rf _book/docs/*
           echo 删除多余格式文件完成
