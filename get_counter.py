@@ -119,7 +119,7 @@ def fn(base_fix):
     gens = []
     for name in file_names:
         html_path = f"{prefix}{name}"
-        mid = coll.get(name, run(html_path))
+        mid = coll.get(name, None) if name in coll else run(html_path)
         gens.append(gen(html_path, name, mid))
 
     # 结果输出
