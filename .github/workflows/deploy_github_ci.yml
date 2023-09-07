@@ -25,17 +25,44 @@ jobs:
         uses: actions/setup-node@v1
         with: 
           node-version: '12.16.1'
-      
-      # configue gitbook
-      - name: configue gitbook
+
+      - name: Cache node modules
+        id: cache-npm
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-node-modules
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: node_modules
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('book.json') }}
+    
+
+      - name: Cache GitBook
+        uses: actions/cache@v2
+        with:
+          path: ~/.gitbook # 缓存路径
+          key: ${{ runner.os }}-gitbook-${{ hashFiles('**/book.json') }}
+          restore-keys: |
+            ${{ runner.os }}-gitbook-
+
+      - name: Install dependencies
+        if: ${{ steps.cache-npm.outputs.cache-hit != 'true' }} # 如果缓存不存在，则执行安装
         run: |
           echo 开始拉取nodejs插件
           git clone https://github.com/narutohyc/node_modules_mathjax.git
           cp -r ./node_modules_mathjax/node_modules .
-          npm install -g gitbook-cli
           # 手动安装lightbox
-          npm install  gitbook-plugin-lightbox 
+          npm install  gitbook-plugin-lightbox
+          npm install -g gitbook-cli
           gitbook install
+
+
+      # configue gitbook
+      - name: configue gitbook
+        run: |
+          rm -rf node_modules_mathjax
+          git clone https://github.com/narutohyc/node_modules_mathjax.git
+          npm install -g gitbook-cli
           # npm install -g gitbook-summary
 
       # - name: export pdf ebook
