@@ -56,7 +56,6 @@ jobs:
           npm install -g gitbook-cli
           gitbook install
 
-
       # configue gitbook
       - name: configue gitbook
         run: |
