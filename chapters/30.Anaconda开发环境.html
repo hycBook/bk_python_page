@@ -355,7 +355,7 @@
 <div class="search-plus" id="book-search-results">
 <div class="search-noresults">
 <section class="normal markdown-section">
-<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#anaconda介绍">1 Anaconda介绍</a></li><ul><li><span class="title-icon"></span><a href="#套件管理">1.1 套件管理</a></li><li><span class="title-icon"></span><a href="#pip管理">1.2 pip管理</a></li></ul><li><span class="title-icon"></span><a href="#安装">2 安装</a></li><li><span class="title-icon"></span><a href="#虚拟环境管理">3 虚拟环境管理</a></li><li><span class="title-icon"></span><a href="#conda源管理">4 conda源管理</a></li><li><span class="title-icon"></span><a href="#其他管理">5 其他管理</a></li></ul></div><a href="#anaconda介绍" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
+<div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon"></span><a href="#anaconda介绍">1 Anaconda介绍</a></li><ul><li><span class="title-icon"></span><a href="#套件管理">1.1 套件管理</a></li><li><span class="title-icon"></span><a href="#pip管理">1.2 pip管理</a></li></ul><li><span class="title-icon"></span><a href="#食用教程">2 食用教程</a></li><ul><li><span class="title-icon"></span><a href="#安装">2.1 安装</a></li><li><span class="title-icon"></span><a href="#虚拟环境管理">2.2 虚拟环境管理</a></li><li><span class="title-icon"></span><a href="#conda源管理">2.3 conda源管理</a></li></ul><li><span class="title-icon"></span><a href="#其他管理">3 其他管理</a></li></ul></div><a href="#anaconda介绍" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><hr/>
 <h1 id="anaconda介绍">1 Anaconda介绍</h1>
 <p>Anaconda（<a href="https://link.zhihu.com/?target=https://www.anaconda.com/download/#macos" target="_blank">官方网站</a>）就是可以便捷获取包且对包能够进行管理，同时对环境可以统一管理的发行版本。Anaconda包含了conda、Python在内的超过180个科学包及其依赖项。</p>
 <h2 id="套件管理">1.1 套件管理</h2>
@@ -413,7 +413,8 @@ python -m pip install --upgrade pip
 <p>如果不小心删掉了pip，可以用以下命令安装</p>
 <pre><code class="lang-cmd">python -m ensurepip --default-pip
 </code></pre>
-<h1 id="安装">2 安装</h1>
+<h1 id="食用教程">2 食用教程</h1>
+<h2 id="安装">2.1 安装</h2>
 <blockquote>
 <p>基础准备(centos7环境)</p>
 </blockquote>
@@ -449,25 +450,32 @@ chmod +x Anaconda3-<span class="hljs-number">2023</span>.<span class="hljs-numbe
 # 创建自己的python环境
 conda create -n gpt310 python=<span class="hljs-number">3</span>.<span class="hljs-number">10</span> anaconda
 </code></pre>
-<h1 id="虚拟环境管理">3 虚拟环境管理</h1>
+<h2 id="虚拟环境管理">2.2 虚拟环境管理</h2>
 <p><strong>使用Anaconda Prompt 管理虚拟环境</strong></p>
 <blockquote>
 <p>新建虚拟环境</p>
 <p>添加后缀 “anaconda”或“biopython”可以创建一个基本科学计算功能完备的环境</p>
 </blockquote>
-<pre><code class="lang-cmd">conda create -n 环境名 python=<span class="hljs-number">3</span>.<span class="hljs-number">7</span> anaconda
+<pre><code class="lang-cmd">conda create -n 环境名 python=<span class="hljs-number">3</span>.<span class="hljs-number">10</span> anaconda
+
+# 如果需要指定虚拟环境的路径, 可以使用--prefix参数
+conda create -n 环境名 --prefix='D:\Program Files\Anaconda4\envs\gpt310' python=<span class="hljs-number">3</span>.<span class="hljs-number">10</span> anaconda
 </code></pre>
 <blockquote>
 <p>切换虚拟环境</p>
 </blockquote>
-<pre><code class="lang-cmd">source activate snowflakes # Linux，OS X
-activate snowflakes # Windows
+<pre><code class="lang-cmd"># Linux，OS X
+source activate snowflakes
+# Windows
+conda activate snowflakes
 </code></pre>
 <blockquote>
 <p>关闭虚拟环境</p>
 </blockquote>
-<pre><code class="lang-cmd">source deactivate # Linux，OS X
-deactivate # Windows
+<pre><code class="lang-cmd"># Linux，OS X
+source deactivate
+# Windows
+deactivate
 </code></pre>
 <blockquote>
 <p>查看所有的虚拟环境名称</p>
@@ -515,7 +523,7 @@ conda env list
 <p>假设当前python环境是3.6.1，而最新版本是3.6.2，那么就会升级到3.6.2</p>
 <pre><code class="lang-cmd">conda update python
 </code></pre>
-<h1 id="conda源管理">4 conda源管理</h1>
+<h2 id="conda源管理">2.3 conda源管理</h2>
 <blockquote>
 <p>查看当前源信息</p>
 </blockquote>
@@ -560,7 +568,7 @@ conda config --show channels
 <span class="hljs-bullet">  -</span> defaults
 <span class="hljs-attr">show_channel_urls:</span> <span class="hljs-literal">True</span>
 </code></pre>
-<h1 id="其他管理">5 其他管理</h1>
+<h1 id="其他管理">3 其他管理</h1>
 <blockquote>
 <p>运行环境分享</p>
 </blockquote>
@@ -588,7 +596,7 @@ conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/m
 conda config --<span class="hljs-built_in">set</span> show_channel_urls yes
 </code></pre>
 <p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
-2023-11-23 14:34:50
+2023-11-26 07:48:58
 </span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
 </section>
 </div>
@@ -615,7 +623,7 @@ conda config --<span class="hljs-built_in">set</span> show_channel_urls yes
 <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Anaconda开发环境","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆3.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆3.webp","categories":["python"],"tags":["python","anaconda"],"abbrlink":39324,"level":"1.2","depth":1,"next":{"title":"Jupyter_Notebook介绍、安装及使用教程","level":"1.3","depth":1,"path":"chapters/32.Jupyter_Notebook介绍、安装及使用教程.md","ref":"chapters/32.Jupyter_Notebook介绍、安装及使用教程.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hycBook"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":false,"enableFooter":false,"site":"https://python.hycbook.com","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"hycBook","repo":"bk_python_page","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","mathjax":{"forceSVG":true},"links":{"sidebar":{"书籍主页":"https://study.hycbook.com"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/30.Anaconda开发环境.md","mtime":"2023-11-23T14:34:50.578Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-23T14:36:23.512Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Anaconda开发环境","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆3.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆3.webp","categories":["python"],"tags":["python","anaconda"],"abbrlink":39324,"level":"1.2","depth":1,"next":{"title":"Jupyter_Notebook介绍、安装及使用教程","level":"1.3","depth":1,"path":"chapters/32.Jupyter_Notebook介绍、安装及使用教程.md","ref":"chapters/32.Jupyter_Notebook介绍、安装及使用教程.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hycBook"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":false,"enableFooter":false,"site":"https://python.hycbook.com","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"hycBook","repo":"bk_python_page","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","mathjax":{"forceSVG":true},"links":{"sidebar":{"书籍主页":"https://study.hycbook.com"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/30.Anaconda开发环境.md","mtime":"2023-11-26T07:48:58.181Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-11-26T07:49:18.393Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 <canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
