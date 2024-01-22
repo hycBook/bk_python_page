@@ -857,7 +857,7 @@ host    all             all             0.0.0.0/0               trust
 /usr/pgsql-14/bin/pg_ctl -D  /home/postgres/pgsql_data/ <span class="hljs-_">-l</span> /home/postgres/pgsql_<span class="hljs-built_in">log</span>/pgsql.log restart
 </code></pre>
 <p>数据库安装结束，管理员postgres，默认密码123456</p>
-<p><a data-lightbox="6bd4b902-b063-4e30-8998-d6dcb8b949bf" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/10.数据库相关操作/image-20220512140313497.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/10.数据库相关操作/image-20220512140313497.webp"/></a></p>
+<p><a data-lightbox="757ede90-7e91-4941-9741-a35c3645b406" data-title="img" href="https://pic.hycbook.com/i/hexo/bk_resources/python/10.数据库相关操作/image-20220512140313497.webp" target="_blank"><img alt="img" src="https://pic.hycbook.com/i/hexo/bk_resources/python/10.数据库相关操作/image-20220512140313497.webp"/></a></p>
 <center>使用navicat连接pg库后新建数据库</center>
 <h2 id="环境配置_2">3.2 环境配置</h2>
 <blockquote>
@@ -1326,6 +1326,41 @@ chown postgres /home/huangyc/t_fac_ts
 <p>pg中每个表都有几个系统隐藏列：tableoid， xmin， xmax，cmin，cmax，ctid</p>
 <p>其中tableoid表示表的oid，cmin、cmax、xmin和xmax是mvcc的实现有关</p>
 <p>ctid表示行版本在表中的<strong>物理位置</strong>: 它属于对象标识符类型(oid，Object Identifier Types)，是一种行标识符，它的数据使用的元组标识符(tid，tuple identifier)。元组ID是一对(块号，块内的元组索引)，用于标识当前行的物理位置。</p>
+<blockquote>
+<p>引申用法</p>
+</blockquote>
+<p>假设我们有一个表格 <code>products</code>，包含产品名称和产品类别。我们希望从中找出每个产品类别中的前两个产品</p>
+<pre><code class="lang-sql"><span class="hljs-keyword">SELECT</span>
+  *
+<span class="hljs-keyword">FROM</span>
+  (
+    <span class="hljs-keyword">SELECT</span>
+      product_name,
+      <span class="hljs-keyword">category</span>,
+      row_number() <span class="hljs-keyword">OVER</span> (<span class="hljs-keyword">PARTITION</span> <span class="hljs-keyword">BY</span> <span class="hljs-keyword">SUBSTR</span>(p.<span class="hljs-keyword">category</span>, <span class="hljs-number">0</span>, <span class="hljs-keyword">LENGTH</span>(p.<span class="hljs-keyword">category</span>)<span class="hljs-number">-2</span>) <span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> product_name) <span class="hljs-keyword">AS</span> ranking
+    <span class="hljs-keyword">FROM</span>
+      products p
+    <span class="hljs-keyword">WHERE</span>
+      p.<span class="hljs-keyword">category</span> <span class="hljs-keyword">LIKE</span> <span class="hljs-string">'Electronics:%'</span>
+  ) subquery
+<span class="hljs-keyword">WHERE</span>
+  ranking &lt;= <span class="hljs-number">2</span>;
+</code></pre>
+<p>在这个例子中，我们有一个产品表 <code>products</code>，其中包含 <code>product_name</code> 和 <code>category</code> 列</p>
+<p>我们想要找出每个以 'Electronics:' 开头的产品类别中的前两个产品</p>
+<ul>
+<li>子查询部分：<ul>
+<li>子查询从 <code>products</code> 表中选择了产品名称 <code>product_name</code> 和产品类别 <code>category</code></li>
+<li>我们只关注以 'Electronics:' 开头的产品类别，即 <code>p.category LIKE 'Electronics:%'</code></li>
+<li>使用 <code>row_number()</code> 函数，对每个以 'Electronics:' 开头的类别进行编号，按产品名称排序</li>
+</ul>
+</li>
+<li>主查询部分：<ul>
+<li>在主查询中，我们选择了子查询的所有列 <code>*</code></li>
+<li>我们进一步筛选了结果，只选择了编号小于等于2的记录，以获取每个类别中的前两个产品</li>
+</ul>
+</li>
+</ul>
 <h3 id="索引">3.3.12 索引</h3>
 <pre><code class="lang-sql"><span class="hljs-comment">-- 获取数据库表中的索引</span>
 <span class="hljs-keyword">select</span> * <span class="hljs-keyword">from</span> pg_indexes <span class="hljs-keyword">where</span> tablename = <span class="hljs-string">'t_cfg_opinfo'</span>; 
@@ -1544,7 +1579,7 @@ trans = connection.begin()
 </li>
 </ol>
 <p></p><footer class="page-footer"><span class="copyright">Copyright © narutohyc.com 2021 all right reserved，powered by Gitbook</span><span class="footer-modification">该文件修订时间：
-2024-01-15 01:56:42
+2024-01-22 08:00:21
 </span></footer><hr/><div id="vcomments"></div><script src="//unpkg.com/valine/dist/Valine.min.js"></script><script>new Valine({el: "#vcomments",appId: 'evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz',appKey: 'utUrzoiqNaDEGlgr09JL1pXB',placeholder: '欢迎留下评论交流~',avatar: 'wavatar',meta: undefined,pageSize: 15,lang: 'zh-CN',recordIP: false})</script><p></p>
 </section>
 </div>
@@ -1571,7 +1606,7 @@ trans = connection.begin()
 <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"数据库相关操作","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆9.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆9.webp","categories":["python"],"tags":["python","数据库","Elasticsearch","Oracle","Postgresql","sql","orm","SqlAlchemy"],"abbrlink":59006,"level":"1.24","depth":1,"next":{"title":"文件和目录访问","level":"1.25","depth":1,"path":"chapters/12.文件和目录访问.md","ref":"chapters/12.文件和目录访问.md","articles":[]},"previous":{"title":"python魔法函数","level":"1.23","depth":1,"path":"chapters/6.python魔法函数.md","ref":"chapters/6.python魔法函数.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hycBook"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":false,"enableFooter":false,"site":"https://python.hycbook.com","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"hycBook","repo":"bk_python_page","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","mathjax":{"forceSVG":true},"links":{"sidebar":{"书籍主页":"https://study.hycbook.com"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/10.数据库相关操作.md","mtime":"2024-01-15T01:56:42.092Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-15T01:57:54.601Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"数据库相关操作","date":"2022/9/10 20:46:25","top_img":"https://pic.hycbook.com/i/hexo/post_imgs/蕾姆9.webp","cover":"https://pic.hycbook.com/i/hexo/post_cover/蕾姆9.webp","categories":["python"],"tags":["python","数据库","Elasticsearch","Oracle","Postgresql","sql","orm","SqlAlchemy"],"abbrlink":59006,"level":"1.24","depth":1,"next":{"title":"文件和目录访问","level":"1.25","depth":1,"path":"chapters/12.文件和目录访问.md","ref":"chapters/12.文件和目录访问.md","articles":[]},"previous":{"title":"python魔法函数","level":"1.23","depth":1,"path":"chapters/6.python魔法函数.md","ref":"chapters/6.python魔法函数.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-sharing","splitter","expandable-chapters-small","anchors","github","github-buttons","donate","sharing-plus","anchor-navigation-ex","mathjax","mermaid-gb3","tbfed-pagefooter","code","search-plus","-lunr","-search","lightbox","theme-comscore","valine","pageview-count","favicon-absolute","copyright-v"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright © narutohyc.com 2021","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"github":{"url":"https://github.com/hycBook"},"splitter":{},"sharing-plus":{"qq":false,"all":["facebook","google","twitter","instapaper","linkedin","pocket","stumbleupon"],"douban":false,"facebook":true,"weibo":false,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":true,"google":false,"viber":false,"stumbleupon":false,"qzone":false,"linkedin":false},"code":{"copyButtons":true},"donate":{"alipay":"https://s2.loli.net/2022/03/23/dEYjkaSGXwe7rnu.png","alipayText":"alipay打赏","button":"欢迎打赏","title":"","wechat":"https://s2.loli.net/2022/03/23/WDiTVSamQBJdEA4.png","wechatText":"wechat打赏"},"favicon-absolute":{"appleTouchIconMore":{},"appleTouchIconPrecomposed152":"./chapters/res/other/favicon.ico","appleTouchIconPrecomposedMore":{},"favicon":"./chapters/res/other/favicon.ico"},"copyright-v":{"copyProtect":false,"enableFooter":false,"site":"https://python.hycbook.com","author":"narutohyc","website":"python元知识驿站","image":"https://s2.loli.net/2022/03/24/pbMd1BCgUNzi7mG.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"mermaid-gb3":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":true,"showLevel":false},"lightbox":{"jquery":true,"sameUuid":false},"theme-comscore":{},"pageview-count":{},"github-buttons":{"buttons":[{"user":"hycBook","repo":"bk_python_page","type":"star","size":"small","count":true}]},"mathjax":{"forceSVG":false,"version":"2.6-latest"},"expandable-chapters-small":{},"sharing":{"qq":true,"all":["google","facebook","weibo","twitter","qq","qzone","linkedin","pocket"],"douban":true,"facebook":true,"weibo":true,"instapaper":false,"whatsapp":false,"hatenaBookmark":false,"twitter":true,"messenger":false,"line":false,"vk":false,"pocket":false,"google":true,"viber":false,"stumbleupon":false,"qzone":true,"linkedin":false},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":true},"anchors":{},"valine":{"avatar":"wavatar","lang":"zh-CN","pageSize":15,"placeholder":"欢迎留下评论交流~","recordIP":false,"appId":"evyLlP61gQN3G3OM2GQq1rzH-gzGzoHsz","appKey":"utUrzoiqNaDEGlgr09JL1pXB"},"search-plus":{}},"theme":"default","author":"narutohyc","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Python相关学习记录","language":"zh-hans","mathjax":{"forceSVG":true},"links":{"sidebar":{"书籍主页":"https://study.hycbook.com"}},"gitbook":"*","description":"记录 Python 的学习和一些技巧的使用"},"file":{"path":"chapters/10.数据库相关操作.md","mtime":"2024-01-22T08:00:21.380Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-22T08:00:54.227Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 <canvas class="fireworks"></canvas><script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script></div>
